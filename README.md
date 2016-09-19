@@ -15,7 +15,7 @@ A place for public to be aware and be inspired of the upcoming projects and infr
 
     [for Linux](http://railsapps.github.io/installrubyonrails-ubuntu.html)
     
-2. Download [postgresql](http://www.enterprisedb.com/products-services-training/pgdownload#windows)database
+2. Download [postgresql](http://www.enterprisedb.com/products-services-training/pgdownload#windows) database
 
 	*Take note of port setting. * Ex. 5432 as default
 
@@ -34,7 +34,7 @@ A place for public to be aware and be inspired of the upcoming projects and infr
 
   b. Create a user and take note of the *username* and *password* in the postgres database.
 
-  c. Edit *database.yml* file with appropriate *username* and *password* for the development database (Ex. genesis_development)  
+  c. Edit *database.yml* file with appropriate *username* and *password* for the development database (Ex. genesis_development) from "config" folder.  
 
 	d.  @console: *rake db:create db:migrate*
      
