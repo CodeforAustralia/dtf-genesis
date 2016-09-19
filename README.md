@@ -32,11 +32,16 @@ A place for public to be aware and be inspired of the upcoming projects and infr
 
     	@console: *git clone https://github.com/CodeforAustralia/dtf-genesis.git*
 
-	b.  @console: *rake db:create db:migrate*
+  b. Create a user and take note of the *username* and *password* in the postgres database.
+
+  c. Edit *database.yml* file with appropriate *username* and *password* for the development database (Ex. genesis_development)  
+
+	d.  @console: *rake db:create db:migrate*
      
-	c.  @console: *rails s*
+	e.  @console: *rails s*
 
 6. Open your browser and you should be able to see your application by typing this url.
    *localhost:3000* 
+
 
 
