@@ -1,4 +1,4 @@
-# dtf-genesis
+# Genesis
 A band of dedicated hackers from Code For Australia, making a difference in the way we view government spending.
 
 We aim to provide transparency of construction contracts by providing data that the public can see, view and use.
