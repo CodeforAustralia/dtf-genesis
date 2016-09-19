@@ -7,5 +7,3 @@ A platform where anyone who wants insights on government projects can subscribe 
 
 A place for public to be aware and be inspired of the upcoming projects and infrastracture that will be implemented on their areas.
 
-
-
