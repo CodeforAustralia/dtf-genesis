@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.0'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'sass-rails', '>= 5.0'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'uglifier', '>= 1.3.0'
@@ -12,8 +13,7 @@ gem 'jbuilder', '~> 2.5'
 
 # gem 'capistrano-rails', group: :development
 
-gem 'bootstrap-sass', '~> 3.3.6'
-gem 'sass-rails', '>= 3.2'
+gem 'bower-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
