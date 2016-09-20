@@ -33,7 +33,7 @@ development:
   username: genesis
 
   # The password associated with the postgres role (username).
-  password: q1w2e3r4t5
+  # password: q1w2e3r4t5
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -60,7 +60,7 @@ test:
   <<: *default
   database: genesis_test
   username: genesis
-  password: q1w2e3r4t5
+#password: q1w2e3r4t5
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
