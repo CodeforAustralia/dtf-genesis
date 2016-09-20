@@ -38,3 +38,11 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 176ms (Views: 108.0ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2016-09-20 13:15:15 +1000
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.0/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.0/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb (14.7ms)
+Completed 200 OK in 108ms (Views: 63.3ms | ActiveRecord: 0.0ms)
+
+
