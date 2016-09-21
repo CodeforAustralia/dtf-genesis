@@ -8,7 +8,13 @@ A platform where anyone who wants insights on government projects can subscribe 
 A place for public to be aware and be inspired of the upcoming projects and infrastracture that will be implemented on their areas.
 
 # Setup
+Frontend:
+1. Install [npm](https://nodejs.org/en/)
 
+2. Install [bower](https://bower.io) by
+   ```npm install -g bower```
+
+Backend:
 1. Download rails installer:
 
     [for Windows or Mac](http://railsinstaller.org/en)
