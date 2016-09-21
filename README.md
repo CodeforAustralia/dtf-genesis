@@ -27,21 +27,21 @@ A place for public to be aware and be inspired of the upcoming projects and infr
 
 5. Open terminal ("Command Prompt With Ruby On Rails") and execute the following task below.
 
-  1. Create/Locate a suitable local folder like "Sites" from terminal and type:
+  * Create/Locate a suitable local folder like "Sites" from terminal and type:
 
-```bash
-git clone https://github.com/CodeforAustralia/dtf-genesis.git
-```
+   ```bash
+   git clone https://github.com/CodeforAustralia/dtf-genesis.git
+   ```
 
-  2. Create a user and take note of the *username* and *password* in the postgres database
+  * Create a user and take note of the *username* and *password* in the postgres database
 
-  3. Edit *database.yml* file with appropriate *username* and *password* for the development database (Ex. genesis_development) from "config" folder
+  * Edit *database.yml* file with appropriate *username* and *password* for the development database (Ex. genesis_development) from "config" folder
 
-  4. Then run the commands:
+  * Then run the commands:
 
-```bash
-rake db:create db:migrate
-rails s
-```
+   ```bash
+   rake db:create db:migrate
+   rails s
+   ```
 
 6. Open your browser and you should be able to see your application by entering the url `localhost:3000`
