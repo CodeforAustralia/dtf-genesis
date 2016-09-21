@@ -11,43 +11,46 @@ A place for public to be aware and be inspired of the upcoming projects and infr
 Frontend:
 1. Install [npm](https://nodejs.org/en/)
 
-2. Install [bower](https://bower.io) by
-   ```npm install -g bower```
+2. Install [bower](https://bower.io)
+   ```bash
+    npm install -g bower
+   ```
 
 Backend:
-1. Download rails installer:
+
+1.  Install rails:
 
     [for Windows or Mac](http://railsinstaller.org/en)
 
     [for Linux](http://railsapps.github.io/installrubyonrails-ubuntu.html)
-    
-2. Download [postgresql](http://www.enterprisedb.com/products-services-training/pgdownload#windows) database
 
-	*Take note of port setting. * Ex. 5432 as default
+2. Install [postgresql](http://www.enterprisedb.com/products-services-training/pgdownload#windows) database
 
-3. Run postgresql pgAdmin 4 GUI. 
+	* Take note of port setting (5432 is default)
 
-4. Change/specify connection properties from if needed in order to login.
+3. Run postgresql pgAdmin 4 GUI
 
-     *"object menu" --> "properties" --> "connection"* 
+4. Change/specify connection properties from if needed in order to login
+
+     *"object menu" --> "properties" --> "connection"*
 
 5. Open terminal ("Command Prompt With Ruby On Rails") and execute the following task below.
 
+  * Create/Locate a suitable local folder like "Sites" from terminal and type:
 
-	a. Create/Locate a suitable local folder like "Sites" from terminal and type:
+   ```bash
+   git clone https://github.com/CodeforAustralia/dtf-genesis.git
+   ```
 
-    	@console: *git clone https://github.com/CodeforAustralia/dtf-genesis.git*
+  * Create a user and take note of the *username* and *password* in the postgres database
 
-  b. Create a user and take note of the *username* and *password* in the postgres database.
+  * Edit *database.yml* file with appropriate *username* and *password* for the development database (Ex. genesis_development) from "config" folder
 
-  c. Edit *database.yml* file with appropriate *username* and *password* for the development database (Ex. genesis_development) from "config" folder.  
+  * Then run the commands:
 
-	d.  @console: *rake db:create db:migrate*
-     
-	e.  @console: *rails s*
+   ```bash
+   rake db:create db:migrate
+   rails s
+   ```
 
-6. Open your browser and you should be able to see your application by typing this url.
-   *localhost:3000* 
-
-
-
+6. Open your browser and you should be able to see your application by entering the url `localhost:3000`
