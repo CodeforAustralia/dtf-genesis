@@ -9,9 +9,11 @@ A place for public to be aware and be inspired of the upcoming projects and infr
 
 # Setup
 Frontend:
+
 1. Install [npm](https://nodejs.org/en/)
 
 2. Install [bower](https://bower.io)
+
    ```bash
     npm install -g bower
    ```
