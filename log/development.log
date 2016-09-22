@@ -1115,3 +1115,103 @@ Processing by ContractsController#index as HTML
 Completed 200 OK in 37ms (Views: 33.8ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/contracts" for ::1 at 2016-09-22 11:23:25 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 716ms (Views: 714.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 11:35:39 +1000
+Started GET "/" for ::1 at 2016-09-22 11:57:52 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 1719ms (Views: 1626.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 12:24:32 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 296ms (Views: 251.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 12:24:39 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 49ms (Views: 25.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 12:24:41 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 31ms (Views: 28.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 12:24:43 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 36ms (Views: 34.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 12:24:44 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 42ms (Views: 39.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 12:24:45 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 60ms (Views: 57.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 12:24:45 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 43ms (Views: 41.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 12:24:50 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 31ms (Views: 29.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 12:24:56 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 27ms (Views: 25.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 12:24:59 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 31ms (Views: 28.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 12:25:00 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 33ms (Views: 31.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 12:25:04 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 32ms (Views: 29.9ms | ActiveRecord: 0.0ms)
+
+
