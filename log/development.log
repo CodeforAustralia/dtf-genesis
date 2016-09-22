@@ -1657,3 +1657,612 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 34ms (Views: 32.1ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2016-09-22 15:04:05 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 30ms (Views: 28.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:04:06 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 40ms (Views: 37.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:04:08 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 33ms (Views: 30.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:06:24 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/eibayan/Sites/dtf-genesis/app/views/layouts/_header.html.erb:14: syntax error, unexpected '<', expecting ')'
+      </ul>
+       ^
+/Users/eibayan/Sites/dtf-genesis/app/views/layouts/_header.html.erb:15: unknown regexp options - dv
+/Users/eibayan/Sites/dtf-genesis/app/views/layouts/_header.html.erb:17: syntax error, unexpected '<'
+  </div>
+   ^
+/Users/eibayan/Sites/dtf-genesis/app/views/layouts/_header.html.erb:19: unknown regexp options - hadr
+/Users/eibayan/Sites/dtf-genesis/app/views/layouts/_header.html.erb:19: unterminated string meets end of file
+/Users/eibayan/Sites/dtf-genesis/app/views/layouts/_header.html.erb:19: syntax error, unexpected end-of-input, expecting ')'):
+  
+app/views/layouts/_header.html.erb:14: syntax error, unexpected '<', expecting ')'
+app/views/layouts/_header.html.erb:15: unknown regexp options - dv
+app/views/layouts/_header.html.erb:17: syntax error, unexpected '<'
+app/views/layouts/_header.html.erb:19: unknown regexp options - hadr
+app/views/layouts/_header.html.erb:19: unterminated string meets end of file
+app/views/layouts/_header.html.erb:19: syntax error, unexpected end-of-input, expecting ')'
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__3444493706731460208_70338499430560'
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.1ms)
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (72.8ms)
+Started GET "/rails/info/routes" for ::1 at 2016-09-22 15:14:00 +1000
+Processing by Rails::InfoController#routes as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/railties-5.0.0.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (3.8ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/railties-5.0.0.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 102ms (Views: 47.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:15:53 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 101ms (Views: 89.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:15:57 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 43ms (Views: 41.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:15:58 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 39ms (Views: 35.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:15:59 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 81ms (Views: 33.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:16:56 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 32ms (Views: 29.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:17:01 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 35ms (Views: 31.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:17:01 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 48ms (Views: 44.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:17:02 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 33ms (Views: 29.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:17:03 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 38ms (Views: 34.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:17:05 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 39ms (Views: 36.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:17:06 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 38ms (Views: 34.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:17:24 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 34ms (Views: 30.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:17:28 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 47ms (Views: 43.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:17:29 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 40ms (Views: 37.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:17:29 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 34ms (Views: 30.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:17:30 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 34ms (Views: 31.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:17:30 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 36ms (Views: 33.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:17:32 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 40ms (Views: 37.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:21:36 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 39ms (Views: 36.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:21:38 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 41ms (Views: 38.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:21:38 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 35ms (Views: 32.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:21:39 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 42ms (Views: 39.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:21:40 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 34ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:21:41 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 41ms (Views: 37.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:21:42 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 38ms (Views: 35.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:21:43 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 43ms (Views: 39.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/info/routes" for ::1 at 2016-09-22 15:22:59 +1000
+Processing by Rails::InfoController#routes as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/railties-5.0.0.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [11 times] (2.7ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/railties-5.0.0.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 17ms (Views: 13.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/info/routes" for ::1 at 2016-09-22 15:23:19 +1000
+Processing by Rails::InfoController#routes as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/railties-5.0.0.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [11 times] (2.8ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/railties-5.0.0.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 19ms (Views: 14.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:23:21 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 31ms (Views: 29.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages/about" for ::1 at 2016-09-22 15:23:22 +1000
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 44ms (Views: 42.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:23:23 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 41ms (Views: 39.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages/about" for ::1 at 2016-09-22 15:23:24 +1000
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 69ms (Views: 66.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:23:25 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 57ms (Views: 53.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:23:26 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 43ms (Views: 39.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:23:33 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 45ms (Views: 42.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:24:30 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 49ms (Views: 46.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:24:31 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 33ms (Views: 31.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages/about" for ::1 at 2016-09-22 15:24:31 +1000
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 29ms (Views: 27.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:24:32 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 39ms (Views: 36.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages/about" for ::1 at 2016-09-22 15:24:32 +1000
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 35ms (Views: 33.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:24:33 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 44ms (Views: 41.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:24:34 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 36ms (Views: 34.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages/about" for ::1 at 2016-09-22 15:24:34 +1000
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 40ms (Views: 37.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:24:35 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 39ms (Views: 36.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:24:36 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 38ms (Views: 35.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:24:37 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 49ms (Views: 45.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages/about" for ::1 at 2016-09-22 15:24:37 +1000
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 38ms (Views: 36.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:24:38 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 37ms (Views: 34.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:25:47 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 121ms (Views: 119.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:25:52 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 42ms (Views: 39.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:25:53 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 44ms (Views: 41.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages/about" for ::1 at 2016-09-22 15:25:53 +1000
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 31ms (Views: 28.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:25:54 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 41ms (Views: 38.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages/about" for ::1 at 2016-09-22 15:25:55 +1000
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 32ms (Views: 30.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:25:55 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 36ms (Views: 33.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages/about" for ::1 at 2016-09-22 15:25:56 +1000
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 29ms (Views: 27.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:25:56 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 46ms (Views: 43.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:25:58 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 40ms (Views: 37.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:26:06 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 38ms (Views: 35.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages/about" for ::1 at 2016-09-22 15:26:06 +1000
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 32ms (Views: 29.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:26:07 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 42ms (Views: 40.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:26:08 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 38ms (Views: 36.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:26:10 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 50ms (Views: 47.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages/about" for ::1 at 2016-09-22 15:26:11 +1000
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 34ms (Views: 32.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-22 15:26:11 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 39ms (Views: 36.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages/about" for ::1 at 2016-09-22 15:26:12 +1000
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 38ms (Views: 35.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-22 15:26:13 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  Rendered contracts/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 45ms (Views: 42.6ms | ActiveRecord: 0.0ms)
+
+
