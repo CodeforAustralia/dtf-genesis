@@ -4940,3 +4940,257 @@ Processing by ContractsController#index as HTML
 Completed 200 OK in 32ms (Views: 29.8ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/contracts" for ::1 at 2016-09-27 15:11:43 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  [1m[36mContract Load (0.3ms)[0m  [1m[34mSELECT "contracts".* FROM "contracts"[0m
+  Rendered contracts/index.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 35ms (Views: 32.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-27 15:11:46 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  [1m[36mContract Load (0.4ms)[0m  [1m[34mSELECT "contracts".* FROM "contracts"[0m
+  Rendered contracts/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 39ms (Views: 36.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2016-09-27 15:11:49 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 37ms (Views: 34.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages/about" for ::1 at 2016-09-27 15:11:49 +1000
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 34ms (Views: 31.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-27 15:11:50 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  [1m[36mContract Load (0.3ms)[0m  [1m[34mSELECT "contracts".* FROM "contracts"[0m
+  Rendered contracts/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 39ms (Views: 35.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2016-09-27 15:12:06 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 50ms (Views: 47.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages/about" for ::1 at 2016-09-27 15:12:07 +1000
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 38ms (Views: 35.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-27 15:12:07 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  [1m[36mContract Load (0.5ms)[0m  [1m[34mSELECT "contracts".* FROM "contracts"[0m
+  Rendered contracts/index.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 44ms (Views: 40.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-27 15:15:27 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  [1m[36mContract Load (0.5ms)[0m  [1m[34mSELECT "contracts".* FROM "contracts"[0m
+  Rendered contracts/index.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 43ms (Views: 40.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/contracts/new" for ::1 at 2016-09-27 15:15:29 +1000
+Processing by ContractsController#new as HTML
+  Rendering contracts/new.html.erb within layouts/application
+  Rendered contracts/_contract_form.html.erb (2.4ms)
+  Rendered contracts/new.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 38ms (Views: 36.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/contracts" for ::1 at 2016-09-27 15:16:23 +1000
+Processing by ContractsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xO3wH+KuCKyQbAaI2+X2Dn3NDjqFHPra+qTWYCaM6K9BhT4lTyaXSHsrOTObKd0qsQYEa42d6jz8X9NCTJHSew==", "contract"=>{"title"=>"\tMelb. Recital Centre / Melb. Theatre Co. Construction Contractor", "contract_number"=>"3267", "total_value"=>"109075868.00", "start_date"=>"30 May 2006", "end_date"=>"1 Jan 2009", "status"=>"Expired"}, "commit"=>"Submit"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "contracts" ("contract_number", "status", "title", "start_date", "end_date", "total_value", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["contract_number", "3267"], ["status", "Expired"], ["title", "\tMelb. Recital Centre / Melb. Theatre Co. Construction Contractor"], ["start_date", Tue, 30 May 2006], ["end_date", Thu, 01 Jan 2009], ["total_value", #<BigDecimal:7fd5b8ad2c90,'0.109075868E9',9(27)>], ["created_at", 2016-09-27 05:16:23 UTC], ["updated_at", 2016-09-27 05:16:23 UTC]]
+  [1m[35m (36.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/contracts
+Completed 302 Found in 42ms (ActiveRecord: 37.4ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-27 15:16:23 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  [1m[36mContract Load (0.3ms)[0m  [1m[34mSELECT "contracts".* FROM "contracts"[0m
+  Rendered contracts/index.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 35ms (Views: 32.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-27 16:28:32 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  [1m[36mContract Load (0.3ms)[0m  [1m[34mSELECT "contracts".* FROM "contracts"[0m
+  Rendered contracts/index.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 486ms (Views: 472.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-27 16:28:41 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  [1m[36mContract Load (0.5ms)[0m  [1m[34mSELECT "contracts".* FROM "contracts"[0m
+  Rendered contracts/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 54ms (Views: 50.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/contracts/new" for ::1 at 2016-09-27 16:28:45 +1000
+Processing by ContractsController#new as HTML
+  Rendering contracts/new.html.erb within layouts/application
+  Rendered contracts/_contract_form.html.erb (2.6ms)
+  Rendered contracts/new.html.erb within layouts/application (8.4ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 62ms (Views: 47.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-27 16:28:50 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  [1m[36mContract Load (0.4ms)[0m  [1m[34mSELECT "contracts".* FROM "contracts"[0m
+  Rendered contracts/index.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 61ms (Views: 56.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-27 21:22:24 +1000
+  
+RuntimeError (YAML syntax error occurred while parsing /Users/eibayan/Sites/dtf-genesis/config/database.yml. Please note that YAML must be consistently indented using spaces. Tabs are not allowed. Error: (<unknown>): could not find expected ':' while scanning a simple key at line 28 column 1):
+  
+railties (5.0.0.1) lib/rails/application/configuration.rb:148:in `rescue in database_configuration'
+railties (5.0.0.1) lib/rails/application/configuration.rb:131:in `database_configuration'
+activerecord (5.0.0.1) lib/active_record/railtie.rb:122:in `block (2 levels) in <class:Railtie>'
+activesupport (5.0.0.1) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+activesupport (5.0.0.1) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+activesupport (5.0.0.1) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+activesupport (5.0.0.1) lib/active_support/lazy_load_hooks.rb:44:in `each'
+activesupport (5.0.0.1) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+activerecord (5.0.0.1) lib/active_record/base.rb:324:in `<module:ActiveRecord>'
+activerecord (5.0.0.1) lib/active_record/base.rb:24:in `<top (required)>'
+activesupport (5.0.0.1) lib/active_support/dependencies.rb:293:in `require'
+activesupport (5.0.0.1) lib/active_support/dependencies.rb:293:in `block in require'
+activesupport (5.0.0.1) lib/active_support/dependencies.rb:259:in `load_dependency'
+activesupport (5.0.0.1) lib/active_support/dependencies.rb:293:in `require'
+activerecord (5.0.0.1) lib/active_record/migration.rb:558:in `connection'
+activerecord (5.0.0.1) lib/active_record/migration.rb:545:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.4ms)
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.5ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.0@genesis/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (89.7ms)
+Started GET "/contracts" for ::1 at 2016-09-27 21:24:42 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  [1m[36mContract Load (0.6ms)[0m  [1m[34mSELECT "contracts".* FROM "contracts"[0m
+  Rendered contracts/index.html.erb within layouts/application (13.0ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 1187ms (Views: 1148.3ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/pages/about" for ::1 at 2016-09-27 21:24:45 +1000
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 32ms (Views: 30.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-27 21:24:46 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  [1m[36mContract Load (0.5ms)[0m  [1m[34mSELECT "contracts".* FROM "contracts"[0m
+  Rendered contracts/index.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 41ms (Views: 36.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pages/about" for ::1 at 2016-09-27 21:24:47 +1000
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 40ms (Views: 36.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-27 21:24:48 +1000
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 61ms (Views: 57.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-09-27 21:24:49 +1000
+Processing by ContractsController#index as HTML
+  Rendering contracts/index.html.erb within layouts/application
+  [1m[36mContract Load (1.6ms)[0m  [1m[34mSELECT "contracts".* FROM "contracts"[0m
+  Rendered contracts/index.html.erb within layouts/application (4.9ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 53ms (Views: 48.4ms | ActiveRecord: 1.6ms)
+
+
