@@ -1,6 +1,6 @@
 class ContractsController < ApplicationController
   def index
-    @contracts = Contract.all
+    @contracts = Contract.all.sort_by(&:total_value)
   end
 
   def show
