@@ -31,40 +31,37 @@ Backend:
     * Take note of port setting (5432 is default)
     * Run postgresql pgAdmin 4 GUI
     * "object menu" --> "properties" --> "connection"
-    * Create a user and take note of the *username* and *password* in the postgres database
+    * Create a user 'postgres' and take note of the *password*
 
   * Linux
     * In a terminal run
 ```bash
-sudo apt-get install postgresql postgresql-server-dev-all
+sudo apt-get install postgresql postgresql-server-dev-all pgadmin3 postgresql-contrib
 sudo su - postgres
-createdb genesis_development
 psql
 ```
 
-    * Then in SQL prompt:
+    * Then in SQL prompt set a password for the postgres db user:
 ```sql
-CREATE USER genesis WITH PASSWORD 'q1w2e3r4t5';
-ALTER USER genesis CREATEDB;
+ \password postgres
 ```
 
 3. Create/Locate a suitable local folder like "Sites" for development
 
 4. Open terminal ("Command Prompt With Ruby On Rails") and execute the following tasks
 
-
 ```bash
 git clone https://github.com/CodeforAustralia/dtf-genesis.git
 cd dtf-genesis
 ```
 
-5. Edit *database.yml* file with appropriate *username* and *password* for the development database (Ex. genesis_development) from "config" folder
+5. Edit `config/database.yml` file with appropriate *password* for the development database (Ex. genesis_development)
 
 6. Then run the commands:
 
 ```bash
 bundle install
-rake db:create db:migrate
+rails db:setup
 rails s
 ```
 
