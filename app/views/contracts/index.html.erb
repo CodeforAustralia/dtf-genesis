@@ -16,7 +16,7 @@
       <tr>
         <td><%= f.title %></td>
         <td><%= f.contract_number %></td>
-        <td><%= f.total_value %></td>
+        <td><%= humanized_money_with_symbol(f.total_value) %></td>
         <td><%= f.start_date %></td>
         <td><%= f.end_date %></td>
       </tr>

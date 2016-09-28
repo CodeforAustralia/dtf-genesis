@@ -14,6 +14,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 # gem 'capistrano-rails', group: :development
 
 gem 'bower-rails'
+gem 'money-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri

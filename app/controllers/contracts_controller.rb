@@ -1,6 +1,6 @@
 class ContractsController < ApplicationController
   def index
-    @contracts = Contract.all
+    @contracts = Contract.all.sort_by(&:total_value)
   end
 
   def show
@@ -15,15 +15,18 @@ class ContractsController < ApplicationController
     if @contract.save
       redirect_to '/contracts'
     else
-      render '/contracts/new'
+      redirect_to '/contracts/new'
     end
   end
 
-  def update
+  def edit
+    @contract = Contract.find(contract_params[:id]) 
   end
 
-  def edit
+  def update
+
   end
+
 
   private
     def contract_params
