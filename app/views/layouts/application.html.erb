@@ -10,17 +10,6 @@
   <body>
     <%= render 'layouts/header' %>
 
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <nav>
-          <%= link_to "Genisis", "#", id: "logo" %>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home", "#"%></li>
-            <li><%= link_to "Aboout", "#"%></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
     <div class="container">
       <%= yield %>
     </div>
