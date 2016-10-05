@@ -21,12 +21,21 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+# development:
+  # <<: *default
+  # host: localhost
+  # database: genesis_development
+  # # username: postgres
+  # username: ubuntu
+
+# configure to run on c9.io
 development:
-  <<: *default
-  host: localhost
+  adapter: postgresql
+  encoding: unicode
   database: genesis_development
-  username: postgres
-  password: q1w2e3r4t5
+  pool: 5
+  username: ubuntu
+
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
   #port: 5432
@@ -47,8 +56,8 @@ test:
   <<: *default
   host: localhost
   database: genesis_test
-  username: postgres
-  password: q1w2e3r4t5
+  # username: postgres
+  username: ubuntu
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
