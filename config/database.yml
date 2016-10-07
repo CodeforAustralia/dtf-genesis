@@ -31,7 +31,7 @@ default: &default
 # configure to run on c9.io
 development:
   adapter: postgresql
-  encoding: unicode
+  encoding: SQL_ASCII
   database: genesis_development
   pool: 5
   username: ubuntu
