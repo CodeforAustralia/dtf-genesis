@@ -16,7 +16,6 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bower-rails'
 gem 'money-rails'
 gem 'mechanize'
-gem 'scraperwiki', '~> 3.0.2'
 
 
 group :development, :test do
