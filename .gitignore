@@ -12,6 +12,7 @@
 /notes/
 /log/development.log
 /config/database.yml
+
 # Used by dotenv library to load environment variables.
 # .env
 
