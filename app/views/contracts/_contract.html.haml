@@ -1,0 +1,8 @@
+%td.table-text= object.title
+%td.table-text= object.contract_number
+%td.table-text= humanized_money_with_symbol(object.total_value)
+%td.table-text= object.start_date
+%td.table-text= object.end_date
+%td.table-text= object.status
+
+%td.actions= smart_listing_item_actions [{name: :edit, url: edit_contract_path(object)}, {name: :destroy, url: contract_path(object), confirmation: "Are you sure you want to delete this contract?"}]
