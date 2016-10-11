@@ -1,0 +1,42 @@
+<% unless smart_listing.empty? %>
+  <table class="table table-striped">
+    <thead>
+      <% # Second argument of sortable is sorted attribute name %>
+      <th class="col-md-2">
+        <%= smart_listing.sortable "Title", "title" %>
+      </th>
+      <th class="col-md-2">
+        <%= smart_listing.sortable "Contract No", "contract_number" %>
+      </th>
+      <th class="col-md-4">
+        <%= smart_listing.sortable "Total Value", "total_value" %>
+      </th>
+<!--       <th>
+        <span class="glyphicon glyphicon-shopping-cart" title="Has credit card?"></span>
+      </th> -->
+      <th class="col-md-2">
+        <%= smart_listing.sortable "Start Date", "start_date" %>
+      </th>
+      <th class="col-md-2">
+        <%= smart_listing.sortable "End Date", "end_date" %>
+      </th>
+    </thead>
+    <tbody>
+      <% smart_listing.collection.each do |o| %>
+      <% @contracts.each do |f| %>
+      <tr>
+        <td><%= f.title %></td>
+        <td><%= f.contract_number %></td>
+        <td><%= humanized_money_with_symbol(f.total_value) %></td>
+        <td><%= f.start_date %></td>
+        <td><%= f.end_date %></td>
+      </tr>
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <%= smart_listing.paginate %>
+  <%= smart_listing.pagination_per_page_links %>
+<% else %>
+  <p class="warning">No records!</p>
+<% end %>
