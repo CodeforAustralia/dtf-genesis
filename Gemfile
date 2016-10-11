@@ -8,16 +8,13 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
 # gem 'capistrano-rails', group: :development
-
 gem 'bower-rails'
 gem 'money-rails'
 gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'smart_listing', '~> 1.1', '>= 1.1.2'
-
 
 group :development, :test do
   gem 'byebug', platform: :mri
