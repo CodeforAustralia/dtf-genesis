@@ -14902,3 +14902,654 @@ Processing by ContractsController#edit as JS
 Completed 200 OK in 123ms (Views: 107.7ms | ActiveRecord: 0.7ms)
 
 
+Started GET "/" for ::1 at 2016-10-11 16:29:58 +1100
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 200 OK in 5513ms (Views: 5501.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts" for ::1 at 2016-10-11 16:30:06 +1100
+Processing by ContractsController#index as HTML
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "contracts"[0m
+  Rendering contracts/index.html.haml within layouts/application
+  Rendered smart_listing/_sortable.html.erb (1.0ms)
+  Rendered smart_listing/_sortable.html.erb (0.3ms)
+  Rendered smart_listing/_sortable.html.erb (0.3ms)
+  Rendered smart_listing/_sortable.html.erb (0.1ms)
+  Rendered smart_listing/_sortable.html.erb (0.1ms)
+  Rendered smart_listing/_sortable.html.erb (0.1ms)
+  [1m[36mContract Load (0.4ms)[0m  [1m[34mSELECT  "contracts".* FROM "contracts" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  Rendered smart_listing/_action_edit.html.erb (0.6ms)
+  Rendered smart_listing/_action_delete.html.erb (0.6ms)
+  Rendered contracts/_contract.html.haml (11.9ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.4ms)
+  Rendered contracts/_contract.html.haml (4.2ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (3.5ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (4.8ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.1ms)
+  Rendered contracts/_contract.html.haml (3.6ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.3ms)
+  Rendered contracts/_contract.html.haml (3.3ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.1ms)
+  Rendered contracts/_contract.html.haml (4.3ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.1ms)
+  Rendered contracts/_contract.html.haml (3.4ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.1ms)
+  Rendered contracts/_contract.html.haml (3.1ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.1ms)
+  Rendered contracts/_contract.html.haml (3.6ms)
+  Rendered smart_listing/_item_new.html.erb (1.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "contracts"[0m
+  Rendered smart_listing/_pagination_per_page_link.html.erb (0.4ms)
+  Rendered smart_listing/_pagination_per_page_link.html.erb (0.3ms)
+  Rendered smart_listing/_pagination_per_page_links.html.erb (5.8ms)
+  Rendered contracts/_list.html.haml (133.3ms)
+  Rendered contracts/index.html.haml within layouts/application (139.7ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 195ms (Views: 183.2ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/contracts?contracts_smart_listing%5Bpage%5D=&contracts_smart_listing%5Bper_page%5D=10&contracts_smart_listing%5Bsort%5D%5Bcontract_number%5D=asc" for ::1 at 2016-10-11 16:30:08 +1100
+Processing by ContractsController#index as JS
+  Parameters: {"contracts_smart_listing"=>{"page"=>"", "per_page"=>"10", "sort"=>{"contract_number"=>"asc"}}}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "contracts"[0m
+DEPRECATION WARNING: Method any? is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited. Instead, consider using one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.0.1/classes/ActionController/Parameters.html (called from index at /Users/eibayan/Sites/dtf-genesis/app/controllers/contracts_controller.rb:17)
+  Rendering contracts/index.js.erb
+  Rendered smart_listing/_sortable.html.erb (0.8ms)
+  Rendered smart_listing/_sortable.html.erb (0.3ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  Rendered smart_listing/_sortable.html.erb (0.1ms)
+  Rendered smart_listing/_sortable.html.erb (0.3ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  [1m[36mContract Load (0.7ms)[0m  [1m[34mSELECT  "contracts".* FROM "contracts" ORDER BY contract_number asc LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  Rendered smart_listing/_action_edit.html.erb (0.7ms)
+  Rendered smart_listing/_action_delete.html.erb (0.7ms)
+  Rendered contracts/_contract.html.haml (31.1ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (27.1ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (25.8ms)
+  Rendered smart_listing/_action_edit.html.erb (0.3ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (28.5ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.1ms)
+  Rendered contracts/_contract.html.haml (25.7ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (29.8ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.3ms)
+  Rendered contracts/_contract.html.haml (26.4ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.4ms)
+  Rendered contracts/_contract.html.haml (28.7ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (28.2ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.1ms)
+  Rendered contracts/_contract.html.haml (26.6ms)
+  Rendered smart_listing/_item_new.html.erb (1.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "contracts"[0m
+  Rendered smart_listing/_pagination_per_page_link.html.erb (0.5ms)
+  Rendered smart_listing/_pagination_per_page_link.html.erb (0.1ms)
+  Rendered smart_listing/_pagination_per_page_links.html.erb (33.4ms)
+  Rendered contracts/_list.html.haml (600.9ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/smart_listing-1.2.0/app/views/smart_listing/_update_list.js.erb (665.0ms)
+  Rendered contracts/index.js.erb (722.0ms)
+Completed 500 Internal Server Error in 779ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (incompatible encoding regexp match (UTF-8 regexp with ASCII-8BIT string)):
+    1: var smart_listing = $('#<%= name %>').smart_listing();
+    2: smart_listing.update_list("<%= escape_javascript(render(:partial => part, :locals => {:smart_listing => smart_listing}.merge(locals))) %>", <%= smart_listing_data.to_json.html_safe %>);
+  
+app/views/contracts/index.js.erb:1:in `_app_views_contracts_index_js_erb___2705827203633143238_70161025351840'
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.0ms)
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.3ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (53.4ms)
+Started GET "/contracts?contracts_smart_listing%5Bpage%5D=&contracts_smart_listing%5Bper_page%5D=10&contracts_smart_listing%5Bsort%5D%5Btitle%5D=asc" for ::1 at 2016-10-11 16:30:17 +1100
+Processing by ContractsController#index as JS
+  Parameters: {"contracts_smart_listing"=>{"page"=>"", "per_page"=>"10", "sort"=>{"title"=>"asc"}}}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "contracts"[0m
+DEPRECATION WARNING: Method any? is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited. Instead, consider using one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.0.1/classes/ActionController/Parameters.html (called from index at /Users/eibayan/Sites/dtf-genesis/app/controllers/contracts_controller.rb:17)
+  Rendering contracts/index.js.erb
+  Rendered smart_listing/_sortable.html.erb (0.7ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  Rendered smart_listing/_sortable.html.erb (0.1ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  Rendered smart_listing/_sortable.html.erb (0.1ms)
+  [1m[36mContract Load (0.7ms)[0m  [1m[34mSELECT  "contracts".* FROM "contracts" ORDER BY title asc LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  Rendered smart_listing/_action_edit.html.erb (0.6ms)
+  Rendered smart_listing/_action_delete.html.erb (0.8ms)
+  Rendered contracts/_contract.html.haml (30.4ms)
+  Rendered smart_listing/_action_edit.html.erb (0.3ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (29.9ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.1ms)
+  Rendered contracts/_contract.html.haml (28.6ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (25.5ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.1ms)
+  Rendered contracts/_contract.html.haml (27.8ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.1ms)
+  Rendered contracts/_contract.html.haml (27.5ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (27.0ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.3ms)
+  Rendered contracts/_contract.html.haml (29.9ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.3ms)
+  Rendered contracts/_contract.html.haml (30.2ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (29.1ms)
+  Rendered smart_listing/_item_new.html.erb (1.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "contracts"[0m
+  Rendered smart_listing/_pagination_per_page_link.html.erb (0.4ms)
+  Rendered smart_listing/_pagination_per_page_link.html.erb (0.1ms)
+  Rendered smart_listing/_pagination_per_page_links.html.erb (30.1ms)
+  Rendered contracts/_list.html.haml (595.2ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/smart_listing-1.2.0/app/views/smart_listing/_update_list.js.erb (653.7ms)
+  Rendered contracts/index.js.erb (699.9ms)
+Completed 500 Internal Server Error in 743ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (incompatible encoding regexp match (UTF-8 regexp with ASCII-8BIT string)):
+    1: var smart_listing = $('#<%= name %>').smart_listing();
+    2: smart_listing.update_list("<%= escape_javascript(render(:partial => part, :locals => {:smart_listing => smart_listing}.merge(locals))) %>", <%= smart_listing_data.to_json.html_safe %>);
+  
+app/views/contracts/index.js.erb:1:in `_app_views_contracts_index_js_erb___2705827203633143238_70161070723580'
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.8ms)
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (44.8ms)
+Started GET "/contracts?contracts_smart_listing%5Bpage%5D=&contracts_smart_listing%5Bper_page%5D=10&contracts_smart_listing%5Bsort%5D%5Btotal_value%5D=asc" for ::1 at 2016-10-11 16:30:20 +1100
+Processing by ContractsController#index as JS
+  Parameters: {"contracts_smart_listing"=>{"page"=>"", "per_page"=>"10", "sort"=>{"total_value"=>"asc"}}}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "contracts"[0m
+DEPRECATION WARNING: Method any? is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited. Instead, consider using one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.0.1/classes/ActionController/Parameters.html (called from index at /Users/eibayan/Sites/dtf-genesis/app/controllers/contracts_controller.rb:17)
+  Rendering contracts/index.js.erb
+  Rendered smart_listing/_sortable.html.erb (0.9ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  Rendered smart_listing/_sortable.html.erb (0.3ms)
+  Rendered smart_listing/_sortable.html.erb (0.3ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  [1m[36mContract Load (0.7ms)[0m  [1m[34mSELECT  "contracts".* FROM "contracts" ORDER BY total_value asc LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  Rendered smart_listing/_action_edit.html.erb (0.6ms)
+  Rendered smart_listing/_action_delete.html.erb (0.6ms)
+  Rendered contracts/_contract.html.haml (28.9ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (31.0ms)
+  Rendered smart_listing/_action_edit.html.erb (0.3ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (26.6ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (29.3ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (30.8ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (27.9ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (28.1ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (29.8ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (26.9ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.3ms)
+  Rendered contracts/_contract.html.haml (27.5ms)
+  Rendered smart_listing/_item_new.html.erb (1.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "contracts"[0m
+  Rendered smart_listing/_pagination_per_page_link.html.erb (0.4ms)
+  Rendered smart_listing/_pagination_per_page_link.html.erb (0.1ms)
+  Rendered smart_listing/_pagination_per_page_links.html.erb (26.9ms)
+  Rendered contracts/_list.html.haml (612.3ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/smart_listing-1.2.0/app/views/smart_listing/_update_list.js.erb (677.2ms)
+  Rendered contracts/index.js.erb (726.0ms)
+Completed 500 Internal Server Error in 766ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (incompatible encoding regexp match (UTF-8 regexp with ASCII-8BIT string)):
+    1: var smart_listing = $('#<%= name %>').smart_listing();
+    2: smart_listing.update_list("<%= escape_javascript(render(:partial => part, :locals => {:smart_listing => smart_listing}.merge(locals))) %>", <%= smart_listing_data.to_json.html_safe %>);
+  
+app/views/contracts/index.js.erb:1:in `_app_views_contracts_index_js_erb___2705827203633143238_70161051359300'
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.9ms)
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (48.8ms)
+Started GET "/contracts/new" for ::1 at 2016-10-11 16:30:23 +1100
+Processing by ContractsController#new as JS
+  Rendering contracts/new.js.erb
+  Rendered contracts/_form.html.haml (65.5ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/smart_listing-1.2.0/app/views/smart_listing/item/_new.js.erb (82.7ms)
+  Rendered contracts/new.js.erb (130.0ms)
+Completed 200 OK in 170ms (Views: 155.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contracts?contracts_smart_listing%5Bpage%5D=&contracts_smart_listing%5Bper_page%5D=10&contracts_smart_listing%5Bsort%5D%5Btotal_value%5D=asc" for ::1 at 2016-10-11 16:30:26 +1100
+Processing by ContractsController#index as JS
+  Parameters: {"contracts_smart_listing"=>{"page"=>"", "per_page"=>"10", "sort"=>{"total_value"=>"asc"}}}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "contracts"[0m
+DEPRECATION WARNING: Method any? is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited. Instead, consider using one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.0.1/classes/ActionController/Parameters.html (called from index at /Users/eibayan/Sites/dtf-genesis/app/controllers/contracts_controller.rb:17)
+  Rendering contracts/index.js.erb
+  Rendered smart_listing/_sortable.html.erb (0.6ms)
+  Rendered smart_listing/_sortable.html.erb (0.1ms)
+  Rendered smart_listing/_sortable.html.erb (0.3ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  Rendered smart_listing/_sortable.html.erb (0.1ms)
+  Rendered smart_listing/_sortable.html.erb (0.1ms)
+  [1m[36mContract Load (0.4ms)[0m  [1m[34mSELECT  "contracts".* FROM "contracts" ORDER BY total_value asc LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  Rendered smart_listing/_action_edit.html.erb (0.7ms)
+  Rendered smart_listing/_action_delete.html.erb (0.6ms)
+  Rendered contracts/_contract.html.haml (32.1ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (27.9ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (25.3ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (29.7ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (28.6ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.1ms)
+  Rendered contracts/_contract.html.haml (24.2ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.1ms)
+  Rendered contracts/_contract.html.haml (25.2ms)
+  Rendered smart_listing/_action_edit.html.erb (0.4ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (29.8ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (25.6ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (28.9ms)
+  Rendered smart_listing/_item_new.html.erb (1.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "contracts"[0m
+  Rendered smart_listing/_pagination_per_page_link.html.erb (0.4ms)
+  Rendered smart_listing/_pagination_per_page_link.html.erb (0.1ms)
+  Rendered smart_listing/_pagination_per_page_links.html.erb (27.1ms)
+  Rendered contracts/_list.html.haml (587.3ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/smart_listing-1.2.0/app/views/smart_listing/_update_list.js.erb (643.2ms)
+  Rendered contracts/index.js.erb (693.8ms)
+Completed 500 Internal Server Error in 737ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (incompatible encoding regexp match (UTF-8 regexp with ASCII-8BIT string)):
+    1: var smart_listing = $('#<%= name %>').smart_listing();
+    2: smart_listing.update_list("<%= escape_javascript(render(:partial => part, :locals => {:smart_listing => smart_listing}.merge(locals))) %>", <%= smart_listing_data.to_json.html_safe %>);
+  
+app/views/contracts/index.js.erb:1:in `_app_views_contracts_index_js_erb___2705827203633143238_70161054125860'
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.9ms)
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.9ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (48.1ms)
+Started GET "/contracts?contracts_smart_listing%5Bpage%5D=&contracts_smart_listing%5Bper_page%5D=10&contracts_smart_listing%5Bsort%5D%5Bcontract_number%5D=asc" for ::1 at 2016-10-11 16:30:57 +1100
+Processing by ContractsController#index as JS
+  Parameters: {"contracts_smart_listing"=>{"page"=>"", "per_page"=>"10", "sort"=>{"contract_number"=>"asc"}}}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "contracts"[0m
+DEPRECATION WARNING: Method any? is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited. Instead, consider using one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.0.1/classes/ActionController/Parameters.html (called from index at /Users/eibayan/Sites/dtf-genesis/app/controllers/contracts_controller.rb:17)
+  Rendering contracts/index.js.erb
+  Rendered smart_listing/_sortable.html.erb (0.7ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  Rendered smart_listing/_sortable.html.erb (0.1ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  [1m[36mContract Load (0.4ms)[0m  [1m[34mSELECT  "contracts".* FROM "contracts" ORDER BY contract_number asc LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  Rendered smart_listing/_action_edit.html.erb (0.6ms)
+  Rendered smart_listing/_action_delete.html.erb (0.5ms)
+  Rendered contracts/_contract.html.haml (30.0ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (26.1ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (27.1ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (24.8ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.1ms)
+  Rendered contracts/_contract.html.haml (30.0ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.1ms)
+  Rendered contracts/_contract.html.haml (26.1ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (27.2ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (29.8ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (25.2ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.3ms)
+  Rendered contracts/_contract.html.haml (28.6ms)
+  Rendered smart_listing/_item_new.html.erb (1.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "contracts"[0m
+  Rendered smart_listing/_pagination_per_page_link.html.erb (0.5ms)
+  Rendered smart_listing/_pagination_per_page_link.html.erb (0.1ms)
+  Rendered smart_listing/_pagination_per_page_links.html.erb (28.4ms)
+  Rendered contracts/_list.html.haml (588.2ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/smart_listing-1.2.0/app/views/smart_listing/_update_list.js.erb (652.1ms)
+  Rendered contracts/index.js.erb (703.1ms)
+Completed 500 Internal Server Error in 743ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (incompatible encoding regexp match (UTF-8 regexp with ASCII-8BIT string)):
+    1: var smart_listing = $('#<%= name %>').smart_listing();
+    2: smart_listing.update_list("<%= escape_javascript(render(:partial => part, :locals => {:smart_listing => smart_listing}.merge(locals))) %>", <%= smart_listing_data.to_json.html_safe %>);
+  
+app/views/contracts/index.js.erb:1:in `_app_views_contracts_index_js_erb___2705827203633143238_70161072409420'
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.7ms)
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.9ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (44.1ms)
+Started GET "/contracts/1/edit" for ::1 at 2016-10-11 16:31:20 +1100
+Processing by ContractsController#edit as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mContract Load (0.4ms)[0m  [1m[34mSELECT  "contracts".* FROM "contracts" WHERE "contracts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering contracts/edit.js.erb
+  Rendered contracts/_form.html.haml (6.2ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/smart_listing-1.2.0/app/views/smart_listing/item/_edit.js.erb (23.3ms)
+  Rendered contracts/edit.js.erb (83.5ms)
+Completed 200 OK in 137ms (Views: 113.8ms | ActiveRecord: 1.3ms)
+
+
+Started PATCH "/contracts/1" for ::1 at 2016-10-11 16:31:25 +1100
+Processing by ContractsController#update as JS
+  Parameters: {"utf8"=>"✓", "contract"=>{"title"=>"Design and Construction of the Melbourne Rectangular Stadium", "contract_number"=>"166-0006", "total_value"=>"2370000.0", "start_date"=>"2007-11-14", "end_date"=>"2009-12-22", "status"=>"Expire"}, "commit"=>"Save", "id"=>"1"}
+  [1m[36mContract Load (0.5ms)[0m  [1m[34mSELECT  "contracts".* FROM "contracts" WHERE "contracts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "contracts" SET "status" = $1, "updated_at" = $2 WHERE "contracts"."id" = $3[0m  [["status", "Expire"], ["updated_at", 2016-10-11 05:31:25 UTC], ["id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering contracts/update.js.erb
+  Rendered smart_listing/_action_edit.html.erb (0.6ms)
+  Rendered smart_listing/_action_delete.html.erb (2.8ms)
+  Rendered contracts/_contract.html.haml (34.6ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/smart_listing-1.2.0/app/views/smart_listing/item/_update.js.erb (48.5ms)
+  Rendered contracts/update.js.erb (99.4ms)
+Completed 200 OK in 147ms (Views: 125.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/contracts/1/edit" for ::1 at 2016-10-11 16:31:27 +1100
+Processing by ContractsController#edit as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mContract Load (0.4ms)[0m  [1m[34mSELECT  "contracts".* FROM "contracts" WHERE "contracts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering contracts/edit.js.erb
+  Rendered contracts/_form.html.haml (5.4ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/smart_listing-1.2.0/app/views/smart_listing/item/_edit.js.erb (23.7ms)
+  Rendered contracts/edit.js.erb (81.9ms)
+Completed 200 OK in 131ms (Views: 111.8ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/contracts/1" for ::1 at 2016-10-11 16:31:30 +1100
+Processing by ContractsController#update as JS
+  Parameters: {"utf8"=>"✓", "contract"=>{"title"=>"Design and Construction of the Melbourne Rectangular Stadium", "contract_number"=>"166-0006", "total_value"=>"2370000.0", "start_date"=>"2007-11-14", "end_date"=>"2009-12-22", "status"=>"Expired"}, "commit"=>"Save", "id"=>"1"}
+  [1m[36mContract Load (0.2ms)[0m  [1m[34mSELECT  "contracts".* FROM "contracts" WHERE "contracts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "contracts" SET "status" = $1, "updated_at" = $2 WHERE "contracts"."id" = $3[0m  [["status", "Expired"], ["updated_at", 2016-10-11 05:31:30 UTC], ["id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering contracts/update.js.erb
+  Rendered smart_listing/_action_edit.html.erb (0.5ms)
+  Rendered smart_listing/_action_delete.html.erb (0.8ms)
+  Rendered contracts/_contract.html.haml (28.5ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/smart_listing-1.2.0/app/views/smart_listing/item/_update.js.erb (43.4ms)
+  Rendered contracts/update.js.erb (91.5ms)
+Completed 200 OK in 133ms (Views: 114.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/contracts?contracts_smart_listing%5Bpage%5D=&contracts_smart_listing%5Bper_page%5D=10&contracts_smart_listing%5Bsort%5D%5Bcontract_number%5D=asc" for ::1 at 2016-10-11 16:31:32 +1100
+Processing by ContractsController#index as JS
+  Parameters: {"contracts_smart_listing"=>{"page"=>"", "per_page"=>"10", "sort"=>{"contract_number"=>"asc"}}}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "contracts"[0m
+DEPRECATION WARNING: Method any? is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited. Instead, consider using one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.0.1/classes/ActionController/Parameters.html (called from index at /Users/eibayan/Sites/dtf-genesis/app/controllers/contracts_controller.rb:17)
+  Rendering contracts/index.js.erb
+  Rendered smart_listing/_sortable.html.erb (0.8ms)
+  Rendered smart_listing/_sortable.html.erb (0.1ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  Rendered smart_listing/_sortable.html.erb (0.1ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  [1m[36mContract Load (0.4ms)[0m  [1m[34mSELECT  "contracts".* FROM "contracts" ORDER BY contract_number asc LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  Rendered smart_listing/_action_edit.html.erb (0.6ms)
+  Rendered smart_listing/_action_delete.html.erb (0.7ms)
+  Rendered contracts/_contract.html.haml (34.2ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (25.6ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (26.2ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (30.0ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (26.0ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (29.9ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (26.9ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (27.5ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (27.6ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (26.9ms)
+  Rendered smart_listing/_item_new.html.erb (1.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "contracts"[0m
+  Rendered smart_listing/_pagination_per_page_link.html.erb (0.4ms)
+  Rendered smart_listing/_pagination_per_page_link.html.erb (0.1ms)
+  Rendered smart_listing/_pagination_per_page_links.html.erb (31.2ms)
+  Rendered contracts/_list.html.haml (593.3ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/smart_listing-1.2.0/app/views/smart_listing/_update_list.js.erb (653.5ms)
+  Rendered contracts/index.js.erb (703.2ms)
+Completed 500 Internal Server Error in 741ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (incompatible encoding regexp match (UTF-8 regexp with ASCII-8BIT string)):
+    1: var smart_listing = $('#<%= name %>').smart_listing();
+    2: smart_listing.update_list("<%= escape_javascript(render(:partial => part, :locals => {:smart_listing => smart_listing}.merge(locals))) %>", <%= smart_listing_data.to_json.html_safe %>);
+  
+app/views/contracts/index.js.erb:1:in `_app_views_contracts_index_js_erb___2705827203633143238_70161062418720'
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.8ms)
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.0ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (46.2ms)
+Started GET "/contracts?contracts_smart_listing%5Bpage%5D=&contracts_smart_listing%5Bper_page%5D=10&contracts_smart_listing%5Bsort%5D%5Btitle%5D=asc" for ::1 at 2016-10-11 16:31:34 +1100
+Processing by ContractsController#index as JS
+  Parameters: {"contracts_smart_listing"=>{"page"=>"", "per_page"=>"10", "sort"=>{"title"=>"asc"}}}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "contracts"[0m
+DEPRECATION WARNING: Method any? is deprecated and will be removed in Rails 5.1, as `ActionController::Parameters` no longer inherits from hash. Using this deprecated behavior exposes potential security problems. If you continue to use this method you may be creating a security vulnerability in your app that can be exploited. Instead, consider using one of these documented methods which are not deprecated: http://api.rubyonrails.org/v5.0.0.1/classes/ActionController/Parameters.html (called from index at /Users/eibayan/Sites/dtf-genesis/app/controllers/contracts_controller.rb:17)
+  Rendering contracts/index.js.erb
+  Rendered smart_listing/_sortable.html.erb (0.6ms)
+  Rendered smart_listing/_sortable.html.erb (0.1ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  Rendered smart_listing/_sortable.html.erb (0.1ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  [1m[36mContract Load (0.4ms)[0m  [1m[34mSELECT  "contracts".* FROM "contracts" ORDER BY title asc LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  Rendered smart_listing/_action_edit.html.erb (0.4ms)
+  Rendered smart_listing/_action_delete.html.erb (0.5ms)
+  Rendered contracts/_contract.html.haml (26.3ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (28.3ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (27.9ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (27.7ms)
+  Rendered smart_listing/_action_edit.html.erb (0.1ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (26.3ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (26.3ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.3ms)
+  Rendered contracts/_contract.html.haml (30.1ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.3ms)
+  Rendered contracts/_contract.html.haml (28.6ms)
+  Rendered smart_listing/_action_edit.html.erb (0.4ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (30.5ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (29.8ms)
+  Rendered smart_listing/_item_new.html.erb (1.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "contracts"[0m
+  Rendered smart_listing/_pagination_per_page_link.html.erb (0.4ms)
+  Rendered smart_listing/_pagination_per_page_link.html.erb (0.1ms)
+  Rendered smart_listing/_pagination_per_page_links.html.erb (26.8ms)
+  Rendered contracts/_list.html.haml (589.4ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/smart_listing-1.2.0/app/views/smart_listing/_update_list.js.erb (649.8ms)
+  Rendered contracts/index.js.erb (696.5ms)
+Completed 500 Internal Server Error in 738ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (incompatible encoding regexp match (UTF-8 regexp with ASCII-8BIT string)):
+    1: var smart_listing = $('#<%= name %>').smart_listing();
+    2: smart_listing.update_list("<%= escape_javascript(render(:partial => part, :locals => {:smart_listing => smart_listing}.merge(locals))) %>", <%= smart_listing_data.to_json.html_safe %>);
+  
+app/views/contracts/index.js.erb:1:in `_app_views_contracts_index_js_erb___2705827203633143238_70161060775400'
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.7ms)
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (50.5ms)
+Started GET "/contracts?contracts_smart_listing%5Bpage%5D=2" for ::1 at 2016-10-11 16:31:40 +1100
+Processing by ContractsController#index as JS
+  Parameters: {"contracts_smart_listing"=>{"page"=>"2"}}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "contracts"[0m
+  Rendering contracts/index.js.erb
+  Rendered smart_listing/_sortable.html.erb (0.9ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  Rendered smart_listing/_sortable.html.erb (0.3ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  Rendered smart_listing/_sortable.html.erb (0.2ms)
+  [1m[36mContract Load (0.5ms)[0m  [1m[34mSELECT  "contracts".* FROM "contracts" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 10]]
+  Rendered smart_listing/_action_edit.html.erb (0.9ms)
+  Rendered smart_listing/_action_delete.html.erb (1.0ms)
+  Rendered contracts/_contract.html.haml (35.6ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (32.0ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (32.1ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (31.1ms)
+  Rendered smart_listing/_action_edit.html.erb (0.3ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (32.3ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (33.6ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (27.0ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (28.2ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.3ms)
+  Rendered contracts/_contract.html.haml (28.7ms)
+  Rendered smart_listing/_action_edit.html.erb (0.2ms)
+  Rendered smart_listing/_action_delete.html.erb (0.2ms)
+  Rendered contracts/_contract.html.haml (30.8ms)
+  Rendered smart_listing/_item_new.html.erb (1.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "contracts"[0m
+  Rendered smart_listing/_pagination_per_page_link.html.erb (0.8ms)
+  Rendered smart_listing/_pagination_per_page_link.html.erb (0.1ms)
+  Rendered smart_listing/_pagination_per_page_links.html.erb (34.3ms)
+  Rendered contracts/_list.html.haml (661.0ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/smart_listing-1.2.0/app/views/smart_listing/_update_list.js.erb (750.6ms)
+  Rendered contracts/index.js.erb (807.0ms)
+Completed 500 Internal Server Error in 855ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (incompatible encoding regexp match (UTF-8 regexp with ASCII-8BIT string)):
+    1: var smart_listing = $('#<%= name %>').smart_listing();
+    2: smart_listing.update_list("<%= escape_javascript(render(:partial => part, :locals => {:smart_listing => smart_listing}.merge(locals))) %>", <%= smart_listing_data.to_json.html_safe %>);
+  
+app/views/contracts/index.js.erb:1:in `_app_views_contracts_index_js_erb___2705827203633143238_70161070590260'
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.7ms)
+  Rendering /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/eibayan/.rvm/gems/ruby-2.3.1@gensmart/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (48.7ms)

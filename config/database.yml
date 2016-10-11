@@ -34,7 +34,7 @@ development:
   encoding: SQL_ASCII
   database: genesis_development
   pool: 5
-  username: ubuntu
+  username: postgres
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
