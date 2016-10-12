@@ -16,6 +16,8 @@ gem 'money-rails'
 gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'smart_listing', '~> 1.1', '>= 1.1.2'
 
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end
@@ -24,4 +26,6 @@ group :development do
   gem 'web-console'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+group :production do
+  gem 'rails_12factor', '0.0.2'
+end
