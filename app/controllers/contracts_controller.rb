@@ -31,7 +31,7 @@ class ContractsController < ApplicationController
   end
 
   def create
-    @contract = Contract.new(contract_params)
+    @contract = Contract.create(contract_params)
   end
 
   def update
