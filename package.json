@@ -1,8 +1,8 @@
 {
   "name": "Genesis",
   "version": "1.0",
-  "description": "A band of dedicated hackers from Code For Australia, making a difference in the way we view government spending."
-  "dependencies" {
+  "description": "A band of dedicated hackers from Code For Australia, making a difference in the way we view government spending.",
+  "dependencies": {
     "bower": "1.7.9"
   },
   "engine": {
