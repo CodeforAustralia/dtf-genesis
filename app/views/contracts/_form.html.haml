@@ -1,0 +1,37 @@
+%td
+  = form_for object, url: object.new_record? ? contracts_path : contract_path(object), remote: true, html: {enctype: 'multipart/form-data', class: ""} do |f|    
+    
+    %div
+      = f.label :title, "Title #{object.errors['title'][0]}"
+      = f.text_field :title
+    %br
+
+    %div
+      = f.label :contract_number, "Contract No. #{object.errors['contract_number'][0]}"
+      = f.text_field :contract_number
+    %br
+    
+    %div
+      = f.label :total_value, "Total Value #{object.errors['total_value'][0]}"
+      = f.text_field :total_value
+    %br
+
+    %div
+      = f.label :start_date, "Start Date #{object.errors['start_date'][0]}"
+      = f.date_field :start_date
+    %br
+
+    %div
+      = f.label :end_date, "End Date #{object.errors['end_date'][0]}"
+      = f.date_field :end_date
+    %br
+
+    %div
+      = f.label :status, "Status #{object.errors['status'][0]}"
+      = f.text_field :status
+    %br
+
+    %hr
+
+    = f.submit "Save"
+    %button.cancel Cancel
