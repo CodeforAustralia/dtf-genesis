@@ -9,14 +9,14 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'bootstrap-sass', '~> 3.3.6'
-gem 'mechanize', '~> 2.7.5'
-gem 'scraperwiki', '~> 3.0.2'
 
 # gem 'capistrano-rails', group: :development
-
 gem 'bower-rails'
 gem 'money-rails'
+gem 'haml', '~> 4.0', '>= 4.0.7'
+gem 'smart_listing', '~> 1.1', '>= 1.1.2'
+
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -26,4 +26,6 @@ group :development do
   gem 'web-console'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+group :production do
+end
+
