@@ -9,6 +9,9 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'capybara', '>= 2.1.0'
+gem 'poltergeist', '>= 1.9.0'
+gem 'phantomjs'
 
 # gem 'capistrano-rails', group: :development
 gem 'bower-rails'
@@ -28,4 +31,3 @@ end
 
 group :production do
 end
-
