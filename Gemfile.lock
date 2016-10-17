@@ -40,7 +40,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (7.1.2)
-    bower-rails (0.11.0)
     builder (3.2.2)
     byebug (9.0.5)
     capybara (2.10.1)
@@ -189,7 +188,6 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  bower-rails
   byebug
   capybara (>= 2.1.0)
   coffee-rails (~> 4.2)

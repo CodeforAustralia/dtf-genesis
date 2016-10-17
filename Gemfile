@@ -11,10 +11,10 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'capybara', '>= 2.1.0'
 gem 'poltergeist', '>= 1.9.0'
-gem 'phantomjs'
+gem 'phantomjs', :require => 'phantomjs/poltergeist'
 
 # gem 'capistrano-rails', group: :development
-gem 'bower-rails'
+# gem 'bower-rails'
 gem 'money-rails'
 gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'smart_listing', '~> 1.1', '>= 1.1.2'
