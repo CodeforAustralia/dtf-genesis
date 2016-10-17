@@ -53,8 +53,43 @@ contracts = Contract.create([
 { contract_number: "RFT2015-0291 ", status: "Awarded", title: "Provision of Essential Service Measures Maintenance, Mechanical Maintenance and Lift Maintenance  specification documents (Court Services Victoria)", start_date: Date.parse("4-11-2015").to_s, end_date: Date.parse("1-12-2015").to_s, total_value:5655000, created_at: Date.today.to_s, updated_at: Date.today.to_s },
 { contract_number: "330117 ", status: "Awarded", title: "Construction of a stepped concrete seawall at Sorrento foreshore  specification documents (Department of Environment, Land, Water and Planning)", start_date: Date.parse("30-3-2016").to_s, end_date: Date.parse("28-4-2016").to_s, total_value:824137, created_at: Date.today.to_s, updated_at: Date.today.to_s },
 
-
-
-
-
 ])
+ (202)
+  (62)
+  (25)
+(27)
+  (50)
+  (1)
+  (144)
+  (27)
+  (1)
+  (8)
+  (18)
+  (7)
+  (13)
+  (11)
+  (19)
+  (3)
+  (2)
+  (13)
+Department.create!([
+  { name: "CenITex", short_name: "CTX", vt_number: 5154 },
+  { name: "Department of Economic Development, Jobs, Transport and Resources", short_name: "DEDJTR", vt_number: 43087 },
+  { name: "Department of Education and Training", short_name: "DET", vt_number: 42999 },
+  { name: "Department of Environment and Primary Industries", short_name: "DEPI", vt_number: 43 },
+  { name: "Department of Environment, Land, Water and Planning", short_name: "DELWP", vt_number: 42924 },
+  { name: "Department of Health & Human Services", short_name: "DHHS", vt_number: 42963 },
+  { name: "Department of Health & Human Services - Property & Asset Services", short_name: "DHHS-PAS", vt_number: 43494 },
+  { name: "Department of Justice & Regulation", short_name: "DJR", vt_number: 43004 },
+  { name: "Department of Premier and Cabinet", short_name: "DPC", vt_number: 10 },
+  { name: "Independent Broad-based Anti-corruption Commission", short_name: "ACC", vt_number: 42425 },
+  { name: "Infrastructure Victoria", short_name: "IV", vt_number: 52488 },
+  { name: "Major Projects Victoria", short_name: "MPV", vt_number: 20135 },
+  { name: "Metropolitan Fire and Emergency Services Board", short_name: "MFB", vt_number: 3161 },
+  { name: "State Revenue Office", short_name: "SRO", vt_number: 15 },
+  { name: "Victoria Police", short_name: "VicPol", vt_number: 39 },
+  { name: "Victorian Auditor General's Office", short_name: "VicAG", vt_number: 5979 },
+  { name: "Victorian Commission for Gambling and Liquor Regulation", short_name: "LAB", vt_number: 33602 },
+  { name: "Whole of Victorian Government", short_name: "WoVG", vt_number: 18641 },
+  { name: "WoVG Land Sales", short_name: "WoVG-LS", vt_number: 18669 }
+  ])
