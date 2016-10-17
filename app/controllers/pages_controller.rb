@@ -3,9 +3,6 @@ class PagesController < ApplicationController
   end
 
   def about
-  end
-
-  def about
     require 'capybara/poltergeist'
     Capybara.javascript_driver = :poltergeist
     @options = { js_errors: false, timeout: 1800, phantomjs_logger: StringIO.new, logger: nil, phantomjs_options: ['--load-images=no', '--ignore-ssl-errors=yes'] }
