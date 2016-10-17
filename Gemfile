@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'capybara', '>= 2.1.0'
 gem 'poltergeist', '>= 1.9.0'
 gem 'phantomjs'
+gem 'rufus-scheduler'
 
 # gem 'capistrano-rails', group: :development
 gem 'bower-rails'
