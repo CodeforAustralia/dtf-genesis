@@ -17,6 +17,12 @@ contracts = Contract.create([
     total_value: 0,
     created_at: Date.today.to_s,
     updated_at: Date.today.to_s,
+    department_index: 1,
+    contract_type_index: 1,
+    value_type_index: 1,
+    status_index: 1,
+    unspc_code: 700000,
+    contract_description: "some long convoluted\npossibly\nmultiline\n\npossibly\n\r\n\rbadly \r\nformatted \r\r\n\ndescription"
   },
   {
     contract_number: "2",
