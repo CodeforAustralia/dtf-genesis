@@ -10,7 +10,7 @@
 /test/version_tmp/
 /tmp/
 /notes/
-/log/development.log
+/log
 /config/database.yml
 
 # Used by dotenv library to load environment variables.
