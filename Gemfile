@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
-# gem 'sass-rails', '>= 5.0'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'uglifier', '>= 1.3.0'
@@ -12,9 +11,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'capybara', '>= 2.1.0'
 gem 'poltergeist', '>= 1.9.0'
 gem 'phantomjs', :require => 'phantomjs/poltergeist'
-
-# gem 'capistrano-rails', group: :development
-# gem 'bower-rails'
+gem 'rufus-scheduler'
 gem 'money-rails'
 gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'smart_listing', '~> 1.1', '>= 1.1.2'
@@ -30,6 +27,12 @@ end
 
 group :development do
   gem 'web-console'
+end
+
+group :test do
+  gem 'minitest-reporters',       '>= 1.1.9'
+  gem 'guard',                    '>= 2.13.0'
+  gem 'guard-minitest',           '>= 2.4.4'
 end
 
 group :production do
