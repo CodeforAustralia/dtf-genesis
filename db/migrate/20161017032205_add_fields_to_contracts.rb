@@ -5,6 +5,6 @@ class AddFieldsToContracts < ActiveRecord::Migration[5.0]
     add_column :contracts, :value_type_index, :integer
     add_column :contracts, :status_index, :integer
     add_column :contracts, :unspc_code, :integer
-    add_column :contracts, :contract_description, :text
+    add_column :contracts, :contract_description, :string
   end
 end
