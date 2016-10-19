@@ -3,9 +3,6 @@ class PagesController < ApplicationController
   end
 
   def about
-  end
-
-  def about
     require 'capybara/poltergeist'
     Capybara.javascript_driver = :poltergeist
     @options = { js_errors: false, timeout: 1800, phantomjs_logger: StringIO.new, logger: nil, phantomjs_options: ['--load-images=no', '--ignore-ssl-errors=yes'] }
@@ -14,6 +11,7 @@ class PagesController < ApplicationController
 
     contract_session = Capybara::Session.new(:poltergeist, @options)
     contract_session.driver.browser.url_blacklist = @blacklist
+    contract_session.driver.browser.js_errors = false
     @contract_indexes_to_scrape.each do |contract_index|
       puts " :: Scraping #{contract_index}"
       contract_session.visit "http://www.tenders.vic.gov.au/tenders/contract/view.do?id=#{contract_index}"
@@ -85,8 +83,9 @@ class PagesController < ApplicationController
   end
 
   def scrape_department_ids(department_list_url)
-    session = Capybara::Session.new(:poltergeist, @options)
+    session = Capybara::Session.new(:poltergeist, {:js_errors => false})
     session.driver.browser.url_blacklist = @blacklist
+    session.driver.browser.js_errors = false
     session.visit department_list_url
     department_indexes_to_scrape = []
     department_links = session.find_all("a#MSG2")
@@ -111,6 +110,7 @@ class PagesController < ApplicationController
         previous_page = current_page
         department_session = Capybara::Session.new(:poltergeist, @options)
         department_session.driver.browser.url_blacklist = @blacklist
+        department_session.driver.browser.js_errors = false
         puts "scanning department #{department_index} page #{page_number}"
         if page_number == 1
           department_url = "https://www.tenders.vic.gov.au/tenders/contract/list.do?showSearch=false&action=contract-search-submit&issuingBusinessId=#{department_index}&issuingBusinessIdForSort=#{department_index}&awardDateFromString=#{@saved_date}"
