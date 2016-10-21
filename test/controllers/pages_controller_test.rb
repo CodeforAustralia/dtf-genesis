@@ -2,9 +2,11 @@ require 'test_helper'
 
 class PagesControllerTest < ActionDispatch::IntegrationTest
   test "should get home" do
-    page = get pages_home_url
+    session = Capybara::Session.new(:poltergeist, {:js_errors => false})
+    session.visit(pages_home_url)
+    get pages_home_url
     assert_response :success
-    Percy::Capybara.snapshot(page, name: 'home-basic')
+    Percy::Capybara.snapshot(session, name: 'home-basic')
   end
 
 end
