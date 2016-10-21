@@ -8,5 +8,8 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
-  # Add more helper methods to be used by all tests here...
+  # Percy visual diffs
+  Percy::Capybara.initialize_build
+  Percy.config.default_widths = [375, 1280]
+  MiniTest.after_run { Percy::Capybara.finalize_build }
 end
