@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017042618) do
+ActiveRecord::Schema.define(version: 20161020025545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 20161017042618) do
     t.integer  "status_index"
     t.integer  "unspc_code"
     t.text     "contract_description"
+    t.integer  "department_id"
+    t.integer  "supplier_id"
+    t.integer  "contact_id"
+    t.integer  "contract_type_id"
+    t.integer  "unspsc_id"
+    t.integer  "project_id"
+    t.string   "address"
+    t.integer  "status_id"
   end
 
   create_table "departments", force: :cascade do |t|
@@ -47,6 +55,29 @@ ActiveRecord::Schema.define(version: 20161017042618) do
     t.integer  "vt_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "suppliers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "abn"
+    t.string   "acn"
+    t.string   "address"
+    t.string   "suburb"
+    t.string   "state"
+    t.integer  "postcode"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "unspsc", force: :cascade do |t|
+    t.integer  "unspsc_code"
+    t.string   "unspsc_name"
+    t.string   "unspsc_alias"
+    t.string   "child_category"
+    t.string   "parent_category"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
