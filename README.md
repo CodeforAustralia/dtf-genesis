@@ -56,7 +56,7 @@ cd dtf-genesis
 ```bash
 bundle install
 rails db:create db:migrate
-rails db:migrate ENV=test
+rails db:migrate RAILS_ENV=test
 rails test
 rails server
 ```
