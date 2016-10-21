@@ -2,10 +2,15 @@
 # CfA & DTF Genesis
 
 [![Build Status](https://semaphoreci.com/api/v1/PuZZleDucK/dtf-genesis/branches/master/badge.svg)](https://semaphoreci.com/PuZZleDucK/dtf-genesis)
+
 [ ![Codeship Status for ThreeLetterNames/dtf-genesis](https://app.codeship.com/projects/f3a78630-796e-0134-dd4b-3a1a91268848/status?branch=master)](https://app.codeship.com/projects/180502)
+
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ThreeLetterNames/dtf-genesis/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ThreeLetterNames/dtf-genesis/?branch=master)
+
 [![Code Coverage](https://scrutinizer-ci.com/g/ThreeLetterNames/dtf-genesis/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/ThreeLetterNames/dtf-genesis/?branch=master)
+
 [![Build Status](https://scrutinizer-ci.com/g/ThreeLetterNames/dtf-genesis/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ThreeLetterNames/dtf-genesis/build-status/master)
+
 
 We aim to provide transparency of construction contracts by providing data that the public can see, view and use.
 
