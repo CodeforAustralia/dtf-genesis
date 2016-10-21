@@ -12,6 +12,7 @@ build:
                 command: 'rails t'
                 environment:
                     'SCRUTINIZER_CC_FILE': 'my-coverage'
+                    selenium: true
                 coverage:
                     file: 'my-coverage'
                     format: 'rb-cc'
