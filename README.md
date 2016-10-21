@@ -2,6 +2,7 @@
 # CfA & DTF Genesis
 
 [![Build Status](https://semaphoreci.com/api/v1/PuZZleDucK/dtf-genesis/branches/master/badge.svg)](https://semaphoreci.com/PuZZleDucK/dtf-genesis)
+[ ![Codeship Status for ThreeLetterNames/dtf-genesis](https://app.codeship.com/projects/f3a78630-796e-0134-dd4b-3a1a91268848/status?branch=master)](https://app.codeship.com/projects/180502)
 
 We aim to provide transparency of construction contracts by providing data that the public can see, view and use.
 
