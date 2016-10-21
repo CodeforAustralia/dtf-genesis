@@ -1,11 +1,13 @@
-# Genesis
-A band of dedicated hackers from Code For Australia, making a difference in the way we view government spending.
+
+# CfA & DTF Genesis
+
+[![Build Status](https://semaphoreci.com/api/v1/PuZZleDucK/dtf-genesis/branches/master/badge.svg)](https://semaphoreci.com/PuZZleDucK/dtf-genesis)
 
 We aim to provide transparency of construction contracts by providing data that the public can see, view and use.
 
 A platform where anyone who wants insights on government projects can subscribe and participate actively and sharing the information collected to preferred social media.
 
-A place for public to be aware and be inspired of the upcoming projects and infrastracture that will be implemented on their areas.
+A place for public to be aware and be inspired of the upcoming projects and infrastructure that will be implemented on their areas.
 
 # Setup
 1.  Install rails:
@@ -52,8 +54,10 @@ cd dtf-genesis
 
 ```bash
 bundle install
-rake db:create db:migrate
-rails s
+rails db:create db:migrate
+rails db:migrate ENV=test
+rails test
+rails server
 ```
 
 7. Open your browser and you should be able to see your application by entering the url `localhost:3000`
