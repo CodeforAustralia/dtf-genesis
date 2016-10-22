@@ -1,0 +1,16 @@
+
+before_script: rails db:create db:migrate
+
+# combine the three main configuration options of Runtime, Environment and Exclusions/Inclusions
+# you get a matrix of all possible combinations
+# eg.
+# rvm:
+# - 1.9.3
+# - 2.2
+# - jruby
+# gemfile:
+# - gemfiles/Gemfile.rails-2.3.x
+# - gemfiles/Gemfile.rails-edge
+# env:
+# - ISOLATED=true
+# - ISOLATED=false
