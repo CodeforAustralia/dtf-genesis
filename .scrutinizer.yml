@@ -8,13 +8,13 @@ checks:
 build:
     environment:
         ruby: 2.3.1
+        selenium: true
     tests:
         override:
             -
                 command: 'bundle exec rake test'
                 environment:
                     'SCRUTINIZER_CC_FILE': 'my-coverage'
-                    selenium: true
                 coverage:
                     file: 'my-coverage'
                     format: 'rb-cc'
