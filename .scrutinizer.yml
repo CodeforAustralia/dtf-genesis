@@ -6,6 +6,8 @@ checks:
         duplicate_code: true
 
 build:
+    environment:
+        ruby: 2.3.1
     tests:
         override:
             -
