@@ -9,7 +9,7 @@ build:
     tests:
         override:
             -
-                command: 'rails t'
+                command: 'bundle exec rake test'
                 environment:
                     'SCRUTINIZER_CC_FILE': 'my-coverage'
                     selenium: true
