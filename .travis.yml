@@ -1,5 +1,5 @@
 
-before_script: rails db:create db:migrate
+before_script: bundle exec rails db:create db:migrate
 
 # combine the three main configuration options of Runtime, Environment and Exclusions/Inclusions
 # you get a matrix of all possible combinations
