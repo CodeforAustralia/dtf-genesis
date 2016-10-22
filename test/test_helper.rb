@@ -6,7 +6,7 @@ require 'scrutinizer/ocular'
 require 'simplecov'
 SimpleCov.start do
   add_filter "/test/"
-  coverage_dir "log/coverage"
+#  coverage_dir "log/coverage"
 end
 Scrutinizer::Ocular.watch! # scrutinizer coverage Setup
 Minitest::Reporters.use! # minitest Setup
