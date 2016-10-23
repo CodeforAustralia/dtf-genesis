@@ -61,7 +61,7 @@ Capybara.javascript_driver = :poltergeist
 
   def prepare_session()
     @options = { js_errors: false, timeout: 1800, phantomjs_logger: StringIO.new, logger: nil, phantomjs_options: ['--load-images=no', '--ignore-ssl-errors=yes'] }
-      session = Capybara::Session.new(:poltergeist, @options)
+    session = Capybara::Session.new(:poltergeist, @options)
     session.driver.browser.url_blacklist = ["https://maxcdn.bootstrapcdn.com/", "https://www.tenders.vic.gov.au/tenders/res/"]
     session.driver.browser.js_errors = false
     session.driver.timeout = 1800
