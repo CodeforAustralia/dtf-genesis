@@ -82,7 +82,7 @@ Capybara.javascript_driver = :poltergeist
       @saved_date = department_link[:href][-10..-1]
       department_indexes_to_scrape.push(department_id)
       puts "Department (#{department_id}) - #{department_link[:text]} ::"
-      break if department_link.text.include?("Department of Education and Training") # Stop after third dep DEBUG
+#      break if department_link.text.include?("Department of Education and Training") # Stop after third dep DEBUG
     end
     session.driver.quit
     department_indexes_to_scrape
@@ -104,7 +104,7 @@ Capybara.javascript_driver = :poltergeist
         contract_links.each do |contract_link|
           print " [#{contract_link["href"].to_s[59..63]}]"
           contract_indexes.push contract_link["href"].to_s[59..63]
-          break # stop after first contract DEBUG
+#          break # stop after first contract DEBUG
         end
         print "\n"
         current_page = department_session.text
@@ -124,8 +124,8 @@ Capybara.javascript_driver = :poltergeist
   end
 
 #scrape_now = scheduler.every '1h', :first_at => Time.now + 7 do #  '1h', :first_at => Time.now() + 5 do
-scrape_in_10 = scheduler.every '1h', :first_at => Time.now + 600 do #  '1h', :first_at => Time.now() + 5 do
-#hourly_scrape = scheduler.every '1h', :first_at => Time.parse("2:00:00 pm") do #  '1h', :first_at => Time.now() + 5 do
+#scrape_in_10 = scheduler.every '1h', :first_at => Time.now + 600 do #  '1h', :first_at => Time.now() + 5 do
+hourly_scrape = scheduler.every '1h', :first_at => Time.parse("4:00:00 pm") do #  '1h', :first_at => Time.now() + 5 do
 #daily_scrape = scheduler.every '1d', :first_at => Time.parse("11:30:00 pm") do #  '1h', :first_at => Time.now() + 5 do
   Rails.logger.info "Log || SCRAPE || At: #{Time.now}"
 
