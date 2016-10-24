@@ -1,5 +1,7 @@
 require "rufus-scheduler"
+require 'capybara/poltergeist'
 scheduler = Rufus::Scheduler.singleton
+Capybara.javascript_driver = :poltergeist
 
   def find_between(text, pre_string, post_string)
     matches = text.match(/#{pre_string}(.*?)#{post_string}/)
@@ -46,9 +48,8 @@ scheduler = Rufus::Scheduler.singleton
 
   def store_or_skip(contract_data)
     if Contract.find_by(contract_number: contract_data[:gov_entity_contract_numb])
-      puts "Skipping duplicate record"
+      nil
     else
-      puts "Storing contract #{contract_data[:gov_entity_contract_numb]}"
       Contract.create!(contract_number: contract_data[:gov_entity_contract_numb],
                        status: contract_data[:contract_status],
                        title: contract_data[:contract_title],
@@ -58,10 +59,21 @@ scheduler = Rufus::Scheduler.singleton
     end
   end
 
-  def scrape_department_ids(department_list_url)
-    session = Capybara::Session.new(:poltergeist, {:js_errors => false})
-    session.driver.browser.url_blacklist = @blacklist
+  def prepare_session()
+    @options = { js_errors: false, timeout: 1800, phantomjs_logger: StringIO.new, logger: nil, phantomjs_options: ['--load-images=no', '--ignore-ssl-errors=yes'] }
+    session = Capybara::Session.new(:poltergeist, @options)
+    session.driver.browser.url_blacklist = ["https://maxcdn.bootstrapcdn.com/", "https://www.tenders.vic.gov.au/tenders/res/"]
     session.driver.browser.js_errors = false
+    session.driver.timeout = 1800
+#    session.driver.options.phantomjs_options = ['--load-images=no', '--ignore-ssl-errors=yes']
+#    session.driver.browser.set_skip_image_loading true
+#    session.driver.phantomjs_options.load_images = false
+#    session.driver.phantomjs_options.ignore-ssl-errors = true
+    session
+  end
+
+  def scrape_department_ids(department_list_url)
+    session = prepare_session()
     session.visit department_list_url
     department_indexes_to_scrape = []
     department_links = session.find_all("a#MSG2")
@@ -70,7 +82,7 @@ scheduler = Rufus::Scheduler.singleton
       @saved_date = department_link[:href][-10..-1]
       department_indexes_to_scrape.push(department_id)
       puts "Department (#{department_id}) - #{department_link[:text]} ::"
-#      break if department_link.text.include?("Department of Education and Training") # Stop after third dep
+#      break if department_link.text.include?("Department of Education and Training") # Stop after third dep DEBUG
     end
     session.driver.quit
     department_indexes_to_scrape
@@ -84,23 +96,17 @@ scheduler = Rufus::Scheduler.singleton
       current_page = "not blank"
       while previous_page != current_page
         previous_page = current_page
-        department_session = Capybara::Session.new(:poltergeist, @options)
-        department_session.driver.browser.url_blacklist = @blacklist
-        department_session.driver.browser.js_errors = false
-        puts "scanning department #{department_index} page #{page_number}"
-        if page_number == 1
-          department_url = "https://www.tenders.vic.gov.au/tenders/contract/list.do?showSearch=false&action=contract-search-submit&issuingBusinessId=#{department_index}&issuingBusinessIdForSort=#{department_index}&awardDateFromString=#{@saved_date}"
-        else
-          department_url = "https://www.tenders.vic.gov.au/tenders/contract/list.do?showSearch=false&action=contract-search-submit&issuingBusinessId=#{department_index}&issuingBusinessIdForSort=#{department_index}&pageNum=#{page_number}&awardDateFromString=#{@saved_date}"
-        end
+        department_session = prepare_session()
+        department_url = "https://www.tenders.vic.gov.au/tenders/contract/list.do?showSearch=false&action=contract-search-submit&issuingBusinessId=#{department_index}&issuingBusinessIdForSort=#{department_index}&pageNum=#{page_number}&awardDateFromString=#{@saved_date}"
         department_session.visit department_url
         contract_links = department_session.find_all("a#MSG2")
-        puts "CONTRACT LINKS FOR #{department_index} page #{page_number}"
+        print "CONTRACT LINKS FOR #{department_index} page #{page_number}: "
         contract_links.each do |contract_link|
-          puts "     - [#{contract_link["href"].to_s[59..63]}]"
+          print " [#{contract_link["href"].to_s[59..63]}]"
           contract_indexes.push contract_link["href"].to_s[59..63]
-#          break # stop after first contract
+#          break # stop after first contract DEBUG
         end
+        print "\n"
         current_page = department_session.text
         department_session.driver.quit
         page_number += 1
@@ -113,31 +119,23 @@ scheduler = Rufus::Scheduler.singleton
     department_indexes_to_scrape = scrape_department_ids(department_list_url)
     puts "DEPS TO SCRAPE: #{department_indexes_to_scrape}"
     contract_indexes_to_scrape = scrape_contract_ids(department_indexes_to_scrape)
-    puts "CONTS TO SCRAPE: #{contract_indexes_to_scrape}"
+    puts "CONTRACTS TO SCRAPE: #{contract_indexes_to_scrape}"
     contract_indexes_to_scrape
   end
 
-
-
+#scrape_now = scheduler.every '1h', :first_at => Time.now + 7 do #  '1h', :first_at => Time.now() + 5 do
+#scrape_in_10 = scheduler.every '1h', :first_at => Time.now + 600 do #  '1h', :first_at => Time.now() + 5 do
+#hourly_scrape = scheduler.every '1h', :first_at => Time.parse("4:00:00 pm") do #  '1h', :first_at => Time.now() + 5 do
 daily_scrape = scheduler.every '1d', :first_at => Time.parse("11:30:00 pm") do #  '1h', :first_at => Time.now() + 5 do
   Rails.logger.info "Log || SCRAPE || At: #{Time.now}"
 
-  require 'capybara/poltergeist'
-  Capybara.javascript_driver = :poltergeist
-  @options = { js_errors: false, timeout: 1800, phantomjs_logger: StringIO.new, logger: nil, phantomjs_options: ['--load-images=no', '--ignore-ssl-errors=yes'] }
-  @blacklist = ["https://maxcdn.bootstrapcdn.com/", "https://www.tenders.vic.gov.au/tenders/res/" ]
   @contract_indexes_to_scrape = scrape_for_references("https://www.tenders.vic.gov.au/tenders/contract/list.do?action=contract-view")
-
-  contract_session = Capybara::Session.new(:poltergeist, @options)
-  contract_session.driver.browser.url_blacklist = @blacklist
-  contract_session.driver.browser.js_errors = false
+  contract_session = prepare_session()
   @contract_indexes_to_scrape.each do |contract_index|
-    Rails.logger.info " :: Scraping #{contract_index}"
     contract_session.visit "http://www.tenders.vic.gov.au/tenders/contract/view.do?id=#{contract_index}"
     contract_data = extract_contract_data(contract_session.text, contract_index)
     store_or_skip(contract_data)
   end
   contract_session.driver.quit
-  @scrapings = "Completed"
   Rails.logger.info " :: Completed Scraping ::"
 end

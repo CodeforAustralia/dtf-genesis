@@ -1,11 +1,11 @@
-# Genesis
-A band of dedicated hackers from Code For Australia, making a difference in the way we view government spending.
+
+# CfA & DTF Genesis
 
 We aim to provide transparency of construction contracts by providing data that the public can see, view and use.
 
 A platform where anyone who wants insights on government projects can subscribe and participate actively and sharing the information collected to preferred social media.
 
-A place for public to be aware and be inspired of the upcoming projects and infrastracture that will be implemented on their areas.
+A place for public to be aware and be inspired of the upcoming projects and infrastructure that will be implemented on their areas.
 
 # Setup
 1.  Install rails:
@@ -52,8 +52,17 @@ cd dtf-genesis
 
 ```bash
 bundle install
-rake db:create db:migrate
-rails s
+rails db:create db:migrate
+rails db:migrate RAILS_ENV=test
+rails test
+rails server
 ```
 
 7. Open your browser and you should be able to see your application by entering the url `localhost:3000`
+
+[![Build Status](https://semaphoreci.com/api/v1/PuZZleDucK/dtf-genesis/branches/master/badge.svg)](https://semaphoreci.com/PuZZleDucK/dtf-genesis)
+[ ![Codeship Status for ThreeLetterNames/dtf-genesis](https://app.codeship.com/projects/f3a78630-796e-0134-dd4b-3a1a91268848/status?branch=master)](https://app.codeship.com/projects/180502)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ThreeLetterNames/dtf-genesis/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ThreeLetterNames/dtf-genesis/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/ThreeLetterNames/dtf-genesis/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/ThreeLetterNames/dtf-genesis/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/ThreeLetterNames/dtf-genesis/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ThreeLetterNames/dtf-genesis/build-status/master)
+[![Build Status](https://travis-ci.org/ThreeLetterNames/dtf-genesis.svg?branch=master)](https://travis-ci.org/ThreeLetterNames/dtf-genesis)

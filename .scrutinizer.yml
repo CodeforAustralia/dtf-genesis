@@ -1,0 +1,20 @@
+# config for scrutinizer-ci.com
+
+checks:
+    ruby:
+        code_rating: true
+        duplicate_code: true
+
+build:
+    environment:
+        ruby: 2.3.1
+        selenium: true
+    tests:
+        override:
+            -
+                command: 'bundle exec rake test'
+                environment:
+                    'SCRUTINIZER_CC_FILE': 'my-coverage'
+                coverage:
+                    file: 'my-coverage'
+                    format: 'rb-cc'
