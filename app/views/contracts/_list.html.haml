@@ -14,8 +14,8 @@
           %tr.editable{:data => {:id => o.id}}
             = smart_listing.render object: o, partial: "contracts/contract", locals: {object: o}
 
-        %div.smart-listing-new-button
-          = smart_listing.item_new colspan: 12, link: new_contract_path
+        / %div.smart-listing-new-button
+        /   = smart_listing.item_new colspan: 12, link: new_contract_path
 
     = smart_listing.paginate
     = smart_listing.pagination_per_page_links
