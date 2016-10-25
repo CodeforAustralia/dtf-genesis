@@ -15,7 +15,6 @@ gem 'rufus-scheduler'
 gem 'money-rails'
 gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'smart_listing', '~> 1.1', '>= 1.1.2'
-
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
 
@@ -33,6 +32,9 @@ group :test do
   gem 'minitest-reporters',       '>= 1.1.9'
   gem 'guard',                    '>= 2.13.0'
   gem 'guard-minitest',           '>= 2.4.4'
+  gem 'capybara-screenshot'
+  gem 'percy-capybara'
+  gem 'scrutinizer-ocular'
 end
 
 group :production do

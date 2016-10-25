@@ -95,6 +95,6 @@ Department.create!([
   ])
 
 ContactPerson.create!([
-  { name: "nobody", phone: "", fax: "", email: "" }
+  { name: "nobody", phone: "", fax: "", email: "" },
   { name: "Erle Fonseca", phone: "OFFICE: (03) 99070105", fax: "", email: "erle.fonseca@cenitex.vic.gov.au" }
   ])
