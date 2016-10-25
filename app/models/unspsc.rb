@@ -1,0 +1,2 @@
+class Unspsc < ApplicationRecord
+end

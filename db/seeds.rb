@@ -7,71 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-contracts = Contract.create([
-  {
-    contract_number: "-1",
-    status: "weird",
-    title: "Not a normal contract",
-    start_date: Date.parse("31-1-2016").to_s,
-    end_date: Date.parse("31-12-2016").to_s,
-    total_value: 0,
-    created_at: Date.today.to_s,
-    updated_at: Date.today.to_s,
-    department_index: 1,
-    contract_type_index: 1,
-    value_type_index: 1,
-    status_index: 1,
-    unspc_code: 700000,
-    contract_description: "some long convoluted\npossibly\nmultiline\n\npossibly\n\r\n\rbadly \r\nformatted \r\r\n\ndescription"
-  },
-  {
-    contract_number: "2",
-    status: "2",
-    title: "2",
-    start_date: Date.parse("1-1-2016").to_s,
-    end_date: Date.parse("1-1-2016").to_s,
-    total_value: 2,
-    created_at: Date.today.to_s,
-    updated_at: Date.today.to_s,
-  },
-{ contract_number: "T2010DPC14", status: "Awarded", title: "Asset Management Framework  specification documents (Arts Victoria)", start_date: Date.parse("18-8-2010").to_s, end_date: Date.parse("9-9-2010").to_s, total_value:180000, created_at: Date.today.to_s, updated_at: Date.today.to_s },
-{ contract_number: "311635 ", status: "Awarded", title: "Elwood Beach Renourishment Civil Works  specification documents (Department of Environment and Primary Industries)", start_date: Date.parse("10-11-2010").to_s, end_date: Date.parse("2-12-2010").to_s, total_value:1027565, created_at: Date.today.to_s, updated_at: Date.today.to_s },
-{ contract_number: "312590 ", status: "Awarded", title: "Supply and Install amenities building at Forrest, Western Victoria  specification documents (Department of Environment and Primary Industries)", start_date: Date.parse("9-2-2011").to_s, end_date: Date.parse("3-3-2011").to_s, total_value:323857, created_at: Date.today.to_s, updated_at: Date.today.to_s },
-{ contract_number: "312808 ", status: "Awarded", title: "Replacement of Mt Mittamatite Fire Tower  specification documents (Department of Environment and Primary Industries)", start_date: Date.parse("23-2-2011").to_s, end_date: Date.parse("10-3-2011").to_s, total_value:130000, created_at: Date.today.to_s, updated_at: Date.today.to_s },
-{ contract_number: "312770 ", status: "Awarded", title: "Beech Creek Trestle Bridge - Bush Fire Reconstruction  specification documents (Department of Environment and Primary Industries)", start_date: Date.parse("16-2-2011").to_s, end_date: Date.parse("17-3-2011").to_s, total_value:405093, created_at: Date.today.to_s, updated_at: Date.today.to_s },
-{ contract_number: "313014 ", status: "Awarded", title: "Assessment of Current and Future Infrastructure Requirements of Key Indigenous Organisations in Victoria  specification documents (Department of Planning and Community Development)", start_date: Date.parse("16-3-2011").to_s, end_date: Date.parse("7-4-2011").to_s, total_value:357819, created_at: Date.today.to_s, updated_at: Date.today.to_s },
-{ contract_number: "312850 ", status: "Awarded", title: "The Strand, Williamstown Rock Sea Wall  specification documents (Department of Environment and Primary Industries)", start_date: Date.parse("23-3-2011").to_s, end_date: Date.parse("7-4-2011").to_s, total_value:564852, created_at: Date.today.to_s, updated_at: Date.today.to_s },
-{ contract_number: "312799 ", status: "Awarded", title: "FIRE SERVICES AND HYDRAULIC INSTALLATION DEPARTMENT OF SUSTAINABILITY AND ENVIRONMENT NOOJEE WORK CENTRE  specification documents (Department of Environment and Primary Industries)", start_date: Date.parse("23-3-2011").to_s, end_date: Date.parse("13-4-2011").to_s, total_value:412500, created_at: Date.today.to_s, updated_at: Date.today.to_s },
-{ contract_number: "313050 ", status: "Awarded", title: "CONSTRUCT AMENITIES BUILDING LATROBE VALLEY AIRBASE  specification documents (Department of Environment and Primary Industries)", start_date: Date.parse("6-4-2011").to_s, end_date: Date.parse("4-5-2011").to_s, total_value:319700, created_at: Date.today.to_s, updated_at: Date.today.to_s },
-{ contract_number: "313144 ", status: "Awarded", title: "Construction of 80 metres of rock seawall and associated civil earthworks at Tooradin Foreshore, Westernport  specification documents (Department of Environment and Primary Industries)", start_date: Date.parse("11-5-2011").to_s, end_date: Date.parse("26-5-2011").to_s, total_value:130000, created_at: Date.today.to_s, updated_at: Date.today.to_s },
-{ contract_number: "T12075 ", status: "Awarded", title: "Consultant Project Manager - Specialist: Property Management & Town Planning  specification documents (Dept of Health - Capital Projects and Service Planning - CLOSED (See DHHS))", start_date: Date.parse("6-6-2012").to_s, end_date: Date.parse("21-6-2012").to_s, total_value:539968, created_at: Date.today.to_s, updated_at: Date.today.to_s },
-{ contract_number: "T12076 ", status: "Awarded", title: "Consultant Architect - Health Buildings  specification documents (Dept of Health - Capital Projects and Service Planning - CLOSED (See DHHS))", start_date: Date.parse("6-6-2012").to_s, end_date: Date.parse("21-6-2012").to_s, total_value:325248, created_at: Date.today.to_s, updated_at: Date.today.to_s },
-{ contract_number: "TAC-HM-2012 ", status: "Awarded", title: "Home Modifications Program Manager Tender  specification documents (Transport Accident Commission)", start_date: Date.parse("24-10-2012").to_s, end_date: Date.parse("29-11-2012").to_s, total_value:2400000, created_at: Date.today.to_s, updated_at: Date.today.to_s },
-{ contract_number: "MV 12 003MV ", status: "Awarded", title: "Vertical Transport Systems Maintenace  specification documents (Museum Victoria)", start_date: Date.parse("24-4-2013").to_s, end_date: Date.parse("24-5-2013").to_s, total_value:500000, created_at: Date.today.to_s, updated_at: Date.today.to_s },
-{ contract_number: "GRV1314-46", status: "Awarded", title: "TRARALGON GREYHOUND RACECOURSE REDEVELOPMENT CIVIL ENGINEERING (MAIN) WORKS  specification documents (Greyhound Racing Victoria)", start_date: Date.parse("19-3-2014").to_s, end_date: Date.parse("14-4-2014").to_s, total_value:3785164, created_at: Date.today.to_s, updated_at: Date.today.to_s },
-{ contract_number: "GRV1314-47", status: "Awarded", title: "Traralgon Greyhound Events and Race Day Facilities Development  specification documents (Greyhound Racing Victoria)", start_date: Date.parse("2-4-2014").to_s, end_date: Date.parse("6-5-2014").to_s, total_value:2413514, created_at: Date.today.to_s, updated_at: Date.today.to_s },
-{ contract_number: "RFT2015-0291 ", status: "Awarded", title: "Provision of Essential Service Measures Maintenance, Mechanical Maintenance and Lift Maintenance  specification documents (Court Services Victoria)", start_date: Date.parse("4-11-2015").to_s, end_date: Date.parse("1-12-2015").to_s, total_value:5655000, created_at: Date.today.to_s, updated_at: Date.today.to_s },
-{ contract_number: "330117 ", status: "Awarded", title: "Construction of a stepped concrete seawall at Sorrento foreshore  specification documents (Department of Environment, Land, Water and Planning)", start_date: Date.parse("30-3-2016").to_s, end_date: Date.parse("28-4-2016").to_s, total_value:824137, created_at: Date.today.to_s, updated_at: Date.today.to_s },
 
-])
- (202)
-  (62)
-  (25)
-(27)
-  (50)
-  (1)
-  (144)
-  (27)
-  (1)
-  (8)
-  (18)
-  (7)
-  (13)
-  (11)
-  (19)
-  (3)
-  (2)
-  (13)
 Department.create!([
   { name: "CenITex", short_name: "CTX", vt_number: 5154 },
   { name: "Department of Economic Development, Jobs, Transport and Resources", short_name: "DEDJTR", vt_number: 43087 },
@@ -94,7 +30,63 @@ Department.create!([
   { name: "WoVG Land Sales", short_name: "WoVG-LS", vt_number: 18669 }
   ])
 
-ContactPerson.create!([
-  { name: "nobody", phone: "", fax: "", email: "" },
-  { name: "Erle Fonseca", phone: "OFFICE: (03) 99070105", fax: "", email: "erle.fonseca@cenitex.vic.gov.au" }
-  ])
+
+
+Unspsc.create([
+  { unspsc_code: 10000000, unspsc_name: "Live Plant and Animal Material and Accessories and Supplies" },
+  { unspsc_code: 11000000, unspsc_name: "Mineral and Textile and Inedible Plant and Animal Materials" },
+  { unspsc_code: 12000000, unspsc_name: "Chemicals including Bio Chemicals and Gas Materials" },
+  { unspsc_code: 13000000, unspsc_name: "Resin and Rosin and Rubber and Foam and Film and Elastomeric Materials" },
+  { unspsc_code: 14000000, unspsc_name: "Paper Materials and Products" },
+  { unspsc_code: 15000000, unspsc_name: "Fuels and Fuel Additives and Lubricants and Anti corrosive Materials" },
+  { unspsc_code: 20000000, unspsc_name: "Mining and Well Drilling Machinery and Accessories" },
+  { unspsc_code: 21000000, unspsc_name: "Farming and Fishing and Forestry and Wildlife Machinery and Accessories" },
+  { unspsc_code: 22000000, unspsc_name: "Farming and Fishing and Forestry and Wildlife Machinery and Accessories" },
+  { unspsc_code: 23000000, unspsc_name: "Industrial Manufacturing and Processing Machinery and Accessories" },
+  { unspsc_code: 24000000, unspsc_name: "Material Handling and Conditioning and Storage Machinery and their Accessories and Supplies" },
+  { unspsc_code: 25000000, unspsc_name: "Commercial and Military and Private Vehicles and their Accessories and Components" },
+  { unspsc_code: 26000000, unspsc_name: "Power Generation and Distribution Machinery and Accessories" },
+  { unspsc_code: 27000000, unspsc_name: "Tools and General Machinery" },
+  { unspsc_code: 30000000, unspsc_name: "Structures and Building and Construction and Manufacturing Components and Supplies" },
+  { unspsc_code: 31000000, unspsc_name: "Structures and Building and Construction and Manufacturing Components and Supplies" },
+  { unspsc_code: 32000000, unspsc_name: "Electronic Components and Supplies" },
+  { unspsc_code: 39000000, unspsc_name: "Electrical Systems and Lighting and Components and Accessories and Supplies" },
+  { unspsc_code: 40000000, unspsc_name: "Distribution and Conditioning Systems and Equipment and Components" },
+  { unspsc_code: 41000000, unspsc_name: "Laboratory and Measuring and Observing and Testing Equipment" },
+  { unspsc_code: 42000000, unspsc_name: "Medical Equipment and Accessories and Supplies" },
+  { unspsc_code: 43000000, unspsc_name: "Information Technology Broadcasting and Telecommunications" },
+  { unspsc_code: 44000000, unspsc_name: "Office Equipment and Accessories and Supplies" },
+  { unspsc_code: 45000000, unspsc_name: "Printing and Photographic and Audio and Visual Equipment and Supplies" },
+  { unspsc_code: 46000000, unspsc_name: "Defence and Law Enforcement and Security and Safety Equipment and Supplies" },
+  { unspsc_code: 47000000, unspsc_name: "Cleaning Equipment and Supplies" },
+  { unspsc_code: 48000000, unspsc_name: "Service Industry Machinery and Equipment and Supplies" },
+  { unspsc_code: 49000000, unspsc_name: "Sports and Recreational Equipment and Supplies and Accessories" },
+  { unspsc_code: 50000000, unspsc_name: "Food and Beverage Products" },
+  { unspsc_code: 51000000, unspsc_name: "Drugs and Pharmaceutical Products" },
+  { unspsc_code: 52000000, unspsc_name: "Domestic Appliances and Supplies and Consumer Electronic Products" },
+  { unspsc_code: 53000000, unspsc_name: "Apparel and Luggage and Personal Care Products" },
+  { unspsc_code: 54000000, unspsc_name: "Timepieces and Jewellery and Gemstone Products" },
+  { unspsc_code: 55000000, unspsc_name: "Published Products" },
+  { unspsc_code: 56000000, unspsc_name: "Furniture and Furnishings" },
+  { unspsc_code: 60000000, unspsc_name: "Developmental and professional teaching aids and materials and accessories and supplies" },
+  { unspsc_code: 70000000, unspsc_name: "Farming and Fishing and Forestry and Wildlife Contracting Services" },
+  { unspsc_code: 71000000, unspsc_name: "Mining and oil and gas services" },
+  { unspsc_code: 72000000, unspsc_name: "Building and Construction and Maintenance Services" },
+  { unspsc_code: 73000000, unspsc_name: "Industrial Production and Manufacturing Services" },
+  { unspsc_code: 76000000, unspsc_name: "Industrial Cleaning Services" },
+  { unspsc_code: 77000000, unspsc_name: "Environmental Services" },
+  { unspsc_code: 78000000, unspsc_name: "Transportation and Storage and Mail Services" },
+  { unspsc_code: 78000000, unspsc_name: "Management and Business Professionals and Administrative Services" },
+  { unspsc_code: 80000000, unspsc_name: "Management and Business Professionals and Administrative Services" },
+  { unspsc_code: 81000000, unspsc_name: "Engineering and Research and Technology Based Services" },
+  { unspsc_code: 82000000, unspsc_name: "Editorial and Design and Graphic and Fine Art Services" },
+  { unspsc_code: 83000000, unspsc_name: "Public Utilities and Public Sector Related Services" },
+  { unspsc_code: 84000000, unspsc_name: "Financial and Insurance Services" },
+  { unspsc_code: 85000000, unspsc_name: "Healthcare Services" },
+  { unspsc_code: 86000000, unspsc_name: "Education and Training Services" },
+  { unspsc_code: 90000000, unspsc_name: "Travel and Food and Lodging and Entertainment Services" },
+  { unspsc_code: 91000000, unspsc_name: "Personal and Domestic Services" },
+  { unspsc_code: 92000000, unspsc_name: "National Defence and Public Order and Security and Safety Services" },
+  { unspsc_code: 93000000, unspsc_name: "Politics and Civic Affairs Services" },
+  { unspsc_code: 94000000, unspsc_name: "Organisations and Clubs" }
+])

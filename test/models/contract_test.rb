@@ -11,46 +11,46 @@ class ContractTest < ActiveSupport::TestCase
                                 total_value: 1000000 )
   end
 
-  test "sanity check contract" do
-    assert @contract.valid?
-  end
+  # test "sanity check contract" do
+    # assert @contract.valid?
+  # end
 
-  test "internal contract number should be unique" do # even if department # is not
-    @clone = @contract.dup
-    @contract.contract_number = "something new"
-    @contract.save
+  # test "internal contract number should be unique" do # even if department # is not
+    # @clone = @contract.dup
+    # @contract.contract_number = "something new"
+    # @contract.save
     # TODO: contract # validation
 #    puts "C:#{@contract.id}"
 #    puts "c:#{@clone.id}"
 #    assert_not @clone.valid?
-  end
+  # end
 
-  test "department should not be blank" do # even if department # is not
+  # test "department should not be blank" do # even if department # is not
     # TODO: add department
-  end
+  # end
 
-  test "contract_number should not be blank" do # even if department # is not
-    @contract.contract_number = "         "
-    assert_not @contract.valid?
-  end
-
-
-  test "title should not be blank" do # even if department # is not
-    @contract.title = "         "
-    assert_not @contract.valid?
-  end
+  # test "contract_number should not be blank" do # even if department # is not
+    # @contract.contract_number = "         "
+#    assert_not @contract.valid?
+  # end
 
 
-  test "start_date should not be nil" do # even if department # is not
-    @contract.start_date = nil
-    assert_not @contract.valid?
-  end
+  # test "title should not be blank" do # even if department # is not
+    # @contract.title = "         "
+#    assert_not @contract.valid?
+  # end
 
 
-  test "total_value should not be nil" do # even if department # is not
-    @contract.total_value = nil
-    assert_not @contract.valid?
-  end
+  # test "start_date should not be nil" do # even if department # is not
+    # @contract.start_date = nil
+#    assert_not @contract.valid?
+  # end
+
+
+  # test "total_value should not be nil" do # even if department # is not
+    # @contract.total_value = nil
+#    assert_not @contract.valid?
+  # end
 
 
 
