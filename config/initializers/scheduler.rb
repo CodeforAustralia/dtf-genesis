@@ -135,6 +135,7 @@ daily_scrape = scheduler.every '1d', :first_at => Time.parse("11:55:00 pm") do #
   Rails.logger.info "Log || SCRAPE || At: #{Time.now}"
   contract_indexes_to_scrape = scrape_for_references("https://www.tenders.vic.gov.au/tenders/contract/list.do?action=contract-view")
   contract_session = prepare_session()
+  Capybara.reset_sessions!
   contract_indexes_to_scrape.each do |contract_index|
     contract_session.visit "http://www.tenders.vic.gov.au/tenders/contract/view.do?id=#{contract_index}"
     contract_data = extract_contract_data(contract_session.text, contract_index)
