@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+require 'faker'
 
 Department.create!([
   { name: "CenITex", short_name: "CTX", vt_number: 5154 },
@@ -90,3 +90,44 @@ Unspsc.create([
   { unspsc_code: 93000000, unspsc_name: "Politics and Civic Affairs Services" },
   { unspsc_code: 94000000, unspsc_name: "Organisations and Clubs" }
 ])
+
+
+
+# historic data... 5 years
+# $100000 -> $500000000
+# 34 per month
+# 408 per year
+# ~2000 records
+# 365 * 7 = 2555
+
+
+
+2000.times do |record|
+  duration = Faker::Number.between(80, 2000)
+  first_year = Faker::Number.between(10,14)
+  start = Date.parse("20#{first_year}-#{Faker::Number.between(1, 12)}-#{Faker::Number.between(1, 28)}")
+  finish = start + duration
+  location = Faker::Address.street_address
+  Contract.create({
+    contract_number: Faker::Company.duns_number,
+    status: "Expired",
+    title: "#{Faker::Company.buzzword}, #{Faker::Company.catch_phrase} at #{location}",
+    start_date: start,
+    end_date: finish,
+    total_value: duration * Faker::Number.between(1000, 200000),
+    department_index: 666,
+    contract_type_index: 0,
+    value_type_index: 0,
+    status_index: 0,
+    unspc_code: 30000000,
+    contract_description: Faker::Lorem.sentence,
+    department_id: Faker::Number.between(0, 19),
+    supplier_id: 0,
+    contact_id: 0,
+    contract_type_id: 0,
+    unspsc_id: 0,
+    project_id: 0,
+    address: location,
+    status_id: 0
+    })
+end
