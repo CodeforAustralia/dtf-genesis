@@ -15,9 +15,5 @@ Capybara::Screenshot.webkit_options = { width: 1024, height: 768 }
 
 class ActiveSupport::TestCase
   fixtures :all   # Setup test/fixtures/*.yml  in alphabetical order.
-  Percy::Capybara.initialize_build
-  Percy.config.default_widths = [375, 1280]
-  MiniTest.after_run { Percy::Capybara.finalize_build }
   include Capybara::DSL
-
 end
