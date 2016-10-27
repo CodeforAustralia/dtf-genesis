@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161027005904) do
+ActiveRecord::Schema.define(version: 20161027011138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,21 +70,14 @@ ActiveRecord::Schema.define(version: 20161027005904) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "unspsc", force: :cascade do |t|
-    t.integer  "unspsc_code"
-    t.string   "unspsc_name"
-    t.string   "unspsc_alias"
-    t.string   "child_category"
-    t.string   "parent_category"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
   create_table "unspscs", force: :cascade do |t|
     t.integer  "unspsc_code"
     t.string   "unspsc_name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "unspsc_alias"
+    t.string   "child_category"
+    t.string   "parent_category"
   end
 
 end
