@@ -3,7 +3,8 @@ require 'test_helper'
 class ContractTest < ActiveSupport::TestCase
 
   def setup
-    @contract = Contract.create(contract_number: "CON-001",
+    @contract = Contract.create(vt_contract_number: "34756",
+                                department_index: "CON-001",
                                 status: "testing",
                                 title: "example title",
                                 start_date: Date.parse("11/10/1979"),
@@ -18,7 +19,7 @@ class ContractTest < ActiveSupport::TestCase
 
   test "internal contract number should be unique" do # even if department # is not
     @clone = @contract.dup
-    @contract.contract_number = "something new"
+    @contract.vt_contract_number = "something new"
     @contract.save
     # TODO: contract # validation
   #  puts "C:#{@contract.department_index}"
@@ -31,8 +32,8 @@ class ContractTest < ActiveSupport::TestCase
   # end
 
   test "contract_number should not be blank" do # even if department # is not
-    @contract.contract_number = "         "
-   assert_not @contract.valid?
+    @contract.vt_contract_number = "         "
+    assert_not @contract.valid?
   end
 
 

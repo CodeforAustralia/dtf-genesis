@@ -109,13 +109,13 @@ Unspsc.create([
   finish = start + duration
   location = Faker::Address.street_address
   Contract.create({
-    contract_number: Faker::Company.duns_number,
+    vt_contract_number: Faker::Company.duns_number,
+    department_index: 0,
     status: "Expired",
     title: "#{Faker::Company.buzzword}, #{Faker::Company.catch_phrase} at #{location}",
     start_date: start,
     end_date: finish,
     total_value: duration * Faker::Number.between(1000, 200000),
-    department_index: 666,
     contract_type_index: 0,
     value_type_index: 0,
     status_index: 0,

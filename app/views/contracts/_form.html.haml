@@ -1,16 +1,16 @@
 %td
-  = form_for object, url: object.new_record? ? contracts_path : contract_path(object), remote: true, html: {enctype: 'multipart/form-data', class: ""} do |f|    
-    
+  = form_for object, url: object.new_record? ? contracts_path : contract_path(object), remote: true, html: {enctype: 'multipart/form-data', class: ""} do |f|
+
     %div
       = f.label :title, "Title #{object.errors['title'][0]}"
       = f.text_field :title
     %br
 
     %div
-      = f.label :contract_number, "Contract No. #{object.errors['contract_number'][0]}"
-      = f.text_field :contract_number
+      = f.label :vt_contract_number, "Contract No. #{object.errors['vt_contract_number'][0]}"
+      = f.text_field :vt_contract_number
     %br
-    
+
     %div
       = f.label :total_value, "Total Value #{object.errors['total_value'][0]}"
       = f.text_field :total_value
