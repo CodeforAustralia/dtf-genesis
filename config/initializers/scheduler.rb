@@ -1,85 +1,15 @@
 require "rufus-scheduler"
 require 'capybara/poltergeist'
+require "#{Rails.root}/config/initializers/scraper_utils.rb"
 scheduler = Rufus::Scheduler.singleton
 Capybara.javascript_driver = :poltergeist
 
-def find_between(text, pre_string, post_string)
-  matches = text.match(/#{pre_string}(.*?)#{post_string}/)
-  if matches && matches.length > 1
-    matches[1].strip
-  else
-    puts "Match failed!"
-    puts "nothing between '#{pre_string}' & '#{post_string}'"
-    puts "in #{text}"
-    ""
-  end
-end
-
-def extract_contract_data(text, contract_index)
-  gov_entity = find_between(text, "Public Body:", "Contract Number:")
-  gov_entity_contract_numb = find_between(text, "Contract Number:","Title:")
-  contract_title = find_between(text, "Title:","Type of Contract:")
-  contract_type = find_between(text, "Type of Contract:","Total Value of the Contract:")
-  contract_value = (find_between(text, "Total Value of the Contract:","Start Date:").gsub(",","").gsub("$","").to_f).to_i
-  begin
-    contract_start = Date.parse(find_between(text, "Start Date:","Expiry Date:"))
-  rescue
-    contract_start = Date.parse("11/10/1900")
-  end
-  begin
-    contract_end = Date.parse(find_between(text, "Expiry Date:","Status:"))
-  rescue
-    contract_end = Date.parse("11/10/1900")
-  end
-  contract_status = find_between(text, "Status:", "UNSPSC :")
-  contract_unspsc = find_between(text, "UNSPSC :", "Description")
-  contract_details = find_between(text, "Description", "Agency Contact Details")
-  puts "Detail: #{contract_details}"
-  { gov_entity: gov_entity,
-    gov_entity_contract_numb: gov_entity_contract_numb,
-    contract_title: contract_title,
-    contract_type: contract_type,
-    contract_value: contract_value,
-    contract_start: contract_start,
-    contract_end: contract_end,
-    contract_status: contract_status,
-    contract_unspsc: contract_unspsc,
-    vt_contract_index: contract_index
-  }
-end
-
-def store_or_skip(contract_data)
-  unspsc_include = [
-    "Structures and Building and Construction and Manufacturing Components and Supplies - (100%)",
-    "Building and Construction and Maintenance Services - (100%)"
-    # "Public Utilities and Public Sector Related Services - (100%)",
-    # "Professional engineering services - (100%)"
-  ]
-
-  if not unspsc_include.include?(contract_data[:contract_unspsc])
-    nil
-  elsif Contract.find_by(contract_number: contract_data[:gov_entity_contract_numb])
-    nil
-  else
-    Contract.create!(contract_number: contract_data[:gov_entity_contract_numb],
-                     status: contract_data[:contract_status],
-                     title: contract_data[:contract_title],
-                     start_date: contract_data[:contract_start],
-                     end_date: contract_data[:contract_end],
-                     total_value: contract_data[:contract_value] )
-  end
-end
-
 def prepare_session()
-  @options = { js_errors: false, timeout: 1800, phantomjs_logger: StringIO.new, logger: nil, phantomjs_options: ['--load-images=no', '--ignore-ssl-errors=yes'] }
-  session = Capybara::Session.new(:poltergeist, @options)
+  options = { js_errors: false, timeout: 1800, phantomjs_logger: StringIO.new, logger: nil, phantomjs_options: ['--load-images=no', '--ignore-ssl-errors=yes', '--ssl-protocol=any'] }
+  session = Capybara::Session.new(:poltergeist, options)
   session.driver.browser.url_blacklist = ["https://maxcdn.bootstrapcdn.com/", "https://www.tenders.vic.gov.au/tenders/res/"]
   session.driver.browser.js_errors = false
   session.driver.timeout = 1800
-#    session.driver.options.phantomjs_options = ['--load-images=no', '--ignore-ssl-errors=yes']
-#    session.driver.browser.set_skip_image_loading true
-#    session.driver.phantomjs_options.load_images = false
-#    session.driver.phantomjs_options.ignore-ssl-errors = true
   session
 end
 
@@ -131,20 +61,20 @@ end
 def scrape_for_references(department_list_url)
   department_indexes_to_scrape = scrape_department_ids(department_list_url)
   puts "DEPS TO SCRAPE: #{department_indexes_to_scrape}"
-  contract_indexes_to_scrape = scrape_contract_ids(department_indexes_to_scrape)
-  puts "CONTRACTS TO SCRAPE: #{contract_indexes_to_scrape}"
-  contract_indexes_to_scrape
+  contract_indexes = scrape_contract_ids(department_indexes_to_scrape)
+  puts "CONTRACTS TO SCRAPE: #{contract_indexes}"
+  contract_indexes
 end
 
 # scrape_now = scheduler.every '1h', :first_at => Time.now + 7 do #  '1h', :first_at => Time.now() + 5 do
 # scrape_in_10 = scheduler.every '1h', :first_at => Time.now + 600 do #  '1h', :first_at => Time.now() + 5 do
 # hourly_scrape = scheduler.every '1h', :first_at => Time.parse("4:00:00 pm") do #  '1h', :first_at => Time.now() + 5 do
-  daily_scrape = scheduler.every '1d', :first_at => Time.parse("11:30:00 pm") do #  '1h', :first_at => Time.now() + 5 do
+daily_scrape = scheduler.every '1d', :first_at => Time.parse("11:55:00 pm") do #  '1h', :first_at => Time.now() + 5 do
   Rails.logger.info "Log || SCRAPE || At: #{Time.now}"
-
-  @contract_indexes_to_scrape = scrape_for_references("https://www.tenders.vic.gov.au/tenders/contract/list.do?action=contract-view")
+  contract_indexes_to_scrape = scrape_for_references("https://www.tenders.vic.gov.au/tenders/contract/list.do?action=contract-view")
   contract_session = prepare_session()
-  @contract_indexes_to_scrape.each do |contract_index|
+  Capybara.reset_sessions!
+  contract_indexes_to_scrape.to_set.each do |contract_index|
     contract_session.visit "http://www.tenders.vic.gov.au/tenders/contract/view.do?id=#{contract_index}"
     contract_data = extract_contract_data(contract_session.text, contract_index)
     store_or_skip(contract_data)
