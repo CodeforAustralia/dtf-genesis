@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161026052822) do
+ActiveRecord::Schema.define(version: 20161027011931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20161026052822) do
   end
 
   create_table "contracts", force: :cascade do |t|
-    t.string   "contract_number"
+    t.string   "vt_contract_number"
     t.string   "status"
     t.string   "title"
     t.date     "start_date"
@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(version: 20161026052822) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "department_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["department_id"], name: "index_projects_on_department_id", using: :btree
+  end
+
   create_table "suppliers", force: :cascade do |t|
     t.string   "name"
     t.string   "abn"
@@ -75,21 +84,15 @@ ActiveRecord::Schema.define(version: 20161026052822) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "unspsc", force: :cascade do |t|
-    t.integer  "unspsc_code"
-    t.string   "unspsc_name"
-    t.string   "unspsc_alias"
-    t.string   "child_category"
-    t.string   "parent_category"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
   create_table "unspscs", force: :cascade do |t|
     t.integer  "unspsc_code"
     t.string   "unspsc_name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "unspsc_alias"
+    t.string   "child_category"
+    t.string   "parent_category"
   end
 
+  add_foreign_key "projects", "departments"
 end
