@@ -8,6 +8,11 @@
 
 require 'faker'
 
+ContactPerson.create([
+  {name: "Testy McTestings", phone: "0419 390 496", fax: "(03) 9845 9876", email: "some@lame.address"}
+  ])
+
+
 Department.create!([
   { name: "CenITex", short_name: "CTX", vt_number: 5154 },
   { name: "Department of Economic Development, Jobs, Transport and Resources", short_name: "DEDJTR", vt_number: 43087 },
