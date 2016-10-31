@@ -66,10 +66,10 @@ def scrape_for_references(department_list_url)
   contract_indexes
 end
 
-# scrape_now = scheduler.every '1h', :first_at => Time.now + 7 do #  '1h', :first_at => Time.now() + 5 do
+  scrape_now = scheduler.every '1h', :first_at => Time.now + 7 do #  '1h', :first_at => Time.now() + 5 do
 # scrape_in_10 = scheduler.every '1h', :first_at => Time.now + 600 do #  '1h', :first_at => Time.now() + 5 do
 # hourly_scrape = scheduler.every '1h', :first_at => Time.parse("4:00:00 pm") do #  '1h', :first_at => Time.now() + 5 do
-daily_scrape = scheduler.every '1d', :first_at => Time.parse("11:55:00 pm") do #  '1h', :first_at => Time.now() + 5 do
+# daily_scrape = scheduler.every '1d', :first_at => Time.parse("11:55:00 pm") do #  '1h', :first_at => Time.now() + 5 do
   Rails.logger.info "Log || SCRAPE || At: #{Time.now}"
   contract_indexes_to_scrape = scrape_for_references("https://www.tenders.vic.gov.au/tenders/contract/list.do?action=contract-view")
   contract_session = prepare_session()
