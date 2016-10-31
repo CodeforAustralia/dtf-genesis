@@ -140,7 +140,7 @@ def store_or_skip(contract_data)
       department_id: Faker::Number.between(0, 19),
       supplier_id: 0,
       contact_id: 0,
-      address: ""
+      address: "",
       vt_contract_number: contract_data[vt_contract_number]
       })
   end
