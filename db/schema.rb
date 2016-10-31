@@ -24,15 +24,6 @@ ActiveRecord::Schema.define(version: 20161030152042) do
     t.string   "email"
   end
 
-  create_table "contacts", force: :cascade do |t|
-    t.string   "name"
-    t.string   "phone"
-    t.string   "fax"
-    t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "contracts", force: :cascade do |t|
     t.string   "vt_contract_number"
     t.string   "status"
