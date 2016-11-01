@@ -5,9 +5,9 @@ def find_between(text, pre_string, post_string)
   if matches && matches.length > 1
     matches[1].strip
   else
-    puts "Match failed!"
-    puts "nothing between '#{pre_string}' & '#{post_string}'"
-    puts "in #{text}"
+    # puts "Match failed!"
+    # puts "nothing between '#{pre_string}' & '#{post_string}'"
+    # puts "in #{text}"
     ""
   end
 end
