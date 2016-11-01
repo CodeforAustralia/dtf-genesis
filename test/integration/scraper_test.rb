@@ -1,4 +1,5 @@
-require "#{Rails.root}/config/initializers/scraper_utils.rb"
+
+require "#{Rails.root}/lib/scrapers/scraper_utils.rb"
 
 class PagesControllerTest < ActionDispatch::IntegrationTest
 

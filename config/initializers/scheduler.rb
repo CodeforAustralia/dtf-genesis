@@ -1,6 +1,6 @@
 require "rufus-scheduler"
 require 'capybara/poltergeist'
-require "#{Rails.root}/config/initializers/scraper_utils.rb"
+require "#{Rails.root}/lib/scrapers/scraper_utils.rb"
 scheduler = Rufus::Scheduler.singleton
 Capybara.javascript_driver = :poltergeist
 
