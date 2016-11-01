@@ -8,9 +8,9 @@
 
 require 'faker'
 
-ContactPerson.create([
-  {name: "Testy McTestings", phone: "0419 390 496", fax: "(03) 9845 9876", email: "some@lame.address"}
-  ])
+# ContactPerson.create([
+#   {name: "Testy McTestings", phone: "0419 390 496", fax: "(03) 9845 9876", email: "some@lame.address"}
+#   ])
 
 
 Department.create!([
