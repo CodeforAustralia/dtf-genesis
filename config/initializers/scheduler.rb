@@ -42,7 +42,7 @@ def scrape_contract_ids(department_indexes_to_scrape)
       department_url = "https://www.tenders.vic.gov.au/tenders/contract/list.do?showSearch=false&action=contract-search-submit&issuingBusinessId=#{department_index}&issuingBusinessIdForSort=#{department_index}&pageNum=#{page_number}&awardDateFromString=#{@saved_date}"
       department_session.visit department_url
       contract_links = department_session.find_all("a#MSG2")
-      print "\n PG #{page_number}: "
+      print "\n   PG #{page_number}: "
       contract_links.each do |contract_link|
         vt_reference = contract_link["href"].to_s[59..63]
         print "."
@@ -60,7 +60,6 @@ end
 
 def scrape_for_references(department_list_url)
   department_indexes_to_scrape = scrape_department_ids(department_list_url)
-  puts "DEPS TO SCRAPE: #{department_indexes_to_scrape}"
   contract_indexes = scrape_contract_ids(department_indexes_to_scrape)
   puts "CONTRACTS TO SCRAPE: #{contract_indexes}"
   contract_indexes
