@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 3em;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   text-align: center;
 }
 
@@ -79,6 +79,9 @@ input, textarea, select, .uneditable-input {
   background-color: $input-active-alt-color;
   color: $input-active-color;
 }
+#filter {
+  margin-top: 15px;
+}
 
 form {
   border: 2px solid $input-alt-color;
@@ -115,6 +118,8 @@ tbody {
   border: 2px solid $input-alt-color;
 }
 .pagination {
+  margin-top: 4px;
+  margin-bottom: 2px;
   border: 2px solid $input-alt-color;
   .page {
     a {

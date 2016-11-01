@@ -7,22 +7,22 @@
     %br
 
     %div
-      = f.label :vt_contract_number, "Contract No. #{object.errors['vt_contract_number'][0]}"
+      = f.label :vt_contract_number, "Ref# #{object.errors['vt_contract_number'][0]}"
       = f.text_field :vt_contract_number
     %br
 
     %div
-      = f.label :total_value, "Total Value #{object.errors['total_value'][0]}"
+      = f.label :total_value, "Value #{object.errors['total_value'][0]}"
       = f.text_field :total_value
     %br
 
     %div
-      = f.label :start_date, "Start Date #{object.errors['start_date'][0]}"
+      = f.label :start_date, "Start #{object.errors['start_date'][0]}"
       = f.text_field :start_date
     %br
 
     %div
-      = f.label :end_date, "End Date #{object.errors['end_date'][0]}"
+      = f.label :end_date, "End #{object.errors['end_date'][0]}"
       = f.text_field :end_date
     %br
 
