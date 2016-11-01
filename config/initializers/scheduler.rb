@@ -42,10 +42,10 @@ def scrape_contract_ids(department_indexes_to_scrape)
       department_url = "https://www.tenders.vic.gov.au/tenders/contract/list.do?showSearch=false&action=contract-search-submit&issuingBusinessId=#{department_index}&issuingBusinessIdForSort=#{department_index}&pageNum=#{page_number}&awardDateFromString=#{@saved_date}"
       department_session.visit department_url
       contract_links = department_session.find_all("a#MSG2")
-      print "<PAGE_#{page_number}> "
+      print "\n PG #{page_number}: "
       contract_links.each do |contract_link|
         vt_reference = contract_link["href"].to_s[59..63]
-        print "[#{vt_reference}] "
+        print "."
         contract_indexes.push vt_reference
           # break # stop after first contract DEBUG
       end
@@ -80,5 +80,5 @@ end
     store_or_skip(contract_data)
   end
   contract_session.driver.quit
-  Rails.logger.info " :: Completed Scraping ::"
+  print "\n :: Completed Scraping ::"
 end
