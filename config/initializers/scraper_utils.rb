@@ -125,7 +125,7 @@ def store_or_skip(contract_data)
   ]
   if not unspsc_include.include?(contract_data[:contract_unspsc])
     print "."
-  elsif Contract.find_by(department_index: contract_data[:gov_entity_contract_numb])
+  elsif Contract.find_by(vt_contract_number: contract_data[:gov_entity_contract_numb]) # this will need to change when VT is fixed
     print "."
   else
     # Contract.create!(contract_number: contract_data[:gov_entity_contract_numb],
