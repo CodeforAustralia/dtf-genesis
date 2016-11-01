@@ -1,3 +1,195 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "pages";
+
+
+$main-text-color: #222200;
+
+$logo-color: #222200;
+$header-background: #FF7700;
+$main-background-color: #DFDAD3;
+
+$input-color: #FF7700;
+$input-alt-color: #222200;
+$input-active-color: #FF7744;
+$input-active-alt-color: #222244;
+
+.container {
+  color: $main-text-color;
+  width: 99%;
+}
+
+
+.navbar {
+  background-color: $header-background;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+body {
+  background-color: $main-background-color;
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: $logo-color;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #FFF;
+  text-decoration: none;
+}
+
+
+
+input, textarea, select, .uneditable-input {
+  border: 2px solid $input-alt-color;
+  width: 70%;
+  margin-bottom: 15px;
+  padding-left: 15px;
+  margin-right: 15px;
+  background-color: $input-color;
+}
+.btn {
+  border: 2px solid $input-alt-color;
+  margin-right: 15px;
+  color: $input-color;
+  background-color: $input-alt-color;
+}
+.btn:hover, .btn:active {
+  background-color: $input-active-alt-color;
+  color: $input-active-color;
+}
+
+form {
+  border: 2px solid $input-alt-color;
+  padding-right: 9%;
+  padding-left: 2%;
+}
+input {
+  height: auto !important;
+}
+.smart-listing {
+  width: 100%;
+  border: 2px solid $input-alt-color;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.sortable {
+  color: $input-alt-color;
+}
+
+tbody {
+  border: 2px solid $input-alt-color;
+}
+
+.index-haml-pages {
+  border: 2px solid $input-alt-color;
+}
+
+.pagination-per-page {
+  width: 60%;
+  margin-left: 20%;
+  text-align: center;
+  border: 2px solid $input-alt-color;
+}
+.pagination {
+  border: 2px solid $input-alt-color;
+  .page {
+    a {
+      background-color: $input-alt-color;
+      color: $input-color;
+    }
+    a:hover, a:active {
+      background-color: $input-active-alt-color;
+      color: $input-active-color;
+    }
+  }
+  .active {
+    a {
+      background-color: $input-color;
+      color: $input-alt-color;
+    }
+    a:hover, a:active {
+      background-color: $input-active-color;
+      color: $input-active-alt-color;
+    }
+  }
+  .next_page {
+    a {
+      background-color: $input-alt-color;
+      color: $input-color;
+    }
+    a:hover, a:active {
+      background-color: $input-active-alt-color;
+      color: $input-active-color;
+    }
+  }
+  .last {
+    a {
+      background-color: $input-alt-color;
+      color: $input-color;
+    }
+    a:hover, a:active {
+      background-color: $input-active-alt-color;
+      color: $input-active-color;
+    }
+  }
+  .prev {
+    a {
+      background-color: $input-alt-color;
+      color: $input-color;
+    }
+    a:hover, a:active {
+      background-color: $input-active-alt-color;
+      color: $input-active-color;
+    }
+  }
+  .first {
+    a {
+      background-color: $input-alt-color;
+      color: $input-color;
+    }
+    a:hover, a:active {
+      background-color: $input-active-alt-color;
+      color: $input-active-color;
+    }
+  }
+}
+
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    $input-alt-color;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    $input-alt-color;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    $input-alt-color;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    $input-alt-color;
+}

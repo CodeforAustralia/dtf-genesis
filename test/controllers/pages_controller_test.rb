@@ -7,7 +7,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     visit(pages_home_url)
     screenshot_and_save_page
 
-    assert page.has_content?("working very hard")
+    assert page.has_content?("find out what Victoria is building")
     assert_match root_path, current_path
     assert_includes 200...300, page.status_code
   end

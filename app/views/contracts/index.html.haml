@@ -1,5 +1,5 @@
 %div
-  %h1= "List Of Awarded Contracts"
+  %h1= "Construction Contracts Register"
   = smart_listing_controls_for(:contracts, {class: ""}) do
     %div.filter.form-search
       .input-group
@@ -7,7 +7,7 @@
         %span.input-group-btn
           = submit_tag 'Refresh', :class => "btn btn-default", :name => "do_query"
           = link_to  "Clear search", '/contracts', class: "btn btn-default"
-                                
+
   %script(type="text/javascript")
     - if params[:f]
       - params[:f].each do |field, param|
@@ -18,5 +18,5 @@
             - else
               value = "#{value[:v]}"
               $.filters.append(humanize("#{field}"), "#{field}", "#{Contract.columns_hash[field].type}", value, "#{value['o']}", "", "#{option}");
-                              
+
   = smart_listing_render :contracts
