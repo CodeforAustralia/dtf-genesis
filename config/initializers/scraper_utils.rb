@@ -112,9 +112,9 @@ def store_or_skip(contract_data)
     "Building and Construction and Maintenance Services - (100%)"
   ]
   if not unspsc_include.include?(contract_data[:contract_unspsc])
-    nil
+    print "."
   elsif Contract.find_by(department_index: contract_data[:gov_entity_contract_numb])
-    nil
+    print "."
   else
     # Contract.create!(contract_number: contract_data[:gov_entity_contract_numb],
     #                  status: contract_data[:contract_status],
@@ -122,7 +122,7 @@ def store_or_skip(contract_data)
     #                  start_date: contract_data[:contract_start],
     #                  end_date: contract_data[:contract_end],
     #                  total_value: contract_data[:contract_value] )
-
+    print "*"
     Contract.create!({
       vt_contract_number: contract_data[:gov_entity_contract_numb], #todo fix this sh#t
       # department_index: contract_data[:gov_entity_contract_numb],
