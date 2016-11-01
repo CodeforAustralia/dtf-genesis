@@ -5,9 +5,9 @@ def find_between(text, pre_string, post_string)
   if matches && matches.length > 1
     matches[1].strip
   else
-    puts "Match failed!"
-    puts "nothing between '#{pre_string}' & '#{post_string}'"
-    puts "in #{text}"
+    # puts "Match failed!"
+    # puts "nothing between '#{pre_string}' & '#{post_string}'"
+    # puts "in #{text}"
     ""
   end
 end
@@ -67,7 +67,13 @@ def lookup_contract_status(text)
 end
 
 def lookup_contract_unspsc(text)
-  30000000
+  if text.include?("Structures and Building and Construction and Manufacturing Components and Supplies")
+    30000000
+  elsif text.include?("Building and Construction and Maintenance Services") #72100000
+    72000000
+  else
+    0
+  end
 end
 
 def extract_contract_data(text, contract_index)
@@ -88,10 +94,15 @@ def extract_contract_data(text, contract_index)
     contract_end = Date.parse("11/10/1900")
   end
   contract_status = find_between(text, "Status:", "UNSPSC :")
-  contract_unspsc = find_between(text, "UNSPSC :", "Description")
+  begin
+    contract_unspsc1 = find_between(text, "UNSPSC :", "Description")
+  rescue
+    contract_unspsc1 = find_between(text, "UNSPSC 1:", "Description")
+    contract_unspsc2 = find_between(text, "UNSPSC 2:", "Description")
+  end
   contract_details = find_between(text, "Description", "Agency Contact Details")
   { gov_entity: gov_entity,
-    gov_entity_contract_numb: gov_entity_contract_numb,
+    gov_entity_contract_numb: gov_entity_contract_numb, # should be contract_index
     gov_entity_id_numb: lookup_department_id(gov_entity),
     contract_title: contract_title,
     contract_type: lookup_contract_type(contract_type),
@@ -100,21 +111,22 @@ def extract_contract_data(text, contract_index)
     contract_start: contract_start,
     contract_end: contract_end,
     contract_status: lookup_contract_status(contract_status),
-    contract_unspsc: lookup_contract_unspsc(contract_unspsc),
+    contract_unspsc: lookup_contract_unspsc(contract_unspsc1),
     contract_details: contract_details,
-    vt_contract_index: contract_index
+    vt_contract_index: gov_entity_contract_numb # should be contract_index: ex vt_contract_number
   }
 end
 
 def store_or_skip(contract_data)
   unspsc_include = [
-    "Structures and Building and Construction and Manufacturing Components and Supplies - (100%)",
-    "Building and Construction and Maintenance Services - (100%)"
+    30000000,
+    31000000,
+    72000000
   ]
   if not unspsc_include.include?(contract_data[:contract_unspsc])
-    nil
-  elsif Contract.find_by(department_index: contract_data[:gov_entity_contract_numb])
-    nil
+    print "."
+  elsif Contract.find_by(vt_contract_number: contract_data[:gov_entity_contract_numb]) # this will need to change when VT is fixed
+    print "."
   else
     # Contract.create!(contract_number: contract_data[:gov_entity_contract_numb],
     #                  status: contract_data[:contract_status],
@@ -122,9 +134,9 @@ def store_or_skip(contract_data)
     #                  start_date: contract_data[:contract_start],
     #                  end_date: contract_data[:contract_end],
     #                  total_value: contract_data[:contract_value] )
-
-    Contract.create!({
-      vt_contract_number: contract_data[:gov_entity_contract_numb], #todo fix this sh#t
+    print "*"
+    Contract.create({
+#      vt_contract_number: contract_data[:gov_entity_contract_numb], #todo fix this sh#t
       # department_index: contract_data[:gov_entity_contract_numb],
       status: contract_data[:contract_status],
       title: contract_data[:contract_title],
@@ -141,7 +153,7 @@ def store_or_skip(contract_data)
       supplier_id: 0,
       contact_id: 0,
       address: "",
-      vt_contract_number: contract_data[vt_contract_number]
+      vt_contract_number: contract_data[:gov_entity_contract_numb]
       })
   end
 end

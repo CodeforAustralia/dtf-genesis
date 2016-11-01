@@ -1,10 +1,10 @@
 SmartListing.configure do |config|
   config.global_options({
-    #:param_names  => {                                              # param names
-      #:page                         => :page,
+    :param_names  => {                                              # param names
+      :page                         => :page,
       #:per_page                     => :per_page,
       #:sort                         => :sort,
-    #},
+    },
     #:array                          => false,                       # controls whether smart list should be using arrays or AR collections
     #:max_count                      => nil,                         # limit number of rows
     #:unlimited_per_page             => false,                       # allow infinite page size
@@ -29,8 +29,8 @@ SmartListing.configure do |config|
     #:autoselect            => "autoselect",
     #:callback              => "callback",
     #:pagination_wrapper    => "text-center",
-    #:pagination_container  => "pagination",
-    #:pagination_per_page   => "pagination-per-page text-center",
+    :pagination_container  => "pagination",
+    :pagination_per_page   => "pagination-per-page text-center",
     #:inline_editing        => "info",
     #:no_records            => "no-records",
     #:limit                 => "smart-listing-limit",
