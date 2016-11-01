@@ -84,12 +84,12 @@ input, textarea, select, .uneditable-input {
 .btn {
   border: 2px solid $input-alt-color;
   margin-right: 15px;
-  color: $input-color;
-  background-color: $input-alt-color;
+  color: $input-alt-color;
+  background-color: $input-color;
 }
 .btn:hover, .btn:active {
-  background-color: $input-active-alt-color;
-  color: $input-active-color;
+  background-color: $input-active-color;
+  color: $input-active-alt-color;
 }
 #filter {
   margin-top: 15px;
@@ -139,6 +139,16 @@ tbody {
   border: 2px solid $input-alt-color;
   .page {
     a {
+      background-color: $input-color;
+      color: $input-alt-color;
+    }
+    a:hover, a:active {
+      background-color: $input-active-color;
+      color: $input-active-alt-color;
+    }
+  }
+  .active {
+    a {
       background-color: $input-alt-color;
       color: $input-color;
     }
@@ -147,7 +157,7 @@ tbody {
       color: $input-active-color;
     }
   }
-  .active {
+  .next_page {
     a {
       background-color: $input-color;
       color: $input-alt-color;
@@ -157,44 +167,34 @@ tbody {
       color: $input-active-alt-color;
     }
   }
-  .next_page {
-    a {
-      background-color: $input-alt-color;
-      color: $input-color;
-    }
-    a:hover, a:active {
-      background-color: $input-active-alt-color;
-      color: $input-active-color;
-    }
-  }
   .last {
     a {
-      background-color: $input-alt-color;
-      color: $input-color;
+      background-color: $input-color;
+      color: $input-alt-color;
     }
     a:hover, a:active {
-      background-color: $input-active-alt-color;
-      color: $input-active-color;
+      background-color: $input-active-color;
+      color: $input-active-alt-color;
     }
   }
   .prev {
     a {
-      background-color: $input-alt-color;
-      color: $input-color;
+      background-color: $input-color;
+      color: $input-alt-color;
     }
     a:hover, a:active {
-      background-color: $input-active-alt-color;
-      color: $input-active-color;
+      background-color: $input-active-color;
+      color: $input-active-alt-color;
     }
   }
   .first {
     a {
-      background-color: $input-alt-color;
-      color: $input-color;
+      background-color: $input-color;
+      color: $input-alt-color;
     }
     a:hover, a:active {
-      background-color: $input-active-alt-color;
-      color: $input-active-color;
+      background-color: $input-active-color;
+      color: $input-active-alt-color;
     }
   }
 }
