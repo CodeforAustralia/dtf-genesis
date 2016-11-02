@@ -18,9 +18,7 @@ class ContractsController < ApplicationController
   end
 
   def show
-    respond_to do |format|
-      format.json { render json: @contract }
-    end
+    @contract = Contract.find(params[:id])
   end
 
   def new
