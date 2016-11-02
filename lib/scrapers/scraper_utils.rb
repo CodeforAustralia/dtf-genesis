@@ -198,13 +198,13 @@ end
 def store_this_contract?(contract_data)
   unspsc_keepers = [30000000, 31000000, 72000000]
   if not unspsc_keepers.include?(contract_data[:contract_unspsc])
-    print "."
+#    print "."
     false
   elsif Contract.find_by(vt_contract_number: contract_data[:gov_entity_contract_numb]) # this will need to change when VT is fixed
-    print "."
+#    print "."
     false
   else
-    print "*"
+#    print "*"
     true
   end
 end
