@@ -127,6 +127,8 @@ def lookup_department_id(department_text)
     18641
   elsif department_text.include?("WoVG Land Sales")
     18669
+  else
+    0
   end
 end
 
