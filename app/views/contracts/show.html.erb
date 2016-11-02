@@ -3,21 +3,37 @@
 
 <h1><%= @contract.title %></h1>
 
-<h2>Description:</h2>
+<h3>Description:</h3>
 <div><%= @contract.contract_description %></div>
 
-<h2>Dates:</h2>
-<div><%= @contract.start_date %> -> <%= @contract.end_date %></div>
+<h3>Dates:</h3>
+<div>Contract: <%= @contract.start_date %> -> <%= @contract.end_date %></div>
+<div>Record created: <%= @contract.created_at %></div>
+<div>Record modified: <%= @contract.updated_at %></div>
 
-<h2>Status:</h2>
-<div><%= @contract.status %></div>
 
-<h2>Value:</h2>
-<div><%= @contract.total_value %></div>
+<h3>Contract:</h3>
+<div>Total value: <%= @contract.total_value %></div>
+<div>Value type#: <%= @contract.value_type_index %></div>
+<div>Status: <%= @contract.status %></div>
+<div>Status#: <%= @contract.status_index %></div>
+<div>StatusId: <%= @contract.status_id %></div>
+<div>Type#: <%= @contract.contract_type_index %></div>
+<div>TypeId: <%= @contract.contract_type_id %></div>
+<div>ContactId: <%= @contract.contact_id %></div>
+<div>Address: <%= @contract.address %></div>
 
-<h2>Department Ref#:</h2>
-<div><%= @contract.department_index %></div>
+<h3>Department Ref#:</h3>
+<div>Department#: <%= @contract.department_index %></div>
+<div>DepartmentId: <%= @contract.department_id %></div>
+<div>ProjectId: <%= @contract.project_id %></div>
 
-<h2>UNSPSC Code:</h2>
-<div><%= @contract.unspc_code %></div>
-<div><%= @contract.unspsc_id %></div>
+<h3>VicTenders:</h3>
+<div>RefNum:<%= @contract.vt_contract_number %></div>
+
+<h3>UNSPSC Code:</h3>
+<div>Code: <%= @contract.unspc_code %></div>
+<div>Id: <%= @contract.unspsc_id %></div>
+
+<h3>Supplier:</h3>
+<div>SupplierId: <%= @contract.supplier_id %></div>
