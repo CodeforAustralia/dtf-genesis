@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20161030152042) do
     t.integer  "value_type_index"
     t.integer  "status_index"
     t.integer  "unspc_code"
-    t.text     "contract_description"
+    t.string   "contract_description"
     t.integer  "department_id"
     t.integer  "supplier_id"
     t.integer  "contact_id"
