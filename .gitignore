@@ -11,6 +11,7 @@
 /tmp/
 /notes/
 /log
+/log/production.log
 /config/database.yml
 npm-debug.log*
 

@@ -3,14 +3,26 @@
 @import "pages";
 
 
+// Declare the color as RGB; SASS will treat this as hex
+$orange: rgb(250,70,00);
+// Declare an alpha
+$alpha75: .70;
+$alpha50: .5;
+$alpha25: .25;
+// Declare another color variable as a color with an alpha
+$orangeAlpha75: rgba($orange, $alpha75);
+$orangeAlpha50: rgba($orange, $alpha50);
+$orangeAlpha25: rgba($orange, $alpha25);
+
+
 $main-text-color: #222200;
 
 $logo-color: #222200;
-$header-background: #FF7700;
+$header-background: $orangeAlpha75;
 $main-background-color: #DFDAD3;
 
-$input-color: #FF7700;
-$input-active-color: #DD5500;
+$input-color: $orangeAlpha75;
+$input-active-color: $orangeAlpha50;
 
 $input-alt-color: #222200;
 $input-active-alt-color: #000000;
@@ -48,7 +60,7 @@ ul.nav {
 }
 ul.nav a {
   color: $main-text-color !important;
-  text-decoration: underline;
+  text-decoration: none;
   font-weight: bold;
 }
 ul.nav a:hover { color: #FFF !important; }
@@ -82,7 +94,7 @@ body {
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 #logo:hover {
