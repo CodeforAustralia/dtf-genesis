@@ -24,6 +24,25 @@ $input-active-alt-color: #000000;
   background-color: $header-background;
 }
 
+.actions {
+  margin-right: 0px;
+  padding-right: 0px;
+  margin-left: 0px;
+  padding-left: 0px;
+  text-align: center;
+  a {
+    margin-right: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+}
+.destroy {
+  a {
+    text-align: center;
+  }
+}
+
 ul.nav {
   font-size: 1.25em;
 }
@@ -78,12 +97,11 @@ input, textarea, select, .uneditable-input {
   width: 70%;
   margin-bottom: 15px;
   padding-left: 15px;
-  margin-right: 15px;
   background-color: $input-color;
 }
 .btn {
   border: 2px solid $input-alt-color;
-  margin-right: 15px;
+  margin-right: 5px;
   color: $input-alt-color;
   background-color: $input-color;
 }
@@ -109,7 +127,7 @@ input {
   padding-top: 10px;
   padding-bottom: 5px;
   padding-left: 5px;
-  padding-right: 5px;
+  padding-right: 0px;
   .table-text {
     padding-left: 10px;
     padding-top: 3px;
