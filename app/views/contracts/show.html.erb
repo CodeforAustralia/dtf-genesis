@@ -17,7 +17,7 @@
   <dd><h4>StatusId: <%= @contract.status_id %></h4></dd>
 
   <dt><h4>Value:</h4></dt>
-  <dd><h4><%= @contract.total_value %></h4></dd>
+  <dd><h4><%= humanized_money_with_symbol(@contract.total_value) %></h4></dd>
   <dd><h4>Value typeIdx: <%= @contract.value_type_index %></h4></dd>
 
   <dt><h4>Department Ref#:</h4></dt>
