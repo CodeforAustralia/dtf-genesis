@@ -195,26 +195,25 @@ def extract_contract_data(text, contract_index)
   }
 end
 
-def store_or_skip(contract_data)
-  unspsc_include = [
-    30000000,
-    31000000,
-    72000000
-  ]
-  if not unspsc_include.include?(contract_data[:contract_unspsc])
-    print "."
+def store_this_contract?(contract_data)
+  unspsc_keepers = [30000000, 31000000, 72000000]
+  if not unspsc_keepers.include?(contract_data[:contract_unspsc])
+#    print "."
+    false
   elsif Contract.find_by(vt_contract_number: contract_data[:gov_entity_contract_numb]) # this will need to change when VT is fixed
-    print "."
+#    print "."
+    false
   else
-    # Contract.create!(contract_number: contract_data[:gov_entity_contract_numb],
-    #                  status: contract_data[:contract_status],
-    #                  title: contract_data[:contract_title],
-    #                  start_date: contract_data[:contract_start],
-    #                  end_date: contract_data[:contract_end],
-    #                  total_value: contract_data[:contract_value] )
-    print "*"
+#    print "*"
+    true
+  end
+end
+
+def store_or_skip(contract_data)
+  if store_this_contract? contract_data
     Contract.create({
-#      vt_contract_number: contract_data[:gov_entity_contract_numb], #todo fix this sh#t
+#      vt_contract_number: contract_data[:gov_entity_contract_numb], #todo fix-me
+      vt_contract_number: contract_data[:gov_entity_contract_numb],
       # department_index: contract_data[:gov_entity_contract_numb],
       status: contract_data[:contract_status],
       title: contract_data[:contract_title],
@@ -222,16 +221,15 @@ def store_or_skip(contract_data)
       end_date: contract_data[:contract_end],
       total_value: contract_data[:contract_value],
       department_index: contract_data[:gov_entity_id_numb],
+      department_id: contract_data[:gov_entity_id_numb],
       contract_type_index: contract_data[:contract_type],
       value_type_index: contract_data[:value_type],
       status_index: contract_data[:contract_status],
       unspc_code: contract_data[:contract_unspsc],
       contract_description: contract_data[:contract_details],
-      department_id: Faker::Number.between(0, 19),
       supplier_id: 0,
       contact_id: 0,
-      address: "",
-      vt_contract_number: contract_data[:gov_entity_contract_numb]
-      })
+      address: ""
+    })
   end
 end

@@ -1,17 +1,42 @@
 <dl class="dl-horizontal">
+
   <dt><h4>Contract Details:</h4></dt>
   <dd><h2><%= @contract.title %></h2></dd>
+  <dd><h4>Type#: <%= @contract.contract_type_index %></h4></dd>
+  <dd><h4>TypeId: <%= @contract.contract_type_id %></h4></dd>
+
   <dt><h4>Description:</h4></dt>
   <dd><h4><%= @contract.contract_description %></h4></dd>
+
   <dt><h4><h4>Dates:</h4></dt>
   <dd><h4><%= @contract.start_date %> -> <%= @contract.end_date %></h4></dd>
+
   <dt><h4>Status:</h4></dt>
   <dd><h4><%= @contract.status %></h3></h4></dd>
+  <dd><h4>StatusIdx: <%= @contract.status_index %></h4></dd>
+  <dd><h4>StatusId: <%= @contract.status_id %></h4></dd>
+
   <dt><h4>Value:</h4></dt>
   <dd><h4><%= @contract.total_value %></h4></dd>
+  <dd><h4>Value typeIdx: <%= @contract.value_type_index %></h4></dd>
+
   <dt><h4>Department Ref#:</h4></dt>
   <dd><h4><%= @contract.department_index %></h4></dd>
+  <dd><h4>DepartmentId: <%= @contract.department_id %></h4></dd>
+  <dd><h4>ContactId: <%= @contract.contact_id %></h4></dd>
+  <dd><h4>ProjectId: <%= @contract.project_id %></h4></dd>
+
   <dt><h4>UNSPSC Code:</h4></dt>
   <dd><h4><%= @contract.unspc_code %></h4></dd>
   <dd><h4><%= @contract.unspsc_id %></h4></dd>
+
+  <h3>Supplier:</h3>
+  <dd><h4>SupplierId: <%= @contract.supplier_id %></h4></dd>
+  <dd><h4>Address: <%= @contract.address %></h4></dd>
+
+  <h3>Metadata:</h3>
+  <dd><h4>Record created: <%= @contract.created_at %></h4></dd>
+  <dd><h4>Record modified: <%= @contract.updated_at %></h4></dd>
+  <dd><h4>VT RefNum: <%= @contract.vt_contract_number %></h4></dd>
+
 </dl>
