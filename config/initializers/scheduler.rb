@@ -64,11 +64,10 @@ end
 notify_now = scheduler.every '1m', :first_at => Time.now + 7 do #  DEBUG
   contracts_starting_today = Contract.where(start_date: Time.now)
   contracts_starting_today.each do |contract|
-    puts "Contract starting today: #{contract.title}"
+    tweet_contract_start contract
   end
   contracts_ending_today = Contract.where(end_date: Time.now)
   contracts_ending_today.each do |contract|
-    puts "Contract ending today: #{contract.title}"
+    tweet_contract_end contract
   end
-  tweet_contract_announcement nil
 end
