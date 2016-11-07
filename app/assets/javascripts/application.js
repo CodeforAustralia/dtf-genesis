@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require detail
 //= require smart_listing
-//= require listing
 //= require_tree .
 
 
