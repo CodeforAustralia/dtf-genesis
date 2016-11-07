@@ -55,7 +55,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
       contract_type: 0,
       contract_value: 410000,
       value_type: 0,
-      value_type_index: 0,
+      value_type_index: ContractValueType.find_by(type_description: "Fixed Price").id,
       contract_start: Date.parse("04/04/2016"),
       contract_end: Date.parse("05/04/2018"),
       contract_status: 0,
