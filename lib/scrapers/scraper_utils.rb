@@ -137,7 +137,11 @@ def lookup_contract_type(text)
 end
 
 def lookup_value_type(text)
-  0
+  if text.include?("Estimate")
+    1
+  else
+    0
+  end
 end
 
 def lookup_contract_status(text)
@@ -160,6 +164,7 @@ def extract_contract_data(text, contract_index)
   contract_title = find_between(text, "Title:","Type of Contract:")
   contract_type = find_between(text, "Type of Contract:","Total Value of the Contract:")
   value_string = find_between(text, "Total Value of the Contract:","Start Date:")
+  value_type = find_between(value_string,"(",")")
   contract_value = (value_string.gsub(",","").gsub("$","").to_f).to_i
   begin
     contract_start = Date.parse(find_between(text, "Start Date:","Expiry Date:"))
@@ -185,6 +190,7 @@ def extract_contract_data(text, contract_index)
     contract_title: contract_title,
     contract_type: lookup_contract_type(contract_type),
     contract_value: contract_value,
+    value_type_index: lookup_value_type(value_type),
     value_type: lookup_value_type(value_string),
     contract_start: contract_start,
     contract_end: contract_end,
