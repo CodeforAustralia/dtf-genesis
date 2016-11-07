@@ -202,8 +202,6 @@ def extract_contract_data(text, contract_index)
 end
 
 def store_this_contract?(contract_data)
-
-
   unspsc_keepers = [72000000, 72131700, 72100000, 77000000, 92100000, 80000000, 30000000, 31000000, 83000000, 23000000, 22000000, 25000000, 72130000, 32000000, 92101500, 72131600, 70000000, 85000000]
   if not unspsc_keepers.include?(contract_data[:contract_unspsc])
 #    print "."
