@@ -12,6 +12,10 @@ require 'faker'
 #   {name: "Testy McTestings", phone: "0419 390 496", fax: "(03) 9845 9876", email: "some@lame.address"}
 #   ])
 
+ContractValueType.create([
+  {type_description: "Estimate", type_shortname: "est"},
+  {type_description: "Fixed Price", type_shortname: "fix"}
+  ])
 
 Department.create!([
   { name: "CenITex", short_name: "CTX", vt_number: 5154 },

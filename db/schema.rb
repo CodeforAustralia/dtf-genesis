@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161030152042) do
+ActiveRecord::Schema.define(version: 20161107223121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,22 @@ ActiveRecord::Schema.define(version: 20161030152042) do
     t.string   "phone"
     t.string   "fax"
     t.string   "email"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "fax"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contract_value_types", force: :cascade do |t|
+    t.string   "type_description"
+    t.string   "type_shortname"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "contracts", force: :cascade do |t|
@@ -38,7 +54,7 @@ ActiveRecord::Schema.define(version: 20161030152042) do
     t.integer  "value_type_index"
     t.integer  "status_index"
     t.integer  "unspc_code"
-    t.string   "contract_description"
+    t.text     "contract_description"
     t.integer  "department_id"
     t.integer  "supplier_id"
     t.integer  "contact_id"
