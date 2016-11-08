@@ -2,21 +2,23 @@
   %div.media-body
     %table.table-striped
       %thead.index-haml-pages
-        %th.col-md-3= smart_listing.sortable "Title", "title"
+        %th.col-md-4= smart_listing.sortable "Title", "title"
         %th.col-md-1= smart_listing.sortable "Reference", "vt_contract_number"
         %th.col-md-1= smart_listing.sortable "Value", "total_value"
         %th.col-md-1= smart_listing.sortable "Start", "start_date"
         %th.col-md-1= smart_listing.sortable "End", "end_date"
         %th.col-md-1= smart_listing.sortable "Status", "status"
-        %th.col-md-1= smart_listing.sortable "Details", "actions"
+        / %th.col-md-1= smart_listing.sortable "Details", "actions"
 
       %tbody
         - smart_listing.collection.each do |o|
-          %tr.editable{:data => {:id => o.id}}
+          %tr.editable.contracts-row{:data => {:id => o.id}}
             = smart_listing.render object: o, partial: "contracts/contract", locals: {object: o}
 
         / %div.smart-listing-new-button
         /   = smart_listing.item_new colspan: 12, link: new_contract_path
+    :javascript
+      findContractId();
 
     = smart_listing.paginate
     = smart_listing.pagination_per_page_links
