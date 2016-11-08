@@ -24,6 +24,22 @@ ActiveRecord::Schema.define(version: 20161107234433) do
     t.string   "email"
   end
 
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "fax"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contract_value_types", force: :cascade do |t|
+    t.string   "type_description"
+    t.string   "type_shortname"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
   create_table "contracts", force: :cascade do |t|
     t.string   "vt_contract_number"
     t.string   "status"
@@ -38,7 +54,7 @@ ActiveRecord::Schema.define(version: 20161107234433) do
     t.integer  "value_type_index"
     t.integer  "status_index"
     t.integer  "unspc_code"
-    t.string   "contract_description"
+    t.text     "contract_description"
     t.integer  "department_id"
     t.integer  "supplier_id"
     t.integer  "contact_id"
