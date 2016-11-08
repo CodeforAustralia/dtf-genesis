@@ -137,6 +137,12 @@ def lookup_contract_type(text)
 end
 
 def lookup_value_type(text)
+  ContractValueType.all.each do |value_type|
+    if text.include?(value_type.type_description)
+      return value_type.id
+    end
+  end
+  puts "   :::   Contract value type not found in #{text}" if text != ""
   0
 end
 
@@ -160,6 +166,7 @@ def extract_contract_data(text, contract_index)
   contract_title = find_between(text, "Title:","Type of Contract:")
   contract_type = find_between(text, "Type of Contract:","Total Value of the Contract:")
   value_string = find_between(text, "Total Value of the Contract:","Start Date:")
+#  value_type = find_between(value_string,"(",")")
   contract_value = (value_string.gsub(",","").gsub("$","").to_f).to_i
   begin
     contract_start = Date.parse(find_between(text, "Start Date:","Expiry Date:"))
@@ -185,7 +192,8 @@ def extract_contract_data(text, contract_index)
     contract_title: contract_title,
     contract_type: lookup_contract_type(contract_type),
     contract_value: contract_value,
-    value_type: lookup_value_type(value_string),
+    value_type_index: lookup_value_type(value_string),
+#    value_type: 0,
     contract_start: contract_start,
     contract_end: contract_end,
     contract_status: lookup_contract_status(contract_status),
@@ -196,7 +204,7 @@ def extract_contract_data(text, contract_index)
 end
 
 def store_this_contract?(contract_data)
-  unspsc_keepers = [30000000, 31000000, 72000000]
+  unspsc_keepers = [72000000, 72131700, 72100000, 77000000, 92100000, 80000000, 30000000, 31000000, 83000000, 23000000, 22000000, 25000000, 72130000, 32000000, 92101500, 72131600, 70000000, 85000000]
   if not unspsc_keepers.include?(contract_data[:contract_unspsc])
 #    print "."
     false
@@ -223,7 +231,7 @@ def store_or_skip(contract_data)
       department_index: contract_data[:gov_entity_id_numb],
       department_id: contract_data[:gov_entity_id_numb],
       contract_type_index: contract_data[:contract_type],
-      value_type_index: contract_data[:value_type],
+      value_type_index: contract_data[:value_type_index],
       status_index: contract_data[:contract_status],
       unspc_code: contract_data[:contract_unspsc],
       contract_description: contract_data[:contract_details],
