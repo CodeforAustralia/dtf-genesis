@@ -5,18 +5,22 @@ class CouncilsController < ApplicationController
   end
 
   def show
+    @council = Council.find(params[:id])
   end
 
   def new
+    @council = Council.new
   end
 
   def create
+    @council = Council.create(council_params)
   end
 
   def edit
   end
 
   def update
+    @council = Council.update_attributes(council_params)
   end
 
   def destroy
