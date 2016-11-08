@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107233917) do
+ActiveRecord::Schema.define(version: 20161108074203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,15 +22,6 @@ ActiveRecord::Schema.define(version: 20161107233917) do
     t.string   "phone"
     t.string   "fax"
     t.string   "email"
-  end
-
-  create_table "contacts", force: :cascade do |t|
-    t.string   "name"
-    t.string   "phone"
-    t.string   "fax"
-    t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "contract_value_types", force: :cascade do |t|
@@ -54,7 +45,7 @@ ActiveRecord::Schema.define(version: 20161107233917) do
     t.integer  "value_type_index"
     t.integer  "status_index"
     t.integer  "unspc_code"
-    t.text     "contract_description"
+    t.string   "contract_description"
     t.integer  "department_id"
     t.integer  "supplier_id"
     t.integer  "contact_id"
@@ -65,12 +56,27 @@ ActiveRecord::Schema.define(version: 20161107233917) do
     t.integer  "status_id"
   end
 
+  create_table "councils", force: :cascade do |t|
+    t.string   "codename"
+    t.string   "name"
+    t.string   "shortname"
+    t.string   "type"
+    t.string   "region_code"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "departments", force: :cascade do |t|
     t.string   "name"
     t.string   "short_name"
     t.integer  "vt_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "location_codes", force: :cascade do |t|
+    t.string "code"
+    t.string "description"
   end
 
   create_table "locations", force: :cascade do |t|
