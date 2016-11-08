@@ -244,3 +244,8 @@ tbody {
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
    color:    $input-alt-color;
 }
+
+.contracts-row:hover {
+    cursor: pointer;
+    background: $orangeAlpha25;
+}
