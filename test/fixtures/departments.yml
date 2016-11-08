@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  short_name: MyString
-  vt_number: 1
+  name: CenITex
+  short_name: CTX
+  vt_number: 5154
 
 two:
-  name: MyString
+  name: Department of Health and Human Services - Infrastructure Planning and Delivery
   short_name: MyString
-  vt_number: 1
+  vt_number: 43010

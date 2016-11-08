@@ -20,6 +20,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_equal 5154, lookup_department_id(" CenITex")
     assert_equal 5154, lookup_department_id("CenITex ")
     assert_equal 5154, lookup_department_id("CenITex (452)")
+    assert_equal 5154, lookup_department_id("CeniTex")
     assert_equal 5154, lookup_department_id("bsry^&>>808-<*7r6^%MndbrCenITexSJRrjstjrj^,86),mr")
   end
 
@@ -27,7 +28,6 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_equal 0, lookup_department_id("CenIex")
     assert_equal 0, lookup_department_id(" CenTex")
     assert_equal 0, lookup_department_id("CeITex ")
-    assert_equal 0, lookup_department_id("CeniTex")
     assert_equal 0, lookup_department_id("")
   end
 

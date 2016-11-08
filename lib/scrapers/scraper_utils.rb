@@ -89,47 +89,12 @@ def find_between(text, pre_string, post_string)
 end
 
 def lookup_department_id(department_text)
-  if department_text.include?("CenITex")
-    5154
-  elsif department_text.include?("Department of Economic Development, Jobs, Transport and Resources")
-    43087
-  elsif department_text.include?("Department of Education and Training")
-    42999
-  elsif department_text.include?("Department of Environment and Primary Industries")
-    43
-  elsif department_text.include?("Department of Environment, Land, Water and Planning")
-    42924
-  elsif department_text.include?("Department of Health & Human Services (DHHS)")
-    42963
-  elsif department_text.include?("Department of Health and Human Services - Infrastructure Planning and Delivery")
-    43010
-  elsif department_text.include?("Department of Justice & Regulation")
-    43004
-  elsif department_text.include?("Department of Premier and Cabinet")
-    10
-  elsif department_text.include?("Independent Broad-based Anti-corruption Commission")
-    42425
-  elsif department_text.include?("Infrastructure Victoria")
-    52488
-  elsif department_text.include?("Major Projects Victoria")
-    20135
-  elsif department_text.include?("Metropolitan Fire and Emergency Services Board")
-    3161
-  elsif department_text.include?("State Revenue Office")
-    15
-  elsif department_text.include?("Victoria Police")
-    39
-  elsif department_text.include?("Victorian Auditor General's Office")
-    5979
-  elsif department_text.include?("Victorian Commission for Gambling and Liquor Regulation")
-    33602
-  elsif department_text.include?("Whole of Victorian Government")
-    18641
-  elsif department_text.include?("WoVG Land Sales")
-    18669
-  else
+    Department.all.each do |department|
+      if department_text.downcase.include?(department.name.downcase)
+        return department.vt_number
+      end
+    end
     0
-  end
 end
 
 def lookup_contract_type(text)
