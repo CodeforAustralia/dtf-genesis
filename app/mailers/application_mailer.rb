@@ -4,6 +4,6 @@ class ApplicationMailer < ActionMailer::Base
   def announce_email(contract, email)
     puts "mailer CON:#{contract}"
     @contract = contract
-    mail(to: email, subject: "Sample email")
+    mail(to: email, subject: "Sample email", body: "not much yet")
   end
 end
