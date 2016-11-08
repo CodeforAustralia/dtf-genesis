@@ -44,6 +44,13 @@ class ContractsController < ApplicationController
     render json: Contract.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%")
   end
 
+  def save
+    puts "Saving... maybe"
+    send_data("your_data_is_belong_to_me",
+      :filename => "results.txt",
+      :type => "text/plain")
+  end
+
   private
     def set_contract
       @contract = Contract.find(params[:id])
