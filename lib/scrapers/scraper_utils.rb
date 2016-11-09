@@ -116,13 +116,13 @@ def lookup_contract_status(text)
 end
 
 def lookup_contract_unspsc(text)
-  if text.include?("Structures and Building and Construction and Manufacturing Components and Supplies")
-    30000000
-  elsif text.include?("Building and Construction and Maintenance Services") #72100000
-    72000000
-  else
-    0
+  Unspsc.all.each do |unspsc_category|
+    if text.include?(unspsc_category.unspsc_name)
+      return unspsc_category.unspsc_code
+    end
   end
+  puts "   :::   Contract Unspsc category not found in #{text}" if text != ""
+  0
 end
 
 def extract_contract_data(text, contract_index)
