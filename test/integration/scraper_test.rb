@@ -20,6 +20,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_equal 5154, lookup_department_id(" CenITex")
     assert_equal 5154, lookup_department_id("CenITex ")
     assert_equal 5154, lookup_department_id("CenITex (452)")
+    assert_equal 5154, lookup_department_id("CeniTex")
     assert_equal 5154, lookup_department_id("bsry^&>>808-<*7r6^%MndbrCenITexSJRrjstjrj^,86),mr")
   end
 
@@ -27,7 +28,6 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_equal 0, lookup_department_id("CenIex")
     assert_equal 0, lookup_department_id(" CenTex")
     assert_equal 0, lookup_department_id("CeITex ")
-    assert_equal 0, lookup_department_id("CeniTex")
     assert_equal 0, lookup_department_id("")
   end
 
@@ -42,6 +42,19 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
   test "other unspsc lookups fail" do
     assert_equal 0, lookup_contract_unspsc("not unspsc")
     assert_equal 0, lookup_contract_unspsc("Building and Construction")
+    assert_equal 0, lookup_contract_unspsc("")
+  end
+
+  test "unspsc code extraction works" do
+    assert_equal 72000000, lookup_contract_unspsc("Building and Construction and Maintenance Services - (100%)")
+    assert_equal 72000000, lookup_contract_unspsc("kjbsfjlbnfsBuilding and Construction and Maintenance Servicesklvsjnlav")
+    assert_equal 72000000, lookup_contract_unspsc("   Building and Construction and Maintenance Services ")
+    assert_equal 30000000, lookup_contract_unspsc("Structures and Building and Construction and Manufacturing Components and Supplies")
+  end
+
+  test "unspsc code extraction should fail" do
+    assert_equal 0, lookup_contract_unspsc("Building and Construction and Maintenance things and Services - (100%)")
+    assert_equal 0, lookup_contract_unspsc("Building")
     assert_equal 0, lookup_contract_unspsc("")
   end
 

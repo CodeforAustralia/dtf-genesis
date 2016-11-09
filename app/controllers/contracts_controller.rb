@@ -44,6 +44,22 @@ class ContractsController < ApplicationController
     render json: Contract.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%")
   end
 
+  def save
+    scope = Contract.all
+    options = {}
+    options = options.merge(query: params[:filter]) if params[:filter].present?
+    options = options.merge(filters: params[:f]) if params[:f].present?
+    scope = Contract.all_with_filter(options, scope)
+    puts "Saving: #{scope.count}"
+    data = "Title,Reference,Value,Start,End,Status\n"
+    scope.each do |contract|
+      data += "\"#{contract.title}\",\"#{contract.vt_contract_number}\",\"#{contract.total_value}\",\"#{contract.start_date}\",\"#{contract.end_date}\",\"#{contract.status}\"\n"
+    end
+    send_data(data,
+      :filename => "ccr-results.csv",
+      :type => "text/csv")
+  end
+
   private
     def set_contract
       @contract = Contract.find(params[:id])

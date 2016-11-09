@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  unspsc_code: 1
-  unspsc_name: MyString
+  unspsc_code: 30000000
+  unspsc_name: Structures and Building and Construction and Manufacturing Components and Supplies
 
 two:
-  unspsc_code: 1
-  unspsc_name: MyString
+  unspsc_code: 72000000
+  unspsc_name: Building and Construction and Maintenance Services
