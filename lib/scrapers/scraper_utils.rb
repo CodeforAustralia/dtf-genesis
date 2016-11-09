@@ -123,6 +123,7 @@ def lookup_contract_unspsc(text)
       return unspsc_category.unspsc_code
     end
   end
+  0
 end
 
 def extract_contract_data(text, contract_index)
