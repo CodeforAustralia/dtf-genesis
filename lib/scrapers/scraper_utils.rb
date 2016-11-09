@@ -89,47 +89,12 @@ def find_between(text, pre_string, post_string)
 end
 
 def lookup_department_id(department_text)
-  if department_text.include?("CenITex")
-    5154
-  elsif department_text.include?("Department of Economic Development, Jobs, Transport and Resources")
-    43087
-  elsif department_text.include?("Department of Education and Training")
-    42999
-  elsif department_text.include?("Department of Environment and Primary Industries")
-    43
-  elsif department_text.include?("Department of Environment, Land, Water and Planning")
-    42924
-  elsif department_text.include?("Department of Health & Human Services (DHHS)")
-    42963
-  elsif department_text.include?("Department of Health and Human Services - Infrastructure Planning and Delivery")
-    43010
-  elsif department_text.include?("Department of Justice & Regulation")
-    43004
-  elsif department_text.include?("Department of Premier and Cabinet")
-    10
-  elsif department_text.include?("Independent Broad-based Anti-corruption Commission")
-    42425
-  elsif department_text.include?("Infrastructure Victoria")
-    52488
-  elsif department_text.include?("Major Projects Victoria")
-    20135
-  elsif department_text.include?("Metropolitan Fire and Emergency Services Board")
-    3161
-  elsif department_text.include?("State Revenue Office")
-    15
-  elsif department_text.include?("Victoria Police")
-    39
-  elsif department_text.include?("Victorian Auditor General's Office")
-    5979
-  elsif department_text.include?("Victorian Commission for Gambling and Liquor Regulation")
-    33602
-  elsif department_text.include?("Whole of Victorian Government")
-    18641
-  elsif department_text.include?("WoVG Land Sales")
-    18669
-  else
+    Department.all.each do |department|
+      if department_text.downcase.include?(department.name.downcase)
+        return department.vt_number
+      end
+    end
     0
-  end
 end
 
 def lookup_contract_type(text)
@@ -151,13 +116,14 @@ def lookup_contract_status(text)
 end
 
 def lookup_contract_unspsc(text)
-  if text.include?("Structures and Building and Construction and Manufacturing Components and Supplies")
-    30000000
-  elsif text.include?("Building and Construction and Maintenance Services") #72100000
-    72000000
-  else
-    0
+  # puts "   TEXT: #{text}"
+  Unspsc.all.each do |unspsc_category|
+    # puts "       CAT: #{unspsc_category.unspsc_name}"
+    if text.include?(unspsc_category.unspsc_name)
+      return unspsc_category.unspsc_code
+    end
   end
+  0
 end
 
 def extract_contract_data(text, contract_index)
@@ -186,6 +152,18 @@ def extract_contract_data(text, contract_index)
     contract_unspsc2 = find_between(text, "UNSPSC 2:", "Description")
   end
   contract_details = find_between(text, "Description", "Agency Contact Details")
+  agency_person = find_between(text, "Contact Person:", "Contact for factual information purposes")
+  agency_phone = find_between(text, "Contact Number:", "Email Address:")
+  agency_email = find_between(text, "Email Address:", "Supplier Information")
+  supplier_name = find_between(text, "Supplier Name:", "ABN:")
+  supplier_abn = find_between(text, "ABN:", "ACN:")
+  supplier_acn = find_between(text, "ACN:", "Address:")
+  street = find_between(text, "Address:", "Suburb:")
+  suburb = find_between(text, "Suburb:", "State:")
+  state = find_between(text, "State:", "Postcode:")
+  post_code = find_between(text, "Postcode:", "Email Address:")
+  supplier_address = "#{street}, #{suburb}, #{state} #{post_code}"
+  supplier_email = find_between(text, "Email Address:", "State Government of Victoria") # or "Text size: Reduce text size Increase text size Print: Print page"
   { gov_entity: gov_entity,
     gov_entity_contract_numb: gov_entity_contract_numb, # should be contract_index
     gov_entity_id_numb: lookup_department_id(gov_entity),
