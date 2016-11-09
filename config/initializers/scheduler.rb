@@ -9,8 +9,8 @@ if Time.now > Time.parse("11:55:00 am")
 else
   start = Time.parse("11:55:00 am")
 end
-scrape_now = scheduler.every '1h', :first_at => Time.now + 17 do #  '1h', :first_at => Time.now() + 5 do
-# daily_scrape = scheduler.every '1d', :first_at => start do #  '1h', :first_at => Time.now() + 5 do
+# scrape_now = scheduler.every '1h', :first_at => Time.now + 17 do #  '1h', :first_at => Time.now() + 5 do
+daily_scrape = scheduler.every '1d', :first_at => start do #  '1h', :first_at => Time.now() + 5 do
   print "\n :: TendersVIC Scrape :: @ #{Time.now} ::"
   scrape_tenders_vic
   print "\n :: Completed Scraping ::"

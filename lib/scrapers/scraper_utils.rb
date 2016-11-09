@@ -21,7 +21,7 @@ def scrape_department_ids(department_list_url)
     @saved_date = department_link[:href][-10..-1]
     department_indexes_to_scrape.push(department_id)
     puts "Department (#{department_id}) - #{department_link[:text]}"
-      break if department_link.text.include?("Department of Education and Training") # Stop after third dep DEBUG
+      # break if department_link.text.include?("Department of Education and Training") # Stop after third dep DEBUG
   end
   session.driver.quit
   department_indexes_to_scrape
@@ -45,7 +45,7 @@ def scrape_contract_ids(department_indexes_to_scrape)
         vt_reference = contract_link["href"].to_s[59..63]
         print "."
         contract_indexes.push vt_reference
-          break # stop after first contract DEBUG
+          # break # stop after first contract DEBUG
       end
       current_page = department_session.text
       department_session.driver.quit
@@ -116,13 +116,13 @@ def lookup_contract_status(text)
 end
 
 def lookup_contract_unspsc(text)
+  # puts "   TEXT: #{text}"
   Unspsc.all.each do |unspsc_category|
+    # puts "       CAT: #{unspsc_category.unspsc_name}"
     if text.include?(unspsc_category.unspsc_name)
       return unspsc_category.unspsc_code
     end
   end
-  puts "   :::   Contract Unspsc category not found in #{text}" if text != ""
-  0
 end
 
 def extract_contract_data(text, contract_index)
