@@ -4,12 +4,12 @@ one:
   codename: MyString
   name: MyString
   shortname: MyString
-  type: 
+  council_type: 
   region_code: MyString
 
 two:
   codename: MyString
   name: MyString
   shortname: MyString
-  type: 
+  council_type:
   region_code: MyString
