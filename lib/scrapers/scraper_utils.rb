@@ -151,6 +151,18 @@ def extract_contract_data(text, contract_index)
     contract_unspsc2 = find_between(text, "UNSPSC 2:", "Description")
   end
   contract_details = find_between(text, "Description", "Agency Contact Details")
+  agency_person = find_between(text, "Contact Person:", "Contact for factual information purposes")
+  agency_phone = find_between(text, "Contact Number:", "Email Address:")
+  agency_email = find_between(text, "Email Address:", "Supplier Information")
+  supplier_name = find_between(text, "Supplier Name:", "ABN:")
+  supplier_abn = find_between(text, "ABN:", "ACN:")
+  supplier_acn = find_between(text, "ACN:", "Address:")
+  street = find_between(text, "Address:", "Suburb:")
+  suburb = find_between(text, "Suburb:", "State:")
+  state = find_between(text, "State:", "Postcode:")
+  post_code = find_between(text, "Postcode:", "Email Address:")
+  supplier_address = "#{street}, #{suburb}, #{state} #{post_code}"
+  supplier_email = find_between(text, "Email Address:", "State Government of Victoria") # or "Text size: Reduce text size Increase text size Print: Print page"
   { gov_entity: gov_entity,
     gov_entity_contract_numb: gov_entity_contract_numb, # should be contract_index
     gov_entity_id_numb: lookup_department_id(gov_entity),
