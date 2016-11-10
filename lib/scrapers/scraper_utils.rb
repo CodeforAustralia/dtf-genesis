@@ -102,13 +102,14 @@ def lookup_contract_type(text)
 end
 
 def lookup_value_type(text)
+  value_type = 0
   ContractValueType.all.each do |value_type|
     if text.include?(value_type.type_description)
-      return value_type.id
+      value_type = value_type.id
+      break
     end
   end
-  puts "   :::   Contract value type not found in #{text}" if text != ""
-  0
+  value_type
 end
 
 def lookup_contract_status(text)
@@ -127,7 +128,7 @@ def lookup_contract_unspsc(text)
 end
 
 def extract_contract_data(text, contract_index)
-  puts "TEXT:#{text}"
+  # puts "TEXT:#{text}"
   gov_entity = find_between(text, "Public Body:", "Contract Number:")
   gov_entity_contract_numb = find_between(text, "Contract Number:","Title:")
   contract_title = find_between(text, "Title:","Type of Contract:")
@@ -158,14 +159,18 @@ def extract_contract_data(text, contract_index)
   agency_email = find_between(text, "Email Address:", "Supplier Information")
   supplier_name = find_between(text, "Supplier Name:", "ABN:")
   supplier_abn = find_between(text, "ABN:", "ACN:")
-  supplier_acn = find_between(text, "ACN:", "Address:")
+  if text.include?("DUNS #:")
+    supplier_acn = find_between(text, "ACN:", "DUNS #:")
+  else
+    supplier_acn = find_between(text, "ACN:", "Address:")
+  end
   chunk = find_between(text, "Email Address:", "State:")
   street = find_between(chunk, "Address:", "Suburb:")
   suburb = find_between(text, "Suburb:", "State:")
   state = find_between(text, "State:", "Postcode:")
   post_code = find_between(text, "Postcode:", "Email Address:")
   supplier_address = "#{street}, #{suburb}, #{state} #{post_code}"
-  puts "ADDRESS:#{supplier_address}"
+  # puts "ADDRESS:#{supplier_address}"
   supplier_email = find_between(text, "Email Address:", "State Government of Victoria") # or "Text size: Reduce text size Increase text size Print: Print page"
   { department_id: lookup_department_id(gov_entity),
     contract_number: gov_entity_contract_numb,
