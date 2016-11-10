@@ -4,12 +4,12 @@ class ContractTest < ActiveSupport::TestCase
 
   def setup
     @contract = Contract.create(vt_contract_number: "34756",
-                                department_index: "CON-001",
-                                status: "testing",
-                                title: "example title",
-                                start_date: Date.parse("11/10/1979"),
-                                end_date: Date.parse("16/10/1979"),
-                                total_value: 1000000 )
+                                vt_department_id: "CON-001",
+                                vt_status_id: 0,
+                                vt_title: "example title",
+                                vt_start_date: Date.parse("11/10/1979"),
+                                vt_end_date: Date.parse("16/10/1979"),
+                                vt_total_value: 1000000 )
     # @contract = Contract.create()
   end
 
@@ -38,19 +38,19 @@ class ContractTest < ActiveSupport::TestCase
 
 
   test "title should not be blank" do # even if department # is not
-    @contract.title = "         "
+    @contract.vt_title = "         "
    assert_not @contract.valid?
   end
 
 
   test "start_date should not be nil" do # even if department # is not
-    @contract.start_date = nil
+    @contract.vt_start_date = nil
    assert_not @contract.valid?
   end
 
 
   test "total_value should not be nil" do # even if department # is not
-    @contract.total_value = nil
+    @contract.vt_total_value = nil
    assert_not @contract.valid?
   end
 
