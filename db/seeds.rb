@@ -26,6 +26,7 @@ ContractValueType.create([
   ])
 
 Department.create!([
+  { name: "Ambulance Victoria", short_name: "AMB", vt_number: 3 },
   { name: "CenITex", short_name: "CTX", vt_number: 5154 },
   { name: "Department of Economic Development, Jobs, Transport and Resources", short_name: "DEDJTR", vt_number: 43087 },
   { name: "Department of Education and Training", short_name: "DET", vt_number: 42999 },
