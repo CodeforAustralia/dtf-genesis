@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108232134) do
+ActiveRecord::Schema.define(version: 20161109233103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,27 +33,31 @@ ActiveRecord::Schema.define(version: 20161108232134) do
 
   create_table "contracts", force: :cascade do |t|
     t.string   "vt_contract_number"
-    t.string   "status"
-    t.string   "title"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.money    "total_value",          scale: 2
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.integer  "department_index"
-    t.integer  "contract_type_index"
-    t.integer  "value_type_index"
+    t.string   "vt_title"
+    t.date     "vt_start_date"
+    t.date     "vt_end_date"
+    t.money    "vt_total_value",          scale: 2
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.integer  "vt_department_id"
+    t.integer  "vt_contract_type_id"
+    t.integer  "vt_value_type_id"
     t.integer  "status_index"
-    t.integer  "unspc_code"
-    t.string   "contract_description"
-    t.integer  "department_id"
-    t.integer  "supplier_id"
-    t.integer  "contact_id"
-    t.integer  "contract_type_id"
-    t.integer  "unspsc_id"
+    t.integer  "vt_unspc_id"
+    t.string   "vt_contract_description"
+    t.integer  "vt_supplier_id"
     t.integer  "project_id"
-    t.string   "address"
-    t.integer  "status_id"
+    t.string   "vt_address"
+    t.integer  "vt_status_id"
+    t.integer  "vt_address_id"
+    t.string   "vt_agency_person"
+    t.string   "vt_agency_phone"
+    t.string   "vt_agency_email"
+    t.string   "vt_supplier_name"
+    t.string   "vt_supplier_abn"
+    t.string   "vt_supplier_acn"
+    t.string   "vt_supplier_address"
+    t.string   "vt_supplier_email"
   end
 
   create_table "councils", force: :cascade do |t|

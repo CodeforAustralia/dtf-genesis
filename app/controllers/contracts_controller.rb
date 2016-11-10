@@ -41,7 +41,7 @@ class ContractsController < ApplicationController
   end
 
   def search
-    render json: Contract.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%")
+    render json: Contract.where("LOWER(vt_title) LIKE LOWER(?)", "%#{params[:q]}%")
   end
 
   def save
@@ -53,7 +53,7 @@ class ContractsController < ApplicationController
     puts "Saving: #{scope.count}"
     data = "Title,Reference,Value,Start,End,Status\n"
     scope.each do |contract|
-      data += "\"#{contract.title}\",\"#{contract.vt_contract_number}\",\"#{contract.total_value}\",\"#{contract.start_date}\",\"#{contract.end_date}\",\"#{contract.status}\"\n"
+      data += "\"#{contract.vt_title}\",\"#{contract.vt_contract_number}\",\"#{contract.vt_total_value}\",\"#{contract.vt_start_date}\",\"#{contract.vt_end_date}\",\"#{contract.vt_status_id}\"\n"
     end
     send_data(data,
       :filename => "ccr-results.csv",
@@ -66,6 +66,6 @@ class ContractsController < ApplicationController
     end
 
     def contract_params
-      params.require(:contract).permit(:title, :vt_contract_number, :total_value, :start_date, :end_date, :status )
+      params.require(:contract).permit(:vt_title, :vt_contract_number, :vt_total_value, :vt_start_date, :vt_end_date, :vt_status_id )
     end
 end

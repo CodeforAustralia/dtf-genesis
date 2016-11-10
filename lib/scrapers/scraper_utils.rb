@@ -102,13 +102,14 @@ def lookup_contract_type(text)
 end
 
 def lookup_value_type(text)
+  value_type = 0
   ContractValueType.all.each do |value_type|
     if text.include?(value_type.type_description)
-      return value_type.id
+      value_type = value_type.id
+      break
     end
   end
-  puts "   :::   Contract value type not found in #{text}" if text != ""
-  0
+  value_type
 end
 
 def lookup_contract_status(text)
@@ -127,12 +128,13 @@ def lookup_contract_unspsc(text)
 end
 
 def extract_contract_data(text, contract_index)
+  # puts "TEXT:#{text}"
   gov_entity = find_between(text, "Public Body:", "Contract Number:")
   gov_entity_contract_numb = find_between(text, "Contract Number:","Title:")
   contract_title = find_between(text, "Title:","Type of Contract:")
   contract_type = find_between(text, "Type of Contract:","Total Value of the Contract:")
   value_string = find_between(text, "Total Value of the Contract:","Start Date:")
-#  value_type = find_between(value_string,"(",")")
+  value_type = find_between(value_string,"(",")")
   contract_value = (value_string.gsub(",","").gsub("$","").to_f).to_i
   begin
     contract_start = Date.parse(find_between(text, "Start Date:","Expiry Date:"))
@@ -157,27 +159,37 @@ def extract_contract_data(text, contract_index)
   agency_email = find_between(text, "Email Address:", "Supplier Information")
   supplier_name = find_between(text, "Supplier Name:", "ABN:")
   supplier_abn = find_between(text, "ABN:", "ACN:")
-  supplier_acn = find_between(text, "ACN:", "Address:")
-  street = find_between(text, "Address:", "Suburb:")
+  if text.include?("DUNS #:")
+    supplier_acn = find_between(text, "ACN:", "DUNS #:")
+  else
+    supplier_acn = find_between(text, "ACN:", "Address:")
+  end
+  chunk = find_between(text, "Email Address:", "State:")
+  street = find_between(chunk, "Address:", "Suburb:")
   suburb = find_between(text, "Suburb:", "State:")
   state = find_between(text, "State:", "Postcode:")
   post_code = find_between(text, "Postcode:", "Email Address:")
   supplier_address = "#{street}, #{suburb}, #{state} #{post_code}"
+  # puts "ADDRESS:#{supplier_address}"
   supplier_email = find_between(text, "Email Address:", "State Government of Victoria") # or "Text size: Reduce text size Increase text size Print: Print page"
-  { gov_entity: gov_entity,
-    gov_entity_contract_numb: gov_entity_contract_numb, # should be contract_index
-    gov_entity_id_numb: lookup_department_id(gov_entity),
+  { department_id: lookup_department_id(gov_entity),
+    contract_number: gov_entity_contract_numb,
     contract_title: contract_title,
     contract_type: lookup_contract_type(contract_type),
     contract_value: contract_value,
     value_type_index: lookup_value_type(value_string),
-#    value_type: 0,
     contract_start: contract_start,
     contract_end: contract_end,
     contract_status: lookup_contract_status(contract_status),
     contract_unspsc: lookup_contract_unspsc(contract_unspsc1),
     contract_details: contract_details,
-    vt_contract_index: gov_entity_contract_numb # should be contract_index: ex vt_contract_number
+    supplier_name: supplier_name,
+    supplier_abn: supplier_abn,
+    supplier_acn: supplier_acn,
+    agency_person: agency_person,
+    agency_phone: agency_phone,
+    agency_email: agency_email,
+    supplier_address: supplier_address
   }
 end
 
@@ -186,7 +198,7 @@ def store_this_contract?(contract_data)
   if not unspsc_keepers.include?(contract_data[:contract_unspsc])
 #    print "."
     false
-  elsif Contract.find_by(vt_contract_number: contract_data[:gov_entity_contract_numb]) # this will need to change when VT is fixed
+  elsif Contract.find_by(vt_contract_number: contract_data[:gov_entity_contract_numb])
 #    print "."
     false
   else
@@ -198,24 +210,26 @@ end
 def store_or_skip(contract_data)
   if store_this_contract? contract_data
     Contract.create({
-#      vt_contract_number: contract_data[:gov_entity_contract_numb], #todo fix-me
-      vt_contract_number: contract_data[:gov_entity_contract_numb],
-      # department_index: contract_data[:gov_entity_contract_numb],
-      status: contract_data[:contract_status],
-      title: contract_data[:contract_title],
-      start_date: contract_data[:contract_start],
-      end_date: contract_data[:contract_end],
-      total_value: contract_data[:contract_value],
-      department_index: contract_data[:gov_entity_id_numb],
-      department_id: contract_data[:gov_entity_id_numb],
-      contract_type_index: contract_data[:contract_type],
-      value_type_index: contract_data[:value_type_index],
-      status_index: contract_data[:contract_status],
-      unspc_code: contract_data[:contract_unspsc],
-      contract_description: contract_data[:contract_details],
-      supplier_id: 0,
-      contact_id: 0,
-      address: ""
+      vt_contract_number: contract_data[:contract_number],
+      vt_status_id: contract_data[:contract_status],
+      vt_title: contract_data[:contract_title],
+      vt_start_date: contract_data[:contract_start],
+      vt_end_date: contract_data[:contract_end],
+      vt_total_value: contract_data[:contract_value],
+      vt_department_id: contract_data[:department_id],
+      vt_contract_type_id: contract_data[:contract_type],
+      vt_value_type_id: contract_data[:value_type_index],
+      vt_unspc_id: contract_data[:contract_unspsc],
+      vt_contract_description: contract_data[:contract_details],
+      vt_supplier_id: 0,
+      vt_address_id: 0,
+      vt_agency_person: contract_data[:agency_person],
+      vt_agency_phone: contract_data[:agency_phone],
+      vt_agency_email: contract_data[:agency_email],
+      vt_supplier_name: contract_data[:supplier_name],
+      vt_supplier_abn: contract_data[:supplier_abn],
+      vt_supplier_acn: contract_data[:supplier_acn],
+      vt_supplier_address: contract_data[:supplier_address]
     })
   end
 end

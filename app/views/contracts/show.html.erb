@@ -1,42 +1,41 @@
 <dl class="dl-horizontal">
 
   <h3>Contract Details:</h3>
-  <dd><h2><%= @contract.title %></h2></dd>
-  <dd><h4>Type#: <%= @contract.contract_type_index %></h4></dd>
-  <dd><h4>TypeId: <%= @contract.contract_type_id %></h4></dd>
+  <dd><h2><%= @contract.vt_title %></h2></dd>
+  <dd><h4>Tenders VIC Reference: <%= @contract.vt_contract_number %></h4></dd>
+  <dd><h4>Type#: <%= @contract.vt_contract_type_id %></h4></dd>
+  <dd><h4>Ststus#: <%= @contract.vt_status_id %></h3></h4></dd>
 
   <dt><h4>Description:</h4></dt>
-  <dd><h4><%= @contract.contract_description %></h4></dd>
+  <dd><h4><%= @contract.vt_contract_description %></h4></dd>
 
   <dt><h4><h4>Dates:</h4></dt>
-  <dd><h4><%= @contract.start_date %> -> <%= @contract.end_date %></h4></dd>
-
-  <dt><h4>Status:</h4></dt>
-  <dd><h4><%= @contract.status %></h3></h4></dd>
-  <dd><h4>StatusIdx: <%= @contract.status_index %></h4></dd>
-  <dd><h4>StatusId: <%= @contract.status_id %></h4></dd>
+  <dd><h4><%= @contract.vt_start_date %> -> <%= @contract.vt_end_date %></h4></dd>
 
   <dt><h4>Value:</h4></dt>
-  <dd><h4><%= humanized_money_with_symbol(@contract.total_value) %></h4></dd>
-  <dd><h4>Value typeIdx: <%= @contract.value_type_index %></h4></dd>
+  <dd><h4><%= humanized_money_with_symbol(@contract.vt_total_value) %></h4></dd>
+  <dd><h4>Value type: <%= @contract.vt_value_type_id %></h4></dd>
 
-  <dt><h4>Department Ref#:</h4></dt>
-  <dd><h4><%= @contract.department_index %></h4></dd>
-  <dd><h4>DepartmentId: <%= @contract.department_id %></h4></dd>
-  <dd><h4>ContactId: <%= @contract.contact_id %></h4></dd>
-  <dd><h4>ProjectId: <%= @contract.project_id %></h4></dd>
+  <dt><h4>Department:</h4></dt>
+  <dd><h4>Department Id: <%= @contract.vt_department_id %></h4></dd>
+  <dd><h4>Project Id: <%= @contract.project_id %></h4></dd>
+  <dd><h4>Contact: <%= @contract.vt_agency_person %></h4></dd>
+  <dd><h4>Phone: <%= @contract.vt_agency_phone %></h4></dd>
+  <dd><h4>Email: <%= @contract.vt_agency_email %></h4></dd>
+
+  <dt><h4>Supplier:</h4></dt>
+  <dd><h4>Name: <%= @contract.vt_supplier_name %></h4></dd>
+  <dd><h4>ABN: <%= @contract.vt_supplier_abn %></h4></dd>
+  <dd><h4>ACN: <%= @contract.vt_supplier_acn %></h4></dd>
+  <dd><h4>Address: <%= @contract.vt_supplier_address %></h4></dd>
+  <dd><h4>Email: <%= @contract.vt_supplier_email %></h4></dd>
+  <dd><h4>Supplier Id: <%= @contract.vt_supplier_id %></h4></dd>
 
   <dt><h4>UNSPSC Code:</h4></dt>
-  <dd><h4><%= @contract.unspc_code %></h4></dd>
-  <dd><h4><%= @contract.unspsc_id %></h4></dd>
+  <dd><h4><%= @contract.vt_unspc_id %></h4></dd>
 
-  <h3>Supplier:</h3>
-  <dd><h4>SupplierId: <%= @contract.supplier_id %></h4></dd>
-  <dd><h4>Address: <%= @contract.address %></h4></dd>
-
-  <h3>Metadata:</h3>
+  <dt><h4>Metadata:</h4></dt>
   <dd><h4>Record created: <%= @contract.created_at %></h4></dd>
   <dd><h4>Record modified: <%= @contract.updated_at %></h4></dd>
-  <dd><h4>VT RefNum: <%= @contract.vt_contract_number %></h4></dd>
 
 </dl>
