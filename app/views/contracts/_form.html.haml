@@ -2,8 +2,8 @@
   = form_for object, url: object.new_record? ? contracts_path : contract_path(object), remote: true, html: {enctype: 'multipart/form-data', class: ""} do |f|
 
     %div
-      = f.label :title, "Title #{object.errors['title'][0]}"
-      = f.text_field :title
+      = f.label :vt_title, "Title #{object.errors['vt_title'][0]}"
+      = f.text_field :vt_title
     %br
 
     %div
@@ -12,23 +12,23 @@
     %br
 
     %div
-      = f.label :total_value, "Value #{object.errors['total_value'][0]}"
-      = f.text_field :total_value
+      = f.label :vt_total_value, "Value #{object.errors['vt_total_value'][0]}"
+      = f.text_field :vt_total_value
     %br
 
     %div
-      = f.label :start_date, "Start #{object.errors['start_date'][0]}"
-      = f.text_field :start_date
+      = f.label :vt_start_date, "Start #{object.errors['vt_start_date'][0]}"
+      = f.text_field :vt_start_date
     %br
 
     %div
-      = f.label :end_date, "End #{object.errors['end_date'][0]}"
-      = f.text_field :end_date
+      = f.label :vt_end_date, "End #{object.errors['vt_end_date'][0]}"
+      = f.text_field :vt_end_date
     %br
 
     %div
-      = f.label :status, "Status #{object.errors['status'][0]}"
-      = f.text_field :status
+      = f.label :vt_status_id, "Status #{object.errors['status'][0]}"
+      = f.text_field :vt_status_id
     %br
 
     %hr
