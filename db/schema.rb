@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114032305) do
+ActiveRecord::Schema.define(version: 20161114035702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,26 @@ ActiveRecord::Schema.define(version: 20161114032305) do
     t.datetime "updated_at",                              null: false
   end
 
+  create_table "cpr_scores", force: :cascade do |t|
+    t.integer  "time_management"
+    t.integer  "work_standard"
+    t.integer  "quality_management_system"
+    t.integer  "personnel"
+    t.integer  "subcontractors"
+    t.integer  "contract_admin"
+    t.integer  "coop_relations"
+    t.integer  "health_and_safety"
+    t.integer  "industrial_relations"
+    t.integer  "environmental_management"
+    t.integer  "training_management"
+    t.integer  "design_contractor"
+    t.integer  "indigenous_participation"
+    t.integer  "cpr_report_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["cpr_report_id"], name: "index_cpr_scores_on_cpr_report_id", using: :btree
+  end
+
   create_table "departments", force: :cascade do |t|
     t.string   "name"
     t.string   "short_name"
@@ -168,5 +188,23 @@ ActiveRecord::Schema.define(version: 20161114032305) do
     t.string   "parent_category"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  add_foreign_key "cpr_scores", "cpr_reports"
   add_foreign_key "projects", "departments"
 end

@@ -1,0 +1,1 @@
+json.partial! "cpr_scores/cpr_score", cpr_score: @cpr_score

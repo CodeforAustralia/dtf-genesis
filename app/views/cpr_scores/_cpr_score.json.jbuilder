@@ -1,0 +1,2 @@
+json.extract! cpr_score, :id, :time_management, :work_standard, :quality_management_system, :personnel, :subcontractors, :contract_admin, :coop_relations, :health_and_safety, :industrial_relations, :environmental_management, :training_management, :design_contractor, :indigenous_participation, :cpr_report_id, :created_at, :updated_at
+json.url cpr_score_url(cpr_score, format: :json)

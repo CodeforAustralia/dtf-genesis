@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time_management: 1
+  work_standard: 1
+  quality_management_system: 1
+  personnel: 1
+  subcontractors: 1
+  contract_admin: 1
+  coop_relations: 1
+  health_and_safety: 1
+  industrial_relations: 1
+  environmental_management: 1
+  training_management: 1
+  design_contractor: 1
+  indigenous_participation: 1
+  cpr_report: one
+
+two:
+  time_management: 1
+  work_standard: 1
+  quality_management_system: 1
+  personnel: 1
+  subcontractors: 1
+  contract_admin: 1
+  coop_relations: 1
+  health_and_safety: 1
+  industrial_relations: 1
+  environmental_management: 1
+  training_management: 1
+  design_contractor: 1
+  indigenous_participation: 1
+  cpr_report: two
