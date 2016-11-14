@@ -1,7 +1,12 @@
 require 'test_helper'
 
 class CprReportTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  def setup
+    @report = CprReport.create()
+  end
+
+  test "sanity check contract" do
+    assert @report.valid?
+  end
 end
