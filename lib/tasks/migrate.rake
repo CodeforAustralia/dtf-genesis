@@ -22,4 +22,10 @@ namespace :migrate do
     Council.import columns, councils, validate: false
   end
 
+  task supplier: :environment do
+    suppliers = CSV.read("#{Rails.root}/db/data/supplier.csv")  
+    columns = [:id, :name, :abn, :acn, :address, :suburb, :state, :postcode, :email]
+    Supplier.import columns, suppliers, validate: false
+  end
+
 end
