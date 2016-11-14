@@ -1,0 +1,107 @@
+<%= form_for(cpr_report) do |f| %>
+  <% if cpr_report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cpr_report.errors.count, "error") %> prohibited this cpr_report from being saved:</h2>
+
+      <ul>
+      <% cpr_report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cpr_contract %>
+    <%= f.number_field :cpr_contract %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpr_contractor %>
+    <%= f.number_field :cpr_contractor %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpr_client %>
+    <%= f.text_field :cpr_client %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpr_principal %>
+    <%= f.text_field :cpr_principal %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpr_report_date %>
+    <%= f.date_select :cpr_report_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpr_work_percent_complete %>
+    <%= f.text_field :cpr_work_percent_complete %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpr_report_reason %>
+    <%= f.text_field :cpr_report_reason %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpr_price_as_varied %>
+    <%= f.text_field :cpr_price_as_varied %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpr_predicted_price %>
+    <%= f.text_field :cpr_predicted_price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpr_actual_price %>
+    <%= f.text_field :cpr_actual_price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpr_total_extention_days %>
+    <%= f.number_field :cpr_total_extention_days %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpr_adjusted_completion_date %>
+    <%= f.date_select :cpr_adjusted_completion_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpr_predicted_completion_date %>
+    <%= f.date_select :cpr_predicted_completion_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpr_actual_completion_date %>
+    <%= f.date_select :cpr_actual_completion_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpr_comments %>
+    <%= f.text_area :cpr_comments %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpr_reporting_officer %>
+    <%= f.number_field :cpr_reporting_officer %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpr_contractor_acknowlages %>
+    <%= f.check_box :cpr_contractor_acknowlages %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cpr_validating_officer %>
+    <%= f.text_field :cpr_validating_officer %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

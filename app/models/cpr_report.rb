@@ -1,0 +1,2 @@
+class CprReport < ApplicationRecord
+end
