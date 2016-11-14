@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cpr Scores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Time management</th>
+      <th>Work standard</th>
+      <th>Quality management system</th>
+      <th>Personnel</th>
+      <th>Subcontractors</th>
+      <th>Contract admin</th>
+      <th>Coop relations</th>
+      <th>Health and safety</th>
+      <th>Industrial relations</th>
+      <th>Environmental management</th>
+      <th>Training management</th>
+      <th>Design contractor</th>
+      <th>Indigenous participation</th>
+      <th>Cpr report</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cpr_scores.each do |cpr_score| %>
+      <tr>
+        <td><%= cpr_score.time_management %></td>
+        <td><%= cpr_score.work_standard %></td>
+        <td><%= cpr_score.quality_management_system %></td>
+        <td><%= cpr_score.personnel %></td>
+        <td><%= cpr_score.subcontractors %></td>
+        <td><%= cpr_score.contract_admin %></td>
+        <td><%= cpr_score.coop_relations %></td>
+        <td><%= cpr_score.health_and_safety %></td>
+        <td><%= cpr_score.industrial_relations %></td>
+        <td><%= cpr_score.environmental_management %></td>
+        <td><%= cpr_score.training_management %></td>
+        <td><%= cpr_score.design_contractor %></td>
+        <td><%= cpr_score.indigenous_participation %></td>
+        <td><%= cpr_score.cpr_report %></td>
+        <td><%= link_to 'Show', cpr_score %></td>
+        <td><%= link_to 'Edit', edit_cpr_score_path(cpr_score) %></td>
+        <td><%= link_to 'Destroy', cpr_score, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cpr Score', new_cpr_score_path %>
