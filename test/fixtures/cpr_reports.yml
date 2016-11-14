@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cpr_contract: 1
+  cpr_contractor: 1
+  cpr_client: MyString
+  cpr_principal: MyString
+  cpr_report_date: 2016-11-14
+  cpr_work_percent_complete: MyString
+  cpr_report_reason: MyString
+  cpr_price_as_varied: 
+  cpr_predicted_price: 
+  cpr_actual_price: 
+  cpr_total_extention_days: 1
+  cpr_adjusted_completion_date: 2016-11-14
+  cpr_predicted_completion_date: 2016-11-14
+  cpr_actual_completion_date: 2016-11-14
+  cpr_comments: MyText
+  cpr_reporting_officer: 1
+  cpr_contractor_acknowlages: false
+  cpr_validating_officer: 
+
+two:
+  cpr_contract: 1
+  cpr_contractor: 1
+  cpr_client: MyString
+  cpr_principal: MyString
+  cpr_report_date: 2016-11-14
+  cpr_work_percent_complete: MyString
+  cpr_report_reason: MyString
+  cpr_price_as_varied: 
+  cpr_predicted_price: 
+  cpr_actual_price: 
+  cpr_total_extention_days: 1
+  cpr_adjusted_completion_date: 2016-11-14
+  cpr_predicted_completion_date: 2016-11-14
+  cpr_actual_completion_date: 2016-11-14
+  cpr_comments: MyText
+  cpr_reporting_officer: 1
+  cpr_contractor_acknowlages: false
+  cpr_validating_officer: 

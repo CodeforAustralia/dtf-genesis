@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161109233103) do
+ActiveRecord::Schema.define(version: 20161114032305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,29 @@ ActiveRecord::Schema.define(version: 20161109233103) do
     t.string   "region_code"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "cpr_reports", force: :cascade do |t|
+    t.integer  "cpr_contract"
+    t.integer  "cpr_contractor"
+    t.string   "cpr_client"
+    t.string   "cpr_principal"
+    t.date     "cpr_report_date"
+    t.string   "cpr_work_percent_complete"
+    t.string   "cpr_report_reason"
+    t.money    "cpr_price_as_varied",           scale: 2
+    t.money    "cpr_predicted_price",           scale: 2
+    t.money    "cpr_actual_price",              scale: 2
+    t.integer  "cpr_total_extention_days"
+    t.date     "cpr_adjusted_completion_date"
+    t.date     "cpr_predicted_completion_date"
+    t.date     "cpr_actual_completion_date"
+    t.text     "cpr_comments"
+    t.integer  "cpr_reporting_officer"
+    t.boolean  "cpr_contractor_acknowlages"
+    t.integer  "cpr_validating_officer"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   create_table "departments", force: :cascade do |t|

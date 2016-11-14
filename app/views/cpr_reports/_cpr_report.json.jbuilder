@@ -1,0 +1,2 @@
+json.extract! cpr_report, :id, :cpr_contract, :cpr_contractor, :cpr_client, :cpr_principal, :cpr_report_date, :cpr_work_percent_complete, :cpr_report_reason, :cpr_price_as_varied, :cpr_predicted_price, :cpr_actual_price, :cpr_total_extention_days, :cpr_adjusted_completion_date, :cpr_predicted_completion_date, :cpr_actual_completion_date, :cpr_comments, :cpr_reporting_officer, :cpr_contractor_acknowlages, :cpr_validating_officer, :created_at, :updated_at
+json.url cpr_report_url(cpr_report, format: :json)
