@@ -1,0 +1,87 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cpr Performance Reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cpr contract</th>
+      <th>Cpr supplier</th>
+      <th>Cpr client</th>
+      <th>Cpr principal</th>
+      <th>Cpr report date</th>
+      <th>Cpr work percent complete</th>
+      <th>Cpr report reason</th>
+      <th>Cpr price as varied</th>
+      <th>Cpr predicted price</th>
+      <th>Cpr actual price</th>
+      <th>Cpr total extention days</th>
+      <th>Cpr adjusted completion date</th>
+      <th>Cpr predicted completion date</th>
+      <th>Cpr actual completion date</th>
+      <th>Cpr comments</th>
+      <th>Cpr reporting officer</th>
+      <th>Cpr contractor acknowlages</th>
+      <th>Cpr validating officer</th>
+      <th>Score time management</th>
+      <th>Score work standard</th>
+      <th>Score quality management system</th>
+      <th>Score personnel</th>
+      <th>Score subcontractors</th>
+      <th>Score contract admin</th>
+      <th>Score coop relations</th>
+      <th>Score health and safety</th>
+      <th>Score industrial relations</th>
+      <th>Score environmental management</th>
+      <th>Score training management</th>
+      <th>Score design contractor</th>
+      <th>Score indigenous participation</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cpr_performance_reports.each do |cpr_performance_report| %>
+      <tr>
+        <td><%= cpr_performance_report.cpr_contract %></td>
+        <td><%= cpr_performance_report.cpr_supplier %></td>
+        <td><%= cpr_performance_report.cpr_client %></td>
+        <td><%= cpr_performance_report.cpr_principal %></td>
+        <td><%= cpr_performance_report.cpr_report_date %></td>
+        <td><%= cpr_performance_report.cpr_work_percent_complete %></td>
+        <td><%= cpr_performance_report.cpr_report_reason %></td>
+        <td><%= cpr_performance_report.cpr_price_as_varied %></td>
+        <td><%= cpr_performance_report.cpr_predicted_price %></td>
+        <td><%= cpr_performance_report.cpr_actual_price %></td>
+        <td><%= cpr_performance_report.cpr_total_extention_days %></td>
+        <td><%= cpr_performance_report.cpr_adjusted_completion_date %></td>
+        <td><%= cpr_performance_report.cpr_predicted_completion_date %></td>
+        <td><%= cpr_performance_report.cpr_actual_completion_date %></td>
+        <td><%= cpr_performance_report.cpr_comments %></td>
+        <td><%= cpr_performance_report.cpr_reporting_officer %></td>
+        <td><%= cpr_performance_report.cpr_contractor_acknowlages %></td>
+        <td><%= cpr_performance_report.cpr_validating_officer %></td>
+        <td><%= cpr_performance_report.score_time_management %></td>
+        <td><%= cpr_performance_report.score_work_standard %></td>
+        <td><%= cpr_performance_report.score_quality_management_system %></td>
+        <td><%= cpr_performance_report.score_personnel %></td>
+        <td><%= cpr_performance_report.score_subcontractors %></td>
+        <td><%= cpr_performance_report.score_contract_admin %></td>
+        <td><%= cpr_performance_report.score_coop_relations %></td>
+        <td><%= cpr_performance_report.score_health_and_safety %></td>
+        <td><%= cpr_performance_report.score_industrial_relations %></td>
+        <td><%= cpr_performance_report.score_environmental_management %></td>
+        <td><%= cpr_performance_report.score_training_management %></td>
+        <td><%= cpr_performance_report.score_design_contractor %></td>
+        <td><%= cpr_performance_report.score_indigenous_participation %></td>
+        <td><%= link_to 'Show', cpr_performance_report %></td>
+        <td><%= link_to 'Edit', edit_cpr_performance_report_path(cpr_performance_report) %></td>
+        <td><%= link_to 'Destroy', cpr_performance_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cpr Performance Report', new_cpr_performance_report_path %>

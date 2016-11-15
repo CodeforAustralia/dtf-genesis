@@ -1,1 +1,0 @@
-json.partial! "cpr_reports/cpr_report", cpr_report: @cpr_report
