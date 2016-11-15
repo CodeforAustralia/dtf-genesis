@@ -2,17 +2,18 @@ require 'csv'
 
 namespace :migrate do
   desc "Migrate data for location(or address table in csr)"
-  task location: :environment do
-    
+  task :location => :environment do
   end
 
-  task council: :environment do
+  desc "Migrate council lists"
+  task :council => :environment do
     councils = CSV.read("#{Rails.root}/db/data/council.csv")  
     columns = [:codename, :name, :shortname, :type, :region_code]
     Council.import columns, councils, validate: false
   end
 
-  task supplier: :environment do
+  desc "Migrate csr supplier data"
+  task :supplier => :environment do
     suppliers = CSV.read("#{Rails.root}/db/data/supplier.csv")
     # putting :id here overrides supplier table to use SupplierID as reference instead of default
     columns = [:id, :name, :abn, :acn, :address, :suburb, :state, :postcode, :email]
