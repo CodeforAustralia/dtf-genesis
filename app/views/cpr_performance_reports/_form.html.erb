@@ -1,10 +1,10 @@
-<%= form_for(cpr_report) do |f| %>
-  <% if cpr_report.errors.any? %>
+<%= form_for(cpr_performance_report) do |f| %>
+  <% if cpr_performance_report.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(cpr_report.errors.count, "error") %> prohibited this cpr_report from being saved:</h2>
+      <h2><%= pluralize(cpr_performance_report.errors.count, "error") %> prohibited this cpr_performance_report from being saved:</h2>
 
       <ul>
-      <% cpr_report.errors.full_messages.each do |message| %>
+      <% cpr_performance_report.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :cpr_contractor %>
-    <%= f.number_field :cpr_contractor %>
+    <%= f.label :cpr_supplier %>
+    <%= f.number_field :cpr_supplier %>
   </div>
 
   <div class="field">
@@ -38,7 +38,7 @@
 
   <div class="field">
     <%= f.label :cpr_work_percent_complete %>
-    <%= f.text_field :cpr_work_percent_complete %>
+    <%= f.number_field :cpr_work_percent_complete %>
   </div>
 
   <div class="field">
@@ -98,7 +98,72 @@
 
   <div class="field">
     <%= f.label :cpr_validating_officer %>
-    <%= f.text_field :cpr_validating_officer %>
+    <%= f.number_field :cpr_validating_officer %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_time_management %>
+    <%= f.number_field :score_time_management %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_work_standard %>
+    <%= f.number_field :score_work_standard %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_quality_management_system %>
+    <%= f.number_field :score_quality_management_system %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_personnel %>
+    <%= f.number_field :score_personnel %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_subcontractors %>
+    <%= f.number_field :score_subcontractors %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_contract_admin %>
+    <%= f.number_field :score_contract_admin %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_coop_relations %>
+    <%= f.number_field :score_coop_relations %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_health_and_safety %>
+    <%= f.number_field :score_health_and_safety %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_industrial_relations %>
+    <%= f.number_field :score_industrial_relations %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_environmental_management %>
+    <%= f.number_field :score_environmental_management %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_training_management %>
+    <%= f.number_field :score_training_management %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_design_contractor %>
+    <%= f.number_field :score_design_contractor %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_indigenous_participation %>
+    <%= f.number_field :score_indigenous_participation %>
   </div>
 
   <div class="actions">

@@ -1,0 +1,2 @@
+module CprPerformanceReportsHelper
+end

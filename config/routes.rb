@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  resources :cpr_scores
-  resources :cpr_reports
+  resources :cpr_performance_reports
   get '/contracts/search', to: 'contracts#search'
   get '/contracts/save', to: 'contracts#save'
 
