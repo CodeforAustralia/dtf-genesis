@@ -7,6 +7,11 @@ namespace :scrape do
     scrape_tenders_vic
   end
 
+  desc "Update Tenders VIC contracts"
+  task :update => :environment do
+    scrape_tenders_vic true
+  end
+
 end
 namespace :migrate do
   desc "Migrate data for location(or address table in csr)"

@@ -20,7 +20,7 @@ def scrape_department_ids(department_list_url)
     department_id = find_between(department_link[:href], "issuingBusinessId=", "&")
     @saved_date = department_link[:href][-10..-1]
     department_indexes_to_scrape.push(department_id)
-    puts "Department (#{department_id}) - #{department_link[:text]}"
+    # puts "Department (#{department_id}) - #{department_link[:text]}"
       # break if department_link.text.include?("Department of Education and Training") # Stop after third dep DEBUG
   end
   session.driver.quit
@@ -30,7 +30,7 @@ end
 def scrape_contract_ids(department_indexes_to_scrape)
   contract_indexes = []
   department_indexes_to_scrape.each do |department_index|
-    print "DEPARTMENT_#{department_index}: "
+    print "∃dep: dep=#{department_index}: "
     page_number = 1
     previous_page = ""
     current_page = "not blank"
@@ -40,7 +40,7 @@ def scrape_contract_ids(department_indexes_to_scrape)
       department_url = "https://www.tenders.vic.gov.au/tenders/contract/list.do?showSearch=false&action=contract-search-submit&issuingBusinessId=#{department_index}&issuingBusinessIdForSort=#{department_index}&pageNum=#{page_number}&awardDateFromString=#{@saved_date}"
       department_session.visit department_url
       contract_links = department_session.find_all("a#MSG2")
-      print "\n   PG #{page_number}: "
+      print "\n   § #{page_number}: "
       contract_links.each do |contract_link|
         vt_reference = contract_link["href"].to_s[59..63]
         print "."
@@ -59,20 +59,22 @@ end
 def scrape_for_references(department_list_url)
   department_indexes_to_scrape = scrape_department_ids(department_list_url)
   contract_indexes = scrape_contract_ids(department_indexes_to_scrape)
-  puts "CONTRACTS TO SCRAPE: #{contract_indexes}"
+  puts "🖻: #{contract_indexes}"
   contract_indexes
 end
 
-def scrape_tenders_vic
+def scrape_tenders_vic(refresh = false)
+  print "\n ∵ TendersVIC Scrape @ #{Time.now} ∵"
   contract_indexes_to_scrape = scrape_for_references("https://www.tenders.vic.gov.au/tenders/contract/list.do?action=contract-view")
   contract_session = prepare_session()
   Capybara.reset_sessions!
   contract_indexes_to_scrape.to_set.each do |contract_index|
     contract_session.visit "http://www.tenders.vic.gov.au/tenders/contract/view.do?id=#{contract_index}"
     contract_data = extract_contract_data(contract_session.text, contract_index)
-    store_or_skip(contract_data)
+    store_or_skip(contract_data, refresh)
   end
   contract_session.driver.quit
+  print "\n ∴ Completed Scraping @ #{Time.now} ∴"
 end
 
 
@@ -128,7 +130,6 @@ def lookup_contract_unspsc(text)
 end
 
 def extract_contract_data(text, contract_index)
-  # puts "TEXT:#{text}"
   gov_entity = find_between(text, "Public Body:", "Contract Number:")
   gov_entity_contract_numb = find_between(text, "Contract Number:","Title:")
   contract_title = find_between(text, "Title:","Type of Contract:")
@@ -170,7 +171,6 @@ def extract_contract_data(text, contract_index)
   state = find_between(text, "State:", "Postcode:")
   post_code = find_between(text, "Postcode:", "Email Address:")
   supplier_address = "#{street}, #{suburb}, #{state} #{post_code}"
-  # puts "ADDRESS:#{supplier_address}"
   supplier_email = find_between(text, "Email Address:", "State Government of Victoria") # or "Text size: Reduce text size Increase text size Print: Print page"
   { department_id: lookup_department_id(gov_entity),
     contract_number: gov_entity_contract_numb,
@@ -196,18 +196,46 @@ end
 def store_this_contract?(contract_data)
   unspsc_keepers = [72000000, 72131700, 72100000, 77000000, 92100000, 80000000, 30000000, 31000000, 83000000, 23000000, 22000000, 25000000, 72130000, 32000000, 92101500, 72131600, 70000000, 85000000]
   if not unspsc_keepers.include?(contract_data[:contract_unspsc])
-#    print "."
+   print "🖻"
     false
-  elsif Contract.find_by(vt_contract_number: contract_data[:gov_entity_contract_numb])
-#    print "."
+  elsif Contract.find_by(vt_contract_number: contract_data[:contract_number])
+   print "♲" # use refresh here to update records
     false
   else
-#    print "*"
+   print "🏗"
     true
   end
 end
 
-def store_or_skip(contract_data)
+def update_this_contract(contract_data)
+  existing_contract = Contract.find_by(vt_contract_number: contract_data[:contract_number])
+  if not existing_contract.nil?
+    existing_contract.vt_status_id = contract_data[:contract_status]
+    existing_contract.vt_title = contract_data[:contract_title]
+    existing_contract.vt_start_date = contract_data[:contract_start]
+    existing_contract.vt_end_date = contract_data[:contract_end]
+    existing_contract.vt_total_value = contract_data[:contract_value]
+    existing_contract.vt_contract_type_id = contract_data[:contract_type]
+    existing_contract.vt_value_type_id = contract_data[:value_type_index]
+    existing_contract.vt_unspc_id = contract_data[:contract_unspsc]
+    existing_contract.vt_contract_description = contract_data[:contract_details]
+    existing_contract.vt_supplier_id = 0
+    existing_contract.vt_address_id = 0
+    existing_contract.vt_agency_person = contract_data[:agency_person]
+    existing_contract.vt_agency_phone = contract_data[:agency_phone]
+    existing_contract.vt_agency_email = contract_data[:agency_email]
+    existing_contract.vt_supplier_name = contract_data[:supplier_name]
+    existing_contract.vt_supplier_abn = contract_data[:supplier_abn]
+    existing_contract.vt_supplier_acn = contract_data[:supplier_acn]
+    existing_contract.vt_supplier_address = contract_data[:supplier_address]
+    existing_contract.save
+  end
+end
+
+def store_or_skip(contract_data, refresh = false)
+  if refresh
+    update_this_contract contract_data
+  end
   if store_this_contract? contract_data
     Contract.create({
       vt_contract_number: contract_data[:contract_number],
