@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115024133) do
+ActiveRecord::Schema.define(version: 20161116232150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,6 +147,31 @@ ActiveRecord::Schema.define(version: 20161115024133) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.index ["cpr_report_id"], name: "index_cpr_scores_on_cpr_report_id", using: :btree
+  end
+
+  create_table "csr_performance_reports", force: :cascade do |t|
+    t.string   "csr_works_no"
+    t.boolean  "csr_completion"
+    t.string   "csr_createdby"
+    t.boolean  "csr_progress"
+    t.text     "csr_comment"
+    t.integer  "csr_progress_rate"
+    t.integer  "csr_staff_quality"
+    t.integer  "csr_work_quality"
+    t.integer  "csr_work_quantity"
+    t.integer  "csr_coodination"
+    t.integer  "csr_administration"
+    t.integer  "csr_expr1012"
+    t.integer  "csr_attitude_to_client"
+    t.integer  "csr_pricing"
+    t.integer  "csr_payment"
+    t.integer  "csr_ohs"
+    t.integer  "csr_ir"
+    t.integer  "csr_environment"
+    t.integer  "csr_overall"
+    t.boolean  "csr_satisfactory"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "departments", force: :cascade do |t|
