@@ -150,6 +150,7 @@ ActiveRecord::Schema.define(version: 20161116232150) do
   end
 
   create_table "csr_performance_reports", force: :cascade do |t|
+    t.string   "csr_supplier_id"
     t.string   "csr_works_no"
     t.boolean  "csr_completion"
     t.string   "csr_createdby"
