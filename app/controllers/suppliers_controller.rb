@@ -6,10 +6,10 @@ class SuppliersController < ApplicationController
   def index
     # @suppliers = Supplier.all
     supplier_scope = Supplier.all
-    @supplier_options = {}
-    @supplier_options = @supplier_options.merge(query: params[:filter]) if params[:filter].present?
-    @supplier_options = @supplier_options.merge(filters: params[:g]) if params[:g].present?
-    supplier_scope = Supplier.all_with_filter(@supplier_options, supplier_scope)
+    supplier_options = {}
+    supplier_options = supplier_options.merge(query: params[:filter]) if params[:filter].present?
+    supplier_options = supplier_options.merge(filters: params[:g]) if params[:g].present?
+    supplier_scope = Supplier.all_with_filter(supplier_options, supplier_scope)
 
     if params[:suppliers_smart_listing] && params[:suppliers_smart_listing][:page].blank?
       params[:suppliers_smart_listing][:page] = 1
