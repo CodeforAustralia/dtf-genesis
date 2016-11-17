@@ -1,11 +1,11 @@
 %div
   %h1= "Suppliers"
-  %p= "This is the list of current prequalified suppliers for Victoria as of today, #{Time.now.to_formatted_s(:long)} and we have #{@suppliers.count} in total.."
+  %p= "This is the list of current prequalified suppliers for Victoria as of today, #{Time.now.to_formatted_s(:long)} and we have #{Supplier.count} in total."
 
   = smart_listing_controls_for(:suppliers, {class: ""}) do
     %div.filter.form-search
       .input-group
-        = text_field_tag :supplier_filter, '', class: "", placeholder: "Search...", autocomplete: :off, value: "#{params[:supplier_filter]}"
+        = text_field_tag :filter, '', class: "", placeholder: "Search...", autocomplete: :off, value: "#{params[:filter]}"
         %span.input-group-btn
           = submit_tag 'Refresh', :class => "btn btn-default", :name => "do_query"
           = link_to  "Clear search", '/suppliers', class: "btn btn-default"
