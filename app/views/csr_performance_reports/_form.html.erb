@@ -1,0 +1,17 @@
+<%= form_for(csr_performance_report) do |f| %>
+  <% if csr_performance_report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(csr_performance_report.errors.count, "error") %> prohibited this csr_performance_report from being saved:</h2>
+
+      <ul>
+      <% csr_performance_report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

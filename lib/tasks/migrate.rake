@@ -33,6 +33,13 @@ namespace :migrate do
     Supplier.import columns, suppliers, validate: false
   end
 
+  desc "Migrate CSR performance report data"
+  task :performance => :environment do
+    performances = CSV.read("#{Rails.root}/db/data/performance.csv")
+    columns = [:csr_supplier_id, :csr_works_no, :csr_completion, :csr_createdby, :csr_progress, :csr_comment, :csr_progress_rate, :csr_staff_quality, :csr_work_quality, :csr_work_quantity, :csr_coodination, :csr_administration, :csr_expr1012, :csr_attitude_to_client, :csr_pricing, :csr_payment, :csr_ohs, :csr_ir, :csr_environment, :csr_overall, :csr_satisfactory ]
+    CsrPerformanceReport.import columns, performances, validate: false
+  end
+
 end
 
 

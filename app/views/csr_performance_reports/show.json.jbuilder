@@ -1,0 +1,1 @@
+json.partial! "csr_performance_reports/csr_performance_report", csr_performance_report: @csr_performance_report
