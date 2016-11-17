@@ -1,0 +1,2 @@
+class CsrPerformanceReport < ApplicationRecord
+end

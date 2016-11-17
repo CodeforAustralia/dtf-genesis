@@ -1,0 +1,21 @@
+%div.media
+  %div.media-body
+    %table.table-striped
+      %thead.index-haml-pages
+        %th.col-md-4= smart_listing.sortable "Name", "name"
+        %th.col-md-2= smart_listing.sortable "ABN", "abn"
+        %th.col-md-1= smart_listing.sortable "ACN", "acn"
+        %th.col-md-1= smart_listing.sortable "Address", "address"
+        %th.col-md-1= smart_listing.sortable "Suburb", "suburb"
+        %th.col-md-1= smart_listing.sortable "State", "state"
+        %th.col-md-1= smart_listing.sortable "PostCode", "postcode"
+        %th.col-md-1= smart_listing.sortable "Email", "email"
+      
+      %tbody
+        - smart_listing.collection.each do |obj|
+          %tr.editable.supplier-row{:data => {:id => obj.id}}
+            = smart_listing.render object: obj, partial: "suppliers/supplier", locals: {object: obj}
+    
+    = smart_listing.paginate
+    = smart_listing.pagination_per_page_links
+

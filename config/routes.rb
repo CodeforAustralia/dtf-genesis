@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :csr_performance_reports
   resources :cpr_performance_reports
   resources :suppliers
   get '/contracts/search', to: 'contracts#search'
