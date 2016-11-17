@@ -5,17 +5,17 @@ class SuppliersController < ApplicationController
 
   def index
     # @suppliers = Supplier.all
-    @supplier_scope = Supplier.all
-    @supplier_options = {}
-    @supplier_options = @supplier_options.merge(supplier_query: params[:supplier_filter]) if params[:supplier_filter].present?
-    @supplier_options = @supplier_options.merge(supplier_filters: params[:g]) if params[:g].present?
-    @supplier_scope = Supplier.all_with_filter(@supplier_options, @supplier_scope)
+    supplier_scope = Supplier.all
+    supplier_options = {}
+    supplier_options = supplier_options.merge(query: params[:filter]) if params[:filter].present?
+    supplier_options = supplier_options.merge(filters: params[:g]) if params[:g].present?
+    supplier_scope = Supplier.all_with_filter(supplier_options, supplier_scope)
 
     if params[:suppliers_smart_listing] && params[:suppliers_smart_listing][:page].blank?
       params[:suppliers_smart_listing][:page] = 1
     end
 
-    @suppliers = smart_listing_create :suppliers, @supplier_scope, partial: "suppliers/list", page_sizes: [10, 25, 50, 100, 250, 500]
+    @suppliers = smart_listing_create :suppliers, supplier_scope, partial: "suppliers/list", page_sizes: [10, 25, 50, 100, 250, 500]
   end
 
   def show

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :csr_performance_reports
   resources :cpr_performance_reports
   resources :suppliers
