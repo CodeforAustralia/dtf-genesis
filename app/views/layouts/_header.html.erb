@@ -11,7 +11,11 @@
         <li><%= link_to "About", pages_about_path %></li>
         <li><%= link_to "Contracts", contracts_path %></li>
         <li><%= link_to "Suppliers", suppliers_path %></li>
-        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Login", new_user_session_path %></li>
+        <% end %>
       </ul>
     </div>
 
