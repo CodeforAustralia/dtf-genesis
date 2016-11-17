@@ -15,7 +15,9 @@
         - smart_listing.collection.each do |obj|
           %tr.editable.supplier-row{:data => {:id => obj.id}}
             = smart_listing.render object: obj, partial: "suppliers/supplier", locals: {object: obj}
-    
+    :javascript
+      findSupplierId();
+
     = smart_listing.paginate
     = smart_listing.pagination_per_page_links
 
