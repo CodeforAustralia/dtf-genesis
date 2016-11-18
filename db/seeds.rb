@@ -149,3 +149,4 @@ Unspsc.create([
 #     status_id: 0
 #     })
 # end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
