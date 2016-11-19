@@ -22,7 +22,6 @@ gem 'activerecord-import'
 gem 'erd' #generates entity relationship diagram
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
-# gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'activeadmin', '~> 1.0.0.pre4'
 

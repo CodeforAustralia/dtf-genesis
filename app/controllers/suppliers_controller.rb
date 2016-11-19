@@ -41,6 +41,10 @@ class SuppliersController < ApplicationController
     @supplier.destroy
   end
 
+  def search
+    render json: Supplier.where("LOWER(name) LIKE LOWER(?)", "%#{params[:k]}%")
+  end
+
   private
     def set_supplier
       @supplier = Supplier.find(params[:id])
