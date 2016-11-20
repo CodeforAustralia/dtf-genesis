@@ -60,6 +60,16 @@ rails server
 
 7. Open your browser and you should be able to see your application by entering the url `localhost:3000`
 
+8. Create active admin user locally
+Run this commands at terminal:
+```bash 
+    rails c  # opens up rails console
+    u = AdminUser.new
+    u.email = "admin@example.com"
+    u.password = "password"
+    u.save
+ ```
+
 [![Build Status](https://semaphoreci.com/api/v1/PuZZleDucK/dtf-genesis/branches/master/badge.svg)](https://semaphoreci.com/PuZZleDucK/dtf-genesis)
 [ ![Codeship Status for ThreeLetterNames/dtf-genesis](https://app.codeship.com/projects/f3a78630-796e-0134-dd4b-3a1a91268848/status?branch=master)](https://app.codeship.com/projects/180502)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ThreeLetterNames/dtf-genesis/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ThreeLetterNames/dtf-genesis/?branch=master)
