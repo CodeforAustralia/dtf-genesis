@@ -24,6 +24,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'activeadmin', '~> 1.0.0.pre4'
+gem 'font-awesome-rails', '~> 4.5'
 
 group :development, :test do
   gem 'byebug', platform: :mri
