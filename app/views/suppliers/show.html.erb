@@ -1,4 +1,20 @@
 <p id="notice"><%= notice %></p>
 
+<dl class="dl-horizontal">
+  <dt><h3>Supplier Details</h3></dt>
+  <dd><h4>Name: <%= @supplier.name %></h4></dd>
+  <dd><h4>ABN: <%= @supplier.abn %></h4></dd>
+  <dd><h4>ACN:<%= @supplier.acn%></h4></dd>
+  <dd><h4>Address:<%= @supplier.address%></h4></dd>
+  <dd><h4>Suburb:<%= @supplier.suburb%></h4></dd>
+  <dd><h4>State:<%= @supplier.state%></h4></dd>
+  <dd><h4>Postal Code:<%= @supplier.postcode%></h4></dd>
+  <dd><h4>Email:<%= @supplier.email%></h4></dd>
+  
+  <h4>Performance Report</h4>
+
+</dl>
+
+
 <%= link_to 'Edit', edit_supplier_path(@supplier) %> |
 <%= link_to 'Back', suppliers_path %>
