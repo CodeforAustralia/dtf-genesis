@@ -137,49 +137,6 @@ ActiveRecord::Schema.define(version: 20161118040923) do
     t.datetime "updated_at",                                null: false
   end
 
-  create_table "cpr_reports", force: :cascade do |t|
-    t.integer  "cpr_contract"
-    t.integer  "cpr_contractor"
-    t.string   "cpr_client"
-    t.string   "cpr_principal"
-    t.date     "cpr_report_date"
-    t.string   "cpr_work_percent_complete"
-    t.string   "cpr_report_reason"
-    t.money    "cpr_price_as_varied",           scale: 2
-    t.money    "cpr_predicted_price",           scale: 2
-    t.money    "cpr_actual_price",              scale: 2
-    t.integer  "cpr_total_extention_days"
-    t.date     "cpr_adjusted_completion_date"
-    t.date     "cpr_predicted_completion_date"
-    t.date     "cpr_actual_completion_date"
-    t.text     "cpr_comments"
-    t.integer  "cpr_reporting_officer"
-    t.boolean  "cpr_contractor_acknowlages"
-    t.integer  "cpr_validating_officer"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
-  end
-
-  create_table "cpr_scores", force: :cascade do |t|
-    t.integer  "time_management"
-    t.integer  "work_standard"
-    t.integer  "quality_management_system"
-    t.integer  "personnel"
-    t.integer  "subcontractors"
-    t.integer  "contract_admin"
-    t.integer  "coop_relations"
-    t.integer  "health_and_safety"
-    t.integer  "industrial_relations"
-    t.integer  "environmental_management"
-    t.integer  "training_management"
-    t.integer  "design_contractor"
-    t.integer  "indigenous_participation"
-    t.integer  "cpr_report_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.index ["cpr_report_id"], name: "index_cpr_scores_on_cpr_report_id", using: :btree
-  end
-
   create_table "csr_performance_reports", force: :cascade do |t|
     t.string   "csr_supplier_id"
     t.string   "csr_works_no"
@@ -298,6 +255,5 @@ ActiveRecord::Schema.define(version: 20161118040923) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "cpr_scores", "cpr_reports"
   add_foreign_key "projects", "departments"
 end
