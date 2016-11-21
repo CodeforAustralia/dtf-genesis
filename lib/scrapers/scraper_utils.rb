@@ -30,7 +30,7 @@ end
 def scrape_contract_ids(department_indexes_to_scrape)
   contract_indexes = []
   department_indexes_to_scrape.each do |department_index|
-    print "∃dep: dep=#{department_index}: "
+    print "Agency: #{department_index}: "
     page_number = 1
     previous_page = ""
     current_page = "not blank"
@@ -196,13 +196,13 @@ end
 def store_this_contract?(contract_data)
   unspsc_keepers = [72000000, 72131700, 72100000, 77000000, 92100000, 80000000, 30000000, 31000000, 83000000, 23000000, 22000000, 25000000, 72130000, 32000000, 92101500, 72131600, 70000000, 85000000]
   if not unspsc_keepers.include?(contract_data[:contract_unspsc])
-   print "🖻"
+  #  print "🖻"
     false
   elsif Contract.find_by(vt_contract_number: contract_data[:contract_number])
-   print "♲" # use refresh here to update records
+  #  print "♲" # use refresh here to update records
     false
   else
-   print "🏗"
+  #  print "🏗"
     true
   end
 end
