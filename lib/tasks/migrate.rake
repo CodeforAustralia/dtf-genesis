@@ -1,7 +1,9 @@
 require 'csv'
 
-namespace :scrape do
 
+require "#{Rails.root}/lib/linkers/linker.rb"
+
+namespace :scrape do
   desc "Scrape Tenders VIC for new contracts now"
   task :new => :environment do
     scrape_tenders_vic
@@ -11,8 +13,17 @@ namespace :scrape do
   task :update => :environment do
     scrape_tenders_vic true
   end
-
 end
+
+
+namespace :link do
+  desc "Link VicTenders suppliers to CSR suppliers"
+  task :suppliers_to_contracts => :environment do
+    link_unknown_suppliers
+  end
+end
+
+
 namespace :migrate do
   desc "Migrate data for location(or address table in csr)"
   task :location => :environment do
