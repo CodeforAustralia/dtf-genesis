@@ -10,5 +10,19 @@
   <dd><h4>State:<%= @supplier.state%></h4></dd>
   <dd><h4>Postal Code:<%= @supplier.postcode%></h4></dd>
   <dd><h4>Email:<%= @supplier.email%></h4></dd>
-  
+
+
+  <dd><h4>Supplier Count:<%= @supplier.id %></h4></dd>
+  <dd><h4>Report Count:<%= @csr_performance_reports%></h4></dd>
+  <dt><h3>CSR Reports</h3></dt>
+  <ul>
+
+    <% @csr_performance_reports.each do |report|  %>
+      <li>
+        <!-- <%= link_to [supplier.report, report] do %>  -->
+          <%= report.csr_works_no %>
+        <!-- <% end %> -->
+      </li>
+    <% end %>
+  <ul>
 </dl>

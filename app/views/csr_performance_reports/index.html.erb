@@ -10,11 +10,14 @@
   </thead>
 
   <tbody>
-    <% @csr_performance_reports.each do |csr_performance_report| %>
+    <% @csr_reports.each do |report| %>
       <tr>
-        <td><%= link_to 'Show', csr_performance_report %></td>
-        <td><%= link_to 'Edit', edit_csr_performance_report_path(csr_performance_report) %></td>
-        <td><%= link_to 'Destroy', csr_performance_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= report.csr_works_no %><td>
+      </tr>
+      <tr>
+        <td><%= link_to 'Show', report %></td>
+        <td><%= link_to 'Edit', edit_csr_performance_report_path(report) %></td>
+        <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

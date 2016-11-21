@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   resources :contracts
   resources :councils
 
+  resources :supplier do
+    resources :csr_performance_report, only: [:show]
+  end
+
   get 'pages/home'
   get 'pages/about'
   root 'pages#home'

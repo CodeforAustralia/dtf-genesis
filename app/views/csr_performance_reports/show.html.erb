@@ -1,4 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<h1>CSR Performance Report Details</h1>
+
+<p><%= @csr_performance_report.csr_supplier_id %></p>
+<p><%= @csr_performance_report.csr_works_no %></p>
+<p><%= @csr_performance_report.csr_satisfactory %></p>
+
+
+
 <%= link_to 'Edit', edit_csr_performance_report_path(@csr_performance_report) %> |
 <%= link_to 'Back', csr_performance_reports_path %>
