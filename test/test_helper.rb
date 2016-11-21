@@ -16,4 +16,6 @@ Capybara::Screenshot.webkit_options = { width: 1024, height: 768 }
 class ActiveSupport::TestCase
   fixtures :all   # Setup test/fixtures/*.yml  in alphabetical order.
   include Capybara::DSL
+  include Warden::Test::Helpers
+  Warden.test_mode!
 end
