@@ -19,7 +19,7 @@ end
 namespace :link do
   desc "Link VicTenders suppliers to CSR suppliers"
   task :suppliers_to_contracts => :environment do
-    link_unknown_suppliers
+    link_suppliers_to_contracts
   end
 end
 
