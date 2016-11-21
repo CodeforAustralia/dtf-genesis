@@ -11,7 +11,7 @@ class ContractsControllerTest < ActionDispatch::IntegrationTest
 
   test "non logged in user should get redirected" do
     get contracts_path
-    assert_redirected_to new_admin_user_session_path
+    assert_redirected_to new_user_session_path
   end
 
 
