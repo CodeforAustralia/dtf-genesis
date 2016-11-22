@@ -21,7 +21,7 @@ class SuppliersController < ApplicationController
 
   def show
     @supplier = Supplier.find(params[:id])
-    @csr_performance_reports = @supplier.csr_performance_reports
+    @csr_performance_reports = CsrPerformanceReport.where(csr_supplier_id: @supplier)
   end
 
   def new

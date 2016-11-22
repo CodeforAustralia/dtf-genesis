@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <dl class="dl-horizontal">
-  <h3 class="center">Supplier Details</h3>
+  <h3>Supplier Details</h3>
   <dd><h4>Name: <%= @supplier.name %></h4></dd>
   <dd><h4>ABN: <%= @supplier.abn %></h4></dd>
   <dd><h4>ACN:<%= @supplier.acn%></h4></dd>
@@ -12,17 +12,11 @@
   <dd><h4>Email:<%= @supplier.email%></h4></dd>
 
 
-  <dd><h4>Supplier Count:<%= @supplier.id %></h4></dd>
-  <dd><h4>Report Count:<%= @csr_performance_reports%></h4></dd>
-  <dt><h3>CSR Reports</h3></dt>
-  <ul>
-
-    <% @csr_performance_reports.each do |report|  %>
-      <li>
-        <!-- <%= link_to [supplier.report, report] do %>  -->
-          <%= report.csr_works_no %>
-        <!-- <% end %> -->
-      </li>
-    <% end %>
-  <ul>
+  <dd><h4>Supplier: <%= @supplier.id %></h4></dd>
+  <dd><h4>Report Count:<%= @csr_performance_reports.count %></h4></dd>
+  <h3>CSR Reports</h3>
+  <% @csr_performance_reports.each do |report|  %>
+    <dd><h4><%= link_to report.csr_works_no, report  %> <%= report.csr_satisfactory %> <%= report.csr_overall %></h4></dd>
+  <% end %>
+  
 </dl>
