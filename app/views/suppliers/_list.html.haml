@@ -13,7 +13,7 @@
       
       %tbody
         - smart_listing.collection.each do |obj|
-          %tr.editable.supplier-row{:data => {:id => obj.id}}
+          %tr.editable.suppliers-row{:data => {:id => obj.id}}
             = smart_listing.render object: obj, partial: "suppliers/supplier", locals: {object: obj}
     :javascript
       findSupplierId();

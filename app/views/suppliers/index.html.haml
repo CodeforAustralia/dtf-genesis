@@ -9,7 +9,7 @@
         %span.input-group-btn
           = submit_tag 'Refresh', :class => "btn btn-default", :name => "do_query"
           = link_to  "Clear search", '/suppliers', class: "btn btn-default"
-          / = link_to "Save", '/suppliers/save', class: "btn btn-default"
+          = link_to "Save", '/suppliers/save', class: "btn btn-default"
 
   %script(type="text/javascript")
     - if params[:g]

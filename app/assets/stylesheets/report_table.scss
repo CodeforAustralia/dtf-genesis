@@ -1,0 +1,16 @@
+.csr-thead, .csr-tbody { display: block; }
+
+.csr-thead {
+  width: 100%;
+}
+
+.csr-tbody {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.csr-td {
+  overflow: hidden;
+  width: 100px;
+}
