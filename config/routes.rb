@@ -5,12 +5,20 @@ Rails.application.routes.draw do
 
   resources :csr_performance_reports
   resources :cpr_performance_reports
-  resources :suppliers
+  
   get '/contracts/search', to: 'contracts#search'
   get '/contracts/save', to: 'contracts#save'
 
+  get '/suppliers/search', to: 'suppliers#search'
+  get '/suppliers/save', to: 'suppliers#save'
+
+  resources :suppliers
   resources :contracts
   resources :councils
+
+  resources :supplier do
+    resources :csr_performance_report, only: [:show]
+  end
 
   get 'pages/home'
   get 'pages/about'

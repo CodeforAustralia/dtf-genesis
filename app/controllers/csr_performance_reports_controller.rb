@@ -4,12 +4,15 @@ class CsrPerformanceReportsController < ApplicationController
   # GET /csr_performance_reports
   # GET /csr_performance_reports.json
   def index
-    @csr_performance_reports = CsrPerformanceReport.all
+    @csr_reports = CsrPerformanceReport.all
   end
 
   # GET /csr_performance_reports/1
   # GET /csr_performance_reports/1.json
   def show
+    # @supplier = Supplier.find(params[:supplier_id])
+    # @csr_reports = CsrPerformanceReport.where(csr_supplier_id: @supplier)
+    # @csr_report = CsrPerformanceReport.find(params[:id])
   end
 
   # GET /csr_performance_reports/new
