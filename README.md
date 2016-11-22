@@ -62,11 +62,12 @@ rails server
 
 8. Create active admin user locally
 Run this commands at terminal:
-```bash 
+```bash
     rails c  # opens up rails console
-    u = AdminUser.new
+    u = User.new
     u.email = "admin@example.com"
     u.password = "password"
+    u.password_confirmation = "password"
     u.save
  ```
 
