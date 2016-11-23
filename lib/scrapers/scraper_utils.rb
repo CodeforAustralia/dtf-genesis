@@ -64,7 +64,7 @@ def scrape_for_references(department_list_url)
 end
 
 def scrape_tenders_vic(refresh = false)
-  print "\n ∵ TendersVIC Scrape @ #{Time.now} ∵"
+  print "\n ∵ TendersVIC Scrape @ #{Time.now} ∵\n"
   contract_indexes_to_scrape = scrape_for_references("https://www.tenders.vic.gov.au/tenders/contract/list.do?action=contract-view")
   contract_session = prepare_session()
   Capybara.reset_sessions!
@@ -74,7 +74,7 @@ def scrape_tenders_vic(refresh = false)
     store_or_skip(contract_data, refresh)
   end
   contract_session.driver.quit
-  print "\n ∴ Completed Scraping @ #{Time.now} ∴"
+  print "\n ∴ Completed Scraping @ #{Time.now} ∴\n"
 end
 
 
@@ -193,16 +193,16 @@ def extract_contract_data(text, contract_index)
   }
 end
 
-def store_this_contract?(contract_data)
+def store_this_contract?(contract_data, display=true)
   unspsc_keepers = [72000000, 72131700, 72100000, 77000000, 92100000, 80000000, 30000000, 31000000, 83000000, 23000000, 22000000, 25000000, 72130000, 32000000, 92101500, 72131600, 70000000, 85000000]
   if not unspsc_keepers.include?(contract_data[:contract_unspsc])
-  #  print "🖻"
+   print "🖻" if display
     false
   elsif Contract.find_by(vt_contract_number: contract_data[:contract_number])
-  #  print "♲" # use refresh here to update records
+   print "♲" if display
     false
   else
-  #  print "🏗"
+   print "🏗" if display
     true
   end
 end
@@ -229,6 +229,7 @@ def update_this_contract(contract_data)
     existing_contract.vt_supplier_acn = contract_data[:supplier_acn]
     existing_contract.vt_supplier_address = contract_data[:supplier_address]
     existing_contract.save
+    update_supplier_reference(existing_contract)
   end
 end
 
@@ -237,7 +238,7 @@ def store_or_skip(contract_data, refresh = false)
     update_this_contract contract_data
   end
   if store_this_contract? contract_data
-    Contract.create({
+    contract = Contract.create({
       vt_contract_number: contract_data[:contract_number],
       vt_status_id: contract_data[:contract_status],
       vt_title: contract_data[:contract_title],
@@ -259,5 +260,6 @@ def store_or_skip(contract_data, refresh = false)
       vt_supplier_acn: contract_data[:supplier_acn],
       vt_supplier_address: contract_data[:supplier_address]
     })
+    update_supplier_reference(contract)
   end
 end

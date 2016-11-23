@@ -108,7 +108,6 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_equal expected_response, contract_object
   end
 
-#store_this_contract?   30000000, 31000000, 72000000
   test "correctly stores construction" do
     expected_to_store = {
       department_id: 0,
@@ -130,7 +129,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
       agency_email: "",
       supplier_address: ", ,  "
     }
-    assert_equal true, store_this_contract?(expected_to_store)
+    assert_equal true, store_this_contract?(expected_to_store, false)
   end
 
   test "correctly rejects non-construction" do
@@ -150,7 +149,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
       contract_details: "",
       vt_contract_index: ""
     }
-    assert_equal false, store_this_contract?(expected_to_drop)
+    assert_equal false, store_this_contract?(expected_to_drop, false)
   end
 
 end
