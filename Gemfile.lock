@@ -93,6 +93,8 @@ GEM
       launchy
     choice (0.2.0)
     cliver (0.3.2)
+    codeclimate-test-reporter (1.0.3)
+      simplecov
     coderay (1.1.1)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
@@ -329,6 +331,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.1.0)
   capybara-screenshot
+  codeclimate-test-reporter (~> 1.0.0)
   coffee-rails (~> 4.2)
   devise
   erd
@@ -350,6 +353,7 @@ DEPENDENCIES
   rufus-scheduler
   sass-rails (>= 3.2)
   scrutinizer-ocular
+  simplecov
   smart_listing (~> 1.1, >= 1.1.2)
   turbolinks (~> 5)
   tzinfo-data
