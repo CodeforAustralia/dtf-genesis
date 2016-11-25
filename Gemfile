@@ -28,6 +28,8 @@ gem 'font-awesome-rails', '~> 4.5'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem "simplecov"
+  gem "codeclimate-test-reporter", "~> 1.0.0"
 end
 
 group :development do

@@ -25,30 +25,6 @@ ContractValueType.create([
   {type_description: "Fixed Price", type_shortname: "fix"}
   ])
 
-Department.create!([
-  { name: "Ambulance Victoria", short_name: "AMB", vt_number: 3 },
-  { name: "CenITex", short_name: "CTX", vt_number: 5154 },
-  { name: "Department of Economic Development, Jobs, Transport and Resources", short_name: "DEDJTR", vt_number: 43087 },
-  { name: "Department of Education and Training", short_name: "DET", vt_number: 42999 },
-  { name: "Department of Environment and Primary Industries", short_name: "DEPI", vt_number: 43 },
-  { name: "Department of Environment, Land, Water and Planning", short_name: "DELWP", vt_number: 42924 },
-  { name: "Department of Health & Human Services", short_name: "DHHS", vt_number: 42963 },
-  { name: "Department of Health & Human Services - Property & Asset Services", short_name: "DHHS-PAS", vt_number: 43494 },
-  { name: "Department of Justice & Regulation", short_name: "DJR", vt_number: 43004 },
-  { name: "Department of Premier and Cabinet", short_name: "DPC", vt_number: 10 },
-  { name: "Independent Broad-based Anti-corruption Commission", short_name: "ACC", vt_number: 42425 },
-  { name: "Infrastructure Victoria", short_name: "IV", vt_number: 52488 },
-  { name: "Major Projects Victoria", short_name: "MPV", vt_number: 20135 },
-  { name: "Metropolitan Fire and Emergency Services Board", short_name: "MFB", vt_number: 3161 },
-  { name: "State Revenue Office", short_name: "SRO", vt_number: 15 },
-  { name: "Victoria Police", short_name: "VicPol", vt_number: 39 },
-  { name: "Victorian Auditor General's Office", short_name: "VicAG", vt_number: 5979 },
-  { name: "Victorian Commission for Gambling and Liquor Regulation", short_name: "LAB", vt_number: 33602 },
-  { name: "Whole of Victorian Government", short_name: "WoVG", vt_number: 18641 },
-  { name: "WoVG Land Sales", short_name: "WoVG-LS", vt_number: 18669 }
-  ])
-
-
 
 Unspsc.create([
   { unspsc_code: 10000000, unspsc_name: "Live Plant and Animal Material and Accessories and Supplies" },
