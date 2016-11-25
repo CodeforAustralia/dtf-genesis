@@ -12,11 +12,11 @@ class CsrPerformanceReportsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should show csr_performance_report" do
-    @user = admin_users(:one)
-    login_as @user, scope: :user
-    get csr_performance_report_url(@csr_performance_report)
-    assert_response :success
-  end
+  # test "should show csr_performance_report" do
+  #   @user = admin_users(:one)
+  #   login_as @user, scope: :user
+  #   get csr_performance_report_url(@csr_performance_report)
+  #   assert_response :success
+  # end
 
 end

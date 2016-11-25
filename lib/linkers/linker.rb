@@ -9,8 +9,8 @@ end
 
 def update_supplier_reference(contract)
   if contract.vt_supplier_id < 1
-    this_acn = contract.vt_supplier_acn.gsub(" ","")
-    this_abn = contract.vt_supplier_abn.gsub(" ","")
+    this_acn = contract.vt_supplier_acn.gsub(" ","") unless this_acn.nil?
+    this_abn = contract.vt_supplier_abn.gsub(" ","") unless this_abn.nil?
     simple_name = clean_name(contract.vt_supplier_name)
     acn_matches = Supplier.where(acn: this_acn)
     abn_matches = Supplier.where(abn: this_abn)
