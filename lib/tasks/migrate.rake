@@ -52,6 +52,19 @@ namespace :migrate do
     CsrPerformanceReport.import columns, performances, validate: false
   end
 
+  desc "Setup Agency Data"
+  task :agency => :environment do
+    Department.delete_all
+    agencies = CSV.read("#{Rails.root}/db/data/agencies.csv")
+    columns = [:vt_number, :name, :short_name]
+    Department.import columns, agencies, validate: false
+  end
+
+  desc "Remove spaces from ABNs and ACNs"
+  task :remove_spaces => :environment do
+    reomove_abnacn_spaces
+  end
+
 end
 
 
