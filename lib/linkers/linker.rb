@@ -7,7 +7,7 @@ def display_supplier(cause, supplier)
   puts "  :: found #{cause} match: [#{supplier.id}] #{supplier.name} (#{supplier.acn}/#{supplier.abn})"
 end
 
-def update_supplier_reference(contract)
+def update_supplier_reference(contract, print=false)
   if contract.vt_supplier_id < 1
     this_acn = contract.vt_supplier_acn.gsub(" ","") unless this_acn.nil?
     this_abn = contract.vt_supplier_abn.gsub(" ","") unless this_abn.nil?
@@ -15,8 +15,8 @@ def update_supplier_reference(contract)
     acn_matches = Supplier.where(acn: this_acn)
     abn_matches = Supplier.where(abn: this_abn)
     name_matches = Supplier.where(name: simple_name)
-    puts ":: Matching '#{simple_name}(#{this_abn}/#{this_acn})' acn count = #{acn_matches.count}... abn count = #{abn_matches.count}... name count = #{name_matches.count}"
-    # print "."
+    # puts ":: Matching '#{simple_name}(#{this_abn}/#{this_acn})' acn count = #{acn_matches.count}... abn count = #{abn_matches.count}... name count = #{name_matches.count}"
+    print "." unless not print
     if acn_matches.count >= 1
       contract.vt_supplier_id = acn_matches.first.id
     elsif  abn_matches.count >= 1
@@ -35,7 +35,7 @@ end
 def link_suppliers_to_contracts
   print "Supplier linking ["
   Contract.all.each do |contract|
-    update_supplier_reference contract
+    update_supplier_reference contract, true
   end
   print "]\n"
 end
