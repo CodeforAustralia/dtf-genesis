@@ -24,7 +24,11 @@
   <dd><h4>Email: <%= @contract.vt_agency_email %></h4></dd>
 
   <dt><h4>Supplier:</h4></dt>
-  <dd><h4>Name: <%= @contract.vt_supplier_name %></h4></dd>
+  <% if @contract.vt_supplier_id == 0 %>
+    <dd><h4><%= @contract.vt_supplier_name %></h4></dd>
+  <% else %>
+    <dd><h4> <%= link_to("#{@contract.vt_supplier_name}", supplier_path(@contract.vt_supplier_id)) %></h4></dd>
+  <% end %>
   <dd><h4>ABN: <%= @contract.vt_supplier_abn %></h4></dd>
   <dd><h4>ACN: <%= @contract.vt_supplier_acn %></h4></dd>
   <dd><h4>Address: <%= @contract.vt_supplier_address %></h4></dd>
