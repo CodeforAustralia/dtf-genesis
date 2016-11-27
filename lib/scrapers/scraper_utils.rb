@@ -108,6 +108,15 @@ def lookup_department_short_name(department_id)
   end
 end
 
+def lookup_department_name(department_id)
+  department = Department.where(vt_number: department_id).first
+  if department
+    department.name
+  else
+    ""
+  end
+end
+
 def lookup_contract_type(text)
   0
 end
