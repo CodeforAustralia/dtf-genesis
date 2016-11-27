@@ -152,4 +152,12 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_equal false, store_this_contract?(expected_to_drop, false)
   end
 
+  test "lookup department shortname works" do
+    assert_equal "CTX", lookup_department_short_name(5154)
+  end
+
+  test "lookup nonexisting department shortname returns nothing" do
+    assert_equal "", lookup_department_short_name(515)
+  end
+
 end
