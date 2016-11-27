@@ -17,7 +17,7 @@
   <dd><h4>Value type: <%= @contract.vt_value_type_id %></h4></dd>
 
   <dt><h4>Department:</h4></dt>
-  <dd><h4>Department Id: <%= @contract.vt_department_id %></h4></dd>
+  <dd><h4><%= lookup_department_name(@contract.vt_department_id) %> (<%= lookup_department_short_name(@contract.vt_department_id) %>)</h4></dd>
   <dd><h4>Project Id: <%= @contract.project_id %></h4></dd>
   <dd><h4>Contact: <%= @contract.vt_agency_person %></h4></dd>
   <dd><h4>Phone: <%= @contract.vt_agency_phone %></h4></dd>
