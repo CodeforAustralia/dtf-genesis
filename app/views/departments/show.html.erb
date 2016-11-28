@@ -24,7 +24,7 @@
   <tbody>
     <% @contracts.each do |con| %>
       <tr>
-        <td><%= con.vt_title %></td>
+        <td><%= link_to con.vt_title, contract_path(con) %></td>
         <td><%= con.vt_total_value %></td>
         <td><%= con.vt_supplier_name %></td>
       </tr>
