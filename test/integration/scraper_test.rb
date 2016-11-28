@@ -173,9 +173,9 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_equal "CenITex", lookup_department_name(5154)
   end
 
-    test "lookup contract status works" do
-      assert_equal @con_status.id, lookup_contract_status("Current")
-    end
+  test "lookup contract status works" do
+    assert_equal @con_status.id, lookup_contract_status("Current")
+  end
 
   test "lookup nonexisting contract status returns 0" do
     assert_equal 0, lookup_contract_status("Currentcy")
@@ -187,6 +187,22 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
 
   test "lookup nonexisting contract type returns 0" do
     assert_equal 0, lookup_contract_type("notype")
+  end
+
+  test "lookup contract status name works" do
+    assert_equal @con_status.name, lookup_contract_status_name(@con_status.id)
+  end
+
+  test "lookup invalid contract status name returns blank" do
+    assert_equal "", lookup_contract_status_name("@con_type.id")
+  end
+
+  test "lookup contract type name works" do
+    assert_equal @con_type.name, lookup_contract_type_name(@con_type.id)
+  end
+
+  test "lookup invalid contract type name returns blank" do
+    assert_equal "", lookup_contract_type_name("@con_type.id")
   end
 
 
