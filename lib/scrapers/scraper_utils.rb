@@ -126,6 +126,24 @@ def lookup_contract_type(text)
   end
 end
 
+def lookup_contract_type_name(type_id)
+  con_type = ContractType.where(id: type_id).first
+  if con_type
+    con_type.name
+  else
+    ""
+  end
+end
+
+def lookup_contract_status_name(status_id)
+  status_type = ContractStatus.where(id: status_id).first
+  if status_type
+    status_type.name
+  else
+    ""
+  end
+end
+
 def lookup_value_type(text)
   value_type = 0
   ContractValueType.all.each do |value_type|
