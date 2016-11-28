@@ -3,6 +3,11 @@ require "#{Rails.root}/lib/scrapers/scraper_utils.rb"
 
 class PagesControllerTest < ActionDispatch::IntegrationTest
 
+  def setup
+    @con_type = contract_types(:one)
+    @con_status = contract_statuses(:one)
+  end
+
   test "find_between finds text" do
     assert_match "between", find_between("pre between post", "pre ", " post")
   end
@@ -64,12 +69,12 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
       department_id: 43010,
       contract_number: "HYCR037",
       contract_title: "Royal Victorian Eye and Ear Hospital Redevelopment - Main Works Basement and Civil Works",
-      contract_type: 0,
+      contract_type: @con_type.id,
       contract_value: 410000,
       value_type_index: 0,
       contract_start: Date.parse("04/04/2016"),
       contract_end: Date.parse("05/04/2018"),
-      contract_status: 0,
+      contract_status: @con_status.id,
       contract_unspsc: 72000000,
       contract_details: "Royal Victorian Eye and Ear Hospital Redevelopment (RVEEH)  Main Works Basement and Civil Works",
       supplier_name: "Ace Civil Services Pty Ltd",
@@ -167,5 +172,22 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
   test "lookup nonexisting agency returns blank" do
     assert_equal "CenITex", lookup_department_name(5154)
   end
+
+    test "lookup contract status works" do
+      assert_equal @con_status.id, lookup_contract_status("Current")
+    end
+
+  test "lookup nonexisting contract status returns 0" do
+    assert_equal 0, lookup_contract_status("Currentcy")
+  end
+
+  test "lookup contract type works" do
+    assert_equal @con_type.id, lookup_contract_type("Construction Contracts")
+  end
+
+  test "lookup nonexisting contract type returns 0" do
+    assert_equal 0, lookup_contract_type("notype")
+  end
+
 
 end

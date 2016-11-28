@@ -117,8 +117,13 @@ def lookup_department_name(department_id)
   end
 end
 
-def lookup_contract_type(text) # "Purchases of Goods/Services",
-  0
+def lookup_contract_type(text)
+  con_type = ContractType.where(name: text).first
+  if con_type
+    con_type.id
+  else
+    0
+  end
 end
 
 def lookup_value_type(text)
@@ -132,8 +137,13 @@ def lookup_value_type(text)
   value_type
 end
 
-def lookup_contract_status(text) # "Current", "Expired"
-  0
+def lookup_contract_status(text)
+  con_status = ContractStatus.where(name: text).first
+  if con_status
+    con_status.id
+  else
+    0
+  end
 end
 
 def lookup_contract_unspsc(text)
