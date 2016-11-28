@@ -7,6 +7,7 @@ class DepartmentsController < ApplicationController
 
   def show
     @department = Department.find(params[:id])
+    @contracts = Contract.where(vt_department_id: @department.vt_number)
   end
 
 end
