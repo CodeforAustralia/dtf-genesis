@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @contract_type.name %>
+</p>
+
+<p>
+  <strong>Short name:</strong>
+  <%= @contract_type.short_name %>
+</p>
+
+<%= link_to 'Edit', edit_contract_type_path(@contract_type) %> |
+<%= link_to 'Back', contract_types_path %>

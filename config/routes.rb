@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :contract_statuses
+  resources :contract_types
   get '/.well-known/acme-challenge/:id' => 'pages#letsencrypt'
 
   # devise_for :admin_users, ActiveAdmin::Devise.config
