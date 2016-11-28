@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
+
+  resources :departments
+  resources :contract_statuses
+  resources :contract_types
+  get '/.well-known/acme-challenge/:id' => 'pages#letsencrypt'
+
   # devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
   resources :csr_performance_reports
   resources :cpr_performance_reports
-  
+
   get '/contracts/search', to: 'contracts#search'
   get '/contracts/save', to: 'contracts#save'
 

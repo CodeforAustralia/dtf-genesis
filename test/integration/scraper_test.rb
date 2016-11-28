@@ -3,6 +3,11 @@ require "#{Rails.root}/lib/scrapers/scraper_utils.rb"
 
 class PagesControllerTest < ActionDispatch::IntegrationTest
 
+  def setup
+    @con_type = contract_types(:one)
+    @con_status = contract_statuses(:one)
+  end
+
   test "find_between finds text" do
     assert_match "between", find_between("pre between post", "pre ", " post")
   end
@@ -64,12 +69,12 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
       department_id: 43010,
       contract_number: "HYCR037",
       contract_title: "Royal Victorian Eye and Ear Hospital Redevelopment - Main Works Basement and Civil Works",
-      contract_type: 0,
+      contract_type: @con_type.id,
       contract_value: 410000,
       value_type_index: 0,
       contract_start: Date.parse("04/04/2016"),
       contract_end: Date.parse("05/04/2018"),
-      contract_status: 0,
+      contract_status: @con_status.id,
       contract_unspsc: 72000000,
       contract_details: "Royal Victorian Eye and Ear Hospital Redevelopment (RVEEH)  Main Works Basement and Civil Works",
       supplier_name: "Ace Civil Services Pty Ltd",
@@ -78,7 +83,8 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
       agency_person: "Rachel Devine",
       agency_phone: "PHONE: (03) 90967295",
       agency_email: "Rachel.Devine@dhhs.vic.gov.au",
-      supplier_address: "18 Brisbane Street, Eltham, VIC 3095"
+      supplier_address: "18 Brisbane Street, Eltham, VIC 3095",
+      vt_identifier: 0
     }
     assert_equal expected_response, contract_object
   end
@@ -103,7 +109,8 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
       agency_person: "",
       agency_phone: "",
       agency_email: "",
-      supplier_address: ", ,  "
+      supplier_address: ", ,  ",
+      vt_identifier: 0
     }
     assert_equal expected_response, contract_object
   end
@@ -151,5 +158,54 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     }
     assert_equal false, store_this_contract?(expected_to_drop, false)
   end
+
+  test "lookup agency shortname works" do
+    assert_equal "CTX", lookup_department_short_name(5154)
+  end
+
+  test "lookup nonexisting agency shortname returns nothing" do
+    assert_equal "", lookup_department_short_name(515)
+  end
+
+  test "lookup agency name works" do
+    assert_equal "CenITex", lookup_department_name(5154)
+  end
+
+  test "lookup nonexisting agency returns blank" do
+    assert_equal "CenITex", lookup_department_name(5154)
+  end
+
+  test "lookup contract status works" do
+    assert_equal @con_status.id, lookup_contract_status("Current")
+  end
+
+  test "lookup nonexisting contract status returns 0" do
+    assert_equal 0, lookup_contract_status("Currentcy")
+  end
+
+  test "lookup contract type works" do
+    assert_equal @con_type.id, lookup_contract_type("Construction Contracts")
+  end
+
+  test "lookup nonexisting contract type returns 0" do
+    assert_equal 0, lookup_contract_type("notype")
+  end
+
+  test "lookup contract status name works" do
+    assert_equal @con_status.name, lookup_contract_status_name(@con_status.id)
+  end
+
+  test "lookup invalid contract status name returns blank" do
+    assert_equal "", lookup_contract_status_name("@con_type.id")
+  end
+
+  test "lookup contract type name works" do
+    assert_equal @con_type.name, lookup_contract_type_name(@con_type.id)
+  end
+
+  test "lookup invalid contract type name returns blank" do
+    assert_equal "", lookup_contract_type_name("@con_type.id")
+  end
+
 
 end
