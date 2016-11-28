@@ -108,8 +108,40 @@ def lookup_department_short_name(department_id)
   end
 end
 
+def lookup_department_name(department_id)
+  department = Department.where(vt_number: department_id).first
+  if department
+    department.name
+  else
+    ""
+  end
+end
+
 def lookup_contract_type(text)
-  0
+  con_type = ContractType.where(name: text).first
+  if con_type
+    con_type.id
+  else
+    0
+  end
+end
+
+def lookup_contract_type_name(type_id)
+  con_type = ContractType.where(id: type_id).first
+  if con_type
+    con_type.name
+  else
+    ""
+  end
+end
+
+def lookup_contract_status_name(status_id)
+  status_type = ContractStatus.where(id: status_id).first
+  if status_type
+    status_type.name
+  else
+    ""
+  end
 end
 
 def lookup_value_type(text)
@@ -124,7 +156,12 @@ def lookup_value_type(text)
 end
 
 def lookup_contract_status(text)
-  0
+  con_status = ContractStatus.where(name: text).first
+  if con_status
+    con_status.id
+  else
+    0
+  end
 end
 
 def lookup_contract_unspsc(text)
@@ -198,7 +235,8 @@ def extract_contract_data(text, contract_index)
     agency_person: agency_person,
     agency_phone: agency_phone,
     agency_email: agency_email,
-    supplier_address: supplier_address
+    supplier_address: supplier_address,
+    vt_identifier: contract_index
   }
 end
 
@@ -237,6 +275,7 @@ def update_this_contract(contract_data)
     existing_contract.vt_supplier_abn = contract_data[:supplier_abn]
     existing_contract.vt_supplier_acn = contract_data[:supplier_acn]
     existing_contract.vt_supplier_address = contract_data[:supplier_address]
+    existing_contract.project_id = contract_data[:vt_identifier]
     existing_contract.save
     update_supplier_reference(existing_contract)
   end
@@ -267,7 +306,8 @@ def store_or_skip(contract_data, refresh = false)
       vt_supplier_name: contract_data[:supplier_name],
       vt_supplier_abn: contract_data[:supplier_abn],
       vt_supplier_acn: contract_data[:supplier_acn],
-      vt_supplier_address: contract_data[:supplier_address]
+      vt_supplier_address: contract_data[:supplier_address],
+      project_id: contract_data[:vt_identifier]
     })
     update_supplier_reference(contract)
   end

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Contract Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Short name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contract_types.each do |contract_type| %>
+      <tr>
+        <td><%= contract_type.name %></td>
+        <td><%= contract_type.short_name %></td>
+        <td><%= link_to 'Show', contract_type %></td>
+        <td><%= link_to 'Edit', edit_contract_type_path(contract_type) %></td>
+        <td><%= link_to 'Destroy', contract_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contract Type', new_contract_type_path %>
