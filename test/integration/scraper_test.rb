@@ -83,7 +83,8 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
       agency_person: "Rachel Devine",
       agency_phone: "PHONE: (03) 90967295",
       agency_email: "Rachel.Devine@dhhs.vic.gov.au",
-      supplier_address: "18 Brisbane Street, Eltham, VIC 3095"
+      supplier_address: "18 Brisbane Street, Eltham, VIC 3095",
+      vt_identifier: 0
     }
     assert_equal expected_response, contract_object
   end
@@ -108,7 +109,8 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
       agency_person: "",
       agency_phone: "",
       agency_email: "",
-      supplier_address: ", ,  "
+      supplier_address: ", ,  ",
+      vt_identifier: 0
     }
     assert_equal expected_response, contract_object
   end
