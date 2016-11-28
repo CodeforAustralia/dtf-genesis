@@ -235,7 +235,8 @@ def extract_contract_data(text, contract_index)
     agency_person: agency_person,
     agency_phone: agency_phone,
     agency_email: agency_email,
-    supplier_address: supplier_address
+    supplier_address: supplier_address,
+    vt_identifier: contract_index
   }
 end
 
@@ -274,6 +275,7 @@ def update_this_contract(contract_data)
     existing_contract.vt_supplier_abn = contract_data[:supplier_abn]
     existing_contract.vt_supplier_acn = contract_data[:supplier_acn]
     existing_contract.vt_supplier_address = contract_data[:supplier_address]
+    existing_contract.project_id = contract_data[:vt_identifier]
     existing_contract.save
     update_supplier_reference(existing_contract)
   end
@@ -304,7 +306,8 @@ def store_or_skip(contract_data, refresh = false)
       vt_supplier_name: contract_data[:supplier_name],
       vt_supplier_abn: contract_data[:supplier_abn],
       vt_supplier_acn: contract_data[:supplier_acn],
-      vt_supplier_address: contract_data[:supplier_address]
+      vt_supplier_address: contract_data[:supplier_address],
+      project_id: contract_data[:vt_identifier]
     })
     update_supplier_reference(contract)
   end
