@@ -67,19 +67,19 @@ namespace :migrate do
 
   desc "Setup Contract Status values"
   task :contract_status => :environment do
-    # Department.delete_all
-    # agencies = CSV.read("#{Rails.root}/db/data/agencies.csv")
-    # columns = [:vt_number, :name, :short_name]
-    # Department.import columns, agencies, validate: false
+    ContractStatus.delete_all
+    status_codes = CSV.read("#{Rails.root}/db/data/contract-status.csv")
+    columns = [:name, :short_name]
+    ContractStatus.import columns, status_codes, validate: false
   end
 
 
   desc "Setup Contract Type values"
   task :contract_types => :environment do
-    # Department.delete_all
-    # agencies = CSV.read("#{Rails.root}/db/data/agencies.csv")
-    # columns = [:vt_number, :name, :short_name]
-    # Department.import columns, agencies, validate: false
+    ContractType.delete_all
+    type_codes = CSV.read("#{Rails.root}/db/data/contract-types.csv")
+    columns = [:name, :short_name]
+    ContractType.import columns, type_codes, validate: false
   end
 
 end
