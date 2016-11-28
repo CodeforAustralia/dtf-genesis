@@ -3,6 +3,8 @@ require 'test_helper'
 class ContractStatusesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @contract_status = contract_statuses(:one)
+    @user = admin_users(:one)
+    login_as @user, scope: :user
   end
 
   test "should get index" do
