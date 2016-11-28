@@ -65,6 +65,23 @@ namespace :migrate do
     reomove_abnacn_spaces
   end
 
+  desc "Setup Contract Status values"
+  task :contract_status => :environment do
+    # Department.delete_all
+    # agencies = CSV.read("#{Rails.root}/db/data/agencies.csv")
+    # columns = [:vt_number, :name, :short_name]
+    # Department.import columns, agencies, validate: false
+  end
+
+
+  desc "Setup Contract Type values"
+  task :contract_types => :environment do
+    # Department.delete_all
+    # agencies = CSV.read("#{Rails.root}/db/data/agencies.csv")
+    # columns = [:vt_number, :name, :short_name]
+    # Department.import columns, agencies, validate: false
+  end
+
 end
 
 

@@ -117,7 +117,7 @@ def lookup_department_name(department_id)
   end
 end
 
-def lookup_contract_type(text)
+def lookup_contract_type(text) # "Purchases of Goods/Services",
   0
 end
 
@@ -132,7 +132,7 @@ def lookup_value_type(text)
   value_type
 end
 
-def lookup_contract_status(text)
+def lookup_contract_status(text) # "Current", "Expired"
   0
 end
 
