@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  short_name: MyString
+  name: Construction Contracts
+  short_name: CON
 
 two:
   name: MyString
