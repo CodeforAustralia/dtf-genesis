@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :departments
   resources :contract_statuses
   resources :contract_types
   get '/.well-known/acme-challenge/:id' => 'pages#letsencrypt'
