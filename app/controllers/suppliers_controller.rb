@@ -22,6 +22,7 @@ class SuppliersController < ApplicationController
   def show
     @supplier = Supplier.find(params[:id])
     @csr_performance_reports = CsrPerformanceReport.where(csr_supplier_id: @supplier)
+    @projects = Contract.where(vt_supplier_id: params[:id])
   end
 
   def new
