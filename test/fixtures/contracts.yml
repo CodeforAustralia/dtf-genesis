@@ -15,3 +15,21 @@ two:
   vt_start_date: 2016-09-20
   vt_end_date: 2016-09-20
   vt_total_value:
+
+matching_acn_contract:
+  vt_contract_number: matching_acn_contract_number
+  vt_title: matching_acn_contract_title
+  vt_start_date: 1979-10-11
+  vt_total_value: 0
+  vt_supplier_acn: 124578
+  vt_supplier_id: 0
+  vt_supplier_name: old sup name
+
+matching_abn_contract:
+  vt_contract_number: matching_abn_contract_number
+  vt_title: matching_abn_contract_title
+  vt_start_date: 1979-10-11
+  vt_total_value: 0
+  vt_supplier_abn: 124578
+  vt_supplier_id: 0
+  vt_supplier_name: old sup name

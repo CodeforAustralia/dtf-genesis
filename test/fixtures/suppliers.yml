@@ -19,3 +19,13 @@ two:
   state: MyString
   postcode: 1
   email: MyString
+
+
+
+matching_acn_supplier:
+  acn: 124578
+  name: matching-acn-sup-name
+
+matching_abn_supplier:
+  abn: 124578
+  name: matching-abn-sup-name
