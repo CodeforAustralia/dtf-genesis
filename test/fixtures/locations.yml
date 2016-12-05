@@ -1,0 +1,55 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  record_no: 1
+  supplier_no: 1
+  location_code: MyString
+  supplier_type: MyString
+  mail_to: false
+  address_line1: MyString
+  address_line2: MyString
+  suburb: MyString
+  postcode: 1
+  po: MyString
+  po_suburb: MyString
+  po_postcode: MyString
+  phone1: MyString
+  phone2: MyString
+  mobile: MyString
+  fax: MyString
+  email: MyString
+  website: MyString
+  title: MyString
+  firstname: MyString
+  surname: MyString
+  updated: 2016-11-08
+  state: MyString
+  po_state: MyString
+  metro: false
+
+two:
+  record_no: 1
+  supplier_no: 1
+  location_code: MyString
+  supplier_type: MyString
+  mail_to: false
+  address_line1: MyString
+  address_line2: MyString
+  suburb: MyString
+  postcode: 1
+  po: MyString
+  po_suburb: MyString
+  po_postcode: MyString
+  phone1: MyString
+  phone2: MyString
+  mobile: MyString
+  fax: MyString
+  email: MyString
+  website: MyString
+  title: MyString
+  firstname: MyString
+  surname: MyString
+  updated: 2016-11-08
+  state: MyString
+  po_state: MyString
+  metro: false

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codename: MyString
+  name: MyString
+  shortname: MyString
+  council_type: 
+  region_code: MyString
+
+two:
+  codename: MyString
+  name: MyString
+  shortname: MyString
+  council_type:
+  region_code: MyString

@@ -10,8 +10,10 @@
 /test/version_tmp/
 /tmp/
 /notes/
-/log/development.log
+/log
+/log/production.log
 /config/database.yml
+npm-debug.log*
 
 # Used by dotenv library to load environment variables.
 # .env

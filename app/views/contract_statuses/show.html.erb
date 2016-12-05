@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @contract_status.name %>
+</p>
+
+<p>
+  <strong>Short name:</strong>
+  <%= @contract_status.short_name %>
+</p>
+
+<%= link_to 'Edit', edit_contract_status_path(@contract_status) %> |
+<%= link_to 'Back', contract_statuses_path %>
