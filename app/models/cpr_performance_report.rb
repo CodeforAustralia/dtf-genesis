@@ -1,0 +1,2 @@
+class CprPerformanceReport < ApplicationRecord
+end

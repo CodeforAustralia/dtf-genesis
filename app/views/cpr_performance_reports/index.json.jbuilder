@@ -1,0 +1,1 @@
+json.array! @cpr_performance_reports, partial: 'cpr_performance_reports/cpr_performance_report', as: :cpr_performance_report

@@ -1,0 +1,2 @@
+class Council < ApplicationRecord
+end

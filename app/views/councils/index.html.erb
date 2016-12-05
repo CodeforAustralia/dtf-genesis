@@ -1,0 +1,27 @@
+<h1>List Of Councils</h1>
+<table class="council-table table-striped">
+  <tr>
+    <th class="col-md-4">Name</th>
+    <th class="col-md-2">Short Name</th>
+    <th class="col-md-2">Region Code</th>
+    <th class="col-md-4" colspan="3">Actions</th>
+
+  </tr>
+    <% @councils.each do |c| %>
+    <tr>
+      <td class="col-md-4"><%= c.name %></td>
+      <td class="col-md-2"><%= c.shortname %></td>
+      <td class="col-md-3"><%= c.region_code %></td>
+      <td class="col-md-1"><%= link_to "Show", c %></td>
+      <td class="col-md-1"><%= link_to "Edit",  edit_council_path(c) %></td>
+      <td class="col-md-1"><%= link_to "Remove", c, method: :delete, data: { confirm: "Are you sure?"}  %></td>
+    </tr>
+    <% end %>
+</table>
+
+<br>
+
+<%= link_to "New Council", new_council_path %>
+
+
+  

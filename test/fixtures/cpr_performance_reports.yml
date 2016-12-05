@@ -1,0 +1,67 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cpr_contract: 1
+  cpr_supplier: 1
+  cpr_client: MyString
+  cpr_principal: MyString
+  cpr_report_date: 2016-11-15
+  cpr_work_percent_complete: 1
+  cpr_report_reason: MyString
+  cpr_price_as_varied: 
+  cpr_predicted_price: 
+  cpr_actual_price: 
+  cpr_total_extention_days: 1
+  cpr_adjusted_completion_date: 2016-11-15
+  cpr_predicted_completion_date: 2016-11-15
+  cpr_actual_completion_date: 2016-11-15
+  cpr_comments: MyText
+  cpr_reporting_officer: 1
+  cpr_contractor_acknowlages: false
+  cpr_validating_officer: 1
+  score_time_management: 1
+  score_work_standard: 1
+  score_quality_management_system: 1
+  score_personnel: 1
+  score_subcontractors: 1
+  score_contract_admin: 1
+  score_coop_relations: 1
+  score_health_and_safety: 1
+  score_industrial_relations: 1
+  score_environmental_management: 1
+  score_training_management: 1
+  score_design_contractor: 1
+  score_indigenous_participation: 1
+
+two:
+  cpr_contract: 1
+  cpr_supplier: 1
+  cpr_client: MyString
+  cpr_principal: MyString
+  cpr_report_date: 2016-11-15
+  cpr_work_percent_complete: 1
+  cpr_report_reason: MyString
+  cpr_price_as_varied: 
+  cpr_predicted_price: 
+  cpr_actual_price: 
+  cpr_total_extention_days: 1
+  cpr_adjusted_completion_date: 2016-11-15
+  cpr_predicted_completion_date: 2016-11-15
+  cpr_actual_completion_date: 2016-11-15
+  cpr_comments: MyText
+  cpr_reporting_officer: 1
+  cpr_contractor_acknowlages: false
+  cpr_validating_officer: 1
+  score_time_management: 1
+  score_work_standard: 1
+  score_quality_management_system: 1
+  score_personnel: 1
+  score_subcontractors: 1
+  score_contract_admin: 1
+  score_coop_relations: 1
+  score_health_and_safety: 1
+  score_industrial_relations: 1
+  score_environmental_management: 1
+  score_training_management: 1
+  score_design_contractor: 1
+  score_indigenous_participation: 1
