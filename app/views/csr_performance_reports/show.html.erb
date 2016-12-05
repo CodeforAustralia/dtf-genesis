@@ -2,7 +2,7 @@
 
 <h1 class="text-center">CSR Performance Report Details</h1>
 
-<p class="text-center">Supplier Id: <%= @csr_performance_report.csr_supplier_id %></p>
+<p class="text-center">Supplier Id: <%= link_to @csr_performance_report.csr_supplier_id, supplier_path(@csr_performance_report.csr_supplier_id) %></p>
 <p class="text-center">Works No: <%= @csr_performance_report.csr_works_no %></p>
 <p class="text-center">Comment: <%= @csr_performance_report.csr_comment %></p>
 <p class="text-center">Overall: <%= @csr_performance_report.csr_overall %></p>

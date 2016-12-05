@@ -20,14 +20,34 @@
       <p>Email:</p>
       <h4><%= @supplier.email%></h4>
       <p>CSR Supplier Id:</p>
-      <h4><%= @supplier.id %></h4> 
+      <h4><%= @supplier.id %></h4>
     </div>
     <div class="col-md-10">
       <table class="table table-hover table-striped">
-      <h3>CSR Report (<%= @csr_performance_reports.count %> in total)</h3>
-      
+      <h3>Contracts (<%= @projects.count %> in total)</h3>
+
           <thead class="panel csr-thead">
-            <tr> 
+            <tr>
+              <th class="">Contract No</th>
+              <th class="">Department</th>
+            </tr>
+          </thead>
+        <tbody class="csr-tbody">
+        <% @projects.each do |project| %>
+        <tr>
+          <td class="csr-td"><%= link_to project.vt_contract_number, project %></td>
+          <td class="col-md-2"><%= project.vt_department_id %></td>
+        </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-10">
+      <table class="table table-hover table-striped">
+      <h3>CSR Reports (<%= @csr_performance_reports.count %> in total)</h3>
+
+          <thead class="panel csr-thead">
+            <tr>
             <th class="">Works No</th>
             <th class="col-md-2">Comment</th>
             <th class="">Overall</th>
@@ -45,7 +65,7 @@
         <tbody class="csr-tbody">
         <% @csr_performance_reports.each do |report| %>
         <tr>
-          <td class="csr-td"><%= link_to report.csr_works_no, report %></td> 
+          <td class="csr-td"><%= link_to report.csr_works_no, report %></td>
           <td class="col-md-2"><%= report.csr_comment %></td>
           <td class="csr-td"><%= report.csr_overall %></td>
           <td class="csr-td"><%= report.csr_staff_quality %></td>
@@ -57,9 +77,9 @@
           <td class="csr-td"><%= report.csr_payment %></td>
           <td class=""><%= report.csr_ohs %></td>
           <!-- <td class=""><%= report.csr_ir %></td> -->
-        </tr> 
+        </tr>
         <% end %>
-        </tbody> 
+        </tbody>
       </table>
     </div>
   </div>
