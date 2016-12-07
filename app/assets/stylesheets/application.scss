@@ -29,6 +29,26 @@ $input-active-color: $orangeAlpha50;
 $input-alt-color: #222200;
 $input-active-alt-color: #000000;
 
+
+.notice {
+  margin-top: 5px;
+  padding-top: 5px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+.alert {
+  margin-top: 5px;
+  padding-top: 5px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+.navbar-static-top {
+  margin-top: 0px;
+  padding-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
 .container {
   color: $main-text-color;
   width: 99%;
@@ -80,7 +100,6 @@ h1 {
 
 p {
   font-size: 1.1em;
-  line-height: 1.7em;
 }
 
 body {
