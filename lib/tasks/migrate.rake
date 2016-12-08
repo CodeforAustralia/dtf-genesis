@@ -6,12 +6,12 @@ require "#{Rails.root}/lib/linkers/linker.rb"
 namespace :scrape do
   desc "Scrape Tenders VIC for new contracts now"
   task :new => :environment do
-    scrape_tenders_vic
+    scrape_tenders_vic false, true
   end
 
   desc "Update Tenders VIC contracts"
   task :update => :environment do
-    scrape_tenders_vic true
+    scrape_tenders_vic true, true
   end
 end
 
