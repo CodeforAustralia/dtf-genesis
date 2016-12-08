@@ -25,27 +25,39 @@
     <div class="col-md-10">
       <table class="table table-hover table-striped">
       <h3>Contracts (<%= @projects.count %> in total)</h3>
-
           <thead class="panel csr-thead">
             <tr>
+              <th class="col-md-7">Title</th>
               <th class="">Contract No</th>
               <th class="">Department</th>
+              <th class="col-md-1">Value</th>
+              <th class="col-md-1">Start</th>
+              <th class="col-md-1">End</th>
             </tr>
           </thead>
         <tbody class="csr-tbody">
-        <% @projects.each do |project| %>
+        <% @projects.each do |contract| %>
         <tr>
-          <td class="csr-td"><%= link_to project.vt_contract_number, project %></td>
-          <td class="col-md-2"><%= project.vt_department_id %></td>
+          <td class="col-md-8"><%= link_to contract.vt_title, contract %></td>
+          <td class=""><%= link_to contract.vt_contract_number, contract %></td>
+          <% department = Department.where(vt_number: contract.vt_department_id).first %>
+          <% if department %>
+            <td class=""><%= link_to lookup_department_short_name(contract.vt_department_id), department_path(department) %></td>
+          <% else %>
+            <td class="">ERR: <%= contract.vt_department_id %></td>
+          <% end %>
+          <td class=""><%= contract.vt_total_value %></td>
+          <td class=""><%= contract.vt_start_date %></td>
+          <td class=""><%= contract.vt_end_date %></td>
         </tr>
         <% end %>
         </tbody>
       </table>
     </div>
+    <div><p>.</p></div>
     <div class="col-md-10">
       <table class="table table-hover table-striped">
       <h3>CSR Reports (<%= @csr_performance_reports.count %> in total)</h3>
-
           <thead class="panel csr-thead">
             <tr>
             <th class="">Works No</th>
