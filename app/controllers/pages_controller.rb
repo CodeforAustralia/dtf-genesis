@@ -8,7 +8,7 @@ class PagesController < ApplicationController
     @contracts_in_365 = Contract.where("vt_start_date >= :start_date AND vt_start_date <= :end_date", {start_date: year_ago, end_date: now}).count
     @value_in_30 = sum_contract_values(Contract.where("vt_start_date >= :start_date AND vt_start_date <= :end_date", {start_date: month_ago, end_date: now}))
     @value_in_365 = sum_contract_values(Contract.where("vt_start_date >= :start_date AND vt_start_date <= :end_date", {start_date: year_ago, end_date: now}))
-    @department_breakdown = sum_contract_values_by_department(Contract.where("vt_start_date >= :start_date AND vt_start_date <= :end_date", {start_date: month_ago, end_date: now}))
+    @department_breakdown = sum_contract_values_by_department(Contract.where("vt_start_date >= :start_date AND vt_start_date <= :end_date", {start_date: year_ago, end_date: now}))
   end
 
   def about
@@ -19,7 +19,17 @@ class PagesController < ApplicationController
   end
 
   def sum_contract_values_by_department(contracts)
-    return [{name: "test", value: 0},{name: "test2", value: 2}]
+    department_totals = []
+    contracts.each do |contract|
+      puts "::: C: #{lookup_department_name(contract.vt_department_id)} (#{contract.vt_total_value})"
+      dep_match = department_totals.find_all{|dep| dep[:id] == contract.vt_department_id}
+      if dep_match && dep_match.length > 0
+        dep_match = {id: contract.vt_department_id, name: lookup_department_name(contract.vt_department_id), value: dep_match.first[:value] + contract.vt_total_value}
+      else
+        department_totals.append({id: contract.vt_department_id, name: lookup_department_name(contract.vt_department_id), value: contract.vt_total_value})
+      end
+    end
+    department_totals
   end
 
   def sum_contract_values (contracts)

@@ -9,7 +9,8 @@
 <p>Value of contracts awarded in the last 12 months: <%= humanized_money_with_symbol @value_in_365 %></p>
 
 <h2>Contracts by department:</h2>
-<p>Departmental breakdown from the last 30 days:</p>
+<p>Departmental breakdown from the last year:</p>
 <% @department_breakdown.each do |department| %>
+  <% puts "::: D: #{department}" %>
   <p>-<%= department[:name] %> <%= department[:value] %></p>
 <% end %>
