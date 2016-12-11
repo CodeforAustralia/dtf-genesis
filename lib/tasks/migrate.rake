@@ -32,7 +32,7 @@ namespace :migrate do
   desc "Migrate council lists"
   task :council => :environment do
     councils = CSV.read("#{Rails.root}/db/data/council.csv")
-    columns = [:codename, :name, :shortname, :type, :region_code]
+    columns = [:codename, :name, :shortname, :council_type, :region_code]
     Council.import columns, councils, validate: false
   end
 
