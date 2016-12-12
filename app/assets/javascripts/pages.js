@@ -25,22 +25,61 @@ window.onload = function (win) {
 
   var colors = ["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"];
 
-  var datadump = ($('#spending').data('spending'));
+  var data = ($('#spending').data('spending'));
 
-  d3.select("body").append("p").text("New paragraph!");
-  d3.select("#chart").append("p").text("Chart Title");
-  d3.select("#chart")
-      .data(datadump)
-      .enter()
-      .append("div")
-      // .text("Sample")
-      .attr("class", "bar")
-      // .style("color", function(d) {
-      //     return "hsl(1000, 30%, "+d.count*4+"%)";
-      // })
-      .style("height", function(d) {
-					return (d.value/25000) + "px";
-				});
-      // .style("width", "5px");
+  // d3.select("body").append("p").text("New paragraph!");
+  // // d3.select("#chart").append("p").text("Chart Title");
+  // d3.select("barchart")
+  // append("div").text("Monthly Spending Bar Chart")
+  //     .style("color","blue")
+  //     .style("font-size", 22);
+  var body = d3.select("body");
+  var div = body.append("div");
+  div.html("Hello, d3!");
+
+  var height_scale = d3.scale.linear()
+      .range([height, 0]);
+
+  var chart = d3.select(".barchart")
+      .attr("width", width)
+      .attr("height", height);
+
+  var barWidth = width / data.length;
+
+  var bar = chart.selectAll("g")
+       .data(data)
+     .enter().append("g")
+       .attr("transform", function(d, i) { return "translate(" + i * barWidth + ",0)"; });
+
+  bar.append("rect")
+       .attr("y", function(d) { return y(d.value); })
+       .attr("height", function(d) { return height - y(d.value); })
+       .attr("width", barWidth - 1);
+
+  bar.append("text")
+       .attr("x", barWidth / 2)
+       .attr("y", function(d) { return y(d.value) + 3; })
+       .attr("dy", ".75em")
+       .text(function(d) { return d.value; });
+
+function type(d) {
+ d.value = +d.value; // coerce to number
+ return d;
+}
+
+  // d3.select(".barchart")
+  //     .data(datadump)
+  //     .enter()
+  //     .append("div")
+  //     // .text(function(d) {
+  //     //     return d.name;
+  //     // })
+  //     .attr("class", "bar")
+  //     .style("fill", function(d) {
+  //         return "hsl(1000, 30%, "+(d.value/25000)+"%)";
+  //     })
+  //     .style("height", function(d) {
+	// 			return (d.value/25000) + "px";
+	// 		});
 
 }; //load

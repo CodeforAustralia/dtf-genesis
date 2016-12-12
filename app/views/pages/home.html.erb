@@ -15,9 +15,12 @@
 <% end %>
 
 <h1>D3 Bar chart, spending per month</h1>
-<%= content_tag :div, id: 'spending', data: {spending: @spending_per_month} do %>
-<% end %>
+
+<svg class="barchart"></svg>
 
 <div id="chart">
   <canvas width="300" height="150"></canvas>
 </div>
+
+<%= content_tag :div, id: 'spending', data: {spending: @spending_per_month} do %>
+<% end %>

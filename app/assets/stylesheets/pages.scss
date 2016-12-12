@@ -6,13 +6,31 @@
 
 
 // D3
-div.bar {
-  display: inline-block;
-  width: 20px;
-  height: 75px;	/* Gets overriden by D3-assigned height below */
-  margin-right: 2px;
-  background-color: teal;
+// div.bar {
+//   display: inline-block;
+//   width: 40px;
+//   height: 75px;	/* Gets overriden by D3-assigned height below */
+//   margin-right: 2px;
+//   background-color: teal;
+// }
+//
+// div.barchart {
+//   width: 140px;
+//   padding: 120px;
+//   margin: 120px;
+// }
+
+.barchart rect {
+  fill: steelblue;
 }
+
+.barchart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+
 
 
 /* header */

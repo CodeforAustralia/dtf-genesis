@@ -30,7 +30,7 @@ class PagesController < ApplicationController
       breakdown[x] = {name: Date::MONTHNAMES[month_before.month], value: total_value}
       period_end = period_end - 30
     end
-    breakdown
+    breakdown.reverse!
   end
 
   def sum_contract_values_by_department(contracts)
