@@ -13,3 +13,8 @@
 <% @department_breakdown.each do |department| %>
   <p>-<%= department[:name] %> <%= department[:value] %></p>
 <% end %>
+
+<h1>D3 Pie chart</h1>
+<div id="chart">
+  <canvas width="300" height="150"></canvas>
+</div>
