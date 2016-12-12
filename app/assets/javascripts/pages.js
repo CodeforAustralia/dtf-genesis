@@ -11,8 +11,10 @@ window.onload = function (win) {
                , {label: "Human", count: 5}
   ];
 
-  var width = 600
-  var height = 300
+  var margin = {top: 20, right: 30, bottom: 30, left: 40}
+
+  var width = 300 - margin.left - margin.right;
+  var height = 150 - margin.top - margin.bottom;
   var radius = Math.min(width, height) / 2;
   console.log("Window: " + width + "x" + height + "... radius: " + radius);
 
@@ -42,10 +44,36 @@ window.onload = function (win) {
   var heightscale = d3.scaleLinear()
       .domain([20000000,0])
       .range([height, 0]);
+  var widthscale = d3.scaleOrdinal()
+      .range([0, width], .1);
 
   var chart = d3.select(".barchart")
-      .attr("width", width)
-      .attr("height", height);
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom);
+  chart.append("text")
+       .attr("x", width / 2)
+       .attr("y", 20)
+       .attr("class","title")
+       .style("font", "18px sans-serif")
+       .style("fill", "steelblue")
+       .text("Construction spend/month");
+
+  // var xAxis = d3.axisBottom()
+  //     .scale(xscale);
+  // var yAxis = d3.axisLeft()
+  //     .scale(heightscale);
+  // var yAxis = d3.axisLeft()
+  //     .scale(heightscale)
+  //     .ticks(10, "%");
+
+  // chart.append("g")
+  //     .attr("class", "x axis")
+  //     .attr("transform", "translate(0," + height + ")")
+  //     .call(xAxis);
+
+  // chart.append("g")
+  //     .attr("class", "y axis")
+  //     .call(yAxis);
 
   var barWidth = width / data.length;
 
@@ -55,15 +83,20 @@ window.onload = function (win) {
        .attr("transform", function(d, i) { return "translate(" + i * barWidth + ",0)"; });
 
   bar.append("rect")
-       .attr("y", function(d) { return heightscale(d.value); })
-       .attr("height", function(d) { return height - heightscale(d.value); })
+       .attr("y", function(d) { return height-heightscale(d.value); })
+       .attr("height", function(d) { return heightscale(d.value); })
        .attr("width", barWidth - 1);
 
   bar.append("text")
-       .attr("x", barWidth / 2)
-       .attr("y", height-20)
-       .attr("dy", ".75em")
-       .text(function(d) { return d.name; });
+      .attr("x", barWidth / 2)
+      .attr("y", height+5)
+      .attr("dy", ".75em")
+      .text(function(d) { return d.name.slice(0,3); });
+  bar.append("text")
+     .attr("x", barWidth / 2)
+     .attr("y", function(d) { return height-heightscale(d.value)-15; })
+     .attr("dy", ".75em")
+   .text(function(d) { return "$" + Math.round(d.value/1000000) + "m"; });
 
 
   // d3.select(".barchart")

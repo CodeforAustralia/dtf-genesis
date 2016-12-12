@@ -15,8 +15,11 @@
 // }
 
 .barchart {
+  border: 2px solid;
   padding: 5px;
   margin: 5px;
+  padding-left: 25px;
+  padding-top: 15px;
 }
 
 .barchart rect {
@@ -25,11 +28,24 @@
 
 .barchart text {
   fill: black;
-  shadow: 2px white;
-  font: 10px sans-serif;
+  font: 8px sans-serif;
   text-anchor: middle;
 }
 
+.axis text {
+  font: 8px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
 
 
 
