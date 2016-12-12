@@ -11,14 +11,14 @@
           = link_to "Save", '/csr_contracts/save', class: "btn btn-default"
 
   %script(type="text/javascript")
-    - if params[:h]
-      - params[:h].each do |field, param|
+    - if params[:f]
+      - params[:f].each do |field, param|
         - param.each do |option, value|
-          - if value[:op] != "skip"
-            - if value[:va].is_a? Hash
-              value = ["#{value[:va]['0']}", "#{value[:va]['1']}", "#{value[:va]['2']}"]
+          - if value[:o] != "skip"
+            - if value[:v].is_a? Hash
+              value = ["#{value[:v]['0']}", "#{value[:v]['1']}", "#{value[:v]['2']}"]
             - else
-              value = "#{value[:va]}"
-              $.filters.append(humanize("#{field}"), "#{field}", "#{CsrContract.columns_hash[field].type}", value, "#{value['op']}", "", "#{option}");
+              value = "#{value[:v]}"
+              $.filters.append(humanize("#{field}"), "#{field}", "#{CsrContract.columns_hash[field].type}", value, "#{value['o']}", "", "#{option}");
 
   = smart_listing_render :csr_contracts

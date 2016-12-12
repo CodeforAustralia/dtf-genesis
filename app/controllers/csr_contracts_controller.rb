@@ -7,7 +7,7 @@ class CsrContractsController < ApplicationController
     scope = CsrContract.all
     options = {}
     options = options.merge(query: params[:filter]) if params[:filter].present?
-    options = options.merge(filters: params[:h]) if params[:h].present?
+    options = options.merge(filters: params[:f]) if params[:f].present?
     @@saved_csr_contract_scope = CsrContract.all_with_filter(options, scope)
     scope = CsrContract.all_with_filter(options, scope)
 
@@ -42,7 +42,7 @@ class CsrContractsController < ApplicationController
   end
 
   def search
-    render json: CsrContract.where("LOWER(csr_description) LIKE LOWER(?)", "%#{params[:m]}%")
+    render json: CsrContract.where("LOWER(csr_description) LIKE LOWER(?)", "%#{params[:p]}%")
   end
 
   def save
