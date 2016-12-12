@@ -9,6 +9,7 @@ class PagesController < ApplicationController
     @value_in_30 = sum_contract_values(Contract.where("vt_start_date >= :start_date AND vt_start_date <= :end_date", {start_date: month_ago, end_date: now}))
     @value_in_365 = sum_contract_values(Contract.where("vt_start_date >= :start_date AND vt_start_date <= :end_date", {start_date: year_ago, end_date: now}))
     @department_breakdown = sum_contract_values_by_department(Contract.where("vt_start_date >= :start_date AND vt_start_date <= :end_date", {start_date: year_ago, end_date: now}))
+    @spending_per_month = get_spending_per_month
   end
 
   def about
@@ -16,6 +17,20 @@ class PagesController < ApplicationController
 
   def letsencrypt
     render text: "iiyNgEQOuqL_K7XTnHg3vsG2fC5tNy-Ggaa2MlyRjaI.KPrMSemCEGMLoDSXAxxnq3xTinyladwIZkHNg7y2tM8"
+  end
+
+  def get_spending_per_month
+    breakdown = []
+    period_end = Date.today
+    12.times do |x|
+      month_before = period_end - 30
+      monthly_contracts = Contract.where("vt_start_date >= :start_date AND vt_start_date <= :end_date", {start_date: month_before, end_date: period_end})
+      total_value = sum_contract_values(monthly_contracts)
+      puts "X-#{x}: #{Date::MONTHNAMES[month_before.month]} ~~> #{period_end.month} has #{monthly_contracts.count} at #{total_value}"
+      breakdown[x] = {name: Date::MONTHNAMES[month_before.month], value: total_value}
+      period_end = period_end - 30
+    end
+    breakdown
   end
 
   def sum_contract_values_by_department(contracts)

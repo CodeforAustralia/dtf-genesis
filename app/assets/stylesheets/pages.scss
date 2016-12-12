@@ -1,6 +1,20 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+// D3
+div.bar {
+  display: inline-block;
+  width: 20px;
+  height: 75px;	/* Gets overriden by D3-assigned height below */
+  margin-right: 2px;
+  background-color: teal;
+}
+
+
 /* header */
 #logo {
   float: left;

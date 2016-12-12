@@ -25,15 +25,22 @@ window.onload = function (win) {
 
   var colors = ["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"];
 
+  var datadump = ($('#spending').data('spending'));
+
   d3.select("body").append("p").text("New paragraph!");
   d3.select("#chart").append("p").text("Chart Title");
   d3.select("#chart")
-      .data(dataset)
+      .data(datadump)
       .enter()
-      .append("p")
-      .text("Sample")
-      .style("color", function(d) {
-          return "hsl(1000, 30%, "+d.count*4+"%)";
-      });
+      .append("div")
+      // .text("Sample")
+      .attr("class", "bar")
+      // .style("color", function(d) {
+      //     return "hsl(1000, 30%, "+d.count*4+"%)";
+      // })
+      .style("height", function(d) {
+					return (d.value/25000) + "px";
+				});
+      // .style("width", "5px");
 
 }; //load
