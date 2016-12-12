@@ -11,3 +11,10 @@ $('.suppliers-row').on('click', function(){
     window.location = ROUTES.SUPPLIER_PATH + "/" + idClick;
   });
 };
+
+window.findCsrContractId = function() {
+$('.contracts-row').on('click', function(){
+    idClick = $(this).attr("data-id");
+    window.location = ROUTES.CSR_CONTRACT_PATH + "/" + idClick;
+  });
+};

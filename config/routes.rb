@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :csr_contracts
   resources :departments
   resources :contract_statuses
   resources :contract_types
@@ -13,12 +12,16 @@ Rails.application.routes.draw do
   resources :csr_performance_reports
   resources :cpr_performance_reports
 
+  get '/csr_contracts/search', to: 'csr_contracts#search'
+  get '/csr_contracts/save', to: 'csr_contracts#save'
+
   get '/contracts/search', to: 'contracts#search'
   get '/contracts/save', to: 'contracts#save'
 
   get '/suppliers/search', to: 'suppliers#search'
   get '/suppliers/save', to: 'suppliers#save'
 
+  resources :csr_contracts
   resources :suppliers
   resources :contracts
   resources :councils
