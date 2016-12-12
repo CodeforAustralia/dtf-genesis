@@ -57,7 +57,7 @@ namespace :migrate do
     CsrContract.delete_all 
     contracts = CSV.read("#{Rails.root}/db/data/csr_contract.csv")
     # Using csr_project_id as the unique key as included in the import file
-    columns = [:id, :csr_works_no, :csr_supplier_id, :csr_supplier_type, :csr_description, :csr_location, :csr_category, :csr_value, :csr_client, :csr_start_date, :csr_finish_date, :csr_comment]
+    columns = [:id, :csr_works_no, :csr_supplier_type, :csr_description, :csr_location, :csr_category, :csr_value, :csr_client, :csr_start_date, :csr_finish_date, :csr_comment, :supplier_id]
     CsrContract.import columns, contracts, validate: false
   end
 
