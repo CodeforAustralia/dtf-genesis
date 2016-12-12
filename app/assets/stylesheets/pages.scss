@@ -13,19 +13,19 @@
 //   margin-right: 2px;
 //   background-color: teal;
 // }
-//
-// div.barchart {
-//   width: 140px;
-//   padding: 120px;
-//   margin: 120px;
-// }
+
+.barchart {
+  padding: 5px;
+  margin: 5px;
+}
 
 .barchart rect {
   fill: steelblue;
 }
 
 .barchart text {
-  fill: white;
+  fill: black;
+  shadow: 2px white;
   font: 10px sans-serif;
   text-anchor: middle;
 }

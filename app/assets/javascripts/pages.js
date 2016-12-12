@@ -11,33 +11,36 @@ window.onload = function (win) {
                , {label: "Human", count: 5}
   ];
 
-  var width = 300
-  var height = 150
+  var width = 600
+  var height = 300
   var radius = Math.min(width, height) / 2;
   console.log("Window: " + width + "x" + height + "... radius: " + radius);
 
-  var canvas = document.querySelector("canvas");
-  var context = canvas.getContext("2d");
-  var arc = d3.arc()
-      .outerRadius(radius - 10)
-      .innerRadius(radius - 70)
-      .context(context);
+  // var canvas = document.querySelector("canvas");
+  // var context = canvas.getContext("2d");
+  // var arc = d3.arc()
+  //     .outerRadius(radius - 10)
+  //     .innerRadius(radius - 70)
+  //     .context(context);
 
-  var colors = ["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"];
+  // var colors = ["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"];
 
   var data = ($('#spending').data('spending'));
 
   // d3.select("body").append("p").text("New paragraph!");
   // // d3.select("#chart").append("p").text("Chart Title");
-  // d3.select("barchart")
-  // append("div").text("Monthly Spending Bar Chart")
+
+  // d3.select("#chart")
+  //   .append("div").text("Monthly Spending Bar Chart")
   //     .style("color","blue")
   //     .style("font-size", 22);
-  var body = d3.select("body");
-  var div = body.append("div");
-  div.html("Hello, d3!");
 
-  var height_scale = d3.scale.linear()
+  // var body = d3.select("body");
+  // var div = body.append("div");
+  // div.html("Hello, d3!");
+
+  var heightscale = d3.scaleLinear()
+      .domain([20000000,0])
       .range([height, 0]);
 
   var chart = d3.select(".barchart")
@@ -52,20 +55,16 @@ window.onload = function (win) {
        .attr("transform", function(d, i) { return "translate(" + i * barWidth + ",0)"; });
 
   bar.append("rect")
-       .attr("y", function(d) { return y(d.value); })
-       .attr("height", function(d) { return height - y(d.value); })
+       .attr("y", function(d) { return heightscale(d.value); })
+       .attr("height", function(d) { return height - heightscale(d.value); })
        .attr("width", barWidth - 1);
 
   bar.append("text")
        .attr("x", barWidth / 2)
-       .attr("y", function(d) { return y(d.value) + 3; })
+       .attr("y", height-20)
        .attr("dy", ".75em")
-       .text(function(d) { return d.value; });
+       .text(function(d) { return d.name; });
 
-function type(d) {
- d.value = +d.value; // coerce to number
- return d;
-}
 
   // d3.select(".barchart")
   //     .data(datadump)
