@@ -26,7 +26,6 @@ class PagesController < ApplicationController
       month_before = period_end - 30
       monthly_contracts = Contract.where("vt_start_date >= :start_date AND vt_start_date <= :end_date", {start_date: month_before, end_date: period_end})
       total_value = sum_contract_values(monthly_contracts)
-      puts "X-#{x}: #{Date::MONTHNAMES[month_before.month]} ~~> #{period_end.month} has #{monthly_contracts.count} at #{total_value}"
       breakdown[x] = {name: Date::MONTHNAMES[month_before.month], value: total_value}
       period_end = period_end - 30
     end
