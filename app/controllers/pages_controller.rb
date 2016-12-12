@@ -24,8 +24,6 @@ class PagesController < ApplicationController
     agency_groups = Contract.group(:vt_department_id)
     summary = []
     agency_groups.count.each do |agency|
-      puts "\n\n::: A: #{agency} -> #{lookup_department_name(agency[0])}"
-      # puts "::: #{{name: lookup_department_name(agency[0]), value: agency[1]}}"
       summary.append({name: lookup_department_name(agency[0]), value: agency[1]})
     end
     summary

@@ -1,8 +1,4 @@
 
-
-console.log("Begin");
-
-
 window.onload = function (win) {
   var bar_margin = {top: 20, right: 30, bottom: 30, left: 40}
   var bc_width = 300 - bar_margin.left - bar_margin.right;
@@ -64,8 +60,6 @@ window.onload = function (win) {
         .outerRadius(outerRadius);
   var pie = d3.pie();
   var department_data = ($('#departmentspending').data('departmentspending'));
-  console.log(department_data);
-  // department_data = [{"name": 1, "value": 3000}, {"name": 2, "value": 2000}, {"name": 3, "value": 3500}];
   var piechart = d3.select(".piechart")
       .append('svg')
       .attr("width", pc_width + pie_margin.left + pie_margin.right)
@@ -102,7 +96,6 @@ window.onload = function (win) {
       })
       .attr("text-anchor", "middle")
       .text(function(d) {
-        // console.log(d);
       	return d.data.name;
       });
 
@@ -129,7 +122,6 @@ window.onload = function (win) {
               .attr('x', legendRectSize + (legendSpacing*3))
               .attr('y', legendRectSize - legendSpacing)
               .text(function(d) {
-                console.log(d);
                 return d.name;
                });
 

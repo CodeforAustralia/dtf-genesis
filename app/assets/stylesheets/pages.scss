@@ -14,6 +14,26 @@
 //   background-color: teal;
 // }
 
+.dashboard {
+  border: 0px solid;
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+  width: 100%;
+}
+.dashboard table {
+  border: 0px solid;
+}
+
+.dashboard tr {
+  padding: 5px;
+  margin: 5px;
+}
+.dashboard td {
+  padding: 5px;
+  margin: 5px;
+}
+
 .barchart {
   border: 2px solid;
   padding: 5px;
