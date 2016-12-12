@@ -10,7 +10,7 @@ class PagesController < ApplicationController
     @value_in_365 = sum_contract_values(Contract.where("vt_start_date >= :start_date AND vt_start_date <= :end_date", {start_date: year_ago, end_date: now}))
     @department_breakdown = sum_contract_values_by_department(Contract.where("vt_start_date >= :start_date AND vt_start_date <= :end_date", {start_date: year_ago, end_date: now}))
     @spending_per_month = get_spending_per_month
-    @department_spending = get_department_spending
+    @departmentspending = get_department_spending
   end
 
   def about
@@ -21,7 +21,14 @@ class PagesController < ApplicationController
   end
 
   def get_department_spending
-    [{dep: 1, spend: 3000}, {dep: 2, spend: 2000}, {dep: 3, spend: 3500}]
+    agency_groups = Contract.group(:vt_department_id)
+    summary = []
+    agency_groups.count.each do |agency|
+      puts "\n\n::: A: #{agency} -> #{lookup_department_name(agency[0])}"
+      # puts "::: #{{name: lookup_department_name(agency[0]), value: agency[1]}}"
+      summary.append({name: lookup_department_name(agency[0]), value: agency[1]})
+    end
+    summary
   end
 
   def get_spending_per_month
