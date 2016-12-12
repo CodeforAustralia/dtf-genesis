@@ -1,6 +1,54 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+// D3
+// div.bar {
+//   display: inline-block;
+//   width: 40px;
+//   height: 75px;	/* Gets overriden by D3-assigned height below */
+//   margin-right: 2px;
+//   background-color: teal;
+// }
+
+.barchart {
+  border: 2px solid;
+  padding: 5px;
+  margin: 5px;
+  padding-left: 25px;
+  padding-top: 15px;
+}
+
+.barchart rect {
+  fill: steelblue;
+}
+
+.barchart text {
+  fill: black;
+  font: 8px sans-serif;
+  text-anchor: middle;
+}
+
+.axis text {
+  font: 8px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+
+
 /* header */
 #logo {
   float: left;
