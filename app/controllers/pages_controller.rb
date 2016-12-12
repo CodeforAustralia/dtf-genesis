@@ -10,6 +10,7 @@ class PagesController < ApplicationController
     @value_in_365 = sum_contract_values(Contract.where("vt_start_date >= :start_date AND vt_start_date <= :end_date", {start_date: year_ago, end_date: now}))
     @department_breakdown = sum_contract_values_by_department(Contract.where("vt_start_date >= :start_date AND vt_start_date <= :end_date", {start_date: year_ago, end_date: now}))
     @spending_per_month = get_spending_per_month
+    @department_spending = get_department_spending
   end
 
   def about
@@ -17,6 +18,10 @@ class PagesController < ApplicationController
 
   def letsencrypt
     render text: "iiyNgEQOuqL_K7XTnHg3vsG2fC5tNy-Ggaa2MlyRjaI.KPrMSemCEGMLoDSXAxxnq3xTinyladwIZkHNg7y2tM8"
+  end
+
+  def get_department_spending
+    [{dep: 1, spend: 3000}, {dep: 2, spend: 2000}, {dep: 3, spend: 3500}]
   end
 
   def get_spending_per_month

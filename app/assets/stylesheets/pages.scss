@@ -32,6 +32,25 @@
   text-anchor: middle;
 }
 
+.piechart {
+  border: 2px solid;
+  padding: 5px;
+  margin: 5px;
+  padding-left: 25px;
+  padding-top: 15px;
+}
+
+.piechart rect {
+  fill: red;
+}
+
+.piechart text {
+  fill: black;
+  font: 8px sans-serif;
+  text-anchor: middle;
+}
+
+
 .axis text {
   font: 8px sans-serif;
 }

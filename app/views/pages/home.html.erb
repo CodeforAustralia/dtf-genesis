@@ -9,6 +9,9 @@
 <p>Value of contracts awarded in the last 12 months: <%= humanized_money_with_symbol @value_in_365 %></p>
 
 <h2>Contracts by department:</h2>
+
+<svg class="piechart"></svg>
+
 <p>Departmental breakdown from the last year:</p>
 <% @department_breakdown.each do |department| %>
   <p>-<%= department[:name] %> <%= department[:value] %></p>
@@ -17,4 +20,6 @@
 <svg class="barchart"></svg>
 
 <%= content_tag :div, id: 'spending', data: {spending: @spending_per_month} do %>
+<% end %>
+<%= content_tag :div, id: 'department_spending', data: {spending: @department_spending} do %>
 <% end %>
