@@ -1,0 +1,17 @@
+<%= form_for(csr_contract) do |f| %>
+  <% if csr_contract.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(csr_contract.errors.count, "error") %> prohibited this csr_contract from being saved:</h2>
+
+      <ul>
+      <% csr_contract.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

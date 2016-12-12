@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128022901) do
+ActiveRecord::Schema.define(version: 20161212000703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -149,6 +149,23 @@ ActiveRecord::Schema.define(version: 20161128022901) do
     t.integer  "score_indigenous_participation"
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
+  end
+
+  create_table "csr_contracts", force: :cascade do |t|
+    t.string   "csr_works_no"
+    t.string   "csr_supplier_id"
+    t.string   "csr_supplier_type"
+    t.text     "csr_description"
+    t.string   "csr_location"
+    t.string   "csr_category"
+    t.money    "csr_value",         scale: 2
+    t.string   "csr_client"
+    t.date     "csr_start_date"
+    t.date     "csr_finish_date"
+    t.text     "csr_comment"
+    t.string   "source",                      default: "csr"
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
   end
 
   create_table "csr_performance_reports", force: :cascade do |t|

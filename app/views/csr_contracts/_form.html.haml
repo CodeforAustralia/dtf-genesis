@@ -1,0 +1,43 @@
+%td
+  = form_for object, url: object.new_record? ? csr_contracts_path : csr_contract_path(object), remote: true, html: {enctype: 'multipart/form-data', class: ""} do |f|
+
+    %div
+      = f.label :csr_description, "Title #{object.errors['csr_description'][0]}"
+      = f.text_field :csr_description
+    %br
+
+    %div
+      = f.label :csr_location, "Ref# #{object.errors['csr_location'][0]}"
+      = f.text_field :csr_location
+    %br
+
+    %div
+      = f.label :csr_category, "Value #{object.errors['csr_category'][0]}"
+      = f.text_field :csr_category
+    %br
+
+    %div
+      = f.label :_start_date, "Start #{object.errors['_start_date'][0]}"
+      = f.text_field :_start_date
+    %br
+
+    %div
+      = f.label :csr_finish_date, "End #{object.errors['csr_finish_date'][0]}"
+      = f.text_field :csr_finish_date
+    %br
+
+    %div
+      = f.label :csr_comment, "Status #{object.errors['csr_comment'][0]}"
+      = f.text_field :csr_comment
+    %br
+
+    %div
+      = f.label :source, "Status #{object.errors['source'][0]}"
+      = f.text_field :source
+    %br
+
+
+    %hr
+
+    = f.submit "Save"
+    %button.cancel Cancel

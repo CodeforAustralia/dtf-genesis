@@ -1,0 +1,24 @@
+%div
+  %h1= "Contracts"
+  %p= "This is the partial list of previous construction contracts in Victoria."
+  = smart_listing_controls_for(:csr_contracts, {class: ""}) do
+    %div.filter.form-search
+      .input-group
+        = text_field_tag :filter, '', class: "", placeholder: "Search...", autocomplete: :off, value: "#{params[:filter]}"
+        %span.input-group-btn
+          = submit_tag 'Refresh', :class => "btn btn-default", :name => "do_query"
+          = link_to  "Clear search", '/csr_contracts', class: "btn btn-default"
+          = link_to "Save", '/csr_contracts/save', class: "btn btn-default"
+
+  %script(type="text/javascript")
+    - if params[:f]
+      - params[:f].each do |field, param|
+        - param.each do |option, value|
+          - if value[:o] != "skip"
+            - if value[:v].is_a? Hash
+              value = ["#{value[:v]['0']}", "#{value[:v]['1']}", "#{value[:v]['2']}"]
+            - else
+              value = "#{value[:v]}"
+              $.filters.append(humanize("#{field}"), "#{field}", "#{CsrContract.columns_hash[field].type}", value, "#{value['o']}", "", "#{option}");
+
+  = smart_listing_render :csr_contracts
