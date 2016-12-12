@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   resources :councils
 
   resources :supplier do
+    resources :csr_contracts, only: [:show]
     resources :csr_performance_report, only: [:show]
   end
 
