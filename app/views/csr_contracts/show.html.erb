@@ -1,41 +1,37 @@
 <p id="notice"><%= notice %></p>
 
 <dl class="dl-horizontal">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4>TITLE:</h4>
-        <dd><h2><%= @csr_contract.csr_description %></h2></dd>
-      </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>TITLE:</h4>
+      <dd><h2><%= @csr_contract.csr_description %></h2></dd>
     </div>
+  </div>
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4>CONTRACT:</h4>
-        <dd><h3>Summary Details</h3></dd>
-      </div>
-      <div class="panel-body">
-        <dd><h4>Contract Id: <%= @csr_contract.id %></h4></dd>
-        <dd><h4>Value: <%= humanized_money_with_symbol(@csr_contract.csr_value) %></h4></dd>
-        <dd><h4>Address: <%= @csr_contract.csr_location %></h4></dd>
-        <dd><h4>Started: <%= @csr_contract.csr_start_date%></h4></dd>
-        <dd><h4>Completed: <%= @csr_contract.csr_finish_date%></h4></dd>
-        <dd><h4>Comment:</h4></dd>
-        <dd><h4><%= @csr_contract.csr_comment %></h4></dd>
-      </div>
-    <!-- </div> -->
-
-<!--     <div class="panel panel-default"> -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>CONTRACT:</h4>
+      <dd><h3>Summary Details</h3></dd>
+    </div>
+    <div class="panel-body">
+      <dd><h4>Contract Id: <%= @csr_contract.id %></h4></dd>
+      <dd><h4>Value: <%= humanized_money_with_symbol(@csr_contract.csr_value) %></h4></dd>
+      <dd><h4>Address: <%= @csr_contract.csr_location %></h4></dd>
+      <dd><h4>Started: <%= @csr_contract.csr_start_date%></h4></dd>
+      <dd><h4>Completed: <%= @csr_contract.csr_finish_date%></h4></dd>
+      <dd><h4>Comment:</h4></dd>
+      <dd><h4><%= @csr_contract.csr_comment %></h4></dd>
+    </div>
+      
     <div class="panel-heading"><h4>DEPARTMENT:</h4>
       <dd><h3><% @csr_contract %></h3></dd>
     </div>
-      <div class="panel-body">
-        <dd><h4>Contact: <% @csr_contract%></h4></dd>
-        <dd><h4>Phone: <% @csr_contract%></h4></dd>
-        <dd><h4>Email: <% @csr_contract %></h4></dd>
-      </div>
-    <!-- </div> -->
+    <div class="panel-body">
+      <dd><h4>Contact: <% @csr_contract%></h4></dd>
+      <dd><h4>Phone: <% @csr_contract%></h4></dd>
+      <dd><h4>Email: <% @csr_contract %></h4></dd>
+    </div>
 
-    <!-- <div class="panel panel-default"> -->
     <div class="panel-heading"><h4>SUPPLIER:</h4>
       <dd><h3><%= link_to("#{@csr_contract.supplier.name}", 
               supplier_path(@csr_contract.supplier.id)) %>
@@ -46,8 +42,8 @@
       <dd><h4>ACN: <%= @csr_contract.supplier.acn %></h4></dd>
       <dd><h4>Address: <%= @csr_contract.supplier.address %></h4></dd>
       <dd><h4>Email: <%= @csr_contract.supplier.email %></h4></dd>
-      </div>
     </div>
+  </div>
 
   <%= link_to 'Back', csr_contracts_path %>
 </dl>
