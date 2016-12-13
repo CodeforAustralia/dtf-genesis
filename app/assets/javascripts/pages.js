@@ -1,117 +1,129 @@
 
-
-console.log("Begin");
-
-
 window.onload = function (win) {
-  var dataset = [ {label: "HTML5", count: 30}
-               , {label: "D3", count: 15}
-               , {label: "JavaScript", count: 20}
-               , {label: "Atom", count: 30}
-               , {label: "Human", count: 5}
-  ];
+  var bar_margin = {top: 20, right: 30, bottom: 30, left: 40}
+  var bc_width = 300 - bar_margin.left - bar_margin.right;
+  var bc_height = 150 - bar_margin.top - bar_margin.bottom;
 
-  var margin = {top: 20, right: 30, bottom: 30, left: 40}
-
-  var width = 300 - margin.left - margin.right;
-  var height = 150 - margin.top - margin.bottom;
-  var radius = Math.min(width, height) / 2;
-  console.log("Window: " + width + "x" + height + "... radius: " + radius);
-
-  // var canvas = document.querySelector("canvas");
-  // var context = canvas.getContext("2d");
-  // var arc = d3.arc()
-  //     .outerRadius(radius - 10)
-  //     .innerRadius(radius - 70)
-  //     .context(context);
-
-  // var colors = ["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"];
-
-  var data = ($('#spending').data('spending'));
-
-  // d3.select("body").append("p").text("New paragraph!");
-  // // d3.select("#chart").append("p").text("Chart Title");
-
-  // d3.select("#chart")
-  //   .append("div").text("Monthly Spending Bar Chart")
-  //     .style("color","blue")
-  //     .style("font-size", 22);
-
-  // var body = d3.select("body");
-  // var div = body.append("div");
-  // div.html("Hello, d3!");
+  var spending_data = ($('#spending').data('spending'));
+  var barWidth = bc_width / spending_data.length;
 
   var heightscale = d3.scaleLinear()
       .domain([20000000,0])
-      .range([height, 0]);
+      .range([bc_height, 0]);
   var widthscale = d3.scaleOrdinal()
-      .range([0, width], .1);
+      .range([0, bc_width], .1);
 
   var chart = d3.select(".barchart")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom);
+      .attr("width", bc_width + bar_margin.left + bar_margin.right)
+      .attr("height", bc_height + bar_margin.top + bar_margin.bottom);
   chart.append("text")
-       .attr("x", width / 2)
+       .attr("x", bc_width / 2)
        .attr("y", 20)
-       .attr("class","title")
+       .attr("class","charttitle")
        .style("font", "18px sans-serif")
        .style("fill", "steelblue")
        .text("Construction spend/month");
 
-  // var xAxis = d3.axisBottom()
-  //     .scale(xscale);
-  // var yAxis = d3.axisLeft()
-  //     .scale(heightscale);
-  // var yAxis = d3.axisLeft()
-  //     .scale(heightscale)
-  //     .ticks(10, "%");
-
-  // chart.append("g")
-  //     .attr("class", "x axis")
-  //     .attr("transform", "translate(0," + height + ")")
-  //     .call(xAxis);
-
-  // chart.append("g")
-  //     .attr("class", "y axis")
-  //     .call(yAxis);
-
-  var barWidth = width / data.length;
-
   var bar = chart.selectAll("g")
-       .data(data)
+       .data(spending_data)
      .enter().append("g")
        .attr("transform", function(d, i) { return "translate(" + i * barWidth + ",0)"; });
 
   bar.append("rect")
-       .attr("y", function(d) { return height-heightscale(d.value); })
+       .attr("y", function(d) { return bc_height-heightscale(d.value); })
        .attr("height", function(d) { return heightscale(d.value); })
        .attr("width", barWidth - 1);
 
   bar.append("text")
       .attr("x", barWidth / 2)
-      .attr("y", height+5)
+      .attr("y", bc_height+5)
       .attr("dy", ".75em")
       .text(function(d) { return d.name.slice(0,3); });
   bar.append("text")
      .attr("x", barWidth / 2)
-     .attr("y", function(d) { return height-heightscale(d.value)-15; })
+     .attr("y", function(d) { return bc_height-heightscale(d.value)-15; })
      .attr("dy", ".75em")
    .text(function(d) { return "$" + Math.round(d.value/1000000) + "m"; });
 
 
-  // d3.select(".barchart")
-  //     .data(datadump)
-  //     .enter()
-  //     .append("div")
-  //     // .text(function(d) {
-  //     //     return d.name;
-  //     // })
-  //     .attr("class", "bar")
-  //     .style("fill", function(d) {
-  //         return "hsl(1000, 30%, "+(d.value/25000)+"%)";
-  //     })
-  //     .style("height", function(d) {
-	// 			return (d.value/25000) + "px";
-	// 		});
+
+
+
+  var color = d3.scaleOrdinal(d3.schemeCategory20b);
+  var pie_margin = {top: 20, right: 30, bottom: 10, left: 30}
+  var pc_width = 300 - pie_margin.left - pie_margin.right;
+  var pc_height = 150 - pie_margin.top - pie_margin.bottom;
+  var outerRadius = (pc_width / 2) - pie_margin.left - pie_margin.right;
+  var innerRadius = 20;
+  var arc = d3.arc()
+        .innerRadius(innerRadius)
+        .outerRadius(outerRadius);
+  var pie = d3.pie();
+  var department_data = ($('#departmentspending').data('departmentspending'));
+  var piechart = d3.select(".piechart")
+      .append('svg')
+      .attr("width", pc_width + pie_margin.left + pie_margin.right)
+      .attr("height", pc_height + pie_margin.top + pie_margin.bottom)
+      .append('g')
+      .attr('transform', 'translate(' + pie_margin.left + ',' + pie_margin.top + ')');
+  piechart.append("text")
+       .attr("x", pc_width / 2)
+       .attr("y", 0)
+       .attr("class","charttitle")
+       .style("font", "18px sans-serif")
+       .style("fill", "steelblue")
+       .text("Construction spend by agency");
+
+       //Set up groups
+  var arcs = piechart.selectAll("g.arc")
+  			  .data(pie.value(function(d) { return d.value; })(department_data))
+  			  .enter()
+  			  .append("g")
+  			  .attr("class", "arc")
+  			  .attr("transform", "translate(" + outerRadius + "," + outerRadius + ")");
+
+  //Draw arc paths
+  arcs.append("path")
+      .attr("fill", function(d, i) {
+      	return color(i);
+      })
+      .attr("d", arc);
+
+  //Labels
+  arcs.append("text")
+      .attr("transform", function(d) {
+      	return "translate(" + arc.centroid(d) + ")";
+      })
+      .attr("text-anchor", "middle")
+      .text(function(d) {
+      	return d.data.name;
+      });
+
+      var legendRectSize = 10;
+      var legendSpacing = 4;
+      var legend = piechart.selectAll('.legend')
+              .data(department_data)
+              .enter()
+              .append('g')
+              .attr('class', 'legend')
+              .attr('transform', function(d, i) {
+                var height = legendRectSize + legendSpacing;
+                var offset = -10;
+                var horz = pc_width - 100;
+                var vert = i * height - offset;
+                return 'translate(' + horz + ',' + vert + ')';
+              });
+            legend.append('rect')
+              .attr('width', legendRectSize)
+              .attr('height', legendRectSize)
+              .style('fill', function(d,i){ return color(i) })
+              .style('stroke', "black");
+            legend.append('text')
+              .attr('x', legendRectSize + (legendSpacing*3))
+              .attr('y', legendRectSize - legendSpacing)
+              .text(function(d) {
+                return d.name;
+               });
+
 
 }; //load
