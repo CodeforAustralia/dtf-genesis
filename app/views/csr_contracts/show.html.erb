@@ -1,6 +1,23 @@
 <p id="notice"><%= notice %></p>
 
+<dl class="dl-horizontal">
 
+  <h3>Contract Details:</h3>
+  <dd><h2><%= @csr_contract.csr_description %></h2></dd>
+  <dt><h4>Value:</h4></dt>
+    <dd><h4><%= humanized_money_with_symbol(@csr_contract.csr_value) %></h4></dd>
+  <dt><h4>Department:</h4></dt>
+    <dd><h4>Contact: <% @csr_contract%></h4></dd>
+    <dd><h4>Phone: <% @csr_contract%></h4></dd>
+    <dd><h4>Email: <% @csr_contract %></h4></dd>
 
-<%= link_to 'Edit', edit_csr_contract_path(@csr_contract) %> |
-<%= link_to 'Back', csr_contracts_path %>
+  <dt><h4>Supplier:</h4></dt>
+    <dd><h4> <%= link_to("#{@csr_contract.supplier.name}", supplier_path(@csr_contract.supplier.id)) %></h4></dd>
+    <dd><h4>ABN: <%= @csr_contract.supplier.abn %></h4></dd>
+    <dd><h4>ACN: <%= @csr_contract.supplier.acn %></h4></dd>
+    <dd><h4>Address: <%= @csr_contract.supplier.address %></h4></dd>
+    <dd><h4>Email: <%= @csr_contract.supplier.email %></h4></dd>
+
+  <%= link_to 'Edit', edit_csr_contract_path(@csr_contract) %> |
+  <%= link_to 'Back', csr_contracts_path %>
+</dl>
