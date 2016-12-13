@@ -1,7 +1,7 @@
 %div
   %h1= "Construction Contracts Register"
   %p= "This is the list of current construction contracts in Victoria as of today, #{Time.now.to_formatted_s(:long)}"  
-  %p= link_to "View past construction data history: ( #{@csr_contracts.count} total )", '/csr_contracts'
+  %p= link_to "View past construction data history: ( #{@csr_contracts.count} contracts )", '/csr_contracts'
   = smart_listing_controls_for(:contracts, {class: ""}) do
     %div.filter.form-search
       .input-group
