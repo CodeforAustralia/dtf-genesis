@@ -1,14 +1,16 @@
 
+var window_size = 400;
+
 window.onload = function (win) {
   var bar_margin = {top: 20, right: 30, bottom: 30, left: 40}
-  var bc_width = 300 - bar_margin.left - bar_margin.right;
-  var bc_height = 150 - bar_margin.top - bar_margin.bottom;
+  var bc_width = window_size - bar_margin.left - bar_margin.right;
+  var bc_height = window_size - bar_margin.top - bar_margin.bottom;
 
   var spending_data = ($('#spending').data('spending'));
   var barWidth = bc_width / spending_data.length;
 
   var heightscale = d3.scaleLinear()
-      .domain([20000000,0])
+      .domain([14000000,0])
       .range([bc_height, 0]);
   var widthscale = d3.scaleOrdinal()
       .range([0, bc_width], .1);
@@ -20,7 +22,7 @@ window.onload = function (win) {
        .attr("x", bc_width / 2)
        .attr("y", 20)
        .attr("class","charttitle")
-       .style("font", "18px sans-serif")
+       .style("font", "26px sans-serif")
        .style("fill", "steelblue")
        .text("Construction spend/month");
 
@@ -43,7 +45,12 @@ window.onload = function (win) {
      .attr("x", barWidth / 2)
      .attr("y", function(d) { return bc_height-heightscale(d.value)-15; })
      .attr("dy", ".75em")
-   .text(function(d) { return "$" + Math.round(d.value/1000000) + "m"; });
+     .text(function(d) {
+       if (Math.round(d.value/1000000) > 0) {
+         return "$" + Math.round(d.value/1000000) + "m";
+       }
+       return "< $1m";
+     });
 
 
 
@@ -51,8 +58,8 @@ window.onload = function (win) {
 
   var color = d3.scaleOrdinal(d3.schemeCategory20b);
   var pie_margin = {top: 40, right: 10, bottom: 10, left: 10}
-  var pc_width = 400;
-  var pc_height = 400;
+  var pc_width = window_size;
+  var pc_height = window_size;
   var outerRadius = (Math.min((pc_width - pie_margin.left - pie_margin.right), (pc_height - pie_margin.top - pie_margin.bottom)) / 2)-20;
   var innerRadius = outerRadius - 70;
   var arc = d3.arc()
@@ -74,7 +81,6 @@ window.onload = function (win) {
        .attr("class","charttitle")
        .style("font", "26px sans-serif")
        .style("fill", "steelblue")
-       .style("stroke", "black")
        .style("text-anchor", "center")
        .text("Construction spend by agency");
 
