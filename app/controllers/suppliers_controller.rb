@@ -22,7 +22,11 @@ class SuppliersController < ApplicationController
   def show
     @supplier = Supplier.find(params[:id])
     @csr_performance_reports = CsrPerformanceReport.where(csr_supplier_id: @supplier)
+    @adverse_reports = @csr_performance_reports.where("csr_staff_quality < 3 OR csr_work_quality < 3 OR csr_work_quantity < 3 OR csr_coodination < 3 OR csr_administration < 3 OR csr_expr1012 < 3 OR csr_attitude_to_client < 3 OR csr_pricing < 3 OR csr_payment < 3 OR csr_ohs < 3 OR csr_ir < 3 OR csr_environment < 3 OR csr_overall < 3")
+    @good_reports = @csr_performance_reports.where("csr_staff_quality > 3 OR csr_work_quality > 3 OR csr_work_quantity > 3 OR csr_coodination > 3 OR csr_administration > 3 OR csr_expr1012 > 3 OR csr_attitude_to_client > 3 OR csr_pricing > 3 OR csr_payment > 3 OR csr_ohs > 3 OR csr_ir > 3 OR csr_environment > 3 OR csr_overall > 3")
     @projects = Contract.where(vt_supplier_id: params[:id])
+    @adverse_percent = if @csr_performance_reports.count == 0 then "n/a" else "#{@adverse_reports.count / @csr_performance_reports.count * 100}%" end
+    @good_percent = if @csr_performance_reports.count == 0 then "n/a" else "#{@good_reports.count / @csr_performance_reports.count * 100}%" end
   end
 
   def new

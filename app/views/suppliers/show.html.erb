@@ -1,4 +1,29 @@
-<p id="notice"><%= notice %>
+<p id="notice"><%= notice %></p>
+
+<table align="center", width="50%">
+  <tr>
+    <td colspan="2">
+      <h4 align="center">Supplier performance snapshot</h4>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <p>Rating: <%= (@csr_performance_reports.count * @good_reports.count) - (@csr_performance_reports.count * @adverse_reports.count) %></p>
+    </td>
+    <td align="center">
+      <p>Positive reports on supplier: <%= @good_reports.count %> (<%= @good_percent %>)</p>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <p>Total reports on supplier: <%= @csr_performance_reports.count %></p>
+    </td>
+    <td align="center">
+      <p>Adverse reports on supplier: <%= @adverse_reports.count %> (<%= @adverse_percent %>)</p>
+    </td>
+  </tr>
+</table>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-2">
