@@ -16,12 +16,14 @@ class ContractsController < ApplicationController
     end
 
     @contracts = smart_listing_create :contracts, scope, partial: "contracts/list", page_sizes: [10, 25, 50, 100, 250, 500]
-  
+
     @csr_contracts = CsrContract.all
   end
 
   def show
     @contract = Contract.find(params[:id])
+    @csr_reports = CsrPerformanceReport.where(csr_works_no: params[:id])
+    @cpr_reports = CprPerformanceReport.where(cpr_contract: params[:id])
   end
 
   def new
