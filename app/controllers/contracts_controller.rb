@@ -16,6 +16,8 @@ class ContractsController < ApplicationController
     end
 
     @contracts = smart_listing_create :contracts, scope, partial: "contracts/list", page_sizes: [10, 25, 50, 100, 250, 500]
+  
+    @csr_contracts = CsrContract.all
   end
 
   def show
