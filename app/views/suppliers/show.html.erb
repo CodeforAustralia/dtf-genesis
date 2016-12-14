@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<table align="center", width="50%">
+<table align="center", width="70%">
   <tr>
-    <td colspan="2">
-      <h4 align="center">Supplier performance snapshot</h4>
+    <td colspan="3">
+      <h3 align="center">Supplier performance snapshot</h3>
     </td>
   </tr>
   <tr>
@@ -13,6 +13,9 @@
     <td align="center">
       <p>Positive reports on supplier: <%= @good_reports.count %> (<%= @good_percent %>)</p>
     </td>
+    <td align="center">
+      <p>Current projects: <%= @current_projects.count %></p>
+    </td>
   </tr>
   <tr>
     <td align="center">
@@ -20,6 +23,9 @@
     </td>
     <td align="center">
       <p>Adverse reports on supplier: <%= @adverse_reports.count %> (<%= @adverse_percent %>)</p>
+    </td>
+    <td align="center">
+      <p>Current project valuations: $<%= @projects_valuation %>0</p>
     </td>
   </tr>
 </table>

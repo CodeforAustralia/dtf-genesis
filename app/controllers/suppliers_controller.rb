@@ -27,6 +27,11 @@ class SuppliersController < ApplicationController
     @projects = Contract.where(vt_supplier_id: params[:id])
     @adverse_percent = if @csr_performance_reports.count == 0 then "n/a" else "#{@adverse_reports.count / @csr_performance_reports.count * 100}%" end
     @good_percent = if @csr_performance_reports.count == 0 then "n/a" else "#{@good_reports.count / @csr_performance_reports.count * 100}%" end
+    @projects_valuation = 0
+    @current_projects = @projects.where("vt_start_date <= :now_date AND vt_end_date >= :now_date", {now_date: Date.today})
+    @current_projects.each do |project|
+      @projects_valuation += project.vt_total_value
+    end
   end
 
   def new
