@@ -50,28 +50,32 @@ window.onload = function (win) {
 
 
   var color = d3.scaleOrdinal(d3.schemeCategory20b);
-  var pie_margin = {top: 20, right: 30, bottom: 10, left: 30}
-  var pc_width = 300 - pie_margin.left - pie_margin.right;
-  var pc_height = 150 - pie_margin.top - pie_margin.bottom;
-  var outerRadius = (pc_width / 2) - pie_margin.left - pie_margin.right;
-  var innerRadius = 20;
+  var pie_margin = {top: 40, right: 10, bottom: 10, left: 10}
+  var pc_width = 400;
+  var pc_height = 400;
+  var outerRadius = (Math.min((pc_width - pie_margin.left - pie_margin.right), (pc_height - pie_margin.top - pie_margin.bottom)) / 2)-20;
+  var innerRadius = outerRadius - 70;
   var arc = d3.arc()
         .innerRadius(innerRadius)
         .outerRadius(outerRadius);
-  var pie = d3.pie();
+  var pie = d3.pie().padAngle(0.01);
   var department_data = ($('#departmentspending').data('departmentspending'));
   var piechart = d3.select(".piechart")
+      .attr("width", pc_width)
+      .attr("height", pc_height)
       .append('svg')
-      .attr("width", pc_width + pie_margin.left + pie_margin.right)
-      .attr("height", pc_height + pie_margin.top + pie_margin.bottom)
+      .attr("width", pc_width - pie_margin.left - pie_margin.right)
+      .attr("height", pc_height - pie_margin.top - pie_margin.bottom)
       .append('g')
       .attr('transform', 'translate(' + pie_margin.left + ',' + pie_margin.top + ')');
   piechart.append("text")
-       .attr("x", pc_width / 2)
-       .attr("y", 0)
+       .attr("x", (pc_width / 2)-35)
+       .attr("y", -20)
        .attr("class","charttitle")
-       .style("font", "18px sans-serif")
+       .style("font", "26px sans-serif")
        .style("fill", "steelblue")
+       .style("stroke", "black")
+       .style("text-anchor", "center")
        .text("Construction spend by agency");
 
        //Set up groups
@@ -108,8 +112,8 @@ window.onload = function (win) {
               .attr('class', 'legend')
               .attr('transform', function(d, i) {
                 var height = legendRectSize + legendSpacing;
-                var offset = -10;
-                var horz = pc_width - 100;
+                var offset = -100;
+                var horz = 140;
                 var vert = i * height - offset;
                 return 'translate(' + horz + ',' + vert + ')';
               });
