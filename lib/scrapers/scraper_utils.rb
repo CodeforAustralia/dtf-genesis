@@ -63,14 +63,14 @@ def scrape_for_references(department_list_url)
   contract_indexes
 end
 
-def scrape_tenders_vic(refresh = false)
+def scrape_tenders_vic(refresh=false, print=true)
   print "\n ∵ TendersVIC Scrape @ #{Time.now} ∵\n"
   contract_indexes_to_scrape = scrape_for_references("https://www.tenders.vic.gov.au/tenders/contract/list.do?action=contract-view")
   contract_session = prepare_session()
   Capybara.reset_sessions!
   contract_indexes_to_scrape.to_set.each do |contract_index|
     contract_session.visit "http://www.tenders.vic.gov.au/tenders/contract/view.do?id=#{contract_index}"
-    contract_data = extract_contract_data(contract_session.text, contract_index)
+    contract_data = extract_contract_data(contract_session.text, contract_index, print)
     store_or_skip(contract_data, refresh)
   end
   contract_session.driver.quit
@@ -90,12 +90,13 @@ def find_between(text, pre_string, post_string)
   end
 end
 
-def lookup_department_id(department_text)
+def lookup_department_id(department_text, print=false)
     Department.all.each do |department|
-      if department_text.downcase.include?(department.name.downcase)
+      if department_text.downcase.gsub(" ","").include?(department.name.downcase.gsub(" ",""))
         return department.vt_number
       end
     end
+    if print then puts "could not find agency '#{department_text}'" end
     0
 end
 
@@ -175,7 +176,7 @@ def lookup_contract_unspsc(text)
   0
 end
 
-def extract_contract_data(text, contract_index)
+def extract_contract_data(text, contract_index, print=false)
   gov_entity = find_between(text, "Public Body:", "Contract Number:")
   gov_entity_contract_numb = find_between(text, "Contract Number:","Title:")
   contract_title = find_between(text, "Title:","Type of Contract:")
@@ -218,7 +219,7 @@ def extract_contract_data(text, contract_index)
   post_code = find_between(text, "Postcode:", "Email Address:")
   supplier_address = "#{street}, #{suburb}, #{state} #{post_code}"
   supplier_email = find_between(text, "Email Address:", "State Government of Victoria") # or "Text size: Reduce text size Increase text size Print: Print page"
-  { department_id: lookup_department_id(gov_entity),
+  { department_id: lookup_department_id(gov_entity, print),
     contract_number: gov_entity_contract_numb,
     contract_title: contract_title,
     contract_type: lookup_contract_type(contract_type),

@@ -6,7 +6,7 @@ one:
   vt_title: MyString
   vt_start_date: 2016-09-20
   vt_end_date: 2016-09-20
-  vt_total_value:
+  vt_total_value: 0
 
 two:
   vt_contract_number: MyString
@@ -14,7 +14,7 @@ two:
   vt_title: MyString
   vt_start_date: 2016-09-20
   vt_end_date: 2016-09-20
-  vt_total_value:
+  vt_total_value: 0
 
 matching_acn_contract:
   vt_contract_number: matching_acn_contract_number
@@ -24,6 +24,7 @@ matching_acn_contract:
   vt_supplier_acn: 124578
   vt_supplier_id: 0
   vt_supplier_name: old sup name
+  vt_total_value: 0
 
 matching_abn_contract:
   vt_contract_number: matching_abn_contract_number

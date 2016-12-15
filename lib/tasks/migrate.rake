@@ -6,12 +6,12 @@ require "#{Rails.root}/lib/linkers/linker.rb"
 namespace :scrape do
   desc "Scrape Tenders VIC for new contracts now"
   task :new => :environment do
-    scrape_tenders_vic
+    scrape_tenders_vic false, true
   end
 
   desc "Update Tenders VIC contracts"
   task :update => :environment do
-    scrape_tenders_vic true
+    scrape_tenders_vic true, true
   end
 end
 
@@ -32,7 +32,7 @@ namespace :migrate do
   desc "Migrate council lists"
   task :council => :environment do
     councils = CSV.read("#{Rails.root}/db/data/council.csv")
-    columns = [:codename, :name, :shortname, :type, :region_code]
+    columns = [:codename, :name, :shortname, :council_type, :region_code]
     Council.import columns, councils, validate: false
   end
 
@@ -50,6 +50,15 @@ namespace :migrate do
     # Need to add CSR Supplier Id because there are many instances of it and cannot be use as unique id
     columns = [:csr_supplier_id, :csr_works_no, :csr_completion, :csr_createdby, :csr_progress, :csr_comment, :csr_progress_rate, :csr_staff_quality, :csr_work_quality, :csr_work_quantity, :csr_coodination, :csr_administration, :csr_expr1012, :csr_attitude_to_client, :csr_pricing, :csr_payment, :csr_ohs, :csr_ir, :csr_environment, :csr_overall, :csr_satisfactory ]
     CsrPerformanceReport.import columns, performances, validate: false
+  end
+
+  desc "Migrate CSR Contracts data" 
+  task :csr_contract => :environment do
+    # CsrContract.delete_all 
+    contracts = CSV.read("#{Rails.root}/db/data/csr_contract.csv")
+    # Using csr_project_id as the unique key as included in the import file
+    columns = [:id, :csr_works_no, :csr_supplier_type, :csr_description, :csr_location, :csr_category, :csr_value, :csr_client, :csr_start_date, :csr_finish_date, :csr_comment, :supplier_id]
+    CsrContract.import columns, contracts, validate: false
   end
 
   desc "Setup Agency Data"

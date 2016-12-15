@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128022901) do
+ActiveRecord::Schema.define(version: 20161212043214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,6 +151,24 @@ ActiveRecord::Schema.define(version: 20161128022901) do
     t.datetime "updated_at",                                null: false
   end
 
+  create_table "csr_contracts", force: :cascade do |t|
+    t.string   "csr_works_no"
+    t.string   "csr_supplier_type"
+    t.text     "csr_description"
+    t.string   "csr_location"
+    t.string   "csr_category"
+    t.money    "csr_value",         scale: 2
+    t.string   "csr_client"
+    t.date     "csr_start_date"
+    t.date     "csr_finish_date"
+    t.text     "csr_comment"
+    t.string   "source",                      default: "csr"
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.integer  "supplier_id"
+    t.index ["supplier_id"], name: "index_csr_contracts_on_supplier_id", using: :btree
+  end
+
   create_table "csr_performance_reports", force: :cascade do |t|
     t.string   "csr_supplier_id"
     t.string   "csr_works_no"
@@ -271,6 +289,7 @@ ActiveRecord::Schema.define(version: 20161128022901) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "csr_contracts", "suppliers"
   add_foreign_key "csr_performance_reports", "suppliers"
   add_foreign_key "projects", "departments"
 end
