@@ -8,9 +8,16 @@ window.onload = function (win) {
 
   var spending_data = ($('#spending').data('spending'));
   var barWidth = bc_width / spending_data.length;
+    maximal = 0;
+    spending_data.forEach(function(d) {
+      if ((+d.value) > maximal) {
+        maximal = d.value;
+      }
+  });
+  maximal = maximal * 1.2;
 
   var heightscale = d3.scaleLinear()
-      .domain([14000000,0])
+      .domain([maximal,0])
       .range([bc_height, 0]);
   var widthscale = d3.scaleOrdinal()
       .range([0, bc_width], .1);
