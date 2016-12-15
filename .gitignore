@@ -1,3 +1,10 @@
+
+# ignore cscope/tags files
+*.db
+*.files
+*.out
+tags
+
 *.gem
 *.rbc
 /.config
