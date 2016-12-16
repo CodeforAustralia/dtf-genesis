@@ -29,7 +29,9 @@ $input-active-color: $orangeAlpha50;
 $input-alt-color: #222200;
 $input-active-alt-color: #000000;
 
-
+.navbar-header {
+  border: 2px solid;
+}
 .notice {
   margin-top: 5px;
   padding-top: 5px;
