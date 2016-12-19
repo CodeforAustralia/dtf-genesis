@@ -1,4 +1,7 @@
 
+# private file of public data
+TendersVicDataSingleLine.csv
+
 # ignore cscope/tags files
 *.db
 *.files
