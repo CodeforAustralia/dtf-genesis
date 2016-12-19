@@ -176,6 +176,10 @@ def lookup_contract_unspsc(text)
   0
 end
 
+def create_address(s_address, s_suburb, s_state, s_pc)
+  return "#{s_address}, #{s_suburb}, #{s_state} #{s_pc}"
+end
+
 def extract_contract_data(text, contract_index, print=false)
   gov_entity = find_between(text, "Public Body:", "Contract Number:")
   gov_entity_contract_numb = find_between(text, "Contract Number:","Title:")

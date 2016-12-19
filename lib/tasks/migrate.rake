@@ -93,26 +93,80 @@ namespace :migrate do
   desc "Import Tenders Vic data file"
   task :tendersvic => :environment do
     puts "Importing Vic Tenders data"
-    Contract.create!({
-      vt_contract_number: "11111",
-      vt_department_id: "CON-111",
-      vt_status_id: 0,
-      vt_title: "test title",
-      vt_start_date: Date.parse("11/10/1979"),
-      vt_end_date: Date.parse("16/10/1979"),
-      vt_total_value: 1,
-      autopurge: true
-    })
+    count = 0
+    CSV.foreach("#{Rails.root}/db/data/tendersvic_mock_contracts.csv", {quote_char: "'"}) do |row|
+      if row[13] # standard
+        s_name = row[13]
+        s_abn = row[14]
+        s_acn = row[15]
+        s_address = row[16]
+        s_suburb = row[17]
+        s_state = row[18]
+        s_pc = row[19]
+        s_email = row[20]
+      elsif row[21] # non-standard
+        s_name = row[21]
+        s_abn = row[22]
+        s_acn = row[23]
+        s_address = row[25]
+        s_suburb = row[26]
+        s_state = row[27]
+        s_pc = row[28]
+        s_email = row[29]
+      else # legacy
+        s_name = row[30]
+        s_abn = ""
+        s_acn = ""
+        s_address = ""
+        s_suburb = ""
+        s_state = ""
+        s_pc = row[31]
+        s_email = ""
+      end
+      Contract.create!({
+        vt_contract_number: row[1],
+        vt_title: row[2],
+        vt_start_date: Date.parse(row[5]),
+        vt_end_date: Date.parse(row[6]),
+        vt_total_value: row[4],
+        vt_department_id: lookup_department_id(row[0]),
+        vt_contract_type_id: lookup_contract_type(row[3]),
+        vt_value_type_id: nil,
+        status_index: nil,
+        vt_unspc_id: row[8],
+        vt_contract_description: row[9],
+        vt_supplier_id: 0,
+        project_id: nil,
+        vt_address: nil,
+        vt_status_id: lookup_contract_status(row[7]),
+        vt_address_id: nil,
+        vt_agency_person: row[10],
+        vt_agency_phone: row[12],
+        vt_agency_email: row[11],
+        vt_supplier_name: s_name,
+        vt_supplier_abn: s_abn,
+        vt_supplier_acn: s_acn,
+        vt_supplier_address: create_address(s_address, s_suburb, s_state, s_pc),
+        vt_supplier_email: s_email,
+        autopurge: true
+      })
+      # puts "Created: #{row[2]} - #{lookup_department_short_name(lookup_department_id(row[0]))}"
+      count += 1
+    end
+    puts "Imported #{count} records"
   end
 
   desc "Purge Tenders Vic data from DB"
   task :purgetendersvic => :environment do
     puts "Purging Vic Tenders data"
+    count = 0
     condemned = Contract.where("autopurge = true")
     condemned.each do |contract|
+      # puts "Deleting: #{contract.vt_title} - #{lookup_department_short_name(contract.vt_department_id)}"
       Contract.delete(contract)
+      count += 1
     end
-    # condemned.delete
+    puts "Removed #{count} records"
   end
 
 end
