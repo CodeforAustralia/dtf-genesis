@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161212043214) do
+ActiveRecord::Schema.define(version: 20161219005113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 20161212043214) do
     t.string   "vt_supplier_acn"
     t.string   "vt_supplier_address"
     t.string   "vt_supplier_email"
+    t.boolean  "autopurge"
   end
 
   create_table "councils", force: :cascade do |t|
