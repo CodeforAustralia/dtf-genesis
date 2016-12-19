@@ -52,9 +52,9 @@ namespace :migrate do
     CsrPerformanceReport.import columns, performances, validate: false
   end
 
-  desc "Migrate CSR Contracts data" 
+  desc "Migrate CSR Contracts data"
   task :csr_contract => :environment do
-    # CsrContract.delete_all 
+    # CsrContract.delete_all
     contracts = CSV.read("#{Rails.root}/db/data/csr_contract.csv")
     # Using csr_project_id as the unique key as included in the import file
     columns = [:id, :csr_works_no, :csr_supplier_type, :csr_description, :csr_location, :csr_category, :csr_value, :csr_client, :csr_start_date, :csr_finish_date, :csr_comment, :supplier_id]
@@ -82,13 +82,37 @@ namespace :migrate do
     ContractStatus.import columns, status_codes, validate: false
   end
 
-
   desc "Setup Contract Type values"
   task :contract_types => :environment do
     ContractType.delete_all
     type_codes = CSV.read("#{Rails.root}/db/data/contract-types.csv")
     columns = [:name, :short_name]
     ContractType.import columns, type_codes, validate: false
+  end
+
+  desc "Import Tenders Vic data file"
+  task :tendersvic => :environment do
+    puts "Importing Vic Tenders data"
+    Contract.create!({
+      vt_contract_number: "11111",
+      vt_department_id: "CON-111",
+      vt_status_id: 0,
+      vt_title: "test title",
+      vt_start_date: Date.parse("11/10/1979"),
+      vt_end_date: Date.parse("16/10/1979"),
+      vt_total_value: 1,
+      autopurge: true
+    })
+  end
+
+  desc "Purge Tenders Vic data from DB"
+  task :purgetendersvic => :environment do
+    puts "Purging Vic Tenders data"
+    condemned = Contract.where("autopurge = true")
+    condemned.each do |contract|
+      Contract.delete(contract)
+    end
+    # condemned.delete
   end
 
 end
