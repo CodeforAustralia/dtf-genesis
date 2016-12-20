@@ -173,12 +173,36 @@ end
 
 namespace :restore do
   desc "Restore all avaliable databases"
-  task :all => :environment do
-    Rake::Task["restore:contacts"].invoke
+  task :all => :unspscs do
+    Rake::Task["restore:unspscs"].invoke
   end
 
-  desc "Restore contacts database"
-  task :contacts => :environment do
-    puts "restrore contacts"
+  desc "Restore unspscs db"
+  task :unspscs => :environment do
+    add_count = 0
+    update_count = 0
+    CSV.foreach("#{Rails.root}/db/backup/Unspsc.csv", force_quotes: true) do |row|
+      match = Unspsc.where(unspsc_code: row[0]).first
+      if match
+        match.unspsc_code = row[0]
+        match.unspsc_name = row[1]
+        match.unspsc_alias = row[2]
+        match.child_category = row[3]
+        match.parent_category = row[4]
+        match.save
+        update_count += 1
+      else
+        Unspsc.create!({
+          unspsc_code: row[0],
+          unspsc_name: row[1],
+          unspsc_alias: row[2],
+          child_category: row[3],
+          parent_category: row[4]
+          })
+          add_count += 1
+      end
+    end
+    puts "Updated #{update_count} and restored #{add_count} Unspsc"
   end
+
 end
