@@ -12,6 +12,13 @@ namespace :migrate do
     Council.import columns, councils, validate: false
   end
 
+  desc "Migrate unspsc codes"
+  task :unspsc => :environment do
+    unspscs = CSV.read("#{Rails.root}/db/data/unspsc.csv")
+    columns = [:unspsc_code, :unspsc_name]
+    Unspsc.import columns, unspscs, validate: false
+  end
+
   desc "Migrate csr supplier data"
   task :supplier => :environment do
     suppliers = CSV.read("#{Rails.root}/db/data/supplier.csv")
