@@ -19,15 +19,15 @@ namespace :backup do
     Rake::Task["backup:unspscs"].invoke
   end
 
-  desc "Backup contacts db"
-  task :contacts => :environment do
-    puts "Backup #{ContactPerson.all.count} ContactPerson"
-    CSV.open("#{Rails.root}/db/backup/ContactPerson.csv", "wb", force_quotes: true) do |csv|
-      ContactPerson.all.each do |contact|
-        csv << [contact.name, contact.phone, contact.fax, contact.email]
-      end
-    end
-  end
+  # desc "Backup contacts db"
+  # task :contacts => :environment do
+  #   puts "Backup #{ContactPerson.all.count} ContactPerson"
+  #   CSV.open("#{Rails.root}/db/backup/ContactPerson.csv", "wb", force_quotes: true) do |csv|
+  #     ContactPerson.all.each do |contact|
+  #       csv << [contact.name, contact.phone, contact.fax, contact.email]
+  #     end
+  #   end
+  # end
 
   desc "Backup ContractStatus db"
   task :statuses => :environment do
@@ -69,15 +69,15 @@ namespace :backup do
     end
   end
 
-  desc "Backup councils db"
-  task :councils => :environment do
-    puts "Backup #{Council.all.count} Council"
-    CSV.open("#{Rails.root}/db/backup/Council.csv", "wb", force_quotes: true) do |csv|
-      Council.all.each do |x|
-        csv << [x.codename, x.name, x.shortname, x.council_type, x.region_code]
-      end
-    end
-  end
+  # desc "Backup councils db"
+  # task :councils => :environment do
+  #   puts "Backup #{Council.all.count} Council"
+  #   CSV.open("#{Rails.root}/db/backup/Council.csv", "wb", force_quotes: true) do |csv|
+  #     Council.all.each do |x|
+  #       csv << [x.codename, x.name, x.shortname, x.council_type, x.region_code]
+  #     end
+  #   end
+  # end
 
   desc "Backup cpr_performance_reports db"
   task :cpr => :environment do
@@ -89,15 +89,15 @@ namespace :backup do
     end
   end
 
-  desc "Backup csr_contracts db"
-  task :csr_contracts => :environment do
-    puts "Backup #{CsrContract.all.count} CsrContract"
-    CSV.open("#{Rails.root}/db/backup/CsrContract.csv", "wb", force_quotes: true) do |csv|
-      CsrContract.all.each do |x|
-        csv << [x.csr_works_no, x.csr_supplier_type, x.csr_description, x.csr_location, x.csr_category, x.csr_value, x.csr_client, x.csr_start_date, x.csr_finish_date, x.csr_comment, x.source, x.supplier_id]
-      end
-    end
-  end
+  # desc "Backup csr_contracts db"
+  # task :csr_contracts => :environment do
+  #   puts "Backup #{CsrContract.all.count} CsrContract"
+  #   CSV.open("#{Rails.root}/db/backup/CsrContract.csv", "wb", force_quotes: true) do |csv|
+  #     CsrContract.all.each do |x|
+  #       csv << [x.csr_works_no, x.csr_supplier_type, x.csr_description, x.csr_location, x.csr_category, x.csr_value, x.csr_client, x.csr_start_date, x.csr_finish_date, x.csr_comment, x.source, x.supplier_id]
+  #     end
+  #   end
+  # end
 
   desc "Backup csr_performance_reports db"
   task :csr => :environment do
@@ -129,25 +129,25 @@ namespace :backup do
     end
   end
 
-  desc "Backup locations db"
-  task :locations => :environment do
-    puts "Backup #{Location.all.count} Location"
-    CSV.open("#{Rails.root}/db/backup/Location.csv", "wb", force_quotes: true) do |csv|
-      Location.all.each do |x|
-        csv << [x.record_no, x.supplier_no, x.location_code, x.supplier_type, x.mail_to, x.address_line1, x.address_line2, x.suburb, x.postcode, x.po, x.po_suburb, x.po_postcode, x.phone1, x.phone2, x.mobile, x.fax, x.email, x.website, x.title, x.firstname, x.surname, x.updated, x.state, x.po_state, x.metro]
-      end
-    end
-  end
+  # desc "Backup locations db"
+  # task :locations => :environment do
+  #   puts "Backup #{Location.all.count} Location"
+  #   CSV.open("#{Rails.root}/db/backup/Location.csv", "wb", force_quotes: true) do |csv|
+  #     Location.all.each do |x|
+  #       csv << [x.record_no, x.supplier_no, x.location_code, x.supplier_type, x.mail_to, x.address_line1, x.address_line2, x.suburb, x.postcode, x.po, x.po_suburb, x.po_postcode, x.phone1, x.phone2, x.mobile, x.fax, x.email, x.website, x.title, x.firstname, x.surname, x.updated, x.state, x.po_state, x.metro]
+  #     end
+  #   end
+  # end
 
-  desc "Backup projects db"
-  task :projects => :environment do
-    puts "Backup #{Project.all.count} Project"
-    CSV.open("#{Rails.root}/db/backup/Project.csv", "wb", force_quotes: true) do |csv|
-      Project.all.each do |x|
-        csv << [x.title, x.description, x.department_id]
-      end
-    end
-  end
+  # desc "Backup projects db"
+  # task :projects => :environment do
+  #   puts "Backup #{Project.all.count} Project"
+  #   CSV.open("#{Rails.root}/db/backup/Project.csv", "wb", force_quotes: true) do |csv|
+  #     Project.all.each do |x|
+  #       csv << [x.title, x.description, x.department_id]
+  #     end
+  #   end
+  # end
 
   desc "Backup suppliers db"
   task :suppliers => :environment do
@@ -204,5 +204,226 @@ namespace :restore do
     end
     puts "Updated #{update_count} and restored #{add_count} Unspsc"
   end
+
+  desc "Restore db"
+  task : => :environment do
+    add_count = 0
+    update_count = 0
+    CSV.foreach("#{Rails.root}/db/backup/.csv", force_quotes: true) do |row|
+      match = .where(: row[0]).first
+      if match
+        match. = row[0]
+        match. = row[1]
+        match.save
+        update_count += 1
+      else
+        Unspsc.create!({
+          : row[0],
+          : row[1]
+          })
+          add_count += 1
+      end
+    end
+    puts "Updated #{update_count} and restored #{add_count} "
+  end
+
+  desc "Restore db"
+  task : => :environment do
+    add_count = 0
+    update_count = 0
+    CSV.foreach("#{Rails.root}/db/backup/.csv", force_quotes: true) do |row|
+      match = .where(: row[0]).first
+      if match
+        match. = row[0]
+        match. = row[1]
+        match.save
+        update_count += 1
+      else
+        Unspsc.create!({
+          : row[0],
+          : row[1]
+          })
+          add_count += 1
+      end
+    end
+    puts "Updated #{update_count} and restored #{add_count} "
+  end
+
+  desc "Restore db"
+  task : => :environment do
+    add_count = 0
+    update_count = 0
+    CSV.foreach("#{Rails.root}/db/backup/.csv", force_quotes: true) do |row|
+      match = .where(: row[0]).first
+      if match
+        match. = row[0]
+        match. = row[1]
+        match.save
+        update_count += 1
+      else
+        Unspsc.create!({
+          : row[0],
+          : row[1]
+          })
+          add_count += 1
+      end
+    end
+    puts "Updated #{update_count} and restored #{add_count} "
+  end
+
+  desc "Restore db"
+  task : => :environment do
+    add_count = 0
+    update_count = 0
+    CSV.foreach("#{Rails.root}/db/backup/.csv", force_quotes: true) do |row|
+      match = .where(: row[0]).first
+      if match
+        match. = row[0]
+        match. = row[1]
+        match.save
+        update_count += 1
+      else
+        Unspsc.create!({
+          : row[0],
+          : row[1]
+          })
+          add_count += 1
+      end
+    end
+    puts "Updated #{update_count} and restored #{add_count} "
+  end
+
+  desc "Restore db"
+  task : => :environment do
+    add_count = 0
+    update_count = 0
+    CSV.foreach("#{Rails.root}/db/backup/.csv", force_quotes: true) do |row|
+      match = .where(: row[0]).first
+      if match
+        match. = row[0]
+        match. = row[1]
+        match.save
+        update_count += 1
+      else
+        Unspsc.create!({
+          : row[0],
+          : row[1]
+          })
+          add_count += 1
+      end
+    end
+    puts "Updated #{update_count} and restored #{add_count} "
+  end
+
+  desc "Restore db"
+  task : => :environment do
+    add_count = 0
+    update_count = 0
+    CSV.foreach("#{Rails.root}/db/backup/.csv", force_quotes: true) do |row|
+      match = .where(: row[0]).first
+      if match
+        match. = row[0]
+        match. = row[1]
+        match.save
+        update_count += 1
+      else
+        Unspsc.create!({
+          : row[0],
+          : row[1]
+          })
+          add_count += 1
+      end
+    end
+    puts "Updated #{update_count} and restored #{add_count} "
+  end
+
+  desc "Restore db"
+  task : => :environment do
+    add_count = 0
+    update_count = 0
+    CSV.foreach("#{Rails.root}/db/backup/.csv", force_quotes: true) do |row|
+      match = .where(: row[0]).first
+      if match
+        match. = row[0]
+        match. = row[1]
+        match.save
+        update_count += 1
+      else
+        Unspsc.create!({
+          : row[0],
+          : row[1]
+          })
+          add_count += 1
+      end
+    end
+    puts "Updated #{update_count} and restored #{add_count} "
+  end
+
+  desc "Restore db"
+  task : => :environment do
+    add_count = 0
+    update_count = 0
+    CSV.foreach("#{Rails.root}/db/backup/.csv", force_quotes: true) do |row|
+      match = .where(: row[0]).first
+      if match
+        match. = row[0]
+        match. = row[1]
+        match.save
+        update_count += 1
+      else
+        Unspsc.create!({
+          : row[0],
+          : row[1]
+          })
+          add_count += 1
+      end
+    end
+    puts "Updated #{update_count} and restored #{add_count} "
+  end
+
+  desc "Restore db"
+  task : => :environment do
+    add_count = 0
+    update_count = 0
+    CSV.foreach("#{Rails.root}/db/backup/.csv", force_quotes: true) do |row|
+      match = .where(: row[0]).first
+      if match
+        match. = row[0]
+        match. = row[1]
+        match.save
+        update_count += 1
+      else
+        Unspsc.create!({
+          : row[0],
+          : row[1]
+          })
+          add_count += 1
+      end
+    end
+    puts "Updated #{update_count} and restored #{add_count} "
+  end
+
+  desc "Restore db"
+  task : => :environment do
+    add_count = 0
+    update_count = 0
+    CSV.foreach("#{Rails.root}/db/backup/.csv", force_quotes: true) do |row|
+      match = .where(: row[0]).first
+      if match
+        match. = row[0]
+        match. = row[1]
+        match.save
+        update_count += 1
+      else
+        Unspsc.create!({
+          : row[0],
+          : row[1]
+          })
+          add_count += 1
+      end
+    end
+    puts "Updated #{update_count} and restored #{add_count} "
+  end
+
 
 end
