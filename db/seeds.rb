@@ -70,7 +70,6 @@ Unspsc.create([
   { unspsc_code: 76000000, unspsc_name: "Industrial Cleaning Services" },
   { unspsc_code: 77000000, unspsc_name: "Environmental Services" },
   { unspsc_code: 78000000, unspsc_name: "Transportation and Storage and Mail Services" },
-  { unspsc_code: 78000000, unspsc_name: "Management and Business Professionals and Administrative Services" },
   { unspsc_code: 80000000, unspsc_name: "Management and Business Professionals and Administrative Services" },
   { unspsc_code: 81000000, unspsc_name: "Engineering and Research and Technology Based Services" },
   { unspsc_code: 82000000, unspsc_name: "Editorial and Design and Graphic and Fine Art Services" },
