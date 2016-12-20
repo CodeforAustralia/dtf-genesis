@@ -24,6 +24,8 @@ def scrape_department_ids department_list_url
   department_links = session.find_all "a#MSG2"
   department_links.each do |department_link|
     department_id = find_between department_link[:href], "issuingBusinessId=", "&"
+    department_string = clean_department_link_text department_link[:text]
+    check_department_reference department_string, department_id
     @saved_date = department_link[:href][-10..-1]
     department_indexes_to_scrape.push(department_id)
     # puts "Department (#{department_id}) - #{department_link[:text]}"
