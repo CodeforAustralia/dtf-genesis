@@ -1,6 +1,9 @@
 
 # private file of public data
 TendersVicDataSingleLine.csv
+db/backup/CprPerformanceReport.csv
+db/backup/CsrPerformanceReport.csv
+db/backup/Contract.csv
 
 # ignore cscope/tags files
 *.db
