@@ -6,6 +6,7 @@ namespace :backup do
     Rake::Task["backup:status"].invoke
     Rake::Task["backup:types"].invoke
     Rake::Task["backup:value_types"].invoke
+    Rake::Task["backup:suppliers"].invoke
     Rake::Task["backup:contracts"].invoke
     Rake::Task["backup:councils"].invoke
     Rake::Task["backup:cpr"].invoke
@@ -15,7 +16,6 @@ namespace :backup do
     Rake::Task["backup:location_codes"].invoke
     Rake::Task["backup:locations"].invoke
     Rake::Task["backup:projects"].invoke
-    Rake::Task["backup:suppliers"].invoke
     Rake::Task["backup:unspscs"].invoke
   end
 

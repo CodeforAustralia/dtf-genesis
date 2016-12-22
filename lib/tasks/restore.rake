@@ -6,6 +6,7 @@ namespace :restore do
     Rake::Task["restore:status"].invoke
     Rake::Task["restore:types"].invoke
     Rake::Task["restore:value_types"].invoke
+    Rake::Task["restore:suppliers"].invoke
     Rake::Task["restore:contracts"].invoke
     Rake::Task["restore:councils"].invoke
     Rake::Task["restore:cpr"].invoke
@@ -15,12 +16,11 @@ namespace :restore do
     Rake::Task["restore:location_codes"].invoke
     Rake::Task["restore:locations"].invoke
     Rake::Task["restore:projects"].invoke
-    Rake::Task["restore:suppliers"].invoke
     Rake::Task["restore:unspscs"].invoke
   end
 
   desc "Restore ContactPerson db"
-  task :status => :environment do
+  task :contacts => :environment do
     add_count = 0
     update_count = 0
     CSV.foreach("#{Rails.root}/db/backup/ContactPerson.csv", {force_quotes: true, headers: true}) do |row|
@@ -43,7 +43,7 @@ namespace :restore do
         add_count += 1
       end
     end
-    puts "Updated #{update_count} and restored #{add_count} ContractStatus"
+    puts "Updated #{update_count} and restored #{add_count} ContactPerson"
   end
 
   desc "Restore ContractStatus db"
@@ -69,12 +69,12 @@ namespace :restore do
     puts "Updated #{update_count} and restored #{add_count} ContractStatus"
   end
 
-  desc "Restore ContractTypes db"
+  desc "Restore ContractType db"
   task :types => :environment do
     add_count = 0
     update_count = 0
-    CSV.foreach("#{Rails.root}/db/backup/ContractTypes.csv", {force_quotes: true, headers: true}) do |row|
-      match = ContractTypes.where(id: row[0]).first
+    CSV.foreach("#{Rails.root}/db/backup/ContractType.csv", {force_quotes: true, headers: true}) do |row|
+      match = ContractType.where(id: row[0]).first
       if match
         match.name = row[1]
         match.short_name = row[2]
@@ -89,7 +89,7 @@ namespace :restore do
           add_count += 1
       end
     end
-    puts "Updated #{update_count} and restored #{add_count} ContractTypes"
+    puts "Updated #{update_count} and restored #{add_count} ContractType"
   end
 
   desc "Restore ContractValueType db"
@@ -115,8 +115,8 @@ namespace :restore do
     puts "Updated #{update_count} and restored #{add_count} ContractValueType"
   end
 
-  desc "Restore db"
-  task :contract => :environment do
+  desc "Restore Contract db"
+  task :contracts => :environment do
     add_count = 0
     update_count = 0
     CSV.foreach("#{Rails.root}/db/backup/Contract.csv", {force_quotes: true, headers: true}) do |row|
@@ -183,11 +183,11 @@ namespace :restore do
       else
         Council.create!({
           id: row[0],
-          codename = row[1],
-          name = row[2],
-          shortname = row[3],
-          council_type = row[4],
-          region_code = row[5]
+          codename: row[1],
+          name: row[2],
+          shortname: row[3],
+          council_type: row[4],
+          region_code: row[5]
         })
         add_count += 1
       end
@@ -308,8 +308,8 @@ namespace :restore do
           csr_start_date: row[7],
           csr_finish_date: row[8],
           csr_comment: row[9],
-          source = row[10],
-          supplier_id = row[11]
+          source: row[10],
+          supplier_id: row[11]
         })
         add_count += 1
       end
@@ -324,27 +324,28 @@ namespace :restore do
     CSV.foreach("#{Rails.root}/db/backup/CsrPerformanceReport.csv", {force_quotes: true, headers: true}) do |row|
       match = CsrPerformanceReport.where(id: row[0]).first
       if match
-        match.csr_works_no = row[1]
-        match.csr_completion = row[2]
-        match.csr_createdby = row[3]
-        match.csr_progress = row[4]
-        match.csr_comment = row[5]
-        match.csr_progress_rate = row[6]
-        match.csr_staff_quality = row[7]
-        match.csr_work_quality = row[8]
-        match.csr_work_quantity = row[9]
-        match.csr_coodination = row[10]
-        match.csr_administration = row[11]
-        match.csr_expr1012 = row[12]
-        match.csr_attitude_to_client = row[13]
-        match.csr_pricing = row[14]
-        match.csr_payment = row[15]
-        match.csr_ohs = row[16]
-        match.csr_ir = row[17]
-        match.csr_environment = row[18]
-        match.csr_overall = row[19]
-        match.csr_satisfactory = row[20]
-        match.supplier_id = row[21]
+        match.csr_supplier_id = row[1]
+        match.csr_works_no = row[2]
+        match.csr_completion = row[3]
+        match.csr_createdby = row[4]
+        match.csr_progress = row[5]
+        match.csr_comment = row[6]
+        match.csr_progress_rate = row[7]
+        match.csr_staff_quality = row[8]
+        match.csr_work_quality = row[9]
+        match.csr_work_quantity = row[10]
+        match.csr_coodination = row[11]
+        match.csr_administration = row[12]
+        match.csr_expr1012 = row[13]
+        match.csr_attitude_to_client = row[14]
+        match.csr_pricing = row[15]
+        match.csr_payment = row[16]
+        match.csr_ohs = row[17]
+        match.csr_ir = row[18]
+        match.csr_environment = row[19]
+        match.csr_overall = row[20]
+        match.csr_satisfactory = row[21]
+        match.supplier_id = row[22]
         match.save
         update_count += 1
       else
@@ -378,7 +379,7 @@ namespace :restore do
     puts "Updated #{update_count} and restored #{add_count} CsrPerformanceReport"
   end
 
-  desc "Restore Department db"
+  desc "Restore Department db" #verified
   task :departments => :environment do
     add_count = 0
     update_count = 0
@@ -460,31 +461,31 @@ namespace :restore do
         update_count += 1
       else
         Location.create!({
-          id = row[0]
-          record_no = row[1]
-          location_code = row[2]
-          supplier_type = row[3]
-          mail_to = row[4]
-          address_line1 = row[5]
-          address_line2 = row[6]
-          suburb = row[7]
-          postcode = row[8]
-          po = row[9]
-          po_suburb = row[10]
-          po_postcode = row[11]
-          phone1 = row[12]
-          phone2 = row[13]
-          mobile = row[14]
-          fax = row[15]
-          email = row[16]
-          website = row[17]
-          title = row[18]
-          firstname = row[19]
-          surname = row[20]
-          updated = row[21]
-          state = row[22]
-          po_state = row[23]
-          metro = row[24]
+          id: row[0],
+          record_no: row[1],
+          location_code: row[2],
+          supplier_type: row[3],
+          mail_to: row[4],
+          address_line1: row[5],
+          address_line2: row[6],
+          suburb: row[7],
+          postcode: row[8],
+          po: row[9],
+          po_suburb: row[10],
+          po_postcode: row[11],
+          phone1: row[12],
+          phone2: row[13],
+          mobile: row[14],
+          fax: row[15],
+          email: row[16],
+          website: row[17],
+          title: row[18],
+          firstname: row[19],
+          surname: row[20],
+          updated: row[21],
+          state: row[22],
+          po_state: row[23],
+          metro: row[24]
         })
         add_count += 1
       end
