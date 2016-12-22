@@ -52,11 +52,6 @@ namespace :backup do
     end
   end
 
-
-
-
-
-
   desc "Backup contract_value_types db"
   task :value_types => :environment do
     puts "Backup #{ContractValueType.all.count} ContractValueType"
