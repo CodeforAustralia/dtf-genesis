@@ -45,11 +45,11 @@ class PagesController < ApplicationController
   def sum_contract_values_by_department(contracts)
     department_totals = []
     contracts.each do |contract|
-      dep_match = department_totals.find_all{|dep| dep[:name] == lookup_department_short_name(contract.vt_department_id)}
+      dep_match = department_totals.find_all{|dep| dep[:name] == DepartmentHelper::lookup_department_short_name(contract.vt_department_id)}
       if dep_match && dep_match.length > 0
-        dep_match = {name: lookup_department_short_name(contract.vt_department_id), value: dep_match.first[:value] + contract.vt_total_value}
+        dep_match = {name: DepartmentHelper::lookup_department_short_name(contract.vt_department_id), value: dep_match.first[:value] + contract.vt_total_value}
       else
-        department_totals.append({name: lookup_department_short_name(contract.vt_department_id), value: contract.vt_total_value})
+        department_totals.append({name: DepartmentHelper::lookup_department_short_name(contract.vt_department_id), value: contract.vt_total_value})
       end
     end
     department_totals
