@@ -52,11 +52,6 @@ namespace :migrate do
     Department.import columns, agencies, validate: false
   end
 
-  desc "Remove spaces from ABNs and ACNs"
-  task :remove_spaces => :environment do
-    reomove_abnacn_spaces
-  end
-
   desc "Setup Contract Status values"
   task :contract_status => :environment do
     ContractStatus.delete_all
