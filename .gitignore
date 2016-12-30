@@ -4,6 +4,7 @@ TendersVicDataSingleLine.csv
 db/backup/CprPerformanceReport.csv
 db/backup/CsrPerformanceReport.csv
 db/backup/Contract.csv
+db/data/performance.csv
 
 # ignore cscope/tags files
 *.db
