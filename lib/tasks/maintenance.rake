@@ -6,6 +6,18 @@ namespace :maintenance do
     reomove_abnacn_spaces
   end
 
+  desc "Create Ocds Ids if not present in contracts"
+  task :assign_ocdsid => :environment do
+    Contract.all.each do |contract|
+      if contract.ocds_id.nil?
+        #ocds_contract_id: "ocds-k4r8nn_agent-#{lookup_agency_id(agency)}_con-#{sanitize_contract_number(contract_id)}"
+        contract.ocds_id = "ocds-k4r8nn_agent-#{contract.vt_department_id}_con-#{sanitize_contract_number(contract.vt_contract_number)}_rev-1"
+        puts "OCDS ID: #{contract.ocds_id}"
+        contract.save
+      end
+    end
+  end
+
   desc "Remove suppliers without reports or contracts"
   task :remove_boring => :environment do
     puts "No more boring people"

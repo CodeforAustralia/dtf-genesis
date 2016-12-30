@@ -1,5 +1,9 @@
 module ContractsHelper
 
+  def sanitize_contract_number text
+    return text.gsub(" ","-").gsub("	","-").gsub("_","-")
+  end
+
   def extract_contract_data text, contract_index, print=false
     gov_entity = find_between(text, "Public Body:", "Contract Number:")
     gov_entity_contract_numb = find_between(text, "Contract Number:","Title:")
