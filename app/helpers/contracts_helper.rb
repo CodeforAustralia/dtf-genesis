@@ -4,6 +4,110 @@ module ContractsHelper
     return text.gsub(" ","-").gsub("	","-").gsub("_","-")
   end
 
+  def contract_updated(last_revision, contract_data)
+    if last_revision.nil? || last_revision == {"ocds_id" => "ocds_contract_id-0"}
+      true
+    else
+      if not last_revision["vt_department_id"] == contract_data[:vt_department_id]
+        true
+      elsif not last_revision["status_index"] == contract_data[:status_index]
+        true
+      elsif not last_revision["vt_title"] == contract_data[:vt_title]
+        true
+      elsif not last_revision["vt_start_date"] == contract_data[:vt_start_date]
+        true
+      elsif not last_revision["vt_end_date"] == contract_data[:vt_end_date]
+        true
+      elsif not last_revision["vt_total_value"] == contract_data[:vt_total_value]
+        true
+      elsif not last_revision["vt_contract_type_id"] == contract_data[:vt_contract_type_id]
+        true
+      elsif not last_revision["vt_value_type_id"] == contract_data[:vt_value_type_id]
+        true
+      elsif not last_revision["vt_unspc_id"] == contract_data[:vt_unspc_id]
+        true
+      elsif not last_revision["vt_contract_description"] == contract_data[:vt_contract_description]
+        true
+      elsif not last_revision["vt_agency_person"] == contract_data[:vt_agency_person]
+        true
+      elsif not last_revision["vt_agency_phone"] == contract_data[:vt_agency_phone]
+        true
+      elsif not last_revision["vt_agency_email"] == contract_data[:vt_agency_email]
+        true
+      elsif not last_revision["vt_supplier_name"] == contract_data[:vt_supplier_name]
+        true
+      elsif not last_revision["vt_supplier_abn"] == contract_data[:vt_supplier_abn]
+        true
+      elsif not last_revision["vt_supplier_acn"] == contract_data[:vt_supplier_acn]
+        true
+      elsif not last_revision["vt_supplier_address"] == contract_data[:vt_supplier_address]
+        true
+      elsif not last_revision["vt_supplier_email"] == contract_data[:vt_supplier_email]
+        true
+      elsif not last_revision["vt_supplier_id"] == contract_data[:vt_supplier_id]
+        true
+      elsif not last_revision["project_id"] == contract_data[:project_id]
+        true
+      elsif not last_revision["vt_address"] == contract_data[:vt_address]
+        true
+      elsif not last_revision["vt_status_id"] == contract_data[:vt_status_id]
+        true
+      elsif not last_revision["vt_address_id"] == contract_data[:vt_address_id]
+        true
+      else
+        false
+      end
+    end
+  end
+
+  def find_partial_ocds_matches(partial_ocds_id)
+    begin
+      # partial_matches = Contract.select("* from data where `ocds_contract_id` LIKE '#{partial_ocds_id}%'")
+      partial_matches = Contract.where("ocds_id LIKE ?", "#{partial_ocds_id}%")
+    rescue
+    end
+    partial_matches
+  end
+
+  def get_latest_revision(matching_contracts)
+    if not matching_contracts
+      nil
+    else
+      max = {"ocds_id" => "ocds_contract_id-0"}
+      matching_contracts.each do |contract|
+        if contract.ocds_id.split("-").last.to_i > max["ocds_id"].split("-").last.to_i
+          max = contract
+        end
+      end
+      max
+    end
+  end
+
+  def get_revision_number(ocds_contract_id)
+    ocds_contract_id.split("-").last.to_i
+  end
+
+  def get_next_revision_number(contract_data)
+    ocds_parts = contract_data[:ocds_id].split("_") # oc_agent_con_rev
+    if ocds_parts.length == 4
+      partial_ocds_id = ocds_parts[0..2].join("_")
+    else
+      partial_ocds_id = ocds_parts.join("_")
+    end
+    matching_contracts = find_partial_ocds_matches partial_ocds_id
+    last_revision = get_latest_revision(matching_contracts)
+    if contract_updated(last_revision, contract_data)
+      if matching_contracts.nil?
+        "1"
+      else
+        revisions = matching_contracts.count
+        (revisions + 1).to_s
+      end
+    else
+      ""
+    end
+  end
+
   def extract_contract_data text, contract_index, print=false
     gov_entity = find_between(text, "Public Body:", "Contract Number:")
     gov_entity_contract_numb = find_between(text, "Contract Number:","Title:")
