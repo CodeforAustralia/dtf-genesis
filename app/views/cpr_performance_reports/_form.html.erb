@@ -13,7 +13,11 @@
 
   <div class="field">
     <%= f.label :cpr_contract %>
+    <% if not @contract.nil? %>
+      <%= f.number_field :cpr_contract, :value => @contract.id %>
+    <% else %>
     <%= f.number_field :cpr_contract %>
+    <% end %>
   </div>
 
   <div class="field">

@@ -15,6 +15,19 @@ class CprPerformanceReportsController < ApplicationController
   # GET /cpr_performance_reports/new
   def new
     @cpr_performance_report = CprPerformanceReport.new
+    puts "::: contract_id: #{params[:contract_id]}"
+    if params[:contract_id] && params[:contract_id] != 0
+      @contract = Contract.find(params[:contract_id])
+    end
+    if params[:supplier_id] && params[:supplier_id] != "0"
+      @supplier = Supplier.find(params[:supplier_id])
+    end
+    if params[:department] && params[:department] != "0"
+      @department = Department.where(:vt_number => params[:department]).first
+    end
+    if params[:supplier_name]
+      @supplier_name = params[:supplier_name]
+    end
   end
 
   # GET /cpr_performance_reports/1/edit

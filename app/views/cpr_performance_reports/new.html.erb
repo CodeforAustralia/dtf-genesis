@@ -1,5 +1,16 @@
 <h1>New Cpr Performance Report</h1>
 
+<% if not @contract.nil? %>
+  <h2>For contract: <%= @contract.id %></h2>
+<% end %>
+<% if not @supplier.nil? %>
+  <h2>Supplier: <%= @supplier_name %>(<%= @supplier.id %>)</h2>
+<% else %>
+<h2>Supplier: <%= @supplier_name %>(no id)</h2>
+<% end %>
+<% if not @department.nil? %>
+  <h2>Department: <%= @department.name %></h2>
+<% end %>
 <%= render 'form', cpr_performance_report: @cpr_performance_report %>
 
 <%= link_to 'Back', cpr_performance_reports_path %>
