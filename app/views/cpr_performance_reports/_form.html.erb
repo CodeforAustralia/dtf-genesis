@@ -14,7 +14,7 @@
   <div class="field">
     <%= f.label :cpr_contract %>
     <% if not @contract.nil? %>
-      <%= f.number_field :cpr_contract, :value => @contract.id %>
+      <%= f.number_field :cpr_contract, value: @contract.id, disabled: true %>
     <% else %>
     <%= f.number_field :cpr_contract %>
     <% end %>
@@ -22,7 +22,11 @@
 
   <div class="field">
     <%= f.label :cpr_supplier %>
-    <%= f.number_field :cpr_supplier %>
+    <% if not @contract.nil? %>
+      <%= f.number_field :cpr_supplier, value: @contract.vt_supplier_id, disabled: true %>
+    <% else %>
+      <%= f.number_field :cpr_supplier %>
+    <% end %>
   </div>
 
   <div class="field">
@@ -36,7 +40,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :cpr_report_date %>
+    <%= f.label :cpr_report_date %> <!-- TODAY! -->
     <%= f.date_select :cpr_report_date %>
   </div>
 
@@ -45,9 +49,13 @@
     <%= f.number_field :cpr_work_percent_complete %>
   </div>
 
-  <div class="field">
+  <div class="field"> <!-- REASON -->
     <%= f.label :cpr_report_reason %>
-    <%= f.text_field :cpr_report_reason %>
+    <% if @reason %>
+      <%= f.text_field :cpr_report_reason, value: @reason, disabled: true %>
+    <% else %>
+      <%= f.text_field :cpr_report_reason %>
+    <% end %>
   </div>
 
   <div class="field">
@@ -57,7 +65,11 @@
 
   <div class="field">
     <%= f.label :cpr_predicted_price %>
-    <%= f.text_field :cpr_predicted_price %>
+    <% if not @contract.nil? %>
+      <%= f.number_field :cpr_predicted_price, value: @contract.vt_total_value, disabled: true %>
+    <% else %>
+      <%= f.text_field :cpr_predicted_price %>
+    <% end %>
   </div>
 
   <div class="field">
@@ -77,7 +89,11 @@
 
   <div class="field">
     <%= f.label :cpr_predicted_completion_date %>
-    <%= f.date_select :cpr_predicted_completion_date %>
+    <% if not @contract.nil? %>
+      <%= f.date_select :cpr_predicted_completion_date, value: @contract.vt_end_date, disabled: true %>
+    <% else %>
+      <%= f.date_select :cpr_predicted_completion_date %>
+    <% end %>
   </div>
 
   <div class="field">

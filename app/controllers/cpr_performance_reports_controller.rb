@@ -28,6 +28,9 @@ class CprPerformanceReportsController < ApplicationController
     if params[:supplier_name]
       @supplier_name = params[:supplier_name]
     end
+    if params[:reason]
+      @reason = params[:reason]
+    end
   end
 
   # GET /cpr_performance_reports/1/edit
