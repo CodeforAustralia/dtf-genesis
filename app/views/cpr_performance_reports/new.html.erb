@@ -19,7 +19,7 @@
     <% if not @contract.nil? %>
       <dt><h4>Reference</h4></dt>
       <dd><h4><%= @contract.vt_contract_number %></h4></dd>
-      <dt><h4>Contract Value</h4></dt>cpr_actual_price
+      <dt><h4>Contract Value</h4></dt>
       <dd><h4><%= f.number_field :cpr_actual_price, value: @contract.vt_total_value %></h4></dd>
       <dt><h4>Contract Title</h4></dt>
       <dd><h4><%= @contract.vt_title %></h4></dd>
@@ -43,6 +43,10 @@
       <dt><h4>Contract Details</h4></dt>
       <dd><h4></h4></dd>
     <% end %>
+    <dt><h4>Contract Type</h4></dt>
+    <dd><h4>Contractor / Consultant</h4></dd>
+    <dt><h4>Location of works</h4></dt>
+    <dd><h4></h4></dd>
 
 
 
@@ -77,7 +81,8 @@
       <dt><h4>Agency</h4></dt>
       <dd><h4></h4></dd>
       <% end %>
-
+      <dt><h4>Division / Group</h4></dt>
+      <dd><h4></h4></dd>
       <dt><h4>Contact Name</h4></dt>
       <% if not @contract.nil? %>
       <dd><h4><%= @contract.vt_agency_person %></h4></dd>
@@ -94,8 +99,15 @@
     <% end %>
 
     <h2>Confirmation</h2>
-    <dt><h4>Are you the reporting officer?</h4></dt>
-    <dd><h4>[link-yes][link-no]</h4></dd>
+    <dt><h4>Confirm details?</h4></dt>
+    <dd><h4>
+      <div class="actions">
+        No
+      </div>
+      <div class="actions">
+        <%= f.submit "Yes, initiate reporting" %>
+      </div>
+    </h4></dd>
 
 
   </dl>

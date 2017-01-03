@@ -10,6 +10,7 @@ class CprPerformanceReportsController < ApplicationController
   # GET /cpr_performance_reports/1
   # GET /cpr_performance_reports/1.json
   def show
+    redirect_to :controller => :cpr_performance_reports, :action => 'edit'
   end
 
   # GET /cpr_performance_reports/new
