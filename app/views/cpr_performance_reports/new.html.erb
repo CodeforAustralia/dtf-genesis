@@ -99,6 +99,9 @@
     <% end %>
 
     <h2>Confirmation</h2>
+    <dd><h4>please enter date for follow up reporting and confirm all details are correct</h4></dd>
+    <dt><h4>Practical Completion</h4></dt>
+    <dd><h4><%= f.date_select :cpr_adjusted_completion_date, value: (@contract.vt_end_date + 30.days) %></h4></dd>
     <dt><h4>Confirm details?</h4></dt>
     <dd><h4>
       <div class="actions">
