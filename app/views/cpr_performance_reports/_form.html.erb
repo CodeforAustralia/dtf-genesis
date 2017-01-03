@@ -31,7 +31,11 @@
 
   <div class="field">
     <%= f.label :cpr_client %>
-    <%= f.text_field :cpr_client %>
+    <% if not @department.nil? %>
+      <%= f.text_field :cpr_client, value: @department.name, disabled: true %>
+    <% else %>
+      <%= f.text_field :cpr_client %>
+    <% end %>
   </div>
 
   <div class="field">
@@ -40,8 +44,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :cpr_report_date %> <!-- TODAY! -->
-    <%= f.date_select :cpr_report_date %>
+    <%= f.label :cpr_report_date %>
+    <%= f.date_select :cpr_report_date, value: Date.today, disabled: true  %>
   </div>
 
   <div class="field">
@@ -49,7 +53,7 @@
     <%= f.number_field :cpr_work_percent_complete %>
   </div>
 
-  <div class="field"> <!-- REASON -->
+  <div class="field">
     <%= f.label :cpr_report_reason %>
     <% if @reason %>
       <%= f.text_field :cpr_report_reason, value: @reason, disabled: true %>

@@ -1,16 +1,101 @@
-<h1>New Cpr Performance Report</h1>
 
-<% if not @contract.nil? %>
-  <h2>For contract: <%= @contract.id %></h2>
-<% end %>
-<% if not @supplier.nil? %>
-  <h2>Supplier: <%= @supplier_name %>(<%= @supplier.id %>)</h2>
-<% else %>
-<h2>Supplier: <%= @supplier_name %>(no id)</h2>
-<% end %>
-<% if not @department.nil? %>
-  <h2>Department: <%= @department.name %></h2>
-<% end %>
-<%= render 'form', cpr_performance_report: @cpr_performance_report %>
+<!-- <%= render 'form', cpr_performance_report: @cpr_performance_report %> -->
+
+
+<dl class="dl-horizontal">
+
+  <h2>Report Details</h2>
+  <dt><h4>Date of Report</h4></dt>
+  <dd><h4><%= Date.today %></h4></dd>
+  <dt><h4>Reporting Phase</h4></dt>
+  <dd><h4><%= "Phase" %></h4></dd>
+  <dt><h4>Report created:</h4></dt>
+  <dd><h4><%= @cpr_performance_report.created_at %></h4></dd>
+  <dt><h4>Report modified:</h4></dt>
+  <dd><h4><%= @cpr_performance_report.updated_at %></h4></dd>
+
+  <h2>Contract Details</h2>
+  <% if not @contract.nil? %>
+    <dt><h4>Reference</h4></dt>
+    <dd><h4><%= @contract.vt_contract_number %></h4></dd>
+    <dt><h4>Contract Value</h4></dt>
+    <dd><h4><%= @contract.vt_total_value %></h4></dd>
+    <dt><h4>Contract Title</h4></dt>
+    <dd><h4><%= @contract.vt_title %></h4></dd>
+    <dt><h4>Contract Start</h4></dt>
+    <dd><h4><%= @contract.vt_start_date %></h4></dd>
+    <dt><h4>Contract End</h4></dt>
+    <dd><h4><%= @contract.vt_end_date %></h4></dd>
+    <dt><h4>Contract Details</h4></dt>
+    <dd><h4><%= @contract.vt_contract_description %></h4></dd>
+  <% else %>
+    <dt><h4>Reference</h4></dt>
+    <dd><h4></h4></dd>
+    <dt><h4>Contract Value</h4></dt>
+    <dd><h4></h4></dd>
+    <dt><h4>Contract Title</h4></dt>
+    <dd><h4></h4></dd>
+    <dt><h4>Contract Start</h4></dt>
+    <dd><h4></h4></dd>
+    <dt><h4>Contract End</h4></dt>
+    <dd><h4></h4></dd>
+    <dt><h4>Contract Details</h4></dt>
+    <dd><h4></h4></dd>
+  <% end %>
+
+
+
+  <h2>Supplier Details</h2>
+  <% if not @supplier.nil? %>
+    <dt><h4>Supplier Name</h4></dt>
+    <dd><h4><%= @supplier.name %></h4></dd>
+    <dt><h4>ABN</h4></dt>
+    <dd><h4><%= @supplier.abn %></h4></dd>
+    <dt><h4>ACN</h4></dt>
+    <dd><h4><%= @supplier.acn %></h4></dd>
+    <dt><h4>Contact Email</h4></dt>
+    <dd><h4><%= @supplier.email %></h4></dd>
+  <% else %>
+    <dt><h4>Supplier Name</h4></dt>
+    <dd><h4></h4></dd>
+    <dt><h4>ABN</h4></dt>
+    <dd><h4></h4></dd>
+    <dt><h4>ACN</h4></dt>
+    <dd><h4></h4></dd>
+    <dt><h4>Contact Email</h4></dt>
+    <dd><h4></h4></dd>
+  <% end %>
+
+  <h2>Agency Details</h2>
+  <% if not @department.nil? %>
+    <dt><h4>Agency Name</h4></dt>
+    <dd><h4><%= @department.name %> (<%= @department.short_name %>)</h4></dd>
+    <% else %>
+    <dt><h4>Agency Name</h4></dt>
+    <dd><h4></h4></dd>
+    <% end %>
+
+    <dt><h4>Agency Contact Name</h4></dt>
+    <% if not @contract.nil? %>
+    <dd><h4><%= @contract.vt_agency_person %></h4></dd>
+    <dt><h4>Agency Contact Email</h4></dt>
+    <dd><h4><%= @contract.vt_agency_email %></h4></dd>
+    <dt><h4>Agency Contact Phone</h4></dt>
+    <dd><h4><%= @contract.vt_agency_phone %></h4></dd>
+  <% else %>
+    <dd><h4></h4></dd>
+    <dt><h4>Agency Contact Email</h4></dt>
+    <dd><h4></h4></dd>
+    <dt><h4>Agency Contact Phone</h4></dt>
+    <dd><h4></h4></dd>
+  <% end %>
+
+    <h2>Confirmation</h2>
+    <dt><h4>Are you the reporting officer?</h4></dt>
+    <dd><h4>[link-yes][link-no]</h4></dd>
+
+
+</dl>
+
 
 <%= link_to 'Back', cpr_performance_reports_path %>
