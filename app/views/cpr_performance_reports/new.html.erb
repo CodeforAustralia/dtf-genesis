@@ -108,6 +108,11 @@
         No
       </div>
       <div class="actions">
+        <%= hidden_field_tag(:contract_id, @contract.id) %>
+        <%= hidden_field_tag(:supplier_id, @contract.vt_supplier_id) %>
+        <%= hidden_field_tag(:supplier_name, @contract.vt_supplier_name) %>
+        <%= hidden_field_tag(:department, @contract.vt_department_id) %>
+        <%= hidden_field_tag(:reason, "Manualy initiated") %>
         <%= f.submit "Yes, initiate reporting" %>
       </div>
     </h4></dd>
