@@ -44,7 +44,7 @@
       <dd><h4></h4></dd>
     <% end %>
     <dt><h4>Contract Type</h4></dt>
-    <dd><h4></h4></dd>
+    <dd><h4>Contractor / Consultant</h4></dd>
 
     <h2>Report Details</h2>
     <dt><h4>Report created:</h4></dt>
@@ -66,86 +66,212 @@
       <dt><h4>Contact Phone</h4></dt>
       <dd><h4></h4></dd>
     <% end %>
-    <dd><h4>Contractor / Consultant</h4></dd>
 
     <h2>Agency Details</h2>
     <% if not @department.nil? %>
       <dt><h4>Agency</h4></dt>
       <dd><h4><%= @department.name %> (<%= @department.short_name %>)</h4></dd>
-      <% else %>
+    <% else %>
       <dt><h4>Agency</h4></dt>
       <dd><h4></h4></dd>
-      <% end %>
-      <dt><h4>Division / Group</h4></dt>
-      <dd><h4></h4></dd>
+    <% end %>
+    <dt><h4>Division / Group</h4></dt>
+    <dd><h4></h4></dd>
 
-      <dt><h4>Location of works</h4></dt>
-      <dd><h4></h4></dd>
-      <dt><h4>Date of Report</h4></dt>
-      <dd><h4><%= f.date_select :cpr_report_date, value: Date.today, disabled: true %></h4></dd>
-      <dt><h4>Reporting Phase</h4></dt>
-      <dd><h4><%= "Completion" %></h4></dd>
-      <dt><h4>Practical Completion</h4></dt>
-      <% if not @contract.nil? %>
-        <dd><h4><%= f.date_select :cpr_adjusted_completion_date %></h4></dd>
-      <% else %>
-          <dd><h4>
-      <% end %>
+    <dt><h4>Location of works</h4></dt>
+    <dd><h4></h4></dd>
+    <dt><h4>Date of Report</h4></dt>
+    <dd><h4><%= f.date_select :cpr_report_date, value: Date.today, disabled: true %></h4></dd>
+    <dt><h4>Reporting Phase</h4></dt>
+    <dd><h4><%= "Completion" %></h4></dd>
+    <dt><h4>Practical Completion</h4></dt>
+    <% if not @contract.nil? %>
+      <dd><h4><%= f.date_select :cpr_adjusted_completion_date %></h4></dd>
+    <% else %>
+        <dd><h4></h4></dd>
+    <% end %>
 
-      <dt><h4>Defects Liability Period</h4></dt>
-      <% if not @contract.nil? %>
-        <dd><h4><%= f.date_select :cpr_adjusted_completion_date %></h4></dd>
-      <% else %>
-          <dd><h4>
-      <% end %>
-      <dt><h4>Final Value</h4></dt>
-      <dd><h4></h4></dd>
-
-
+    <dt><h4>Defects Liability Period</h4></dt>
+    <% if not @contract.nil? %>
+      <dd><h4><%= f.date_select :cpr_adjusted_completion_date %></h4></dd>
+    <% else %>
+        <dd><h4></h4></dd>
+    <% end %>
+    <dt><h4>Final Value</h4></dt>
+    <dd><h4></h4></dd>
 
 
-
-    <h2>Supplier Details</h2>
+    <h2>Confirm Supplier Contact Information</h2>
     <% if not @supplier.nil? %>
       <dt><h4>Supplier Name</h4></dt>
-      <dd><h4><%= f.text_field :cpr_supplier, value: lookup_supplier_name(@contract.vt_supplier_id), disabled: true %></h4></dd>
-      <dt><h4>Supplier Id</h4></dt>
-      <dd><h4><%= f.number_field :cpr_supplier, value: @contract.vt_supplier_id, disabled: true %></h4></dd>
-      <dt><h4>ABN</h4></dt>
-      <dd><h4><%= @supplier.abn %></h4></dd>
-      <dt><h4>ACN</h4></dt>
-      <dd><h4><%= @supplier.acn %></h4></dd>
-      <dt><h4>Contact Email</h4></dt>
+      <dd><h4><%= f.text_field :cpr_supplier, value: lookup_supplier_name(@contract.vt_supplier_id) %></h4></dd>
+      <dt><h4>Supplier Representative Name</h4></dt>
+      <dd><h4><%= @supplier.name %></h4></dd>
+      <dt><h4>Supplier Contact Email</h4></dt>
       <dd><h4><%= @supplier.email %></h4></dd>
     <% else %>
       <dt><h4>Supplier Name</h4></dt>
       <dd><h4></h4></dd>
-      <dt><h4>ABN</h4></dt>
+      <dt><h4>Supplier Representative Name</h4></dt>
       <dd><h4></h4></dd>
-      <dt><h4>ACN</h4></dt>
+      <dt><h4>Supplier Contact Email</h4></dt>
+      <dd><h4></h4></dd>
+    <% end %>
+
+    <h2>Costing</h2>
+    <dt><h4>Information</h4></dt>
+    <dd><h4>The following should be considered:</h4></dd>
+    <dd><h4>Timely Submission of Payment Claims.</h4></dd>
+    <dd><h4>Accuracy of Payment Claims.</h4></dd>
+    <dd><h4>Substantiation of Variations.</h4></dd>
+    <dd><h4><%= f.number_field :score_work_standard %></h4></dd>
+
+    <h2>Time Management</h2>
+    <dt><h4>Information</h4></dt>
+    <dd><h4>Ability to meet approved programmed milestones.</h4></dd>
+    <dd><h4>Planning, coordination and execution of activities in line with the construction program.</h4></dd>
+    <dd><h4>Updating of the construction program to account for unforeseen delays.</h4></dd>
+    <dd><h4>Timely allocation of appropriate resources to critical activities.</h4></dd>
+    <dd><h4>Timely application to relevant authorities for statutory approvals.</h4></dd>
+    <dd><h4><%= f.number_field :score_work_standard %></h4></dd>
+
+    <h2>Contract Administration</h2>
+    <dt><h4>Information</h4></dt>
+    <dd><h4>The following should be considered:</h4></dd>
+    <dd><h4>Accuracy of Supporting Evidence - Variations &amp; Extensions of Time.</h4></dd>
+    <dd><h4>Compliance with the administrative requirements of the contract</h4></dd>
+    <dd><h4>Compliance with the contract concerning timely requests for information</h4></dd>
+    <dd><h4>Accuracy and timely submission of documents including, but not limited to, time programs, priced bill of quantities, drawings (including ‘as constructed’ drawings), progress reports, requests for extensions of time, notifications of latent conditions, cash flow projections, technical schedules, contract insurances, and bank guarantees</h4></dd>
+    <dd><h4>Timely follow up action for superintendent’s instructions and request for variation quotations, including action items derived from site meetings.</h4></dd>
+    <dd><h4><%= f.number_field :score_work_standard %></h4></dd>
+
+    <h2>Standard of Work</h2>
+    <dt><h4>Information</h4></dt>
+    <dd><h4>The contractor’s standard of work will generally be measured against the requirements of the documentation.</h4></dd>
+    <dd><h4></h4></dd>
+    <dd><h4>To be considered prior to practical completion:</h4></dd>
+    <dd><h4>Timely attendence to items on the Superintendent's Representative's defects list ('snag list').</h4></dd>
+    <dd><h4>To be considered at practical completion:</h4></dd>
+    <dd><h4>Conformance with specified performance requirements, including specified tolerances and finishes</h4></dd>
+    <dd><h4>Amount of remedial work required, if any.</h4></dd>
+    <dd><h4>To be considered after the defects liability period:</h4></dd>
+    <dd><h4>Rectification of defects.</h4></dd>
+    <dd><h4>Performance during the defects liability period, if applicable.</h4></dd>
+    <dd><h4><%= f.number_field :score_work_standard %></h4></dd>
+
+    <h2>Quality Management Systems</h2>
+    <dt><h4>Information</h4></dt>
+    <dd><h4>Quality systems will generally be measured against the specification and the contractor's quality system implementation including:</h4></dd>
+    <dd><h4>Extent of the contractor's compliance.</h4></dd>
+    <dd><h4>Results of quality audits for the project.</h4></dd>
+    <dd><h4>Ability of the quality system to identify and deal with non-conformances and conditions adverse to quality.</h4></dd>
+    <dd><h4><%= f.number_field :score_work_standard %></h4></dd>
+
+    <h2>Personnel Management</h2>
+    <dt><h4>Information</h4></dt>
+    <dd><h4>The contractor's ability to manage both on-site and off-site personnel to ensure co-operative and effective performance, including:</h4></dd>
+    <dd><h4>Adequacy of the number of site personnel engaged by the contractor  to effectively carry out and progress the work;</h4></dd>
+    <dd><h4>Management of site personnel</h4></dd>
+    <dd><h4>Adherence to site rules and procedures, including maintenance of security at site</h4></dd>
+    <dd><h4>Suitability of staff, management, administrative, technical or industry skills and overall experiences relevant to the tasks undertaken.</h4></dd>
+    <dd><h4><%= f.number_field :score_work_standard %></h4></dd>
+
+    <h2>Subcontractor Management</h2>
+    <dt><h4>Information</h4></dt>
+    <dd><h4>The Contractor's ability to coordinate and manage both off-site and on-site subcontractors and suppliers to ensure effective performance. This includes:</h4></dd>
+    <dd><h4>Timely delivery of goods and services.</h4></dd>
+    <dd><h4>Timely completion of subcontract work.</h4></dd>
+    <dd><h4>Ability to maintain effective and cooperative relationships with subcontractors.</h4></dd>
+    <dd><h4>Compliance with contractual and legal obligations with respect to subcontractors and suppliers.</h4></dd>
+    <dd><h4>Payment to all subcontractors and suppliers in accordance with legislation and contract conditions, and no adverse ‘spot check’ outcomes.</h4></dd>
+    <dd><h4>Note:  A supplier who contracts with a client agency is accountable to the client agency  for the standards of performance, behaviour and ethical conduct of all the suppliers down the  contract chain.</h4></dd>
+    <dd><h4><%= f.number_field :score_work_standard %></h4></dd>
+
+    <h2>Relationship Management &amp; Communication</h2>
+    <dt><h4>Information</h4></dt>
+    <dd><h4>Relationship with Principal:</h4></dd>
+    <dd><h4>In assessing the supplier’s relationship with the principal, superintendent’s representative, or departmental contract administration personnel, the following should be considered:</h4></dd>
+    <dd><h4>Commitment to being a good corporate citizen.</h4></dd>
+    <dd><h4>Adoption and commitment to principles of partnering with clients, sub suppliers, departmental appointed OHS consultant, and suppliers.</h4></dd>
+    <dd><h4>Cooperation with other parties in the administration of contracts to enable them to fulfil their contractual obligations.</h4></dd>
+    <dd><h4>Commitment to a non-adversarial approach to dispute resolution with arbitration or litigation reserved as a last resort.</h4></dd>
+    <dd><h4>Commitment to timely resolution of issues through open and effective communication.</h4></dd>
+    <dd><h4>Commitment to a co-operative working relationship with the principal / client agency.</h4></dd>
+    <dd><h4>Number of instructions issued to the contractor under the contract  regarding relationship with principal / client agency.</h4></dd>
+    <dd><h4>Relationship with community, client and other stakeholders:</h4></dd>
+    <dd><h4>In assessing the contractor’s other relationships, the following should be considered:</h4></dd>
+    <dd><h4>Commitment to being a good corporate citizen;adoption and commitment to principles of partnering with clients, sub suppliers, departmental appointed OHS consultant, and suppliers;</h4></dd>
+    <dd><h4>Adequate complaints management process; including timely resolution of customer or community complaints.</h4></dd>
+    <dd><h4><%= f.number_field :score_work_standard %></h4></dd>
+
+    <h2>Occupational Health, Safety</h2>
+    <dt><h4>Information</h4></dt>
+    <dd><h4>In assessing the contractor's OHS and environmental performance, the following should be considered:</h4></dd>
+    <dd><h4>Commitment to being a good corporate citizen.</h4></dd>
+    <dd><h4>Compliance with obligations under the Occupational Safety &amp; Health act and regulations.</h4></dd>
+    <dd><h4>Compliance with OHS issues specifically nominated in the contract, and compliance with OHS reporting requirements.</h4></dd>
+    <dd><h4>Implementation and compliance with the site-specific hazardous materials, environmental management plans and safety management plans, as appropriate and site management requirements as appropriate.</h4></dd>
+    <dd><h4>Number of infringement notices issued to the contractor relevant to the contract.</h4></dd>
+    <dd><h4>Number of directions issues to the contractor concerning:</h4></dd>
+    <dd><h4>1. safety;</h4></dd>
+    <dd><h4>2. noise control;</h4></dd>
+    <dd><h4>3. site control;</h4></dd>
+    <dd><h4>4. soil erosion; and</h4></dd>
+    <dd><h4>5. management of dust, dirt, water, refuse and fumes.</h4></dd>
+    <dd><h4><%= f.number_field :score_work_standard %></h4></dd>
+
+    <h2>Environmental Management</h2>
+    <dt><h4>Information</h4></dt>
+    <dd><h4>Where specified, compliance with the environmental requirements set out in the contract and other environmental obligations.</h4></dd>
+    <dd><h4>Evidence of an environmentally-aware culture.</h4></dd>
+    <dd><h4>Where specified, compliance with the project Environmental Management Plan, including audit results.</h4></dd>
+    <dd><h4>Where specified, compliance with Environmental Impact Statement requirements.</h4></dd>
+    <dd><h4><%= f.number_field :score_work_standard %></h4></dd>
+
+    <h2>Contractors Design Documents</h2>
+    <dt><h4>Information</h4></dt>
+    <dd><h4>Mandatory for the following contract strategies:</h4></dd>
+    <dd><h4>Construct – also known as Design Development and Construct; and Design and Construct.</h4></dd>
+    <dd><h4>Adequacy of documentation in meeting the requirements of the contract.</h4></dd>
+    <dd><h4><%= f.number_field :score_work_standard %></h4></dd>
+
+    <h2>Overall Performance</h2>
+    <dt><h4>Information</h4></dt>
+    <dd><h4>Weighting and Formula for determination of Overall performance - TO BE DECIDED</h4></dd>
+    <dd><h4><%= f.number_field :score_work_standard %></h4></dd>
+
+    <h2>Request Supplier Acceptance and Feedback</h2>
+    <% if not @supplier.nil? %>
+      <dt><h4>Representative Name</h4></dt>
+      <dd><h4><%= @supplier.name %></h4></dd>
+      <dt><h4>Contact Email</h4></dt>
+      <dd><h4><%= @supplier.email %></h4></dd>
+    <% else %>
+      <dt><h4>Representative Name</h4></dt>
       <dd><h4></h4></dd>
       <dt><h4>Contact Email</h4></dt>
       <dd><h4></h4></dd>
     <% end %>
 
-
-
+    <% if not @supplier.nil? %>
+      <h2>Request Executive Approval</h2>
+      <dt><h4>Executive Officer</h4></dt>
+      <dd><h4><%= @supplier.name %></h4></dd>
+      <dt><h4>Executive's Email</h4></dt>
+      <dd><h4><%= @supplier.email %></h4></dd>
+    <% else %>
+      <dt><h4>Executive Officer</h4></dt>
+      <dd><h4></h4></dd>
+      <dt><h4>Executive's Email</h4></dt>
+      <dd><h4></h4></dd>
+    <% end %>
 
   </dl>
-
-
-
 
 <% end %>
 
 
-
-
-
-
-<%= render 'form', cpr_performance_report: @cpr_performance_report %>
-
-
+<!-- <%= render 'form', cpr_performance_report: @cpr_performance_report %> -->
 
 
 <%= link_to 'Show', @cpr_performance_report %> |
