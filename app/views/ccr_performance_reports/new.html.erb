@@ -1,5 +1,239 @@
-<h1>New Ccr Performance Report</h1>
+<%= form_for(@ccr_performance_report) do |f| %>
+  <% if @ccr_performance_report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ccr_performance_report.errors.count, "error") %> prohibited this ccr_performance_report from being saved:</h2>
 
-<%= render 'form', ccr_performance_report: @ccr_performance_report %>
+      <ul>
+      <% ccr_performance_report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h1>New Ccr Performance Report</h1>
+  <h3>Contract: <%= @contract.id %></h3>
+  <h3>Department: <%= @department.id %></h3>
+  <h3>Supplier: <%= @supplier.id %></h3>
+
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#contract">Contract</a></li>
+    <li><a data-toggle="tab" href="#report">Report</a></li>
+    <li><a data-toggle="tab" href="#agency">Agency</a></li>
+    <li><a data-toggle="tab" href="#supplier">Supplier</a></li>
+    <li><a data-toggle="tab" href="#costing">Costing</a></li>
+    <li><a data-toggle="tab" href="#time">Time</a></li>
+    <li><a data-toggle="tab" href="#admin">Admin</a></li>
+    <li><a data-toggle="tab" href="#standards">Standards</a></li>
+    <li><a data-toggle="tab" href="#quality">Quality</a></li>
+    <li><a data-toggle="tab" href="#personnel">Personel</a></li>
+    <li><a data-toggle="tab" href="#subcontractors">Subcontractors</a></li>
+    <li><a data-toggle="tab" href="#communication">Communication</a></li>
+    <li><a data-toggle="tab" href="#safety">Safety</a></li>
+    <li><a data-toggle="tab" href="#environment">Environment</a></li>
+    <li><a data-toggle="tab" href="#design">Design</a></li>
+    <li><a data-toggle="tab" href="#overall">Overall</a></li>
+    <li><a data-toggle="tab" href="#feedback">Feedback</a></li>
+    <li><a data-toggle="tab" href="#approval">Approval</a></li>
+  </ul>
+
+
+  <div class="tab-content">
+
+    <div id="contract" class="tab-pane fade">
+      <div class="field">
+        <%= f.label :contract_id %>
+        <%= f.text_field :contract_id %>
+      </div>
+      <div class="field">
+        <%= f.label :contract_type %>
+        <%= f.text_field :contract_type %>
+      </div>
+      <div class="field">
+        <%= f.label :contract_location %>
+        <%= f.text_field :contract_location %>
+      </div>
+      <div class="field">
+        <%= f.label :practical_completion_estimate %>
+        <%= f.date_select :practical_completion_estimate %>
+      </div>
+    </div>
+
+    <div id="report" class="tab-pane fade">
+      <div class="field">
+        <%= f.label :reporting_officer_name %>
+        <%= f.text_field :reporting_officer_name %>
+      </div>
+      <div class="field">
+        <%= f.label :reporting_officer_email %>
+        <%= f.text_field :reporting_officer_email %>
+      </div>
+      <div class="field">
+        <%= f.label :practical_completion %>
+        <%= f.date_select :practical_completion %>
+      </div>
+      <div class="field">
+        <%= f.label :final_report %>
+        <%= f.date_select :final_report %>
+      </div>
+      <div class="field">
+        <%= f.label :final_value %>
+        <%= f.text_field :final_value %>
+      </div>
+      <div class="field">
+        <%= f.label :defects_liability %>
+        <%= f.date_select :defects_liability %>
+      </div>
+    </div>
+
+    <div id="agency" class="tab-pane fade">
+      <div class="field">
+        <%= f.label :department_id %>
+        <%= f.text_field :department_id %>
+      </div>
+      <div class="field">
+        <%= f.label :division %>
+        <%= f.text_field :division %>
+      </div>
+    </div>
+
+    <div id="supplier" class="tab-pane fade">
+      <div class="field">
+        <%= f.label :supplier_id %>
+        <%= f.text_field :supplier_id %>
+      </div>
+      <div class="field">
+        <%= f.label :supplier_name %>
+        <%= f.text_field :supplier_name %>
+      </div>
+      <div class="field">
+        <%= f.label :supplier_email %>
+        <%= f.text_field :supplier_email %>
+      </div>
+    </div>
+
+    <div id="costing" class="tab-pane fade">
+      <div class="field">
+        <%= f.label :score_cost %>
+        <%= f.number_field :score_cost %>
+      </div>
+    </div>
+
+    <div id="time" class="tab-pane fade">
+      <div class="field">
+        <%= f.label :score_time %>
+        <%= f.number_field :score_time %>
+      </div>
+    </div>
+
+    <div id="admin" class="tab-pane fade">
+      <div class="field">
+        <%= f.label :score_admin %>
+        <%= f.number_field :score_admin %>
+      </div>
+    </div>
+
+    <div id="standards" class="tab-pane fade">
+      <div class="field">
+        <%= f.label :score_standards %>
+        <%= f.number_field :score_standards %>
+      </div>
+    </div>
+
+    <div id="quality" class="tab-pane fade">
+      <div class="field">
+        <%= f.label :score_quality %>
+        <%= f.number_field :score_quality %>
+      </div>
+    </div>
+
+    <div id="personnel" class="tab-pane fade">
+      <div class="field">
+        <%= f.label :score_personnel %>
+        <%= f.number_field :score_personnel %>
+      </div>
+    </div>
+
+    <div id="subcontractors" class="tab-pane fade">
+      <div class="field">
+        <%= f.label :score_subcontract %>
+        <%= f.number_field :score_subcontract %>
+      </div>
+    </div>
+
+    <div id="communication" class="tab-pane fade">
+      <div class="field">
+        <%= f.label :score_communication %>
+        <%= f.number_field :score_communication %>
+      </div>
+    </div>
+
+    <div id="safety" class="tab-pane fade">
+      <div class="field">
+        <%= f.label :score_safety %>
+        <%= f.number_field :score_safety %>
+      </div>
+    </div>
+
+    <div id="environment" class="tab-pane fade">
+      <div class="field">
+        <%= f.label :score_environment %>
+        <%= f.number_field :score_environment %>
+      </div>
+    </div>
+
+    <div id="design" class="tab-pane fade">
+      <div class="field">
+        <%= f.label :score_design %>
+        <%= f.number_field :score_design %>
+      </div>
+    </div>
+
+    <div id="overall" class="tab-pane fade">
+      <div class="field">
+        <%= f.label :score_overall %>
+        <%= f.number_field :score_overall %>
+      </div>
+    </div>
+
+    <div id="feedback" class="tab-pane fade">
+      <div class="field">
+        <%= f.label :acceptance_name %>
+        <%= f.text_field :acceptance_name %>
+      </div>
+      <div class="field">
+        <%= f.label :acceptance_email %>
+        <%= f.text_field :acceptance_email %>
+      </div>
+      <div class="field">
+        <%= f.label :acceptance_status %>
+        <%= f.number_field :acceptance_status %>
+      </div>
+    </div>
+
+    <div id="approval" class="tab-pane fade">
+      <div class="field">
+        <%= f.label :executive_name %>
+        <%= f.text_field :executive_name %>
+      </div>
+      <div class="field">
+        <%= f.label :executive_email %>
+        <%= f.text_field :executive_email %>
+      </div>
+      <div class="field">
+        <%= f.label :executive_status %>
+        <%= f.number_field :executive_status %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    </div>
+
+  </div>
+
+<% end %>
+
+
+<!-- <%= render 'form', ccr_performance_report: @ccr_performance_report %> -->
 
 <%= link_to 'Back', ccr_performance_reports_path %>

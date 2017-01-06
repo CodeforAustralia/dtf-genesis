@@ -65,7 +65,7 @@
   <% @csr_reports.each do |report| %>
     <dd><h4><%= link_to "CSR Performance Report", report %></h4></dd>
   <% end %>
-  <td><dd><h5><%= link_to "Initiate reporting cycle", new_cpr_performance_report_path(:contract_id => @contract.id, :supplier_id => @contract.vt_supplier_id, :supplier_name => @contract.vt_supplier_name, :department => @contract.vt_department_id, :reason => "Manualy initiated") %></h5></dd></td>
+  <td><dd><h5><%= link_to "Initiate reporting cycle", new_ccr_performance_report_path(:contract_id => @contract.id) %></h5></dd></td>
 
   <dt><h4>UNSPSC Code</h4></dt>
   <dd><h4><%= @contract.vt_unspc_id %></h4></dd>

@@ -1,5 +1,5 @@
-<%= form_for(ccr_performance_report) do |f| %>
-  <% if ccr_performance_report.errors.any? %>
+<%= form_for(@ccr_performance_report) do |f| %>
+  <% if @ccr_performance_report.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(ccr_performance_report.errors.count, "error") %> prohibited this ccr_performance_report from being saved:</h2>
 
