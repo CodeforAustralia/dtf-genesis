@@ -1,0 +1,91 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ccr Performance Reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Contract</th>
+      <th>Supplier</th>
+      <th>Reporting officer name</th>
+      <th>Reporting officer email</th>
+      <th>Contract type</th>
+      <th>Department</th>
+      <th>Division</th>
+      <th>Contract location</th>
+      <th>Practical completion estimate</th>
+      <th>Practical completion</th>
+      <th>Final report</th>
+      <th>Final value</th>
+      <th>Defects liability</th>
+      <th>Supplier name</th>
+      <th>Supplier email</th>
+      <th>Score cost</th>
+      <th>Score time</th>
+      <th>Score admin</th>
+      <th>Score standards</th>
+      <th>Score quality</th>
+      <th>Score personnel</th>
+      <th>Score subcontract</th>
+      <th>Score communication</th>
+      <th>Score safety</th>
+      <th>Score environment</th>
+      <th>Score design</th>
+      <th>Score overall</th>
+      <th>Acceptance name</th>
+      <th>Acceptance email</th>
+      <th>Acceptance status</th>
+      <th>Executive name</th>
+      <th>Executive email</th>
+      <th>Executive status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ccr_performance_reports.each do |ccr_performance_report| %>
+      <tr>
+        <td><%= ccr_performance_report.contract %></td>
+        <td><%= ccr_performance_report.supplier %></td>
+        <td><%= ccr_performance_report.reporting_officer_name %></td>
+        <td><%= ccr_performance_report.reporting_officer_email %></td>
+        <td><%= ccr_performance_report.contract_type %></td>
+        <td><%= ccr_performance_report.department %></td>
+        <td><%= ccr_performance_report.division %></td>
+        <td><%= ccr_performance_report.contract_location %></td>
+        <td><%= ccr_performance_report.practical_completion_estimate %></td>
+        <td><%= ccr_performance_report.practical_completion %></td>
+        <td><%= ccr_performance_report.final_report %></td>
+        <td><%= ccr_performance_report.final_value %></td>
+        <td><%= ccr_performance_report.defects_liability %></td>
+        <td><%= ccr_performance_report.supplier_name %></td>
+        <td><%= ccr_performance_report.supplier_email %></td>
+        <td><%= ccr_performance_report.score_cost %></td>
+        <td><%= ccr_performance_report.score_time %></td>
+        <td><%= ccr_performance_report.score_admin %></td>
+        <td><%= ccr_performance_report.score_standards %></td>
+        <td><%= ccr_performance_report.score_quality %></td>
+        <td><%= ccr_performance_report.score_personnel %></td>
+        <td><%= ccr_performance_report.score_subcontract %></td>
+        <td><%= ccr_performance_report.score_communication %></td>
+        <td><%= ccr_performance_report.score_safety %></td>
+        <td><%= ccr_performance_report.score_environment %></td>
+        <td><%= ccr_performance_report.score_design %></td>
+        <td><%= ccr_performance_report.score_overall %></td>
+        <td><%= ccr_performance_report.acceptance_name %></td>
+        <td><%= ccr_performance_report.acceptance_email %></td>
+        <td><%= ccr_performance_report.acceptance_status %></td>
+        <td><%= ccr_performance_report.executive_name %></td>
+        <td><%= ccr_performance_report.executive_email %></td>
+        <td><%= ccr_performance_report.executive_status %></td>
+        <td><%= link_to 'Show', ccr_performance_report %></td>
+        <td><%= link_to 'Edit', edit_ccr_performance_report_path(ccr_performance_report) %></td>
+        <td><%= link_to 'Destroy', ccr_performance_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ccr Performance Report', new_ccr_performance_report_path %>

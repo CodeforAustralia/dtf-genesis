@@ -1,0 +1,182 @@
+<%= form_for(ccr_performance_report) do |f| %>
+  <% if ccr_performance_report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ccr_performance_report.errors.count, "error") %> prohibited this ccr_performance_report from being saved:</h2>
+
+      <ul>
+      <% ccr_performance_report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :contract_id %>
+    <%= f.text_field :contract_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :supplier_id %>
+    <%= f.text_field :supplier_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :reporting_officer_name %>
+    <%= f.text_field :reporting_officer_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :reporting_officer_email %>
+    <%= f.text_field :reporting_officer_email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contract_type %>
+    <%= f.text_field :contract_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :department_id %>
+    <%= f.text_field :department_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :division %>
+    <%= f.text_field :division %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contract_location %>
+    <%= f.text_field :contract_location %>
+  </div>
+
+  <div class="field">
+    <%= f.label :practical_completion_estimate %>
+    <%= f.date_select :practical_completion_estimate %>
+  </div>
+
+  <div class="field">
+    <%= f.label :practical_completion %>
+    <%= f.date_select :practical_completion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :final_report %>
+    <%= f.date_select :final_report %>
+  </div>
+
+  <div class="field">
+    <%= f.label :final_value %>
+    <%= f.text_field :final_value %>
+  </div>
+
+  <div class="field">
+    <%= f.label :defects_liability %>
+    <%= f.date_select :defects_liability %>
+  </div>
+
+  <div class="field">
+    <%= f.label :supplier_name %>
+    <%= f.text_field :supplier_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :supplier_email %>
+    <%= f.text_field :supplier_email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_cost %>
+    <%= f.number_field :score_cost %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_time %>
+    <%= f.number_field :score_time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_admin %>
+    <%= f.number_field :score_admin %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_standards %>
+    <%= f.number_field :score_standards %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_quality %>
+    <%= f.number_field :score_quality %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_personnel %>
+    <%= f.number_field :score_personnel %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_subcontract %>
+    <%= f.number_field :score_subcontract %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_communication %>
+    <%= f.number_field :score_communication %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_safety %>
+    <%= f.number_field :score_safety %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_environment %>
+    <%= f.number_field :score_environment %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_design %>
+    <%= f.number_field :score_design %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score_overall %>
+    <%= f.number_field :score_overall %>
+  </div>
+
+  <div class="field">
+    <%= f.label :acceptance_name %>
+    <%= f.text_field :acceptance_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :acceptance_email %>
+    <%= f.text_field :acceptance_email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :acceptance_status %>
+    <%= f.number_field :acceptance_status %>
+  </div>
+
+  <div class="field">
+    <%= f.label :executive_name %>
+    <%= f.text_field :executive_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :executive_email %>
+    <%= f.text_field :executive_email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :executive_status %>
+    <%= f.number_field :executive_status %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

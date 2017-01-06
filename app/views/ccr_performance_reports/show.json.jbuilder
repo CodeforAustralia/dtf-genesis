@@ -1,0 +1,1 @@
+json.partial! "ccr_performance_reports/ccr_performance_report", ccr_performance_report: @ccr_performance_report

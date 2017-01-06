@@ -1,0 +1,1 @@
+json.array! @ccr_performance_reports, partial: 'ccr_performance_reports/ccr_performance_report', as: :ccr_performance_report

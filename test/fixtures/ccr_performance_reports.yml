@@ -1,0 +1,71 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contract: one
+  supplier: one
+  reporting_officer_name: MyString
+  reporting_officer_email: MyString
+  contract_type: MyString
+  department: one
+  division: MyString
+  contract_location: MyString
+  practical_completion_estimate: 2017-01-06
+  practical_completion: 2017-01-06
+  final_report: 2017-01-06
+  final_value: 
+  defects_liability: 2017-01-06
+  supplier_name: MyString
+  supplier_email: MyString
+  score_cost: 1
+  score_time: 1
+  score_admin: 1
+  score_standards: 1
+  score_quality: 1
+  score_personnel: 1
+  score_subcontract: 1
+  score_communication: 1
+  score_safety: 1
+  score_environment: 1
+  score_design: 1
+  score_overall: 1
+  acceptance_name: MyString
+  acceptance_email: MyString
+  acceptance_status: 1
+  executive_name: MyString
+  executive_email: MyString
+  executive_status: 1
+
+two:
+  contract: two
+  supplier: two
+  reporting_officer_name: MyString
+  reporting_officer_email: MyString
+  contract_type: MyString
+  department: two
+  division: MyString
+  contract_location: MyString
+  practical_completion_estimate: 2017-01-06
+  practical_completion: 2017-01-06
+  final_report: 2017-01-06
+  final_value: 
+  defects_liability: 2017-01-06
+  supplier_name: MyString
+  supplier_email: MyString
+  score_cost: 1
+  score_time: 1
+  score_admin: 1
+  score_standards: 1
+  score_quality: 1
+  score_personnel: 1
+  score_subcontract: 1
+  score_communication: 1
+  score_safety: 1
+  score_environment: 1
+  score_design: 1
+  score_overall: 1
+  acceptance_name: MyString
+  acceptance_email: MyString
+  acceptance_status: 1
+  executive_name: MyString
+  executive_email: MyString
+  executive_status: 1
