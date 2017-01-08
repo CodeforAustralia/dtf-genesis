@@ -196,6 +196,16 @@ ActiveRecord::Schema.define(version: 20170106024818) do
     t.index ["supplier_id"], name: "index_cpr_performance_reports_on_supplier_id", using: :btree
   end
 
+  create_table "csr_contacts", force: :cascade do |t|
+    t.string   "csr_works_no"
+    t.string   "csr_name"
+    t.string   "csr_phone"
+    t.string   "csr_dept_code"
+    t.string   "csr_email"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "csr_contracts", force: :cascade do |t|
     t.string   "csr_works_no"
     t.string   "csr_supplier_type"
@@ -211,6 +221,8 @@ ActiveRecord::Schema.define(version: 20170106024818) do
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
     t.integer  "supplier_id"
+    t.integer  "csr_contact_id"
+    t.index ["csr_contact_id"], name: "index_csr_contracts_on_csr_contact_id", using: :btree
     t.index ["supplier_id"], name: "index_csr_contracts_on_supplier_id", using: :btree
   end
 
@@ -338,6 +350,7 @@ ActiveRecord::Schema.define(version: 20170106024818) do
   add_foreign_key "ccr_performance_reports", "departments"
   add_foreign_key "ccr_performance_reports", "suppliers"
   add_foreign_key "cpr_performance_reports", "suppliers"
+  add_foreign_key "csr_contracts", "csr_contacts"
   add_foreign_key "csr_contracts", "suppliers"
   add_foreign_key "csr_performance_reports", "suppliers"
   add_foreign_key "projects", "departments"
