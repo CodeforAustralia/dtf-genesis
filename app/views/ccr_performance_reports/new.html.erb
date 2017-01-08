@@ -43,11 +43,11 @@
     <div id="contract" class="tab-pane active in fade">
       <div class="field">
         <%= f.label :contract_id %>
-        <%= f.text_field :contract_id %>
+        <%= f.text_field :contract_id, value: @contract.vt_contract_number %>
       </div>
       <div class="field">
         <%= f.label :contract_type %>
-        <%= f.text_field :contract_type %>
+        <%= f.text_field :contract_type, value: @contract.vt_contract_type_id  %>
       </div>
       <div class="field">
         <%= f.label :contract_location %>
@@ -55,41 +55,41 @@
       </div>
       <div class="field">
         <%= f.label :practical_completion_estimate %>
-        <%= f.date_select :practical_completion_estimate %>
+        <%= f.date_select :practical_completion_estimate, value: @contract.vt_end_date %>
       </div>
     </div>
 
     <div id="report" class="tab-pane fade">
       <div class="field">
         <%= f.label :reporting_officer_name %>
-        <%= f.text_field :reporting_officer_name %>
+        <%= f.text_field :reporting_officer_name, value: @contract.vt_agency_person %>
       </div>
       <div class="field">
         <%= f.label :reporting_officer_email %>
-        <%= f.text_field :reporting_officer_email %>
+        <%= f.text_field :reporting_officer_email, value: @contract.vt_agency_email %>
       </div>
       <div class="field">
         <%= f.label :practical_completion %>
-        <%= f.date_select :practical_completion %>
+        <%= f.date_select :practical_completion, value: @contract.vt_end_date %>
       </div>
       <div class="field">
         <%= f.label :final_report %>
-        <%= f.date_select :final_report %>
+        <%= f.date_select :final_report, value: @contract.vt_end_date %>
       </div>
       <div class="field">
         <%= f.label :final_value %>
-        <%= f.text_field :final_value %>
+        <%= f.text_field :final_value, value: @contract.vt_total_value %>
       </div>
       <div class="field">
         <%= f.label :defects_liability %>
-        <%= f.date_select :defects_liability %>
+        <%= f.date_select :defects_liability, value: @contract.vt_end_date %>
       </div>
     </div>
 
     <div id="agency" class="tab-pane fade">
       <div class="field">
         <%= f.label :department_id %>
-        <%= f.text_field :department_id %>
+        <%= f.text_field :department_id, value: @contract.vt_department_id %>
       </div>
       <div class="field">
         <%= f.label :division %>
@@ -100,15 +100,15 @@
     <div id="supplier" class="tab-pane fade">
       <div class="field">
         <%= f.label :supplier_id %>
-        <%= f.text_field :supplier_id %>
+        <%= f.text_field :supplier_id, value: @contract.vt_supplier_id %>
       </div>
       <div class="field">
         <%= f.label :supplier_name %>
-        <%= f.text_field :supplier_name %>
+        <%= f.text_field :supplier_name, value: @contract.vt_supplier_name %>
       </div>
       <div class="field">
         <%= f.label :supplier_email %>
-        <%= f.text_field :supplier_email %>
+        <%= f.text_field :supplier_email, value: @contract.vt_supplier_email %>
       </div>
     </div>
 
@@ -199,11 +199,15 @@
     <div id="feedback" class="tab-pane fade">
       <div class="field">
         <%= f.label :acceptance_name %>
-        <%= f.text_field :acceptance_name %>
+        <%= f.text_field :acceptance_name, value: @contract.vt_supplier_name %>
       </div>
       <div class="field">
         <%= f.label :acceptance_email %>
-        <%= f.text_field :acceptance_email %>
+        <%if @supplier.email == "" %>
+          <%= f.text_field :acceptance_email, value: @contract.vt_supplier_email %>
+        <% else %>
+          <%= f.text_field :acceptance_email, value: @supplier.email %>
+        <% end %>
       </div>
       <div class="field">
         <%= f.label :acceptance_status %>
