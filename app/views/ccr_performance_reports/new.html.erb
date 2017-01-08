@@ -41,6 +41,7 @@
   <div class="tab-content">
 
     <div id="contract" class="tab-pane active in fade">
+      <h1>Confirm contract details</h1>
       <div class="field">
         <%= f.label :contract_id %>
         <%= f.text_field :contract_id, value: @contract.vt_contract_number %>
@@ -114,13 +115,24 @@
 
     <div id="costing" class="tab-pane fade">
       <div class="field">
-        <%= f.label :score_cost %>
+        <h2>Costing</h2>
+        <h4>The following should be considered:</h4>
+        <h4>Timely Submission of Payment Claims.</h4>
+        <h4>Accuracy of Payment Claims.</h4>
+        <h4>Substantiation of Variations.</h4>
+        <%= f.label "Final score" %>
         <%= f.number_field :score_cost %>
       </div>
     </div>
 
     <div id="time" class="tab-pane fade">
       <div class="field">
+        <h2>Time Management</h2>
+        <h4>Ability to meet approved programmed milestones.</h4>
+        <h4>Planning, coordination and execution of activities in line with the construction program.</h4>
+        <h4>Updating of the construction program to account for unforeseen delays.</h4>
+        <h4>Timely allocation of appropriate resources to critical activities.</h4>
+        <h4>Timely application to relevant authorities for statutory approvals.</h4>
         <%= f.label :score_time %>
         <%= f.number_field :score_time %>
       </div>
@@ -128,6 +140,13 @@
 
     <div id="admin" class="tab-pane fade">
       <div class="field">
+        <h2>Contract Administration</h2>
+        <h4>The following should be considered:</h4>
+        <h4>Accuracy of Supporting Evidence - Variations &amp; Extensions of Time.</h4>
+        <h4>Compliance with the administrative requirements of the contract</h4>
+        <h4>Compliance with the contract concerning timely requests for information</h4>
+        <h4>Accuracy and timely submission of documents including, but not limited to, time programs, priced bill of quantities, drawings (including ‘as constructed’ drawings), progress reports, requests for extensions of time, notifications of latent conditions, cash flow projections, technical schedules, contract insurances, and bank guarantees</h4>
+        <h4>Timely follow up action for superintendent’s instructions and request for variation quotations, including action items derived from site meetings.</h4>
         <%= f.label :score_admin %>
         <%= f.number_field :score_admin %>
       </div>
@@ -135,6 +154,17 @@
 
     <div id="standards" class="tab-pane fade">
       <div class="field">
+        <h2>Standard of Work</h2>
+        <h4>The contractor’s standard of work will generally be measured against the requirements of the documentation.</h4>
+        <h4></h4>
+        <h4>To be considered prior to practical completion:</h4>
+        <h4>Timely attendence to items on the Superintendent's Representative's defects list ('snag list').</h4>
+        <h4>To be considered at practical completion:</h4>
+        <h4>Conformance with specified performance requirements, including specified tolerances and finishes</h4>
+        <h4>Amount of remedial work required, if any.</h4>
+        <h4>To be considered after the defects liability period:</h4>
+        <h4>Rectification of defects.</h4>
+        <h4>Performance during the defects liability period, if applicable.</h4>
         <%= f.label :score_standards %>
         <%= f.number_field :score_standards %>
       </div>
@@ -142,6 +172,11 @@
 
     <div id="quality" class="tab-pane fade">
       <div class="field">
+        <h2>Quality Management Systems</h2>
+        <h4>Quality systems will generally be measured against the specification and the contractor's quality system implementation including:</h4>
+        <h4>Extent of the contractor's compliance.</h4>
+        <h4>Results of quality audits for the project.</h4>
+        <h4>Ability of the quality system to identify and deal with non-conformances and conditions adverse to quality.</h4>
         <%= f.label :score_quality %>
         <%= f.number_field :score_quality %>
       </div>
@@ -149,6 +184,12 @@
 
     <div id="personnel" class="tab-pane fade">
       <div class="field">
+        <h2>Personnel Management</h2>
+        <h4>The contractor's ability to manage both on-site and off-site personnel to ensure co-operative and effective performance, including:</h4>
+        <h4>Adequacy of the number of site personnel engaged by the contractor  to effectively carry out and progress the work;</h4>
+        <h4>Management of site personnel</h4>
+        <h4>Adherence to site rules and procedures, including maintenance of security at site</h4>
+        <h4>Suitability of staff, management, administrative, technical or industry skills and overall experiences relevant to the tasks undertaken.</h4>
         <%= f.label :score_personnel %>
         <%= f.number_field :score_personnel %>
       </div>
@@ -156,6 +197,14 @@
 
     <div id="subcontractors" class="tab-pane fade">
       <div class="field">
+        <h2>Subcontractor Management</h2>
+        <h4>The Contractor's ability to coordinate and manage both off-site and on-site subcontractors and suppliers to ensure effective performance. This includes:</h4>
+        <h4>Timely delivery of goods and services.</h4>
+        <h4>Timely completion of subcontract work.</h4>
+        <h4>Ability to maintain effective and cooperative relationships with subcontractors.</h4>
+        <h4>Compliance with contractual and legal obligations with respect to subcontractors and suppliers.</h4>
+        <h4>Payment to all subcontractors and suppliers in accordance with legislation and contract conditions, and no adverse ‘spot check’ outcomes.</h4>
+        <h4>Note:  A supplier who contracts with a client agency is accountable to the client agency  for the standards of performance, behaviour and ethical conduct of all the suppliers down the  contract chain.</h4>
         <%= f.label :score_subcontract %>
         <%= f.number_field :score_subcontract %>
       </div>
@@ -163,6 +212,20 @@
 
     <div id="communication" class="tab-pane fade">
       <div class="field">
+        <h2>Relationship Management &amp; Communication</h2>
+        <h4>Relationship with Principal:</h4>
+        <h4>In assessing the supplier’s relationship with the principal, superintendent’s representative, or departmental contract administration personnel, the following should be considered:</h4>
+        <h4>Commitment to being a good corporate citizen.</h4>
+        <h4>Adoption and commitment to principles of partnering with clients, sub suppliers, departmental appointed OHS consultant, and suppliers.</h4>
+        <h4>Cooperation with other parties in the administration of contracts to enable them to fulfil their contractual obligations.</h4>
+        <h4>Commitment to a non-adversarial approach to dispute resolution with arbitration or litigation reserved as a last resort.</h4>
+        <h4>Commitment to timely resolution of issues through open and effective communication.</h4>
+        <h4>Commitment to a co-operative working relationship with the principal / client agency.</h4>
+        <h4>Number of instructions issued to the contractor under the contract  regarding relationship with principal / client agency.</h4>
+        <h4>Relationship with community, client and other stakeholders:</h4>
+        <h4>In assessing the contractor’s other relationships, the following should be considered:</h4>
+        <h4>Commitment to being a good corporate citizen;adoption and commitment to principles of partnering with clients, sub suppliers, departmental appointed OHS consultant, and suppliers;</h4>
+        <h4>Adequate complaints management process; including timely resolution of customer or community complaints.</h4>
         <%= f.label :score_communication %>
         <%= f.number_field :score_communication %>
       </div>
@@ -170,6 +233,19 @@
 
     <div id="safety" class="tab-pane fade">
       <div class="field">
+        <h2>Occupational Health, Safety</h2>
+        <h4>In assessing the contractor's OHS and environmental performance, the following should be considered:</h4>
+        <h4>Commitment to being a good corporate citizen.</h4>
+        <h4>Compliance with obligations under the Occupational Safety &amp; Health act and regulations.</h4>
+        <h4>Compliance with OHS issues specifically nominated in the contract, and compliance with OHS reporting requirements.</h4>
+        <h4>Implementation and compliance with the site-specific hazardous materials, environmental management plans and safety management plans, as appropriate and site management requirements as appropriate.</h4>
+        <h4>Number of infringement notices issued to the contractor relevant to the contract.</h4>
+        <h4>Number of directions issues to the contractor concerning:</h4>
+        <h4>1. safety;</h4>
+        <h4>2. noise control;</h4>
+        <h4>3. site control;</h4>
+        <h4>4. soil erosion; and</h4>
+        <h4>5. management of dust, dirt, water, refuse and fumes.</h4>
         <%= f.label :score_safety %>
         <%= f.number_field :score_safety %>
       </div>
@@ -177,6 +253,11 @@
 
     <div id="environment" class="tab-pane fade">
       <div class="field">
+        <h2>Environmental Management</h2>
+        <h4>Where specified, compliance with the environmental requirements set out in the contract and other environmental obligations.</h4>
+        <h4>Evidence of an environmentally-aware culture.</h4>
+        <h4>Where specified, compliance with the project Environmental Management Plan, including audit results.</h4>
+        <h4>Where specified, compliance with Environmental Impact Statement requirements.</h4>
         <%= f.label :score_environment %>
         <%= f.number_field :score_environment %>
       </div>
@@ -184,6 +265,10 @@
 
     <div id="design" class="tab-pane fade">
       <div class="field">
+        <h2>Contractors Design Documents</h2>
+        <h4>Mandatory for the following contract strategies:</h4>
+        <h4>Construct – also known as Design Development and Construct; and Design and Construct.</h4>
+        <h4>Adequacy of documentation in meeting the requirements of the contract.</h4>
         <%= f.label :score_design %>
         <%= f.number_field :score_design %>
       </div>
@@ -191,6 +276,8 @@
 
     <div id="overall" class="tab-pane fade">
       <div class="field">
+        <h2>Overall Performance</h2>
+        <h4>Weighting and Formula for determination of Overall performance - TO BE DECIDED</h4>
         <%= f.label :score_overall %>
         <%= f.number_field :score_overall %>
       </div>
