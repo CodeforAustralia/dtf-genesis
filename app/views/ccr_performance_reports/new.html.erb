@@ -17,7 +17,7 @@
   <h3>Supplier: <%= @supplier.id %></h3>
 
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#contract">Contract</a></li>
+    <li class="active"><a data-toggle="tab" href="#contract" aria-expanded="true">Contract</a></li>
     <li><a data-toggle="tab" href="#report">Report</a></li>
     <li><a data-toggle="tab" href="#agency">Agency</a></li>
     <li><a data-toggle="tab" href="#supplier">Supplier</a></li>
@@ -40,7 +40,7 @@
 
   <div class="tab-content">
 
-    <div id="contract" class="tab-pane fade">
+    <div id="contract" class="tab-pane active in fade">
       <div class="field">
         <%= f.label :contract_id %>
         <%= f.text_field :contract_id %>
@@ -233,7 +233,4 @@
 
 <% end %>
 
-
-<!-- <%= render 'form', ccr_performance_report: @ccr_performance_report %> -->
-
-<%= link_to 'Back', ccr_performance_reports_path %>
+<%= link_to 'Report listing', ccr_performance_reports_path %>
