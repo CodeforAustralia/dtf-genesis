@@ -6,21 +6,20 @@
 %span.main-content
   //%p= "This is the list of current prequalified suppliers for Victoria as of today, #{Time.now.to_formatted_s(:long)} and we have #{Supplier.count} in total."
 
-  
-
+%div.row
+  %form.col.s12  
   = smart_listing_controls_for(:suppliers, {class: ""}) do
     %span.filter.form-search.row
-      %span.col.s2.page-title="Suppliers"
-      .input-group.row.col.s6.offset-s1.center-align
+      .col.s2.page-title="Suppliers"
+      .input-field.col.s6.offset-s1
         %i.material-icons.prefix search
-        = text_field_tag :filter, '', class: "center-align", placeholder: "Search...", autocomplete: :off, value: "#{params[:filter]}"
+        %label{:for => "icon_prefix"}
+        = text_field_tag :filter, '', class: "search-input", placeholder: "Search...", autocomplete: :off, value: "#{params[:filter]}" 
       %span.col.s1
       = link_to '/contracts/save', :class => "" do
         %i.material-icons file_download
       %span.col.s1
       %i.material-icons more_vert
-
-
 
   %script(type="text/javascript")
     - if params[:g]

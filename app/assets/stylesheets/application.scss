@@ -6,3 +6,11 @@
 @import "report_table";
 @import "materialize";
 @import "header";
+
+.contracts-row:hover {
+    cursor: pointer;
+}
+
+.suppliers-row:hover {
+    cursor: pointer;
+}
