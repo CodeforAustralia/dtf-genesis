@@ -10,17 +10,11 @@
       </ul>
     </div>
   <% end %>
-<!--
-  <h1>Initiate Performance Reporting</h1>
-  <h3>Contract: <%= @contract.id %></h3>
-  <h3>Department: <%= @department.id %></h3>
-  <h3>Supplier: <%= @supplier.id %></h3>
--->
+
   <ul class="nav nav-tabs" hidden="true">
     <li class="active"><a data-toggle="tab" href="#contract" aria-expanded="true">Contract</a></li>
     <li><a data-toggle="tab" href="#report">Reporting</a></li>
   </ul>
-
 
   <div class="tab-content">
 
@@ -28,7 +22,7 @@
       <h1>Confirm contract details and reporting officer</h1>
       <div class="field">
         <%= f.label "VT contract reference" %>
-        <!-- <%= f.text_field :contract_id, value: @contract.vt_contract_number %> -->
+        <input type="text" disabled="true" value="<%= @contract.vt_contract_number %>"></input>
       </div>
       <div class="field">
         <%= f.label :contract_id %>
@@ -36,47 +30,43 @@
       </div>
       <div class="field">
         <%= f.label "Contract Value" %>
-        <!-- <%= f.text_field nil, value: @contract.vt_total_value  %> -->
+        <input type="text" disabled="true" value="<%= @contract.vt_total_value %>"></input>
       </div>
       <div class="field">
         <%= f.label "Contract Title" %>
-        <!-- <%= f.text_field nil, value: @contract.vt_title  %> -->
+        <input type="text" disabled="true" value="<%= @contract.vt_title %>"></input>
       </div>
       <div class="field">
         <%= f.label "Contract Start" %>
-        <!-- <%= f.text_field nil, value: @contract.vt_start_date  %> -->
+        <input type="text" disabled="true" value="<%= @contract.vt_start_date %>"></input>
       </div>
       <div class="field">
         <%= f.label "Contract End" %>
-        <!-- <%= f.text_field nil, value: @contract.vt_end_date  %> -->
+        <input type="text" disabled="true" value="<%= @contract.vt_end_date %>"></input>
       </div>
       <div class="field">
         <%= f.label "Contract Description" %>
-        <!-- <%= f.text_field nil, value: @contract.vt_contract_description  %> -->
+        <input type="text" disabled="true" value="<%= @contract.vt_contract_description %>"></input>
       </div>
       <div class="field">
         <%= f.label "Supplier Name" %>
-        <!-- <%= f.text_field nil, value: @contract.vt_supplier_name  %> -->
+        <input type="text" disabled="true" value="<%= @contract.vt_supplier_name %>"></input>
       </div>
       <div class="field">
         <%= f.label "Supplier ABN" %>
-        <!-- <%= f.text_field nil, value: @contract.vt_supplier_abn  %> -->
+        <input type="text" disabled="true" value="<%= @contract.vt_supplier_abn %>"></input>
       </div>
       <div class="field">
         <%= f.label "Supplier ACN" %>
-        <!-- <%= f.text_field nil, value: @contract.vt_supplier_acn  %> -->
-      </div>
-      <div class="field">
-        <%= f.label "Supplier Contact Person" %>
-        <!-- <%= f.text_field nil, value: @supplier.name  %> -->
+        <input type="text" disabled="true" value="<%= @contract.vt_supplier_acn %>"></input>
       </div>
       <div class="field">
         <%= f.label "Supplier Email" %>
-        <!-- <%= f.text_field nil, value: @supplier.email  %> -->
+        <input type="text" disabled="true" value="<%= @supplier.email %>"></input>
       </div>
       <div class="field">
         <%= f.label "Supplier Phone" %>
-        <!-- <%= f.text_field nil, value: "9999-9595"  %> -->
+        <input type="text" disabled="true" value="9999-9595"></input>
       </div>
       <h1>Are you the reporting officer for this Contract</h1>
       <a data-toggle="tab" href="#report" class="btn btn-default"><h3>Yes</h3></a>
@@ -99,7 +89,7 @@
       </div>
       <div class="field">
         <%= f.label "Department" %>
-        <!-- <%= f.text_field nil, value: @department.name %> -->
+        <input type="text" disabled="true" value="<%= @department.name %>"></input>
       </div>
       <div class="field">
         <%= f.label :division %>
@@ -113,6 +103,8 @@
         <%= f.label :practical_completion_estimate %>
         <%= f.date_select :practical_completion_estimate, value: @contract.vt_end_date %>
       </div>
+      <a data-toggle="tab" href="#contract" class="btn btn-default"><h3>Back</h3></a>
+
       <div class="btn btn-default">
         <%= f.submit %>
       </div>
