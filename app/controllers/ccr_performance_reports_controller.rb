@@ -2,8 +2,6 @@ class CcrPerformanceReportsController < InheritedResources::Base
 
   def new
     @ccr_performance_report = CcrPerformanceReport.new
-    puts " ::: NEW contract_id: #{params[:contract_id]}"
-    puts " ::: NEW id: #{params[:id]}"
     if params[:contract_id] && params[:contract_id] != 0
       @contract = Contract.find(params[:contract_id])
       if @contract.vt_department_id != 0
@@ -21,7 +19,20 @@ class CcrPerformanceReportsController < InheritedResources::Base
 
   def edit
     @ccr_performance_report = CcrPerformanceReport.find(params[:id])
-    puts " ::: EDIT id: #{params[:id]}"
+    # puts " ::: EDIT id: #{params[:id]}"
+    if @ccr_performance_report && @ccr_performance_report.contract_id != 0
+      @contract = Contract.find(@ccr_performance_report.contract_id)
+      if @contract.vt_department_id != 0
+        @department = Department.where(vt_number: @contract.vt_department_id).first
+      else
+        @department = Department.new(id: 0)
+      end
+      if @contract.vt_supplier_id != 0
+        @supplier = Supplier.find(@contract.vt_supplier_id)
+      else
+        @supplier = Supplier.new(id: 0)
+      end
+    end
   end
 
   def show
