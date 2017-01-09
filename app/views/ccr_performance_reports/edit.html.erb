@@ -145,7 +145,11 @@
       <h1>Confirm Supplier Contact Details</h1>
       <div class="field">
         <%= f.label :supplier_id %>
-        <%= f.text_field :supplier_id, value: @contract.vt_supplier_id %>
+        <% if @contract.vt_supplier_id == 0 %>
+          <%= f.text_field :supplier_id, value: nil %>
+        <% else %>
+          <%= f.text_field :supplier_id, value: @contract.vt_supplier_id %>
+        <% end %>
       </div>
       <div class="field">
         <%= f.label :supplier_name %>

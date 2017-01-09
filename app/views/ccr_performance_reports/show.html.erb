@@ -1,175 +1,21 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
 
-<h1>Reporting process initiated</h1>
 
-<p>A link to the reporting form will be sent to ___ on ___</p>
+<% if @ccr_performance_report.score_overall.nil? %>
 
-<p><%= link_to edit_ccr_performance_report_path(@ccr_performance_report), edit_ccr_performance_report_path(@ccr_performance_report) %></p>
+  <h1>Reporting process initiated</h1>
 
-<p>
-  <strong>Contract:</strong>
-  <%= @ccr_performance_report.contract %>
-</p>
+  <p>A link to the reporting form will be sent to <strong><%= @ccr_performance_report.reporting_officer_name %></strong> &lt;<%= @ccr_performance_report.reporting_officer_email %>&gt; on <strong><%= @ccr_performance_report.practical_completion_estimate %></strong>.</p>
 
-<p>
-  <strong>Supplier:</strong>
-  <%= @ccr_performance_report.supplier %>
-</p>
+  <p>The link is provided here and on the contracts main page for your reference: <strong><%= link_to "Reporting Link", edit_ccr_performance_report_path(@ccr_performance_report) %></strong></p>
 
-<p>
-  <strong>Reporting officer name:</strong>
-  <%= @ccr_performance_report.reporting_officer_name %>
-</p>
 
-<p>
-  <strong>Reporting officer email:</strong>
-  <%= @ccr_performance_report.reporting_officer_email %>
-</p>
 
-<p>
-  <strong>Contract type:</strong>
-  <%= @ccr_performance_report.contract_type %>
-</p>
-
-<p>
-  <strong>Department:</strong>
-  <%= @ccr_performance_report.department %>
-</p>
-
-<p>
-  <strong>Division:</strong>
-  <%= @ccr_performance_report.division %>
-</p>
-
-<p>
-  <strong>Contract location:</strong>
-  <%= @ccr_performance_report.contract_location %>
-</p>
-
-<p>
-  <strong>Practical completion estimate:</strong>
-  <%= @ccr_performance_report.practical_completion_estimate %>
-</p>
-
-<p>
-  <strong>Practical completion:</strong>
-  <%= @ccr_performance_report.practical_completion %>
-</p>
-
-<p>
-  <strong>Final report:</strong>
-  <%= @ccr_performance_report.final_report %>
-</p>
-
-<p>
-  <strong>Final value:</strong>
-  <%= @ccr_performance_report.final_value %>
-</p>
-
-<p>
-  <strong>Defects liability:</strong>
-  <%= @ccr_performance_report.defects_liability %>
-</p>
-
-<p>
-  <strong>Supplier name:</strong>
-  <%= @ccr_performance_report.supplier_name %>
-</p>
-
-<p>
-  <strong>Supplier email:</strong>
-  <%= @ccr_performance_report.supplier_email %>
-</p>
-
-<p>
-  <strong>Score cost:</strong>
-  <%= @ccr_performance_report.score_cost %>
-</p>
-
-<p>
-  <strong>Score time:</strong>
-  <%= @ccr_performance_report.score_time %>
-</p>
-
-<p>
-  <strong>Score admin:</strong>
-  <%= @ccr_performance_report.score_admin %>
-</p>
-
-<p>
-  <strong>Score standards:</strong>
-  <%= @ccr_performance_report.score_standards %>
-</p>
-
-<p>
-  <strong>Score quality:</strong>
-  <%= @ccr_performance_report.score_quality %>
-</p>
-
-<p>
-  <strong>Score personnel:</strong>
-  <%= @ccr_performance_report.score_personnel %>
-</p>
-
-<p>
-  <strong>Score subcontract:</strong>
-  <%= @ccr_performance_report.score_subcontract %>
-</p>
-
-<p>
-  <strong>Score communication:</strong>
-  <%= @ccr_performance_report.score_communication %>
-</p>
-
-<p>
-  <strong>Score safety:</strong>
-  <%= @ccr_performance_report.score_safety %>
-</p>
-
-<p>
-  <strong>Score environment:</strong>
-  <%= @ccr_performance_report.score_environment %>
-</p>
-
-<p>
-  <strong>Score design:</strong>
-  <%= @ccr_performance_report.score_design %>
-</p>
-
-<p>
-  <strong>Score overall:</strong>
-  <%= @ccr_performance_report.score_overall %>
-</p>
-
-<p>
-  <strong>Acceptance name:</strong>
-  <%= @ccr_performance_report.acceptance_name %>
-</p>
-
-<p>
-  <strong>Acceptance email:</strong>
-  <%= @ccr_performance_report.acceptance_email %>
-</p>
-
-<p>
-  <strong>Acceptance status:</strong>
-  <%= @ccr_performance_report.acceptance_status %>
-</p>
-
-<p>
-  <strong>Executive name:</strong>
-  <%= @ccr_performance_report.executive_name %>
-</p>
-
-<p>
-  <strong>Executive email:</strong>
-  <%= @ccr_performance_report.executive_email %>
-</p>
-
-<p>
-  <strong>Executive status:</strong>
-  <%= @ccr_performance_report.executive_status %>
-</p>
-
-<%= link_to 'Edit', edit_ccr_performance_report_path(@ccr_performance_report) %> |
-<%= link_to 'Back', ccr_performance_reports_path %>
+  <%= link_to 'Edit reporting details', edit_ccr_performance_report_path(@ccr_performance_report) %> |
+  <%= link_to 'CCR Report List', ccr_performance_reports_path %>
+<% else %>
+  <h1>Reporting process completed</h1>
+  <p>The report can be viewed on the contract page and edited by following the following links:</p>
+  <p><%= link_to "Contract", contract_path(@contract) %></p>
+  <p><%= link_to "Edit", edit_ccr_performance_report_path(@ccr_performance_report) %></p>
+<% end %>

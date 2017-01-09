@@ -37,7 +37,9 @@ class CcrPerformanceReportsController < InheritedResources::Base
 
   def show
     @ccr_performance_report = CcrPerformanceReport.find(params[:id])
-    puts " ::: SHOW id: #{params[:id]}"
+    if @ccr_performance_report && @ccr_performance_report.contract_id != 0
+      @contract = Contract.find(@ccr_performance_report.contract_id)
+    end
   end
 
 
