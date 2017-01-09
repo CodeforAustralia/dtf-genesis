@@ -1,27 +1,33 @@
 <nav class="nav-extended">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Construction Supplier Register</a>
+      <span><%= link_to "Construction Contracts Register", root_path, class: "brand-logo nav-text" %></span>
       <a href="#" data-activates="mobile-page" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Contracts</a></li>
-        <li><a href="badges.html">Suppliers</a></li>
-        <li><a href="collapsible.html">Reports</a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-page">
-<!--         <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li> -->
-      </ul>
+      <div id="nav-mobile" class="right hide-on-med-and-down">
+        <% if user_signed_in? %>
+          <%= link_to "Logout", destroy_user_session_path, class:"waves-effect waves-light btn nav-btn", method: :delete%>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class: "waves-effect waves-light btn nav-btn" %>
+        <% end %>
 
-      <ul class="tabs tabs-transparent">
-        <li class="tab"><a href="#contracts">Contracts</a></li>
-        <li class="tab"><a class="active" href="#suppliers">Suppliers</a></li>
-        <li class="tab"><a href="#reports">Reports</a></li>
-        <li class="tab"><a href="#reporting-system">Performance Reporting System</a></li>
-      </ul>
+      </div>
+<!-- <div>
+        <ul class="side-nav" id="mobile-page">
+          <li><a href="#">Contracts</a></li>
+          <li><a href="#">Suppliers</a></li>
+          <li><a href="#">Reports</a></li>
+        </ul>
+      </div> -->
+      <div>
+        <ul class="tabs tabs-transparent nav-list">
+          <li class="tab" ><%= link_to "Contracts", contracts_path%></li>
+          <li class="tab"><%= link_to "Suppliers", suppliers_path %></li>
+          <li class="tab"><%= link_to "Reports", root_path %></li>
+          <li class="tab"><%= link_to "Performance Reporting System", root_path %></li>
+        </ul>
+      </div>
     </div>
   </nav>
-  <div id="contracts" class="col s12">Contracts</div>
+  <!-- <div id="contracts" class="col s12">Contracts</div>
   <div id="suppliers" class="col s12">Suppliers</div>
   <div id="reports" class="col s12">Reports</div>
-  <div id="reporting-system" class="col s12">Performance Reporting System</div>
+  <div id="reporting-system" class="col s12">Performance Reporting System</div> -->

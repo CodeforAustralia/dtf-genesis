@@ -1,15 +1,26 @@
-%div
-  %h1= "Suppliers"
-  %p= "This is the list of current prequalified suppliers for Victoria as of today, #{Time.now.to_formatted_s(:long)} and we have #{Supplier.count} in total."
+%span.head-title.valign-wrapper
+  %span.valign.center.center-align
+    = "Select a supplier to list awarded contracts"
+%hr
+
+%span.main-content
+  //%p= "This is the list of current prequalified suppliers for Victoria as of today, #{Time.now.to_formatted_s(:long)} and we have #{Supplier.count} in total."
+
+  
 
   = smart_listing_controls_for(:suppliers, {class: ""}) do
-    %div.filter.form-search
-      .input-group
-        = text_field_tag :filter, '', class: "", placeholder: "Search...", autocomplete: :off, value: "#{params[:filter]}"
-        %span.input-group-btn
-          = submit_tag 'Refresh', :class => "btn btn-default", :name => "do_query"
-          = link_to  "Clear search", '/suppliers', class: "btn btn-default"
-          = link_to "Save", '/suppliers/save', class: "btn btn-default"
+    %span.filter.form-search.row
+      %span.col.s2.page-title="Suppliers"
+      .input-group.row.col.s6.offset-s1.center-align
+        %i.material-icons.prefix search
+        = text_field_tag :filter, '', class: "center-align", placeholder: "Search...", autocomplete: :off, value: "#{params[:filter]}"
+      %span.col.s1
+      = link_to '/contracts/save', :class => "" do
+        %i.material-icons file_download
+      %span.col.s1
+      %i.material-icons more_vert
+
+
 
   %script(type="text/javascript")
     - if params[:g]
