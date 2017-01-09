@@ -24,6 +24,7 @@ class ContractsController < ApplicationController
     @contract = Contract.find(params[:id])
     @csr_reports = CsrPerformanceReport.where(csr_works_no: params[:id])
     @cpr_reports = CprPerformanceReport.where(cpr_contract: params[:id])
+    @ccr_reports = CcrPerformanceReport.where(contract_id: params[:id])
   end
 
   def new

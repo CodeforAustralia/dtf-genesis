@@ -56,7 +56,7 @@
   <dd><h4><%= @contract.vt_supplier_email %></h4></dd>
 
   <dt><h4>Reporting</h4></dt>
-  <% if (@cpr_reports.count + @csr_reports.count) == 0 %>
+  <% if (@cpr_reports.count + @csr_reports.count + @ccr_reports.count) == 0 %>
     <dd><h4>No reporting on project</h4></dd>
   <% end %>
   <% @cpr_reports.each do |report| %>
@@ -64,6 +64,13 @@
   <% end %>
   <% @csr_reports.each do |report| %>
     <dd><h4><%= link_to "CSR Performance Report", report %></h4></dd>
+  <% end %>
+  <% @ccr_reports.each do |report| %>
+    <% if report.score_overall.nil? %>
+      <dd><h4><%= link_to "incomplete CCR Performance Report #{report.id}", report %></h4></dd>
+    <% else %>
+      <dd><h4><%= link_to "CCR Performance Report #{report.id} (score:#{report.score_overall})", report %></h4></dd>
+    <% end %>
   <% end %>
   <td><dd><h5><%= link_to "Initiate reporting cycle", new_ccr_performance_report_path(:contract_id => @contract.id) %></h5></dd></td>
 
