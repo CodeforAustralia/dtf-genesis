@@ -39,55 +39,50 @@
       <h1>Confirm contract details</h1>
       <div class="field">
         <%= f.label "VT contract reference" %>
-        <!-- <%= f.text_field :contract_id, value: @contract.vt_contract_number %> -->
+        <input type="text" disabled="true" value="<%= @contract.vt_contract_number %>"></input>
       </div>
       <div class="field">
-        <%= f.label :contract_id %>
-        <%= f.text_field :contract_id, value: @contract.id %>
+        <%= f.text_field :contract_id, hidden: true, value: @contract.id %>
       </div>
       <div class="field">
         <%= f.label "Contract Value" %>
-        <!-- <%= f.text_field nil, value: @contract.vt_total_value  %> -->
+        <input type="text" disabled="true" value="<%= @contract.vt_total_value %>"></input>
       </div>
       <div class="field">
         <%= f.label "Contract Title" %>
-        <!-- <%= f.text_field nil, value: @contract.vt_title  %> -->
+        <input type="text" disabled="true" value="<%= @contract.vt_title %>"></input>
       </div>
       <div class="field">
         <%= f.label "Contract Start" %>
-        <!-- <%= f.text_field nil, value: @contract.vt_start_date  %> -->
+        <input type="text" disabled="true" value="<%= @contract.vt_start_date %>"></input>
       </div>
       <div class="field">
         <%= f.label "Contract End" %>
-        <!-- <%= f.text_field nil, value: @contract.vt_end_date  %> -->
+        <input type="text" disabled="true" value="<%= @contract.vt_end_date %>"></input>
       </div>
       <div class="field">
         <%= f.label "Contract Description" %>
-        <!-- <%= f.text_field nil, value: @contract.vt_contract_description  %> -->
+        <input type="text" disabled="true" value="<%= @contract.vt_contract_description %>"></input>
       </div>
       <div class="field">
         <%= f.label "Supplier Name" %>
-        <!-- <%= f.text_field nil, value: @contract.vt_supplier_name  %> -->
+        <input type="text" disabled="true" value="<%= @contract.vt_supplier_name %>"></input>
       </div>
       <div class="field">
         <%= f.label "Supplier ABN" %>
-        <!-- <%= f.text_field nil, value: @contract.vt_supplier_abn  %> -->
+        <input type="text" disabled="true" value="<%= @contract.vt_supplier_abn %>"></input>
       </div>
       <div class="field">
         <%= f.label "Supplier ACN" %>
-        <!-- <%= f.text_field nil, value: @contract.vt_supplier_acn  %> -->
-      </div>
-      <div class="field">
-        <%= f.label "Supplier Contact Person" %>
-        <!-- <%= f.text_field nil, value: @supplier.name  %> -->
+        <input type="text" disabled="true" value="<%= @contract.vt_supplier_acn %>"></input>
       </div>
       <div class="field">
         <%= f.label "Supplier Email" %>
-        <!-- <%= f.text_field nil, value: @supplier.email  %> -->
+        <input type="text" disabled="true" value="<%= @supplier.email %>"></input>
       </div>
       <div class="field">
         <%= f.label "Supplier Phone" %>
-        <!-- <%= f.text_field nil, value: "9999-9595"  %> -->
+        <input type="text" disabled="true" value="9999-9595"></input>
       </div>
 
       <h1>Confirm reporting details</h1>
@@ -105,7 +100,7 @@
       </div>
       <div class="field">
         <%= f.label "Department" %>
-        <!-- <%= f.text_field nil, value: @department.name %> -->
+        <input type="text" disabled="true" value="<%= @department.name %>"></input>
       </div>
       <div class="field">
         <%= f.label :division %>
@@ -116,14 +111,13 @@
         <%= f.text_field :contract_location %>
       </div>
       <div class="field">
-        <%= f.label :practical_completion_estimate %>
-        <%= f.date_select :practical_completion_estimate, value: @contract.vt_end_date %>
+        <%= f.date_select :practical_completion_estimate, hidden: true, value: @contract.vt_end_date %>
       </div>
-<!--
       <div class="field">
         <%= f.label :final_report %>
         <%= f.date_select :final_report, value: @contract.vt_end_date %>
       </div>
+<!--
       <div class="field">
         <%= f.label :department_id %>
         <%= f.text_field :department_id, value: @contract.vt_department_id %>
@@ -132,6 +126,7 @@
     </div>
 
     <div id="finals" class="tab-pane fade">
+      <h1>Confirm Final Contract Details</h1>
       <div class="field">
         <%= f.label :practical_completion %>
         <%= f.date_select :practical_completion, value: @contract.vt_end_date %>
@@ -147,6 +142,7 @@
     </div>
 
     <div id="supplier" class="tab-pane fade">
+      <h1>Confirm Supplier Contact Details</h1>
       <div class="field">
         <%= f.label :supplier_id %>
         <%= f.text_field :supplier_id, value: @contract.vt_supplier_id %>
@@ -163,7 +159,7 @@
 
     <div id="costing" class="tab-pane fade">
       <div class="field">
-        <h2>Costing</h2>
+        <h1>Costing</h1>
         <h4>The following should be considered:</h4>
         <h4>Timely Submission of Payment Claims.</h4>
         <h4>Accuracy of Payment Claims.</h4>
@@ -175,7 +171,7 @@
 
     <div id="time" class="tab-pane fade">
       <div class="field">
-        <h2>Time Management</h2>
+        <h1>Time Management</h1>
         <h4>Ability to meet approved programmed milestones.</h4>
         <h4>Planning, coordination and execution of activities in line with the construction program.</h4>
         <h4>Updating of the construction program to account for unforeseen delays.</h4>
@@ -188,7 +184,7 @@
 
     <div id="admin" class="tab-pane fade">
       <div class="field">
-        <h2>Contract Administration</h2>
+        <h1>Contract Administration</h1>
         <h4>The following should be considered:</h4>
         <h4>Accuracy of Supporting Evidence - Variations &amp; Extensions of Time.</h4>
         <h4>Compliance with the administrative requirements of the contract</h4>
@@ -202,7 +198,7 @@
 
     <div id="standards" class="tab-pane fade">
       <div class="field">
-        <h2>Standard of Work</h2>
+        <h1>Standard of Work</h1>
         <h4>The contractor’s standard of work will generally be measured against the requirements of the documentation.</h4>
         <h4></h4>
         <h4>To be considered prior to practical completion:</h4>
@@ -220,7 +216,7 @@
 
     <div id="quality" class="tab-pane fade">
       <div class="field">
-        <h2>Quality Management Systems</h2>
+        <h1>Quality Management Systems</h1>
         <h4>Quality systems will generally be measured against the specification and the contractor's quality system implementation including:</h4>
         <h4>Extent of the contractor's compliance.</h4>
         <h4>Results of quality audits for the project.</h4>
@@ -232,7 +228,7 @@
 
     <div id="personnel" class="tab-pane fade">
       <div class="field">
-        <h2>Personnel Management</h2>
+        <h1>Personnel Management</h1>
         <h4>The contractor's ability to manage both on-site and off-site personnel to ensure co-operative and effective performance, including:</h4>
         <h4>Adequacy of the number of site personnel engaged by the contractor  to effectively carry out and progress the work;</h4>
         <h4>Management of site personnel</h4>
@@ -245,7 +241,7 @@
 
     <div id="subcontractors" class="tab-pane fade">
       <div class="field">
-        <h2>Subcontractor Management</h2>
+        <h1>Subcontractor Management</h1>
         <h4>The Contractor's ability to coordinate and manage both off-site and on-site subcontractors and suppliers to ensure effective performance. This includes:</h4>
         <h4>Timely delivery of goods and services.</h4>
         <h4>Timely completion of subcontract work.</h4>
@@ -260,7 +256,7 @@
 
     <div id="communication" class="tab-pane fade">
       <div class="field">
-        <h2>Relationship Management &amp; Communication</h2>
+        <h1>Relationship Management &amp; Communication</h1>
         <h4>Relationship with Principal:</h4>
         <h4>In assessing the supplier’s relationship with the principal, superintendent’s representative, or departmental contract administration personnel, the following should be considered:</h4>
         <h4>Commitment to being a good corporate citizen.</h4>
@@ -281,7 +277,7 @@
 
     <div id="safety" class="tab-pane fade">
       <div class="field">
-        <h2>Occupational Health, Safety</h2>
+        <h1>Occupational Health, &amp; Safety</h1>
         <h4>In assessing the contractor's OHS and environmental performance, the following should be considered:</h4>
         <h4>Commitment to being a good corporate citizen.</h4>
         <h4>Compliance with obligations under the Occupational Safety &amp; Health act and regulations.</h4>
@@ -301,7 +297,7 @@
 
     <div id="environment" class="tab-pane fade">
       <div class="field">
-        <h2>Environmental Management</h2>
+        <h1>Environmental Management</h1>
         <h4>Where specified, compliance with the environmental requirements set out in the contract and other environmental obligations.</h4>
         <h4>Evidence of an environmentally-aware culture.</h4>
         <h4>Where specified, compliance with the project Environmental Management Plan, including audit results.</h4>
@@ -313,7 +309,7 @@
 
     <div id="design" class="tab-pane fade">
       <div class="field">
-        <h2>Contractors Design Documents</h2>
+        <h1>Contractors Design Documents</h1>
         <h4>Mandatory for the following contract strategies:</h4>
         <h4>Construct – also known as Design Development and Construct; and Design and Construct.</h4>
         <h4>Adequacy of documentation in meeting the requirements of the contract.</h4>
@@ -324,7 +320,7 @@
 
     <div id="overall" class="tab-pane fade">
       <div class="field">
-        <h2>Overall Performance</h2>
+        <h1>Overall Performance</h1>
         <h4>Weighting and Formula for determination of Overall performance - TO BE DECIDED</h4>
         <%= f.label :score_overall %>
         <%= f.number_field :score_overall %>
@@ -332,6 +328,7 @@
     </div>
 
     <div id="feedback" class="tab-pane fade">
+      <h1>Supplier Feedback / Reply</h1>
       <div class="field">
         <%= f.label :acceptance_name %>
         <%= f.text_field :acceptance_name, value: @contract.vt_supplier_name %>
@@ -351,6 +348,7 @@
     </div>
 
     <div id="approval" class="tab-pane fade">
+      <h1>Execuitive Approval</h1>
       <div class="field">
         <%= f.label :executive_name %>
         <%= f.text_field :executive_name %>
