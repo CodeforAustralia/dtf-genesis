@@ -10,16 +10,16 @@
       </ul>
     </div>
   <% end %>
-
-  <h1>New Ccr Performance Report</h1>
+<!--
+  <h1>Initiate Performance Reporting</h1>
   <h3>Contract: <%= @contract.id %></h3>
   <h3>Department: <%= @department.id %></h3>
   <h3>Supplier: <%= @supplier.id %></h3>
-
+-->
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#contract" aria-expanded="true">Contract</a></li>
-    <li><a data-toggle="tab" href="#report">Report</a></li>
-    <li><a data-toggle="tab" href="#agency">Agency</a></li>
+    <li><a data-toggle="tab" href="#report">Reporting</a></li>
+    <li><a data-toggle="tab" href="#finals">Finalize</a></li>
     <li><a data-toggle="tab" href="#supplier">Supplier</a></li>
     <li><a data-toggle="tab" href="#costing">Costing</a></li>
     <li><a data-toggle="tab" href="#time">Time</a></li>
@@ -41,14 +41,81 @@
   <div class="tab-content">
 
     <div id="contract" class="tab-pane active in fade">
-      <h1>Confirm contract details</h1>
+      <h1>Confirm contract details and reporting officer</h1>
       <div class="field">
         <%= f.label :contract_id %>
         <%= f.text_field :contract_id, value: @contract.vt_contract_number %>
       </div>
       <div class="field">
+        <%= f.label "Contract Value" %>
+        <%= f.text_field nil, value: @contract.vt_total_value  %>
+      </div>
+      <div class="field">
+        <%= f.label "Contract Title" %>
+        <%= f.text_field nil, value: @contract.vt_title  %>
+      </div>
+      <div class="field">
+        <%= f.label "Contract Start" %>
+        <%= f.text_field nil, value: @contract.vt_start_date  %>
+      </div>
+      <div class="field">
+        <%= f.label "Contract End" %>
+        <%= f.text_field nil, value: @contract.vt_end_date  %>
+      </div>
+      <div class="field">
+        <%= f.label "Contract Description" %>
+        <%= f.text_field nil, value: @contract.vt_contract_description  %>
+      </div>
+      <div class="field">
+        <%= f.label "Supplier Name" %>
+        <%= f.text_field nil, value: @contract.vt_supplier_name  %>
+      </div>
+      <div class="field">
+        <%= f.label "Supplier ABN" %>
+        <%= f.text_field nil, value: @contract.vt_supplier_abn  %>
+      </div>
+      <div class="field">
+        <%= f.label "Supplier ACN" %>
+        <%= f.text_field nil, value: @contract.vt_supplier_acn  %>
+      </div>
+      <div class="field">
+        <%= f.label "Supplier Contact Person" %>
+        <%= f.text_field nil, value: @supplier.name  %>
+      </div>
+      <div class="field">
+        <%= f.label "Supplier Email" %>
+        <%= f.text_field nil, value: @supplier.email  %>
+      </div>
+      <div class="field">
+        <%= f.label "Supplier Phone" %>
+        <%= f.text_field nil, value: "9999-9595"  %>
+      </div>
+
+      <h1>Are you the reporting officer for this Contract</h1>
+      <a data-toggle="tab" href="#report" class="btn btn-default"><h3>Yes</h3></a>
+      <a data-toggle="tab" href="#report" class="btn btn-default"><h3>No ...</h3></a>
+    </div>
+
+    <div id="report" class="tab-pane fade">
+      <div class="field">
+        <%= f.label :reporting_officer_email %>
+        <%= f.text_field :reporting_officer_email, value: @contract.vt_agency_email %>
+      </div>
+      <div class="field">
+        <%= f.label :reporting_officer_name %>
+        <%= f.text_field :reporting_officer_name, value: @contract.vt_agency_person %>
+      </div>
+      <div class="field">
         <%= f.label :contract_type %>
-        <%= f.text_field :contract_type, value: @contract.vt_contract_type_id  %>
+        <%= f.text_field :contract_type, value: "Contractor"  %>
+      </div>
+      <div class="field">
+        <%= f.label "Department" %>
+        <%= f.text_field nil, value: @department.name %>
+      </div>
+      <div class="field">
+        <%= f.label :division %>
+        <%= f.text_field :division %>
       </div>
       <div class="field">
         <%= f.label :contract_location %>
@@ -58,24 +125,23 @@
         <%= f.label :practical_completion_estimate %>
         <%= f.date_select :practical_completion_estimate, value: @contract.vt_end_date %>
       </div>
-    </div>
 
-    <div id="report" class="tab-pane fade">
-      <div class="field">
-        <%= f.label :reporting_officer_name %>
-        <%= f.text_field :reporting_officer_name, value: @contract.vt_agency_person %>
-      </div>
-      <div class="field">
-        <%= f.label :reporting_officer_email %>
-        <%= f.text_field :reporting_officer_email, value: @contract.vt_agency_email %>
-      </div>
-      <div class="field">
-        <%= f.label :practical_completion %>
-        <%= f.date_select :practical_completion, value: @contract.vt_end_date %>
-      </div>
+<!--
       <div class="field">
         <%= f.label :final_report %>
         <%= f.date_select :final_report, value: @contract.vt_end_date %>
+      </div>
+      <div class="field">
+        <%= f.label :department_id %>
+        <%= f.text_field :department_id, value: @contract.vt_department_id %>
+      </div>
+    -->
+    </div>
+
+    <div id="finals" class="tab-pane fade">
+      <div class="field">
+        <%= f.label :practical_completion %>
+        <%= f.date_select :practical_completion, value: @contract.vt_end_date %>
       </div>
       <div class="field">
         <%= f.label :final_value %>
@@ -84,17 +150,6 @@
       <div class="field">
         <%= f.label :defects_liability %>
         <%= f.date_select :defects_liability, value: @contract.vt_end_date %>
-      </div>
-    </div>
-
-    <div id="agency" class="tab-pane fade">
-      <div class="field">
-        <%= f.label :department_id %>
-        <%= f.text_field :department_id, value: @contract.vt_department_id %>
-      </div>
-      <div class="field">
-        <%= f.label :division %>
-        <%= f.text_field :division %>
       </div>
     </div>
 
