@@ -66,10 +66,11 @@
     <dd><h4><%= link_to "CSR Performance Report", report %></h4></dd>
   <% end %>
   <% @ccr_reports.each do |report| %>
-    <% if report.score_overall.nil? %>
+    <% if report.score_overall == nil %>
       <dd><h4><%= link_to "incomplete CCR Performance Report #{report.id}", report %></h4></dd>
     <% else %>
       <dd><h4><%= link_to "CCR Performance Report #{report.id} (score:#{report.score_overall})", report %></h4></dd>
+
     <% end %>
   <% end %>
   <td><dd><h5><%= link_to "Initiate reporting cycle", new_ccr_performance_report_path(:contract_id => @contract.id) %></h5></dd></td>
