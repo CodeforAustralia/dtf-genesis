@@ -1,5 +1,5 @@
-%span.head-title.valign-wrapper
-  %span.valign.center.center-align
+%div.head-title.valign-wrapper
+  %div.valign.text-center
     = "Select a supplier to list awarded contracts"
 %hr
 
@@ -14,7 +14,7 @@
       .input-field.col.s6.offset-s1
         %i.material-icons.prefix search
         %label{:for => "icon_prefix"}
-        = text_field_tag :filter, '', class: "search-input", placeholder: "Search...", autocomplete: :off, value: "#{params[:filter]}" 
+        = text_field_tag :filter, '', class: "search-input", placeholder: <i class="material-icons prefix">search</i>}"Search...", autocomplete: :off, value: "#{params[:filter]}" 
       %span.col.s1
       = link_to '/contracts/save', :class => "" do
         %i.material-icons file_download

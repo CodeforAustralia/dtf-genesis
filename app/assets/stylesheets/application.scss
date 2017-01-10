@@ -6,11 +6,8 @@
 @import "report_table";
 @import "materialize";
 @import "header";
+@import "footer";
+@import "common";
 
-.contracts-row:hover {
-    cursor: pointer;
-}
 
-.suppliers-row:hover {
-    cursor: pointer;
-}
+

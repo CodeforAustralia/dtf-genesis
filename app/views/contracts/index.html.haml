@@ -5,10 +5,10 @@
     %div.filter.form-search
       .input-group
         = text_field_tag :filter, '', class: "", placeholder: "Search...", autocomplete: :off, value: "#{params[:filter]}"
-        %span.input-group-btn
-          = submit_tag 'Refresh', :class => "btn btn-default", :name => "do_query"
-          = link_to  "Clear search", '/contracts', class: "btn btn-default"
-          = link_to "Save", '/contracts/save', class: "btn btn-default"
+        / %span.input-group-btn
+        /   = submit_tag 'Refresh', :class => "btn btn-default", :name => "do_query"
+        /   = link_to  "Clear search", '/contracts', class: "btn btn-default"
+        /   = link_to "Save", '/contracts/save', class: "btn btn-default"
 
   %script(type="text/javascript")
     - if params[:f]
