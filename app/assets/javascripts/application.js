@@ -17,3 +17,4 @@
 //= require smart_listing
 //= require_tree .
 //= require d3
+//= stub charts
