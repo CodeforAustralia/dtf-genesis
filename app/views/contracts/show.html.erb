@@ -70,7 +70,6 @@
       <dd><h4><%= link_to "incomplete CCR Performance Report #{report.id}", report %></h4></dd>
     <% else %>
       <dd><h4><%= link_to "CCR Performance Report #{report.id} (score:#{report.score_overall})", report %></h4></dd>
-
     <% end %>
   <% end %>
   <td><dd><h5><%= link_to "Initiate reporting cycle", new_ccr_performance_report_path(:contract_id => @contract.id) %></h5></dd></td>
@@ -82,5 +81,14 @@
   <dd><h4><%= @contract.created_at %></h4></dd>
   <dt><h4>Record modified</h4></dt>
   <dd><h4><%= @contract.updated_at %></h4></dd>
+
+
+  <% @ccr_reports.each do |report| %>
+    <% if report.score_overall != nil %>
+      <%= render report, locals: {ccr_performance_report: @ccr_performance_report, contract: @contract, department: @department, supplier: @supplier } %>
+    <% end %>
+  <% end %>
+
+
 
 </dl>

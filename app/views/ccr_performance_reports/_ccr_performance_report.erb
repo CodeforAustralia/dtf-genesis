@@ -1,0 +1,6 @@
+<!-- <p id="notice"><%= notice %></p> -->
+<% @ccr_performance_report = ccr_performance_report %>
+<% if not @ccr_performance_report.score_overall.nil? %>
+  <h1>Reporting for "<%= @contract.vt_title %>"</h1>
+  <p>Overall: <%= @ccr_performance_report.score_overall %></p>
+<% end %>
