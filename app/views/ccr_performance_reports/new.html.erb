@@ -113,11 +113,8 @@
         <%= f.label :final_report %>
         <%= f.date_select :final_report, value: @contract.vt_end_date %>
       </div>
-      <div class="field">
-        <%= f.label :department_id %>
-        <%= f.text_field :department_id, value: @contract.vt_department_id %>
-      </div>
     -->
+      <%= f.text_field :department_id, hidden: true, value: @department.id %>
     </div>
 
   </div>

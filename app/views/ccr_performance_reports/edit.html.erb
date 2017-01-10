@@ -100,7 +100,7 @@
         <%= f.label :final_report %>
         <%= f.date_select :final_report, {value: @contract.vt_end_date}, {class: "thin-input"} %>
       </div>
-        <%= f.text_field :department_id, value: @contract.vt_department_id, hidden: true %>
+        <%= f.text_field :department_id, value: @department.id, hidden: true %>
     <a class="btn btn-primary back" disabled="true">Back</a>
     <a class="btn btn-primary next">Next</a>
     </div>

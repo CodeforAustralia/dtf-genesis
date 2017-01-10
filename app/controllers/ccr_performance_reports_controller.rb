@@ -4,6 +4,8 @@ class CcrPerformanceReportsController < InheritedResources::Base
     @ccr_performance_report = CcrPerformanceReport.new
     if params[:contract_id] && params[:contract_id] != 0
       @contract = Contract.find(params[:contract_id])
+      puts "::: @contract.vt_department_id: #{@contract.vt_department_id}"
+      puts "::: @contract.vt_department_name: #{@contract.vt_contract_number}"
       if @contract.vt_department_id != 0
         @department = Department.where(vt_number: @contract.vt_department_id).first
       else
