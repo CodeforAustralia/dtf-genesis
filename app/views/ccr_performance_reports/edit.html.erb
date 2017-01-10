@@ -36,8 +36,6 @@
 
     <div id="contract" class="tab-pane active in fade">
       <h1>Confirm contract and reporting details</h1>
-      <a class="btn btn-primary back">Back</a>
-      <a class="btn btn-primary continue">Next</a>
       <div class="field">
         <%= f.label "VT contract reference" %>
         <input type="text" disabled="true" value="<%= @contract.vt_contract_number %>" class="medium-input"></input>
@@ -75,7 +73,6 @@
         <%= f.label "Supplier Email" %>
         <input type="text" disabled="true" value="<%= @supplier.email %>" class="medium-input"></input>
       </div>
-
       <div class="field">
         <%= f.label "Reporting officer" %>
         <%= f.text_field :reporting_officer_name, {value: @contract.vt_agency_person, class: "medium-input"} %>
@@ -103,12 +100,9 @@
         <%= f.label :final_report %>
         <%= f.date_select :final_report, {value: @contract.vt_end_date}, {class: "thin-input"} %>
       </div>
-<!--
-      <div class="field">
-        <%= f.label :department_id %>
-        <%= f.text_field :department_id, value: @contract.vt_department_id %>
-      </div>
-    -->
+        <%= f.text_field :department_id, value: @contract.vt_department_id, hidden: true %>
+    <a class="btn btn-primary back" disabled="true">Back</a>
+    <a class="btn btn-primary next">Next</a>
     </div>
 
     <div id="finals" class="tab-pane fade">
@@ -125,6 +119,8 @@
         <%= f.label :defects_liability %>
         <%= f.date_select :defects_liability, {value: @contract.vt_end_date}, {class: "thin-input"} %>
       </div>
+      <a class="btn btn-primary back">Back</a>
+      <a class="btn btn-primary next">Next</a>
     </div>
 
     <div id="supplier" class="tab-pane fade">
@@ -145,6 +141,8 @@
         <%= f.label :supplier_email %>
         <%= f.text_field :supplier_email, value: @contract.vt_supplier_email %>
       </div>
+      <a class="btn btn-primary back">Back</a>
+      <a class="btn btn-primary next">Next</a>
     </div>
 
     <div id="costing" class="tab-pane fade">
@@ -163,6 +161,8 @@
           <% end %>
         </div>
       </div>
+      <a class="btn btn-primary back">Back</a>
+      <a class="btn btn-primary next">Next</a>
     </div>
 
     <div id="time" class="tab-pane fade">
@@ -182,6 +182,8 @@
           <% end %>
         </div>
       </div>
+      <a class="btn btn-primary back">Back</a>
+      <a class="btn btn-primary next">Next</a>
     </div>
 
     <div id="admin" class="tab-pane fade">
@@ -202,6 +204,8 @@
           <% end %>
         </div>
       </div>
+      <a class="btn btn-primary back">Back</a>
+      <a class="btn btn-primary next">Next</a>
     </div>
 
     <div id="standards" class="tab-pane fade">
@@ -226,6 +230,8 @@
           <% end %>
         </div>
       </div>
+      <a class="btn btn-primary back">Back</a>
+      <a class="btn btn-primary next">Next</a>
     </div>
 
     <div id="quality" class="tab-pane fade">
@@ -244,6 +250,8 @@
           <% end %>
         </div>
       </div>
+      <a class="btn btn-primary back">Back</a>
+      <a class="btn btn-primary next">Next</a>
     </div>
 
     <div id="personnel" class="tab-pane fade">
@@ -263,6 +271,8 @@
           <% end %>
         </div>
       </div>
+      <a class="btn btn-primary back">Back</a>
+      <a class="btn btn-primary next">Next</a>
     </div>
 
     <div id="subcontractors" class="tab-pane fade">
@@ -284,6 +294,8 @@
           <% end %>
         </div>
       </div>
+      <a class="btn btn-primary back">Back</a>
+      <a class="btn btn-primary next">Next</a>
     </div>
 
     <div id="communication" class="tab-pane fade">
@@ -311,6 +323,8 @@
           <% end %>
         </div>
       </div>
+      <a class="btn btn-primary back">Back</a>
+      <a class="btn btn-primary next">Next</a>
     </div>
 
     <div id="safety" class="tab-pane fade">
@@ -337,6 +351,8 @@
           <% end %>
         </div>
       </div>
+      <a class="btn btn-primary back">Back</a>
+      <a class="btn btn-primary next">Next</a>
     </div>
 
     <div id="environment" class="tab-pane fade">
@@ -355,6 +371,8 @@
           <% end %>
         </div>
       </div>
+      <a class="btn btn-primary back">Back</a>
+      <a class="btn btn-primary next">Next</a>
     </div>
 
     <div id="design" class="tab-pane fade">
@@ -372,6 +390,8 @@
           <% end %>
         </div>
       </div>
+      <a class="btn btn-primary back">Back</a>
+      <a class="btn btn-primary next">Next</a>
     </div>
 
     <div id="overall" class="tab-pane fade">
@@ -387,6 +407,8 @@
           <% end %>
         </div>
       </div>
+      <a class="btn btn-primary back">Back</a>
+      <a class="btn btn-primary next">Next</a>
     </div>
 
     <div id="feedback" class="tab-pane fade">
@@ -407,6 +429,8 @@
         <%= f.label :acceptance_status %>
         <%= f.number_field :acceptance_status %>
       </div>
+      <a class="btn btn-primary back">Back</a>
+      <a class="btn btn-primary next">Next</a>
     </div>
 
     <div id="approval" class="tab-pane fade">
@@ -426,19 +450,22 @@
       <div class="actions">
         <%= f.submit %>
       </div>
+      <a class="btn btn-primary back">Back</a>
+      <a class="btn btn-primary next" disabled="true">Next</a>
     </div>
 
   </div>
 
 <% end %>
 
-<%= link_to 'Show', @ccr_performance_report %> |
-<%= link_to 'Back', ccr_performance_reports_path %>
 <script>
-$('.continue').click(function(){
-  $('.nav-tabs > .active').next('li').find('a').trigger('click');
+$('.next').click(function(){
+  $('.nav-pills > .active').next('li').find('a').trigger('click');
 });
 $('.back').click(function(){
-  $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+  $('.nav-pills > .active').prev('li').find('a').trigger('click');
 });
 </script>
+
+<%= link_to 'Show', @ccr_performance_report %> |
+<%= link_to 'Back', ccr_performance_reports_path %>
