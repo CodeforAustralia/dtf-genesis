@@ -101,7 +101,7 @@
       </div>
       <div class="field">
         <%= f.label :practical_completion_estimate %>
-        <%= f.date_select :practical_completion_estimate, value: @contract.vt_end_date %>
+        <%= f.date_select :practical_completion_estimate, {value: @contract.vt_end_date}, {class: "thin-input"} %>
       </div>
       <a data-toggle="tab" href="#contract" class="btn btn-default"><h3>Back</h3></a>
 

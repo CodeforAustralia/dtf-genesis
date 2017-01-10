@@ -29,6 +29,31 @@ $input-active-color: $orangeAlpha50;
 $input-alt-color: #222200;
 $input-active-alt-color: #000000;
 
+
+
+.nav-pills {
+  margin-top: 1px;
+  padding-top: 1px;
+  margin-bottom: 1px;
+  padding-bottom: 1px;
+}
+
+.medium-input {
+  width: 300px;
+}
+
+.thin-input {
+  width: 100px;
+}
+
+.very-thin-input {
+  width: 50px;
+  align: left;
+  margin-left: 10px;
+  padding-left: 10px;
+}
+
+
 .navbar-header {
   border: 2px solid;
 }
@@ -149,7 +174,6 @@ input, textarea, select, .uneditable-input {
 }
 
 form {
-  border: 2px solid $input-alt-color;
   padding-right: 9%;
   padding-left: 2%;
 }
