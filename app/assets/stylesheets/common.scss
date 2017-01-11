@@ -1,3 +1,51 @@
+*{
+  font-family: 'Open Sans';
+}
+
+body{
+  background: rgba(245,245,245,1);
+  margin: 0 auto;
+}
+
+div.text-center{
+  width: 100%;
+  text-align: center;
+}
+
+.page-title{
+  font-size: 25px;
+  font-family: 'Open Sans Bold', 'Open Sans Regular', 'Open Sans';
+}
+
+.input-field .prefix{
+  margin-top: -5px;
+}
+form.smart-listing-controls {
+    margin-top: -20px;
+}
+
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+  font-size: 20px;
+}
+
+input#filter{
+  margin-left: 30px;
+  margin-top: -6px;
+}
+
+input#filter:hover {
+  font-size: 40px;
+  border-bottom: 1px solid #eeeeee;
+  box-shadow: 0 1px 0 0 #eeeeee;
+}
+
+input#filter:focus{
+  border-bottom: 1px solid #26a69a;
+  box-shadow: 0 1px 0 0 #26a69a;
+}
+
+
+//Table
 .contracts-row:hover {
     cursor: pointer;
 }
@@ -6,8 +54,5 @@
     cursor: pointer;
 }
 
-div.text-center{
-  width: 100%;
-  text-align: center;
-}
+
 
