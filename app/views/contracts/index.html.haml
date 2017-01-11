@@ -1,4 +1,7 @@
-%div
+%div.head-title.valign-wrapper
+  %div.valign.text-center
+    = "Select a contract to view full contract and performance report details"
+%hr
   //%p= "This is the list of current construction contracts in Victoria as of today, #{Time.now.to_formatted_s(:long)}"  
   //%p= link_to "View past construction data history: ( #{@csr_contracts.count} contracts )", '/csr_contracts'
   = smart_listing_controls_for(:contracts, {class: ""}) do
