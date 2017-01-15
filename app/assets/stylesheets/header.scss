@@ -72,9 +72,12 @@ nav .brand-logo{
   padding-top: 10px;
 }
 
-ul.nav-list {
-  padding-left: 11%;
+div.nav-list {
+  margin: 0 auto;
+  padding: 0;
   color: #333333;
+  width: 100%;
+  align-content: center;
 }
 
 ul>li.tab:hover{

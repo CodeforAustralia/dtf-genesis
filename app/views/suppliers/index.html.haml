@@ -11,9 +11,12 @@
         %i.material-icons.prefix search
         %label{:for => "icon_prefix"}
         %div.search-input 
-          = text_field_tag :filter, '', class: "", placeholder: "Search...", autocomplete: :off, value: "#{params[:filter]}" 
+          = text_field_tag :filter, '', class: "", placeholder: "Search...", autocomplete: :off, value: "#{params[:filter]}"
       %span.col.s1
-      = link_to '/contracts/save', :class => "" do
+      = link_to '/suppliers', :class => "tooltipped", :data => { :position => "bottom", :delay => "50", :tooltip => "Clear search input" } do
+        %i.material-icons clear_all 
+      %span.col.s1
+      = link_to '/suppliers/save', :class => "tooltipped", :data => { :position => "bottom", :delay => "50", :tooltip => "Download search result" } do
         %i.material-icons file_download
       %span.col.s1
       %i.material-icons more_vert
