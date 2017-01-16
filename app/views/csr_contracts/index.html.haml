@@ -1,15 +1,28 @@
-%div
-  %h1= "Contracts History"
-  %p= "This is the list of past construction contracts in Victoria."
-  %p= link_to "View current construction data: ( #{@contracts.count} contracts )", '/contracts' 
+%div.head-title.valign-wrapper
+  %div.valign.text-center
+    = "Select a contract to view full contract and performance report details "
+%hr
+%div.row
+  %form.col.s12
   = smart_listing_controls_for(:csr_contracts, {class: ""}) do
-    %div.filter.form-search
-      .input-group
+    %span.filter.form-search.row
+      .col.s2.page-title="Contracts"
+      .input-field.col.s6.offset-s1
+        %i.material-icons.prefix search
+        / %label{:for => 'icon_prefix'}
+        %div.search-input
         = text_field_tag :filter, '', class: "", placeholder: "Search...", autocomplete: :off, value: "#{params[:filter]}"
-        %span.input-group-btn
-          = submit_tag 'Refresh', :class => "btn btn-default", :name => "do_query"
-          = link_to  "Clear search", '/csr_contracts', class: "btn btn-default"
-          = link_to "Save", '/csr_contracts/save', class: "btn btn-default"
+      %span.col.s1
+      = link_to '/contracts', :class => "tooltipped", :data => { :position => "bottom", :delay => "50", :tooltip => "Clear search input"} do
+            %i.material-icons clear_all
+      %span.col.s1
+      = link_to '/contracts/save', :class => "tooltipeed", :data => {:position => "bottom", :delay => "50", :tooltip => "Clear search input"} do
+        %i.material-icons clear_all
+
+        / %span.input-group-btn
+        /   = submit_tag 'Refresh', :class => "btn btn-default", :name => "do_query"
+        /   = link_to  "Clear search", '/csr_contracts', class: "btn btn-default"
+        /   = link_to "Save", '/csr_contracts/save', class: "btn btn-default"
 
   %script(type="text/javascript")
     - if params[:f]
