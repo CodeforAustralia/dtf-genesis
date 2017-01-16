@@ -1,15 +1,15 @@
 %div.media
   %div.media-body
-    %table.table-striped
+    %table.responsive-table.highlight.bordered
       %thead.index-haml-pages
         %th.col-md-3= smart_listing.sortable "Name", "name"
-        %th.col-md-1= smart_listing.sortable "ABN", "abn"
-        %th.col-md-1= smart_listing.sortable "ACN", "acn"
+        %th.col-md-1.center-align= smart_listing.sortable "ABN", "abn"
+        %th.col-md-1.center-align= smart_listing.sortable "ACN", "acn"
         %th.col-md-3= smart_listing.sortable "Address", "address"
-        %th.col-md-1= smart_listing.sortable "Suburb", "suburb"
-        %th.col-md-1= smart_listing.sortable "State", "state"
-        %th.col-md-1= smart_listing.sortable "PostCode", "postcode"
-        %th.col-md-1= smart_listing.sortable "Email", "email"
+        %th.col-md-1.center-align= smart_listing.sortable "Suburb", "suburb"
+        %th.col-md-1.center-align= smart_listing.sortable "State", "state"
+        %th.col-md-1.center-align= smart_listing.sortable "PostCode", "postcode"
+        %th.col-md-1.center-align= smart_listing.sortable "Email", "email"
       
       %tbody
         - smart_listing.collection.each do |obj|

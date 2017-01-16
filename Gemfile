@@ -25,6 +25,7 @@ gem 'devise'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'activeadmin', '~> 1.0.0.pre4'
 gem 'font-awesome-rails', '~> 4.5'
+gem 'materialize-sass'
 
 group :development, :test do
   gem 'byebug', platform: :mri

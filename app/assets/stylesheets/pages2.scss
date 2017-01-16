@@ -1,0 +1,186 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+// D3
+// div.bar {
+//   display: inline-block;
+//   width: 40px;
+//   height: 75px;	/* Gets overriden by D3-assigned height below */
+//   margin-right: 2px;
+//   background-color: teal;
+// }
+
+.dashboard {
+  border: 0px solid;
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+  width: 100%;
+}
+.dashboard table {
+  border: 0px solid;
+}
+
+.dashboard tr {
+  padding: 5px;
+  margin: 5px;
+}
+.dashboard td {
+  padding: 5px;
+  margin: 5px;
+}
+
+.barchart {
+  border: 2px solid;
+  padding: 5px;
+  margin: 5px;
+  padding-left: 25px;
+  padding-top: 15px;
+}
+
+.barchart rect {
+  fill: steelblue;
+}
+
+.barchart text {
+  fill: black;
+  font: 8px sans-serif;
+  text-anchor: middle;
+}
+
+.piechart {
+  border: 2px solid;
+  padding: 5px;
+  margin: 5px;
+  padding-left: 25px;
+  padding-top: 15px;
+}
+
+.piechart rect {
+  fill: red;
+}
+
+.piechart text {
+  fill: black;
+  font: 8px sans-serif;
+  text-anchor: middle;
+}
+
+
+.axis text {
+  font: 8px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+
+.legend {
+  font-size: 12px;
+}
+rect {
+  stroke-width: 2;
+}
+
+
+/* header */
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #337ab7;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    color: #66B;
+    text-decoration: none;
+  }
+}
+
+/* FOOTER */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+// Declare the color as RGB; SASS will treat this as hex
+$orangeAlpha75: rgba(rgb(250,70,00), .75);
+$orangeAlpha50: rgba(rgb(250,70,00), .50);
+$orangeAlpha25: rgba(rgb(250,70,00), .25);
+$main-text-color: #222200;
+$logo-color: #222200;
+$header-background: $orangeAlpha75;
+$main-background-color: #DFDAD3;
+$input-color: $orangeAlpha75;
+$input-active-color: $orangeAlpha50;
+$input-alt-color: #222200;
+$input-active-alt-color: #000000;
+
+
+$footer-color: $main-text-color;
+$footer-alt-color: $orangeAlpha75;
+$footer-boarder: $main-text-color;
+$footer-hover: #F22;
+$main-text-color: #F00;
+body { padding-bottom: 50px; }
+.center {
+  text-align: center;
+}
+.center h1 {
+  margin-bottom: 10px;
+}
+.container {
+  color: $main-text-color;
+}
+footer {
+  margin-top: 30px;
+  padding-top: 7px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  border-top: 1px solid $footer-boarder;
+  color: $footer-color;
+  background-color: $footer-alt-color;
+}
+footer p{
+  padding-left: 30px;
+  margin-left: 30px;
+  padding-bottom: 4px;
+  margin-bottom: 5px;
+}
+footer a {
+  color: $footer-alt-color;
+}
+footer a:hover {
+  color: $footer-hover;
+}
+footer small {
+  float: left;
+  line-height: 0.3;
+  font-size: 0.3;
+}
+footer ul {
+  float: right;
+  list-style: none;
+}
+footer ul li {
+  float: left;
+  margin-left: 15px;
+}

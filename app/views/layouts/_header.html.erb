@@ -1,22 +1,29 @@
-<!-- Static navbar: For Cleanup  -->
-<header class="navbar navbar-default navbar-static-top">
-  <div class="container">
-  <div class="navbar-header"> <a href='<% link_to "CCR" %>'><img height='50px' src='/assets/CCR.svg'></img></a> </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li><%= link_to "CCR", pages_home_path %></li>
-        <li><%= link_to "About", pages_about_path %></li>
-        <li><%= link_to "Contracts", contracts_path %></li>
-        <li><%= link_to "Suppliers", suppliers_path %></li>
+<nav class="nav-extended">
+    <div class="nav-wrapper">
+      <span><%= link_to "Construction Contracts Register", root_path, class: "brand-logo nav-text" %></span>
+      <a href="#" data-activates="mobile-page" class="button-collapse"><i class="material-icons">menu</i></a>
+      <div id="nav-mobile" class="right hide-on-med-and-down">
         <% if user_signed_in? %>
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-          <li class="navbar-right"><%= link_to "Admin", admin_dashboard_path %></li>
+          <%= link_to "Logout", destroy_user_session_path, class:"waves-effect waves-light btn nav-btn", method: :delete%>
         <% else %>
-          <li><%= link_to "Login", new_user_session_path %></li>
+          <%= link_to "Login", new_user_session_path, class: "waves-effect waves-light btn nav-btn" %>
         <% end %>
-      </ul>
+
+      </div>
+<!-- <div>
+        <ul class="side-nav" id="mobile-page">
+          <li><a href="#">Contracts</a></li>
+          <li><a href="#">Suppliers</a></li>
+          <li><a href="#">Reports</a></li>
+        </ul>
+      </div> -->
+      <div class="nav-list">
+        <ul class="tabs tabs-transparent" align="center">
+          <li class="tab" ><%= link_to "Contracts", contracts_path%></li>
+          <li class="tab"><%= link_to "Suppliers", suppliers_path %></li>
+          <li class="tab"><%= link_to "Reports", root_path %></li>
+          <li class="tab"><%= link_to "Performance Reporting System", root_path %></li>
+        </ul>
+      </div>
     </div>
-
-  </div>
-
-</header>
+  </nav>

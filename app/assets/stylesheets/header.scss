@@ -1,0 +1,95 @@
+.main-header {
+  margin-left: 0.1%;
+  width: 99.8%;
+}
+
+.main-content{
+  background-color: white;
+  margin-top: 10px;
+  margin-left: 2%;
+  width: 96%;
+  -moz-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.349019607843137);
+  -webkit-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.349019607843137);
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.349019607843137);
+}
+
+nav.nav-extended .nav-wrapper {
+  background-color: rgba(68, 135, 244, 1);
+  height: 125px;
+  -moz-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.349019607843137);
+  -webkit-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.349019607843137);
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.349019607843137);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.nav-text{
+  margin-top: 8px;
+  margin-left: 75px;
+  // font-family: 'Open Sans';
+  font-weight: 400;
+  font-style: normal;
+}
+
+nav .brand-logo{
+  color: #333333;
+}
+
+// login / logout
+.nav-btn{
+  position: relative;
+  top: 8px;
+  right: 45px;
+  border-radius: 20px;
+  border: none;
+  text-transform: capitalize;
+  color: white;
+}
+
+.nav-btn:hover{
+  color: white;
+}
+
+// navigation menu
+
+.tabs.tabs-transparent .tab a, .tabs.tabs-transparent .tab.disabled a, .tabs.tabs-transparent .tab.disabled a:hover {
+  color: white;
+}
+
+.tabs .tab{
+  position: relative;
+  text-transform: capitalize;
+  display: inline;
+  margin-right: 10%;
+  padding-top: 10px;
+  color: white;
+}
+
+.tabs {
+  height: 80px;
+  padding-top: 10px;
+}
+
+div.nav-list {
+  margin: 0 auto;
+  padding: 0;
+  color: #333333;
+  width: 100%;
+  align-content: center;
+}
+
+ul>li.tab:hover{
+  border-bottom: 4px solid rgba(255, 255, 0, 1);
+  background-color: rgba(33, 150, 243, 1);
+}
+
+
+.head-title{
+  font-size: 32px;
+  font-family: 'Open Sans Bold', 'Open Sans Regular', 'Open Sans';
+}
+
+
+
