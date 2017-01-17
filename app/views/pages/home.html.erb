@@ -1,28 +1,25 @@
-<h1>Construction Contracts Register</h1>
-
-
-
+<h4>Construction Contracts Register</h4>
 
 <table class="dashboard">
   <tr>
     <td>
-      <h2>Contract valuations:</h2>
+      <h5>Contract valuations:</h5>
       <p>Value of contracts awarded in the last 30 days: <%= humanized_money_with_symbol @value_in_30 %></p>
       <p>Value of contracts awarded in the last 12 months: <%= humanized_money_with_symbol @value_in_365 %></p>
     </td>
     <td>
-      <h2>Contract activity:</h2>
+      <h5>Contract activity:</h5>
       <p>Contracts awarded in the last 30 days: <%= @contracts_in_30 %></p>
       <p>Contracts awarded in the last 12 months: <%= @contracts_in_365 %></p>
     </td>
   </tr>
   <tr>
     <td>
-    <h2>Contracts by department:</h2>
+    <h5>Contracts by department:</h5>
     <svg class="piechart"></svg>
     </td>
     <td>
-      <h2>Contracts by month:</h2>
+      <h5>Contracts by month:</h5>
       <svg class="barchart"></svg>
     </td>
   </tr>
