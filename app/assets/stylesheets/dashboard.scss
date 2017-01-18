@@ -1,0 +1,30 @@
+div.main-dashboard{
+  margin-top: 10px;
+  width: 100%;
+}
+
+div.card-content{
+  line-height: 0em;
+  height: 86px;
+  margin-top: 15px;
+  padding-top: 5px;
+}
+
+div.card-chart{
+  height: 187px;
+  margin-top: 15px;
+  padding-top: 5px;
+}
+
+div.card-pie-chart{
+  height: 389px;
+  margin-top: 15px;
+  padding-top: 5px;
+}
+
+.shadow{
+  background-color: white;
+  -moz-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.349019607843137);
+  -webkit-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.349019607843137);
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.349019607843137);
+}

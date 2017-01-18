@@ -7,6 +7,16 @@ body{
   margin: 0 auto;
 }
 
+.main-content{
+  margin-top: 10px;
+  margin-left: 2%;
+  width: 96%;
+  background-color: white;
+  -moz-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.349019607843137);
+  -webkit-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.349019607843137);
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.349019607843137);
+}
+
 div.text-center{
   width: 100%;
   text-align: center;

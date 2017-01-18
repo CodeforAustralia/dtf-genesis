@@ -1,0 +1,10 @@
+<svg class="barchart"></svg>
+
+<%= content_tag :div, id: 'spending', data: {spending: @spending_per_month} do %>
+<% end %>
+<%= content_tag :div, id: 'departmentspending', data: {departmentspending: @department_breakdown} do %>
+<% end %>
+
+<% content_for :javascript do %>
+  <%= javascript_include_tag 'charts' %>
+<% end %>

@@ -1,0 +1,29 @@
+%div.dashboard-container
+  %div.col.s12
+    %div.col.s3.center-align
+
+      %div.card-content.shadow
+        %h5= "#{ pluralize(@contracts_in_30, 'Contract') }"
+        %span Awarded in the last 30 days
+      
+      %div.card-content.shadow
+        %h5= "#{ pluralize(@contracts_in_365, 'Contract') }"
+        %span Awarded in the last 12 months
+
+      %div.card-content.shadow
+        %h5= "#{humanized_money_with_symbol @value_in_30}"
+        %span Value in the last 30 days
+
+      %div.card-content.shadow
+        %h5= "#{humanized_money_with_symbol @value_in_365}"
+        %span Value in the last 12 months
+      
+    %div.col.s5.center-align
+      %div.shadow
+        = render 'dashboard/barchart'
+
+    %div.col.s4.center-align
+      %div.shadow
+        = render 'dashboard/piechart'
+
+

@@ -1,39 +1,44 @@
-%div.head-title.valign-wrapper 
-  %div.valign.text-center
-    = "Select a contract to view full contract and performance report details"
+%div.row.main-dashboard
+  = render 'dashboard/display'
 
-%hr
-%div.row
-  %form.col.s12
-  = smart_listing_controls_for(:contracts, {class: ""}) do
-    %span.filter.form-search.row
-      .col.s2.page-title="Contracts"
-      .input-field.col.s6.offset-s1
-        %i.material-icons.prefix search
-        %label{:for => "icon_prefix"}
-        %div.search-input
-        = text_field_tag :filter, '', class: "", placeholder: "Search...", autocomplete: :off, value: "#{params[:filter]}"
+%div.main-content
+  %div.contract-table
+    %div.head-title.valign-wrapper 
+      %div.valign.text-center
+        = "Select a contract to view full contract and performance report details"
 
-      %span.col.s1
-      = link_to '/contracts', :class => "tooltipped", :data => { :position => "bottom", :delay => "50", :tooltip => "Clear search input" } do
-        %i.material-icons clear_all
+    %hr
+    %div.row
+      %form.col.s12
+      = smart_listing_controls_for(:contracts, {class: ""}) do
+        %span.filter.form-search.row
+          .col.s2.page-title="Contracts"
+          .input-field.col.s6.offset-s1
+            %i.material-icons.prefix search
+            %label{:for => "icon_prefix"}
+            %div.search-input
+            = text_field_tag :filter, '', class: "", placeholder: "Search...", autocomplete: :off, value: "#{params[:filter]}"
 
-      %span.col.s1
-      = link_to '/contracts/save', :class => "tooltipped", :data => { :position => "bottom", :delay => "50", :tooltip => "Download search result" } do
-        %i.material-icons file_download
+          %span.col.s1
+          = link_to '/contracts', :class => "tooltipped", :data => { :position => "bottom", :delay => "50", :tooltip => "Clear search input" } do
+            %i.material-icons clear_all
 
-      %span.col.s1
-      %i.material-icons more_vert
+          %span.col.s1
+          = link_to '/contracts/save', :class => "tooltipped", :data => { :position => "bottom", :delay => "50", :tooltip => "Download search result" } do
+            %i.material-icons file_download
 
-  %script(type="text/javascript")
-    - if params[:f]
-      - params[:f].each do |field, param|
-        - param.each do |option, value|
-          - if value[:o] != "skip"
-            - if value[:v].is_a? Hash
-              value = ["#{value[:v]['0']}", "#{value[:v]['1']}", "#{value[:v]['2']}"]
-            - else
-              value = "#{value[:v]}"
-              $.filters.append(humanize("#{field}"), "#{field}", "#{Contract.columns_hash[field].type}", value, "#{value['o']}", "", "#{option}");
+          %span.col.s1
+          %i.material-icons more_vert
 
-  = smart_listing_render :contracts
+      %script(type="text/javascript")
+        - if params[:f]
+          - params[:f].each do |field, param|
+            - param.each do |option, value|
+              - if value[:o] != "skip"
+                - if value[:v].is_a? Hash
+                  value = ["#{value[:v]['0']}", "#{value[:v]['1']}", "#{value[:v]['2']}"]
+                - else
+                  value = "#{value[:v]}"
+                  $.filters.append(humanize("#{field}"), "#{field}", "#{Contract.columns_hash[field].type}", value, "#{value['o']}", "", "#{option}");
+
+      = smart_listing_render :contracts

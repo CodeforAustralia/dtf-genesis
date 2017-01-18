@@ -29,9 +29,9 @@ window.onload = function (win) {
        .attr("x", bc_width / 2)
        .attr("y", 20)
        .attr("class","charttitle")
-       .style("font", "26px sans-serif")
+       .style("font", "17px sans-serif")
        .style("fill", "steelblue")
-       .text("Construction spend/month");
+       .text("Value of awarded contracts in previous 12 months");
 
   var bar = chart.selectAll("g")
        .data(spending_data)
@@ -86,10 +86,10 @@ window.onload = function (win) {
        .attr("x", (pc_width / 2)-35)
        .attr("y", -20)
        .attr("class","charttitle")
-       .style("font", "26px sans-serif")
+       .style("font", "15px sans-serif")
        .style("fill", "steelblue")
        .style("text-anchor", "center")
-       .text("Construction spend by agency");
+       .text("Department % value for previous 12 months");
 
        //Set up groups
   var arcs = piechart.selectAll("g.arc")
