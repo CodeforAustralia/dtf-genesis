@@ -1,35 +1,37 @@
-%div.head-title.valign-wrapper
-  %div.valign.text-center
-    = "Select a supplier to list awarded contracts"
-%hr
-%div.row
-  %form.col.s12  
-  = smart_listing_controls_for(:suppliers, {class: ""}) do
-    %span.filter.form-search.row
-      .col.s2.page-title="Suppliers"
-      .input-field.col.s6.offset-s1
-        %i.material-icons.prefix search
-        %label{:for => "icon_prefix"}
-        %div.search-input 
-          = text_field_tag :filter, '', class: "", placeholder: "Search...", autocomplete: :off, value: "#{params[:filter]}"
-      %span.col.s1
-      = link_to '/suppliers', :class => "tooltipped", :data => { :position => "bottom", :delay => "50", :tooltip => "Clear search input" } do
-        %i.material-icons clear_all 
-      %span.col.s1
-      = link_to '/suppliers/save', :class => "tooltipped", :data => { :position => "bottom", :delay => "50", :tooltip => "Download search result" } do
-        %i.material-icons file_download
-      %span.col.s1
-      %i.material-icons more_vert
+%div.main-content
+  %div.contract-table
+    %div.head-title.valign-wrapper
+      %div.valign.text-center
+        = "Select a supplier to list awarded contracts"
+    %hr
+    %div.row
+      %form.col.s12  
+      = smart_listing_controls_for(:suppliers, {class: ""}) do
+        %span.filter.form-search.row
+          .col.s2.page-title="Suppliers"
+          .input-field.col.s6.offset-s1
+            %i.material-icons.prefix search
+            %label{:for => "icon_prefix"}
+            %div.search-input 
+              = text_field_tag :filter, '', class: "", placeholder: "Search...", autocomplete: :off, value: "#{params[:filter]}"
+          %span.col.s1
+          = link_to '/suppliers', :class => "tooltipped", :data => { :position => "bottom", :delay => "50", :tooltip => "Clear search input" } do
+            %i.material-icons clear_all 
+          %span.col.s1
+          = link_to '/suppliers/save', :class => "tooltipped", :data => { :position => "bottom", :delay => "50", :tooltip => "Download search result" } do
+            %i.material-icons file_download
+          %span.col.s1
+          %i.material-icons more_vert
 
-  %script(type="text/javascript")
-    - if params[:g]
-      - params[:g].each do |field, param|
-        - param.each do |option, value|
-          - if value[:obj] != "skip"
-            - if value[:val].is_a? Hash
-              value = ["#{value[:val]['0']}", "#{value[:val]['1']}", "#{value[:val]['2']}"]
-            - else
-              value = "#{value[:val]}"
-              $.filters.append(humanize("#{field}"), "#{field}", "#{Supplier.columns_hash[field].type}", value, "#{value['obj']}", "", "#{option}");
+      %script(type="text/javascript")
+        - if params[:g]
+          - params[:g].each do |field, param|
+            - param.each do |option, value|
+              - if value[:obj] != "skip"
+                - if value[:val].is_a? Hash
+                  value = ["#{value[:val]['0']}", "#{value[:val]['1']}", "#{value[:val]['2']}"]
+                - else
+                  value = "#{value[:val]}"
+                  $.filters.append(humanize("#{field}"), "#{field}", "#{Supplier.columns_hash[field].type}", value, "#{value['obj']}", "", "#{option}");
 
-  = smart_listing_render :suppliers
+      = smart_listing_render :suppliers
