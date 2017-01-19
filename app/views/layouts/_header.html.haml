@@ -1,18 +1,28 @@
 %nav.nav-extended
-  %div.nav-wrapper
-    %span
-    = link_to "Construction Contracts Register", root_path, :class => "brand-logo nav-text"
-    %a.button-collapse{"data-activates" => "button-collapse", href: root_path}
-      %i.material-icons menu 
-    %div#nav-mobile.right.hide-on-med-and-down
-      -if user_signed_in?
-        =link_to "Logout", destroy_user_session_path, class:"waves-effect waves-light btn nav-btn", method: :delete
-      -else
-        =link_to "Login", new_user_session_path, class: "waves-effect waves-light btn nav-btn"
-      
-    %div.nav-list
-      %ul.tabs.tabs-transparent
-        %li.tab= link_to "Contracts", contracts_path
-        %li.tab= link_to "Suppliers", suppliers_path
-        %li.tab= link_to "Reports", root_path
-        %li.tab= link_to "Performance Reporting System", root_path
+  %div.nav-wrapper.row
+    %div.row
+      %span
+      = link_to "Construction Contracts Register", root_path, :class => "brand-logo nav-text"
+      %a.button-collapse{"data-activates" => "mobile-page", :href => "#"}
+        %i.material-icons menu 
+      %div#nav-mobile.right.hide-on-med-and-down
+        -if user_signed_in?
+          =link_to "Logout", destroy_user_session_path, class:"waves-effect waves-light btn nav-btn", method: :delete
+        -else
+          =link_to "Login", new_user_session_path, class: "waves-effect waves-light btn nav-btn"
+      %ul#mobile-page.side-nav
+        %li
+          %a{:href => "/contracts"} Contracts
+        %li
+          %a{:href => "/suppliers"} Suppliers
+        %li
+          %a{:href => "/ccr_performance_reports"} Reports
+        %li
+          %a{:href => "/ccr_performance_reports"} Performance System
+
+    %div.text-center
+      %ul.nav-list.l12.text-center.hide-on-med-and-down
+        %li.col.l3= link_to "Contracts", contracts_path
+        %li.col.l3= link_to "Suppliers", suppliers_path
+        %li.col.l3= link_to "Reports", root_path
+        %li.col.l3= link_to "Performance Reporting System", root_path

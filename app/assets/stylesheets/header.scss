@@ -1,6 +1,6 @@
 .main-header {
-  margin-left: 0.1%;
-  width: 99.8%;
+  margin-left: 0.5%;
+  width: 99%;
 }
 
 nav.nav-extended .nav-wrapper {
@@ -18,9 +18,17 @@ a:hover {
 .nav-text{
   margin-top: 8px;
   margin-left: 75px;
-  // font-family: 'Open Sans';
   font-weight: 400;
   font-style: normal;
+}
+nav ul a:hover{
+  border-bottom: 4px solid rgba(255, 255, 0, 1);
+  background-color: rgba(33, 150, 243, 1);
+}
+
+nav ul a:visited{
+  border-bottom: 4px solid rgba(255, 255, 0, 1);
+  background-color: rgba(33, 150, 243, 1);
 }
 
 nav .brand-logo{
@@ -42,38 +50,7 @@ nav .brand-logo{
   color: white;
 }
 
-// navigation menu
 
-.tabs.tabs-transparent .tab a, .tabs.tabs-transparent .tab.disabled a, .tabs.tabs-transparent .tab.disabled a:hover {
-  color: white;
-}
-
-.tabs .tab{
-  position: relative;
-  text-transform: capitalize;
-  display: inline;
-  margin-right: 10%;
-  padding-top: 10px;
-  color: white;
-}
-
-.tabs {
-  height: 80px;
-  padding-top: 10px;
-}
-
-div.nav-list {
-  margin: 0 auto;
-  padding: 0;
-  color: #333333;
-  width: 100%;
-  align-content: center;
-}
-
-ul>li.tab:hover{
-  border-bottom: 4px solid rgba(255, 255, 0, 1);
-  background-color: rgba(33, 150, 243, 1);
-}
 
 
 
