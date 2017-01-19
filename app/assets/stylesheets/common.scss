@@ -17,16 +17,26 @@ body{
   box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.349019607843137);
 }
 
-div.text-center{
+div.header-page{
   width: 100%;
   text-align: center;
   margin-top: 20px;
 }
 
-.page-title{
-  font-size: 25px;
+.header-title{
+  font-size: 32px;
   font-family: 'Open Sans Bold', 'Open Sans Regular', 'Open Sans';
 }
+
+div.text-center{
+  width: 100%;
+  text-align: center;
+}
+
+.tab-title{
+  font-size: 25px;
+}
+
 
 .input-field .prefix{
   margin-top: -5px;
@@ -69,4 +79,5 @@ input#filter:focus{
 .backdrop{
   background-color: rgba(68, 135, 244, 1);
  }
+
 

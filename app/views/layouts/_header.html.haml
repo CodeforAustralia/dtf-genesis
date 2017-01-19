@@ -1,0 +1,18 @@
+%nav.nav-extended
+  %div.nav-wrapper
+    %span
+    = link_to "Construction Contracts Register", root_path, :class => "brand-logo nav-text"
+    %a.button-collapse{"data-activates" => "button-collapse", href: root_path}
+      %i.material-icons menu 
+    %div#nav-mobile.right.hide-on-med-and-down
+      -if user_signed_in?
+        =link_to "Logout", destroy_user_session_path, class:"waves-effect waves-light btn nav-btn", method: :delete
+      -else
+        =link_to "Login", new_user_session_path, class: "waves-effect waves-light btn nav-btn"
+      
+    %div.nav-list
+      %ul.tabs.tabs-transparent
+        %li.tab= link_to "Contracts", contracts_path
+        %li.tab= link_to "Suppliers", suppliers_path
+        %li.tab= link_to "Reports", root_path
+        %li.tab= link_to "Performance Reporting System", root_path

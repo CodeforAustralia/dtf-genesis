@@ -3,16 +3,15 @@
 
 %div.main-content
   %div.contract-table
-    %div.head-title.valign-wrapper 
-      %div.valign.text-center
+    %div.valign-wrapper 
+      %div.header-page.header-title.valign
         = "Select a contract to view full contract and performance report details"
-
     %hr
     %div.row
       %form.col.s12
       = smart_listing_controls_for(:contracts, {class: ""}) do
         %span.filter.form-search.row
-          .col.s2.page-title="Contracts"
+          .col.s2.tab-title="Contracts"
           .input-field.col.s6.offset-s1
             %i.material-icons.prefix search
             %label{:for => "icon_prefix"}
