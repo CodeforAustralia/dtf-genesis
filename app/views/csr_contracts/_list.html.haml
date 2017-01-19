@@ -1,19 +1,18 @@
 %div.media
   %div.media-body
     %table.table-striped
-      %thead.index-haml-pages
-        %th.col-md-2= smart_listing.sortable "Title", "csr_description"
-        %th.col-md-1= smart_listing.sortable "Place", "csr_location"
-        %th.col-md-1= smart_listing.sortable "Value", "csr_value"
-        %th.col-md-1= smart_listing.sortable "Start", "csr_start_date"
-        %th.col-md-1= smart_listing.sortable "End", "csr_finish_date"
-        %th.col-md-2= smart_listing.sortable "Supplier", "supplier.name"
-        %th.col-md-1= smart_listing.sortable "ABN", "supplier.abn"
-        %th.col-md-1= smart_listing.sortable "ACN", "supplier.acn"
-        %th.col-md-2= smart_listing.sortable "Comment", "csr_comment"
-        / %th.col-md-1= smart_listing.sortable "Details", "actions"
+      %thead.index-haml-pages.row
+        %th.col.s2= smart_listing.sortable "Title", "csr_description"
+        %th.col.s1= smart_listing.sortable "Place", "csr_location"
+        %th.col.s1= smart_listing.sortable "Value", "csr_value"
+        %th.col.s1= smart_listing.sortable "Start", "csr_start_date"
+        %th.col.s1= smart_listing.sortable "End", "csr_finish_date"
+        %th.col.s2= smart_listing.sortable "Supplier", "supplier.name"
+        %th.col.s1= smart_listing.sortable "ABN", "supplier.abn"
+        %th.col.s1= smart_listing.sortable "ACN", "supplier.acn"
+        %th.col.s2= smart_listing.sortable "Comment", "csr_comment"
 
-      %tbody
+      %tbody.row
         - smart_listing.collection.each do |o|
           %tr.editable.contracts-row{:data => {:id => o.id}}
             = smart_listing.render object: o, partial: "csr_contracts/csr_contract", locals: {object: o}

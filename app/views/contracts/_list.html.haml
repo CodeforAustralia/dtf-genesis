@@ -2,12 +2,12 @@
   %div.media-body
     %table.responsive-table.highlight.bordered
       %thead.index-haml-pages
-        %th.col-md-4= smart_listing.sortable "Title", "vt_title"
-        %th.col-md-1.center-align= smart_listing.sortable "Reference", "vt_contract_number"
-        %th.col-md-1.center-align= smart_listing.sortable "Value", "vt_total_value"
-        %th.col-md-1.center-align= smart_listing.sortable "Start", "vt_start_date"
-        %th.col-md-1.center-align= smart_listing.sortable "End", "vt_end_date"
-        %th.col-md-1.center-align= smart_listing.sortable "Status", "vt_status_id"
+        %th.left-align= smart_listing.sortable "Title", "vt_title"
+        %th.center-align= smart_listing.sortable "Reference", "vt_contract_number"
+        %th.center-align= smart_listing.sortable "Value", "vt_total_value"
+        %th.center-align= smart_listing.sortable "Start", "vt_start_date"
+        %th.center-align= smart_listing.sortable "End", "vt_end_date"
+        %th.center-align= smart_listing.sortable "Status", "vt_status_id"
 
       %tbody
         - smart_listing.collection.each do |o|

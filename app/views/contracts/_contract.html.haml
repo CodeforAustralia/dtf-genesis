@@ -1,10 +1,6 @@
-%td.table-text= "#{object.vt_title}"
+%td.table-text= "#{(object.vt_title).titleize}"
 %td.table-text.center-align= "#{object.vt_contract_number}"
-%td.table-text.center-align= humanized_money_with_symbol(object.vt_total_value)
-%td.table-text.center-align= object.vt_start_date
-%td.table-text.center-align= object.vt_end_date
+%td.table-text.right-align= humanized_money_with_symbol(object.vt_total_value)
+%td.table-text.center-align.date-text= object.vt_start_date
+%td.table-text.center-align.date-text= object.vt_end_date
 %td.table-text.center-align= object.vt_status_id
-
-/ %td.actions= smart_listing_item_actions [{name: :edit, url: edit_contract_path(object)}, {name: :destroy, url: contract_path(object), confirmation: "Are you sure you want to delete this contract?"}]
-
-/ %td.actions= smart_listing_item_actions [{name: :show, url: contract_path(object)}]

@@ -1,10 +1,10 @@
 %nav.nav-extended
   %div.nav-wrapper.row
     %div.row
-      %span
-      = link_to "Construction Contracts Register", root_path, :class => "brand-logo nav-text"
-      %a.button-collapse{"data-activates" => "mobile-page", :href => "#"}
-        %i.material-icons menu 
+      %div
+        = link_to "Construction Contracts Register", root_path, :class => "brand-logo nav-text"
+        %a.button-collapse{"data-activates" => "mobile-page", :href => "#"}
+          %i.material-icons menu 
       %div#nav-mobile.right.hide-on-med-and-down
         -if user_signed_in?
           =link_to "Logout", destroy_user_session_path, class:"waves-effect waves-light btn nav-btn", method: :delete
@@ -20,9 +20,10 @@
         %li
           %a{:href => "/ccr_performance_reports"} Performance System
 
-    %div.text-center
+    %div.nav-menu.text-center
       %ul.nav-list.l12.text-center.hide-on-med-and-down
-        %li.col.l3= link_to "Contracts", contracts_path
-        %li.col.l3= link_to "Suppliers", suppliers_path
-        %li.col.l3= link_to "Reports", root_path
-        %li.col.l3= link_to "Performance Reporting System", root_path
+        %li.col.l3{:class => "#{'active' if current_page?(contracts_path)}"}= link_to "Contracts", contracts_path
+        %li.col.l3{:class => "#{'active' if current_page?(suppliers_path)}"}= link_to "Suppliers", suppliers_path
+        %li.col.l3{:class => "#{'active' if current_page?(ccr_performance_reports_path)}"}= link_to "Reports", ccr_performance_reports_path
+        %li.col.l3{:class => "#{'active' if current_page?(root_path)}"}= link_to "Performance Reporting System", root_path
+
