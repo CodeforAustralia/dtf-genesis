@@ -5,12 +5,14 @@ div.main-footer{
 }
 
 div.footer-wrapper{
-  margin-top: 10px;
   background-color: rgba(68, 135, 244, 1);
   height: 50px;
   -moz-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.349019607843137);
   -webkit-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.349019607843137);
   box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.349019607843137);
+  width: 99%;
+  margin: 0 auto;
+  margin-top: 10px;
 }
 
 div.footer-text{
