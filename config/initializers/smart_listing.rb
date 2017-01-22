@@ -47,9 +47,12 @@ SmartListing.configure do |config|
     :icon_trash            => "glyphicon glyphicon-trash",
     :icon_inactive         => "glyphicon glyphicon-circle",
     :icon_show             => "glyphicon glyphicon-share-alt",
-    :icon_sort_none        => "glyphicon glyphicon-resize-vertical",
-    :icon_sort_up          => "glyphicon glyphicon-chevron-up",
-    :icon_sort_down        => "glyphicon glyphicon-chevron-down",
+    # :icon_sort_none        => "glyphicon glyphicon-resize-vertical",
+    # :icon_sort_up          => "glyphicon glyphicon-chevron-up",
+    # :icon_sort_down        => "glyphicon glyphicon-chevron-down",
+    :icon_sort_none        => "fa fa-arrows-v",
+    :icon_sort_up          => "fa fa-sort-asc",
+    :icon_sort_down        => "fa fa-sort-desc",
     #:muted                 => "text-muted",
   }
 
