@@ -1,6 +1,6 @@
 %div.dashboard-container
   %div.col.s12
-    %div.col.s3.center-align
+    %div.col.s12.m12.l3.center-align
 
       %div.card-content.shadow
         %h5= "#{ pluralize(@contracts_in_30, 'Contract') }"
@@ -18,12 +18,12 @@
         %h5= "#{humanized_money_with_symbol @value_in_365}"
         %span Value in the last 12 months
       
-    %div.col.s5.center-align
-      %div.shadow
+    %div.col.s12.m12.l5.center-align
+      %div.shadow.top-margin
         = render 'dashboard/barchart'
 
-    %div.col.s4.center-align
-      %div.shadow
+    %div.col.s12.m12.l4.center-align
+      %div.shadow.top-margin
         = render 'dashboard/piechart'
 
 

@@ -1,5 +1,5 @@
 
-var window_size = 400;
+var window_size = 374;
 
 window.onload = function (win) {
   var bar_margin = {top: 20, right: 30, bottom: 30, left: 40}
@@ -29,7 +29,7 @@ window.onload = function (win) {
        .attr("x", bc_width / 2)
        .attr("y", 20)
        .attr("class","charttitle")
-       .style("font", "17px sans-serif")
+       .style("font", "15px sans-serif")
        .style("fill", "steelblue")
        .text("Value of awarded contracts in previous 12 months");
 
