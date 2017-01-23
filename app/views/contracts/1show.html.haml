@@ -1,0 +1,120 @@
+%dl.dl-horizontal
+  %h3 Contract Details:
+  %dt
+    %h2 Title
+  %dd
+    %h2= @contract.vt_title
+  %dt
+    %h4 Tenders VIC source
+  %dd
+    %h4= link_to "Reference #{@contract.project_id}", "http://www.tenders.vic.gov.au/tenders/contract/view.do?id=#{@contract.project_id}"
+  %dt
+    %h4 Type and Status
+  %dd
+    %h4
+      = lookup_contract_type_name(@contract.vt_contract_type_id)
+      \- #{lookup_contract_status_name(@contract.vt_status_id)}
+  %dt
+    %h4 Description
+  %dd
+    %h4= @contract.vt_contract_description
+  %dt
+    %h4
+      %h4 Dates
+  %dd
+    %h4
+      = @contract.vt_start_date
+      \-&gt; #{@contract.vt_end_date}
+  %dt
+    %h4 Value
+  %dd
+    %h4= humanized_money_with_symbol(@contract.vt_total_value)
+  %dt
+    %h4 Value type
+  %dd
+    %h4= @contract.vt_value_type_id
+  %dt
+    %h4 Department
+  - department = Department.where(vt_number: @contract.vt_department_id).first
+  - if department
+    %dd
+      %h4
+        = link_to lookup_department_name(@contract.vt_department_id), department_path(department)
+        (#{lookup_department_short_name(@contract.vt_department_id)})
+  - else
+    %dd
+      %h4
+        Unknown agency found: #{@contract.vt_department_id}
+  %dt
+    %h4 Contact
+  %dd
+    %h4= @contract.vt_agency_person
+  %dt
+    %h4 Phone
+  %dd
+    %h4= @contract.vt_agency_phone
+  %dt
+    %h4 Email
+  %dd
+    %h4= @contract.vt_agency_email
+  %dt
+    %h4 Supplier
+  - if @contract.vt_supplier_id == 0
+    %dd
+      %h4= @contract.vt_supplier_name
+  - else
+    %dd
+      %h4
+        = link_to("#{@contract.vt_supplier_name}", supplier_path(@contract.vt_supplier_id))
+  %dt
+    %h4 ABN
+  %dd
+    %h4= @contract.vt_supplier_abn
+  %dt
+    %h4 ACN
+  %dd
+    %h4= @contract.vt_supplier_acn
+  %dt
+    %h4 Address
+  %dd
+    %h4= @contract.vt_supplier_address
+  %dt
+    %h4 Email
+  %dd
+    %h4= @contract.vt_supplier_email
+  %dt
+    %h4 Reporting
+  - if (@cpr_reports.count + @csr_reports.count + @ccr_reports.count) == 0
+    %dd
+      %h4 No reporting on project
+  - @cpr_reports.each do |report|
+    %dd
+      %h4= link_to "CPR Performance Report", report
+  - @csr_reports.each do |report|
+    %dd
+      %h4= link_to "CSR Performance Report", report
+  - @ccr_reports.each do |report|
+    - if report.score_overall == nil
+      %dd
+        %h4= link_to "incomplete CCR Performance Report #{report.id}", report
+    - else
+      %dd
+        %h4= link_to "CCR Performance Report #{report.id} (score:#{report.score_overall})", report
+  %td
+    %dd
+      %h5= link_to "Initiate reporting cycle", new_ccr_performance_report_path(:contract_id => @contract.id)
+  %dt
+    %h4 UNSPSC Code
+  %dd
+    %h4= @contract.vt_unspc_id
+  %dt
+    %h4 Record created
+  %dd
+    %h4= @contract.created_at
+  %dt
+    %h4 Record modified
+  %dd
+    %h4= @contract.updated_at
+  - @ccr_reports.each do |report|
+    - if report.score_overall != nil
+      = render report, locals: {ccr_performance_report: @ccr_performance_report, contract: @contract, department: @department, supplier: @supplier }
