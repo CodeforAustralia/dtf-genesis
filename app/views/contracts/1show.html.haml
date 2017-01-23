@@ -1,4 +1,4 @@
-%dl.dl-horizontal
+%dl.dl-horizontal.collapsible{"data-collapsible" => "accordion"}
   %h3 Contract Details:
   %dt
     %h2 Title
@@ -118,3 +118,4 @@
   - @ccr_reports.each do |report|
     - if report.score_overall != nil
       = render report, locals: {ccr_performance_report: @ccr_performance_report, contract: @contract, department: @department, supplier: @supplier }
+

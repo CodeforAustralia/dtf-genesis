@@ -9,7 +9,7 @@
           %dt
             %h6 Title:
           %dd
-            %h5= @contract.vt_title
+            %h5= @contract.vt_title.titleize
           %dt
             %h6 Tenders VIC source:
           %dd
@@ -23,7 +23,7 @@
           %dt
             %h6 Description:
           %dd
-            %h5= @contract.vt_contract_description
+            %h5= @contract.vt_contract_description.titleize
           %dt
             %h6 Dates:
           %dd
@@ -92,28 +92,66 @@
         %i.material-icons> insert_chart
         Analytics
       .collapsible-body
-        %p Lorem ipsum dolor sit amet.
+        %p Blessed be the name of the Lord!.
     %li
       .collapsible-header
         %i.material-icons> local_activity
         Performance Report Details
       .collapsible-body
-        %p Lorem ipsum dolor sit amet.
+        %dl
+          %dt
+          %h6 Reporting
+          - if (@cpr_reports.count + @csr_reports.count + @ccr_reports.count) == 0
+            %dd
+              %h5 No reporting on project
+          - @cpr_reports.each do |report|
+            %dd
+              %h5= link_to "CPR Performance Report", report
+          - @csr_reports.each do |report|
+            %dd
+              %h5= link_to "CSR Performance Report", report
+          
+          - @ccr_reports.each do |report|
+            - if report.score_overall == nil
+              %dd
+                %h5= link_to "incomplete CCR Performance Report #{report.id}", report
+            - else
+              %dd
+                %h5= link_to "CCR Performance Report #{report.id} (score:#{report.score_overall})", report
+          %dt
+            %dd
+              %h5= link_to "Initiate reporting cycle", new_ccr_performance_report_path(:contract_id => @contract.id)
+          %dt
+            %h6 UNSPSC Code
+          %dd
+            %h5= @contract.vt_unspc_id
+
+          %dt
+            %h6 Record created
+          %dd
+            %h5= @contract.created_at
+          %dt
+            %h6 Record modified
+          %dd
+            %h5= @contract.updated_at
+          - @ccr_reports.each do |report|
+            - if report.score_overall != nil
+              = render report, locals: {ccr_performance_report: @ccr_performance_report, contract: @contract, department: @department, supplier: @supplier }
     %li
       .collapsible-header
         %i.material-icons> view_list
         Performance Assessment
       .collapsible-body
-        %p Lorem ipsum dolor sit amet.
+        %p Blessed be the name of the Lord!.
     %li
       .collapsible-header
         %i.material-icons> playlist_add_check
         Supplier Acceptance
       .collapsible-body
-        %p Lorem ipsum dolor sit amet.
+        %p Blessed be the name of the Lord!.
     %li
       .collapsible-header
         %i.material-icons> account_circle
         Executive Approval
       .collapsible-body
-        %p Lorem ipsum dolor sit amet.
+        %p Blessed be the name of the Lord!.
