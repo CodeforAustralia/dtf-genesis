@@ -1,17 +1,15 @@
 %div.main-content
-  %h1 Csr Performance Reports
-  %table
+  %h4= "CSR Performance Reports:  (#{@csr_reports.count})"
+  %br/
+  = link_to 'New Csr Performance Report', new_csr_performance_report_path
+  %table.bordered.highlight.centered
     %thead
       %tr
-        %th
+        %th CSR Works No
     %tbody
       - @csr_reports.each do |report|
         %tr
           %td= report.csr_works_no
-          %td
-        %tr
           %td= link_to 'Show', report
           %td= link_to 'Edit', edit_csr_performance_report_path(report)
           %td= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' }
-  %br/
-  = link_to 'New Csr Performance Report', new_csr_performance_report_path

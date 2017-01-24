@@ -1,0 +1,15 @@
+%div.main-content
+  %dl.dl-horizontal
+  %h5 Departments:
+  %table.bordered.highlight.responsive-table
+    %thead
+      %tr.row
+        %th Name
+        %th Short name
+        %th VT Ref
+    %tbody
+      - @departments.each do |dep|
+        %tr.row
+          %td= link_to dep.name.titleize, department_path(dep)
+          %td.center-align= dep.short_name
+          %td.center-align= dep.vt_number

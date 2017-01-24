@@ -1,0 +1,33 @@
+%div.main-content
+  %h5.text-center CSR Performance Report Details
+  %p.text-center
+    Supplier Id: #{link_to @csr_performance_report.csr_supplier_id, supplier_path(@csr_performance_report.csr_supplier_id)}
+  %p.text-center
+    Works No: #{@csr_performance_report.csr_works_no}
+  %p.text-center
+    Comment: #{@csr_performance_report.csr_comment}
+  %p.text-center
+    Overall: #{@csr_performance_report.csr_overall}
+  %p.text-center
+    Staff Quality: #{@csr_performance_report.csr_staff_quality}
+  %p.text-center
+    Work Quality: #{@csr_performance_report.csr_work_quality}
+  %p.text-center
+    Coordination: #{@csr_performance_report.csr_coodination}
+  %p.text-center
+    Administration: #{@csr_performance_report.csr_administration}
+  %p.text-center
+    Client Attitude: #{@csr_performance_report.csr_attitude_to_client}
+  %p.text-center
+    Pricing: #{@csr_performance_report.csr_pricing}
+  %p.text-center
+    Payment: #{@csr_performance_report.csr_payment}
+  %p.text-center
+    OHS: #{@csr_performance_report.csr_ohs}
+  %p.text-center
+    IR: #{@csr_performance_report.csr_ir}
+  %p.text-center
+    Environment: #{@csr_performance_report.csr_environment}
+  .text-center
+    = link_to 'Edit', edit_csr_performance_report_path(@csr_performance_report), class: "btn btn-primary"
+    = link_to 'Back', supplier_path(@csr_performance_report.csr_supplier_id), class: "btn btn-primary"

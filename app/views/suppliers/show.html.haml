@@ -1,0 +1,122 @@
+%div.main-content
+  %ul.popout.collapsible{"data-collapsible" => "accordion"}
+    %li
+      .collapsible-header.active
+        %i.material-icons> filter_drama
+        Supplier Details
+      .collapsible-body
+        %dl
+          %dd  
+            %h4= @supplier.name
+          %dt
+            %h6 Address:
+          %dd  
+            %h5= @supplier.address
+            %h5= @supplier.suburb.titleize 
+            %h5= @supplier.state.titleize
+            %h5= @supplier.postcode
+          %dt
+            %h6 ABN:  
+          %dd
+            %h5= "#{@supplier.abn}"
+          %dt
+            %h6 ACN:
+          %dd
+            %h5= "#{@supplier.acn}"
+          %dt
+            %h6 Email:   
+          %dd  
+            %h5= "#{@supplier.email}"
+          %dt
+            %h6 CSR Id: 
+          %dd  
+            %h5= "#{@supplier.id}"
+    %li
+      .collapsible-header
+        %i.material-icons> insert_chart
+        Supplier performance snapshot
+      .collapsible-body
+        %div.col.s6.center-align
+          %div.card-content.shadow
+            %span Rating: 
+            %h6= "#{(@csr_performance_reports.count * @good_reports.count) - (@csr_performance_reports.count * @adverse_reports.count)}"
+          %div.card-content.shadow
+            %span Positive reports on supplier: 
+            %h6= "#{@good_reports.count} (#{@good_percent})"
+          %div.card-content.shadow
+            %span Current projects: 
+            %h6= "#{@current_projects.count}"
+
+        %div.col.s6.center-align
+          %div.card-content.shadow
+            %span Total reports on supplier: 
+            %h6= "#{@csr_performance_reports.count}"
+          %div.card-content.shadow
+            %span Adverse reports on supplier: 
+            %h6= "#{@adverse_reports.count} (#{@adverse_percent})"
+          %div.card-content.shadow
+            %span Current project valuations: 
+            %h6= "$#{@projects_valuation}0"
+
+    %li
+      .collapsible-header
+        %i.material-icons> local_activity
+        Contracts (#{@projects.count} in total)
+      .collapsible-body
+        %table.bordered.highlight.centered.responsive-table
+          %thead.row.s12
+            %th.center-align.col.s4 Title
+            %th.center-align.col.s1 Contract No
+            %th.center-align.col.s1 Department
+            %th.center-align.col.s2 Value
+            %th.center-align.col.s2 Start
+            %th.center-align.col.s2 End
+
+          %tbody.csr-tbody
+            - @projects.each do |contract|
+              %tr.row.s12
+                %td.center-align.col.s4= link_to contract.vt_title, contract
+                %td.center-align.col.s1= link_to contract.vt_contract_number, contract
+                - department = Department.where(vt_number: contract.vt_department_id).first
+                - if department
+                  %td.center-align.col.s1= link_to lookup_department_short_name(contract.vt_department_id), department_path(department)
+                - else
+                  %td.center-align.col.s1
+                    ERR: #{contract.vt_department_id}
+                %td.center-align.col.s2= contract.vt_total_value
+                %td.center-align.date-text.col.s2= contract.vt_start_date
+                %td.center-align.date-text.col.s2= contract.vt_end_date
+
+    %li
+      .collapsible-header
+        %i.material-icons> view_list
+        CSR Reports (#{@csr_performance_reports.count} in total)
+      .collapsible-body
+        %table.highlight.bordered.responsive.centered  
+          %thead.panel.csr-thead
+            %tr.row.s12
+              %th.col.s1.center-align Works No
+              %th.col.s2.center-align Comment
+              %th.col.s1.center-align Overall
+              %th.col.s1.center-align Staff Quality
+              %th.col.s1.center-align Work Quality
+              %th.col.s1.center-align Coordinate
+              %th.col.s1.center-align Admin
+              %th.col.s1.center-align Client Attitude
+              %th.col.s1.center-align Pricing
+              %th.col.s1.center-align Payment
+              %th.col.s1.center-align OHS
+          %tbody
+            - @csr_performance_reports.each do |report|
+              %tr.row.s12
+                %td.col.s1.center-align= link_to report.csr_works_no, report
+                %td.col.s2.center-align= report.csr_comment
+                %td.col.s1.center-align= report.csr_overall
+                %td.col.s1.center-align= report.csr_staff_quality
+                %td.col.s1.center-align= report.csr_work_quality
+                %td.col.s1.center-align= report.csr_coodination
+                %td.col.s1.center-align= report.csr_administration
+                %td.col.s1.center-align= report.csr_attitude_to_client
+                %td.col.s1.center-align= report.csr_pricing
+                %td.col.s1.center-align= report.csr_payment
+                %td.col.s1.center-align= report.csr_ohs

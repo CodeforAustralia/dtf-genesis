@@ -1,0 +1,16 @@
+%div.main-content
+  %h4= "#{@department.name} (#{@department.short_name})"
+  %h6= "Vic Tenders Reference: #{@department.vt_number}"
+  %h5 Agency contracts:
+  %table.highlight.bordered
+    %thead
+      %tr.row
+        %th.col.s7 Title
+        %th.col.s2 Value
+        %th.col.s3 Supplier
+    %tbody
+      - @contracts.each do |con|
+        %tr.row
+          %td.col.s7= link_to con.vt_title.titleize, contract_path(con)
+          %td.col.s2= humanized_money_with_symbol(con.vt_total_value)
+          %td.col.s3= con.vt_supplier_name.titleize
