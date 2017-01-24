@@ -1,7 +1,13 @@
 class CouncilsController < ApplicationController
   before_action :set_council, only: [:show, :edit, :update, :destroy]
   def index
-    @councils = Council.all 
+    @councils = Council.all
+
+    respond_to do |format|
+      format.html #index.html.erb
+      format.json { render json: @councils }
+      format.atom
+    end 
   end
 
   def show
