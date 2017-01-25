@@ -1,9 +1,9 @@
 %div.main-content
+  %div.valign-wrapper
+    %div.header-page.header-title.valign
+      = "Select a supplier to list awarded contracts"
+  %hr
   %div.contract-table
-    %div.valign-wrapper
-      %div.header-page.header-title.valign
-        = "Select a supplier to list awarded contracts"
-    %hr
     %div.row
       %form.col.s12  
       = smart_listing_controls_for(:suppliers, {class: ""}) do
