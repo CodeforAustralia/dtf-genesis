@@ -86,7 +86,6 @@
                 %td.center-align.col.s2= contract.vt_total_value
                 %td.center-align.date-text.col.s2= contract.vt_start_date
                 %td.center-align.date-text.col.s2= contract.vt_end_date
-
     %li
       .collapsible-header
         %i.material-icons> view_list
@@ -107,6 +106,7 @@
               %th.col.s1.center-align Payment
               %th.col.s1.center-align OHS
           %tbody
+          - if user_signed_in?
             - @csr_performance_reports.each do |report|
               %tr.row.s12
                 %td.col.s1.center-align= link_to report.csr_works_no, report
