@@ -1,124 +1,125 @@
-<%= form_for(@ccr_performance_report) do |f| %>
-  <% if @ccr_performance_report.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(ccr_performance_report.errors.count, "error") %> prohibited this ccr_performance_report from being saved:</h2>
+<div class="main-content">
+  <%= form_for(@ccr_performance_report) do |f| %>
+    <% if @ccr_performance_report.errors.any? %>
+      <div id="error_explanation">
+        <h5><%= pluralize(ccr_performance_report.errors.count, "error") %> prohibited this ccr_performance_report from being saved:</h5>
 
-      <ul>
-      <% ccr_performance_report.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% ccr_performance_report.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <ul class="nav nav-tabs" hidden="true">
+      <li class="active"><a data-toggle="tab" href="#contract" aria-expanded="true">Contract</a></li>
+      <li><a data-toggle="tab" href="#report">Reporting</a></li>
+    </ul>
+
+    <div class="tab-content">
+
+      <div id="contract" class="tab-pane active in fade">
+        <h5>Confirm contract details and reporting officer</h5>
+        <div class="field">
+          <%= f.label "VT contract reference" %>
+          <input type="text" disabled="true" value="<%= @contract.vt_contract_number %>"></input>
+        </div>
+        <div class="field">
+          <%= f.label :contract_id %>
+          <%= f.text_field :contract_id, value: @contract.id %>
+        </div>
+        <div class="field">
+          <%= f.label "Contract Value" %>
+          <input type="text" disabled="true" value="<%= @contract.vt_total_value %>"></input>
+        </div>
+        <div class="field">
+          <%= f.label "Contract Title" %>
+          <input type="text" disabled="true" value="<%= @contract.vt_title %>"></input>
+        </div>
+        <div class="field">
+          <%= f.label "Contract Start" %>
+          <input type="text" disabled="true" value="<%= @contract.vt_start_date %>"></input>
+        </div>
+        <div class="field">
+          <%= f.label "Contract End" %>
+          <input type="text" disabled="true" value="<%= @contract.vt_end_date %>"></input>
+        </div>
+        <div class="field">
+          <%= f.label "Contract Description" %>
+          <input type="text" disabled="true" value="<%= @contract.vt_contract_description %>"></input>
+        </div>
+        <div class="field">
+          <%= f.label "Supplier Name" %>
+          <input type="text" disabled="true" value="<%= @contract.vt_supplier_name %>"></input>
+        </div>
+        <div class="field">
+          <%= f.label "Supplier ABN" %>
+          <input type="text" disabled="true" value="<%= @contract.vt_supplier_abn %>"></input>
+        </div>
+        <div class="field">
+          <%= f.label "Supplier ACN" %>
+          <input type="text" disabled="true" value="<%= @contract.vt_supplier_acn %>"></input>
+        </div>
+        <div class="field">
+          <%= f.label "Supplier Email" %>
+          <input type="text" disabled="true" value="<%= @supplier.email %>"></input>
+        </div>
+        <div class="field">
+          <%= f.label "Supplier Phone" %>
+          <input type="text" disabled="true" value="9999-9595"></input>
+        </div>
+        <h5>Are you the reporting officer for this Contract</h5>
+        <a data-toggle="tab" href="#report" class="waves-effect waves-light btn"><h6>Yes</h6></a>
+        <a data-toggle="tab" href="#report" class="waves-effect waves-light btn"><h6>No</h6></a>
+      </div>
+
+      <div id="report" class="tab-pane fade">
+        <h5>Confirm reporting details</h5>
+        <div class="field">
+          <%= f.label :reporting_officer_email %>
+          <%= f.text_field :reporting_officer_email, value: @contract.vt_agency_email %>
+        </div>
+        <div class="field">
+          <%= f.label :reporting_officer_name %>
+          <%= f.text_field :reporting_officer_name, value: @contract.vt_agency_person %>
+        </div>
+        <div class="field">
+          <%= f.label :contract_type %>
+          <%= f.text_field :contract_type, value: "Contractor"  %>
+        </div>
+        <div class="field">
+          <%= f.label "Department" %>
+          <input type="text" disabled="true" value="<%= @department.name %>"></input>
+        </div>
+        <div class="field">
+          <%= f.label :division %>
+          <%= f.text_field :division %>
+        </div>
+        <div class="field">
+          <%= f.label :contract_location %>
+          <%= f.text_field :contract_location %>
+        </div>
+        <div class="field">
+          <%= f.label :practical_completion_estimate %>
+          <%= f.date_select :practical_completion_estimate, {value: @contract.vt_end_date}, {class: "thin-input"} %>
+        </div>
+          <a data-toggle="tab" href="#contract" class="waves-effect waves-light btn"><h6>Back</h6></a>
+        <div class="waves-effect waves-light btn">
+          <%= f.submit %>
+        </div>
+  <!--
+        <div class="field">
+          <%= f.label :final_report %>
+          <%= f.date_select :final_report, value: @contract.vt_end_date %>
+        </div>
+      -->
+        <%= f.text_field :department_id, hidden: true, value: @department.id %>
+      </div>
+
     </div>
+
   <% end %>
 
-  <ul class="nav nav-tabs" hidden="true">
-    <li class="active"><a data-toggle="tab" href="#contract" aria-expanded="true">Contract</a></li>
-    <li><a data-toggle="tab" href="#report">Reporting</a></li>
-  </ul>
-
-  <div class="tab-content">
-
-    <div id="contract" class="tab-pane active in fade">
-      <h1>Confirm contract details and reporting officer</h1>
-      <div class="field">
-        <%= f.label "VT contract reference" %>
-        <input type="text" disabled="true" value="<%= @contract.vt_contract_number %>"></input>
-      </div>
-      <div class="field">
-        <%= f.label :contract_id %>
-        <%= f.text_field :contract_id, value: @contract.id %>
-      </div>
-      <div class="field">
-        <%= f.label "Contract Value" %>
-        <input type="text" disabled="true" value="<%= @contract.vt_total_value %>"></input>
-      </div>
-      <div class="field">
-        <%= f.label "Contract Title" %>
-        <input type="text" disabled="true" value="<%= @contract.vt_title %>"></input>
-      </div>
-      <div class="field">
-        <%= f.label "Contract Start" %>
-        <input type="text" disabled="true" value="<%= @contract.vt_start_date %>"></input>
-      </div>
-      <div class="field">
-        <%= f.label "Contract End" %>
-        <input type="text" disabled="true" value="<%= @contract.vt_end_date %>"></input>
-      </div>
-      <div class="field">
-        <%= f.label "Contract Description" %>
-        <input type="text" disabled="true" value="<%= @contract.vt_contract_description %>"></input>
-      </div>
-      <div class="field">
-        <%= f.label "Supplier Name" %>
-        <input type="text" disabled="true" value="<%= @contract.vt_supplier_name %>"></input>
-      </div>
-      <div class="field">
-        <%= f.label "Supplier ABN" %>
-        <input type="text" disabled="true" value="<%= @contract.vt_supplier_abn %>"></input>
-      </div>
-      <div class="field">
-        <%= f.label "Supplier ACN" %>
-        <input type="text" disabled="true" value="<%= @contract.vt_supplier_acn %>"></input>
-      </div>
-      <div class="field">
-        <%= f.label "Supplier Email" %>
-        <input type="text" disabled="true" value="<%= @supplier.email %>"></input>
-      </div>
-      <div class="field">
-        <%= f.label "Supplier Phone" %>
-        <input type="text" disabled="true" value="9999-9595"></input>
-      </div>
-      <h1>Are you the reporting officer for this Contract</h1>
-      <a data-toggle="tab" href="#report" class="btn btn-default"><h3>Yes</h3></a>
-      <a data-toggle="tab" href="#report" class="btn btn-default"><h3>No ...</h3></a>
-    </div>
-
-    <div id="report" class="tab-pane fade">
-      <h1>Confirm reporting details</h1>
-      <div class="field">
-        <%= f.label :reporting_officer_email %>
-        <%= f.text_field :reporting_officer_email, value: @contract.vt_agency_email %>
-      </div>
-      <div class="field">
-        <%= f.label :reporting_officer_name %>
-        <%= f.text_field :reporting_officer_name, value: @contract.vt_agency_person %>
-      </div>
-      <div class="field">
-        <%= f.label :contract_type %>
-        <%= f.text_field :contract_type, value: "Contractor"  %>
-      </div>
-      <div class="field">
-        <%= f.label "Department" %>
-        <input type="text" disabled="true" value="<%= @department.name %>"></input>
-      </div>
-      <div class="field">
-        <%= f.label :division %>
-        <%= f.text_field :division %>
-      </div>
-      <div class="field">
-        <%= f.label :contract_location %>
-        <%= f.text_field :contract_location %>
-      </div>
-      <div class="field">
-        <%= f.label :practical_completion_estimate %>
-        <%= f.date_select :practical_completion_estimate, {value: @contract.vt_end_date}, {class: "thin-input"} %>
-      </div>
-      <a data-toggle="tab" href="#contract" class="btn btn-default"><h3>Back</h3></a>
-
-      <div class="btn btn-default">
-        <%= f.submit %>
-      </div>
-<!--
-      <div class="field">
-        <%= f.label :final_report %>
-        <%= f.date_select :final_report, value: @contract.vt_end_date %>
-      </div>
-    -->
-      <%= f.text_field :department_id, hidden: true, value: @department.id %>
-    </div>
-
-  </div>
-
-<% end %>
-
-<%= link_to 'Report listing', ccr_performance_reports_path %>
+  <%= link_to 'Report listing', ccr_performance_reports_path %>
+</div>

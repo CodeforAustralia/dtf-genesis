@@ -1,471 +1,473 @@
-<ul class="nav nav-pills nav-stacked pull-right col-md-2">
-  <li class="active"><a data-toggle="tab" href="#contract" aria-expanded="true">Contract</a></li>
-  <li><a data-toggle="tab" href="#finals">Finalize</a></li>
-  <li><a data-toggle="tab" href="#supplier">Supplier</a></li>
-  <li><a data-toggle="tab" href="#costing">Costing</a></li>
-  <li><a data-toggle="tab" href="#time">Time</a></li>
-  <li><a data-toggle="tab" href="#admin">Admin</a></li>
-  <li><a data-toggle="tab" href="#standards">Standards</a></li>
-  <li><a data-toggle="tab" href="#quality">Quality</a></li>
-  <li><a data-toggle="tab" href="#personnel">Personel</a></li>
-  <li><a data-toggle="tab" href="#subcontractors">Subcontractors</a></li>
-  <li><a data-toggle="tab" href="#communication">Communication</a></li>
-  <li><a data-toggle="tab" href="#safety">Safety</a></li>
-  <li><a data-toggle="tab" href="#environment">Environment</a></li>
-  <li><a data-toggle="tab" href="#design">Design</a></li>
-  <li><a data-toggle="tab" href="#overall">Overall</a></li>
-  <li><a data-toggle="tab" href="#feedback">Feedback</a></li>
-  <li><a data-toggle="tab" href="#approval">Approval</a></li>
-</ul>
+<div class="main-content">
+  <ul class="nav nav-pills nav-stacked pull-right col-md-2">
+    <li class="active"><a data-toggle="tab" href="#contract" aria-expanded="true">Contract</a></li>
+    <li><a data-toggle="tab" href="#finals">Finalize</a></li>
+    <li><a data-toggle="tab" href="#supplier">Supplier</a></li>
+    <li><a data-toggle="tab" href="#costing">Costing</a></li>
+    <li><a data-toggle="tab" href="#time">Time</a></li>
+    <li><a data-toggle="tab" href="#admin">Admin</a></li>
+    <li><a data-toggle="tab" href="#standards">Standards</a></li>
+    <li><a data-toggle="tab" href="#quality">Quality</a></li>
+    <li><a data-toggle="tab" href="#personnel">Personel</a></li>
+    <li><a data-toggle="tab" href="#subcontractors">Subcontractors</a></li>
+    <li><a data-toggle="tab" href="#communication">Communication</a></li>
+    <li><a data-toggle="tab" href="#safety">Safety</a></li>
+    <li><a data-toggle="tab" href="#environment">Environment</a></li>
+    <li><a data-toggle="tab" href="#design">Design</a></li>
+    <li><a data-toggle="tab" href="#overall">Overall</a></li>
+    <li><a data-toggle="tab" href="#feedback">Feedback</a></li>
+    <li><a data-toggle="tab" href="#approval">Approval</a></li>
+  </ul>
 
 
-<%= form_for(@ccr_performance_report) do |f| %>
-  <% if @ccr_performance_report.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(ccr_performance_report.errors.count, "error") %> prohibited this ccr_performance_report from being saved:</h2>
+  <%= form_for(@ccr_performance_report) do |f| %>
+    <% if @ccr_performance_report.errors.any? %>
+      <div id="error_explanation">
+        <h5><%= pluralize(ccr_performance_report.errors.count, "error") %> prohibited this ccr_performance_report from being saved:</h5>
 
-      <ul>
-      <% ccr_performance_report.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% ccr_performance_report.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="tab-content col-md-10">
+
+      <div id="contract" class="tab-pane active in fade">
+        <h4>Confirm contract and reporting details</h4>
+        <div class="field">
+          <%= f.label "VT contract reference" %>
+          <input type="text" disabled="true" value="<%= @contract.vt_contract_number %>" class="medium-input"></input>
+          <%= f.text_field :contract_id, hidden: true, value: @contract.id %>
+          <%= f.label "Contract Value" %>
+          <input type="text" disabled="true" value="<%= @contract.vt_total_value %>" class="medium-input"></input>
+        </div>
+        <div class="field">
+          <%= f.label "Contract Title" %>
+          <input type="text" disabled="true" value="<%= @contract.vt_title %>"></input>
+        </div>
+        <div class="field">
+          <%= f.label "Contract Start" %>
+          <input type="text" disabled="true" value="<%= @contract.vt_start_date %>" class="medium-input"></input>
+          <%= f.label "Contract End" %>
+          <input type="text" disabled="true" value="<%= @contract.vt_end_date %>" class="medium-input"></input>
+        </div>
+        <div class="field">
+          <%= f.label "Contract Description" %>
+          <input type="text" disabled="true" value="<%= @contract.vt_contract_description %>"></input>
+        </div>
+        <div class="field">
+          <%= f.label "Supplier Name" %>
+          <input type="text" disabled="true" value="<%= @contract.vt_supplier_name %>"></input>
+        </div>
+        <div class="field">
+          <%= f.label "Supplier ABN" %>
+          <input type="text" disabled="true" value="<%= @contract.vt_supplier_abn %>" class="medium-input"></input>
+          <%= f.label "Supplier ACN" %>
+          <input type="text" disabled="true" value="<%= @contract.vt_supplier_acn %>" class="medium-input"></input>
+        </div>
+        <div class="field">
+          <%= f.label "Supplier Phone" %>
+          <input type="text" disabled="true" value="9999-9595" class="medium-input"></input>
+          <%= f.label "Supplier Email" %>
+          <input type="text" disabled="true" value="<%= @supplier.email %>" class="medium-input"></input>
+        </div>
+        <div class="field">
+          <%= f.label "Reporting officer" %>
+          <%= f.text_field :reporting_officer_name, {value: @contract.vt_agency_person, class: "medium-input"} %>
+          <%= f.label "Reporting email" %>
+          <%= f.text_field :reporting_officer_email, {value: @contract.vt_agency_email, class: "medium-input"} %>
+        </div>
+        <div class="field">
+          <%= f.label :contract_type %>
+          <%= f.text_field :contract_type, {value: "Contractor", class: "thin-input"} %>
+          <%= f.label "Department" %>
+          <input type="text" disabled="true" value="<%= @department.name %>" class="medium-input"></input>
+        </div>
+        <div class="field">
+          <%= f.label :division %>
+          <%= f.text_field :division %>
+        </div>
+        <div class="field">
+          <%= f.label :contract_location %>
+          <%= f.text_field :contract_location %>
+        </div>
+        <div class="field">
+          <%= f.date_select :practical_completion_estimate, {value: @contract.vt_end_date}, {hidden: true} %>
+        </div>
+        <div class="field">
+          <%= f.label :final_report %>
+          <%= f.date_select :final_report, {value: @contract.vt_end_date}, {class: "thin-input"} %>
+        </div>
+          <%= f.text_field :department_id, value: @department.id, hidden: true %>
+      <a class="waves-effect waves-light btn back" disabled="true">Back</a>
+      <a class="waves-effect waves-light btn next">Next</a>
+      </div>
+
+      <div id="finals" class="tab-pane fade">
+        <h4>Confirm Final Contract Details</h4>
+        <div class="field">
+          <%= f.label :practical_completion %>
+          <%= f.date_select :practical_completion, {value: @contract.vt_end_date}, {class: "thin-input"} %>
+        </div>
+        <div class="field">
+          <%= f.label :final_value %>
+          <%= f.text_field :final_value, value: @contract.vt_total_value %>
+        </div>
+        <div class="field">
+          <%= f.label :defects_liability %>
+          <%= f.date_select :defects_liability, {value: @contract.vt_end_date}, {class: "thin-input"} %>
+        </div>
+        <a class="waves-effect waves-light btn back">Back</a>
+        <a class="waves-effect waves-light btn next">Next</a>
+      </div>
+
+      <div id="supplier" class="tab-pane fade">
+        <h4>Confirm Supplier Contact Details</h4>
+        <div class="field">
+          <%= f.label :supplier_id %>
+          <% if @contract.vt_supplier_id == 0 %>
+            <%= f.text_field :supplier_id, value: nil %>
+          <% else %>
+            <%= f.text_field :supplier_id, value: @contract.vt_supplier_id %>
+          <% end %>
+        </div>
+        <div class="field">
+          <%= f.label :supplier_name %>
+          <%= f.text_field :supplier_name, value: @contract.vt_supplier_name %>
+        </div>
+        <div class="field">
+          <%= f.label :supplier_email %>
+          <%= f.text_field :supplier_email, value: @contract.vt_supplier_email %>
+        </div>
+        <a class="waves-effect waves-light btn back">Back</a>
+        <a class="waves-effect waves-light btn next">Next</a>
+      </div>
+
+      <div id="costing" class="tab-pane fade">
+        <div class="field">
+          <h4>Costing</h4>
+          <h6>The following should be considered:</h6>
+          <h6>Timely Submission of Payment Claims.</h6>
+          <h6>Accuracy of Payment Claims.</h6>
+          <h6>Substantiation of Variations.</h6>
+          <%= f.label "Final costing score: " %>
+          <br />
+          <div align="center">
+            <% (0..5).each do |value| %>
+              <%= f.label value %>
+              <%= f.radio_button(:score_cost, value, {class: "very-thin-input"}) %>
+            <% end %>
+          </div>
+        </div>
+        <a class="waves-effect waves-light btn back">Back</a>
+        <a class="waves-effect waves-light btn next">Next</a>
+      </div>
+
+      <div id="time" class="tab-pane fade">
+        <div class="field">
+          <h4>Time Management</h4>
+          <h6>Ability to meet approved programmed milestones.</h6>
+          <h6>Planning, coordination and execution of activities in line with the construction program.</h6>
+          <h6>Updating of the construction program to account for unforeseen delays.</h6>
+          <h6>Timely allocation of appropriate resources to critical activities.</h6>
+          <h6>Timely application to relevant authorities for statutory approvals.</h6>
+          <%= f.label "Final time score: " %>
+          <br />
+          <div align="center">
+            <% (0..5).each do |value| %>
+              <%= f.label value %>
+              <%= f.radio_button(:score_time, value, {class: "very-thin-input"}) %>
+            <% end %>
+          </div>
+        </div>
+        <a class="waves-effect waves-light btn back">Back</a>
+        <a class="waves-effect waves-light btn next">Next</a>
+      </div>
+
+      <div id="admin" class="tab-pane fade">
+        <div class="field">
+          <h4>Contract Administration</h4>
+          <h6>The following should be considered:</h6>
+          <h6>Accuracy of Supporting Evidence - Variations &amp; Extensions of Time.</h6>
+          <h6>Compliance with the administrative requirements of the contract</h6>
+          <h6>Compliance with the contract concerning timely requests for information</h6>
+          <h6>Accuracy and timely submission of documents including, but not limited to, time programs, priced bill of quantities, drawings (including ‘as constructed’ drawings), progress reports, requests for extensions of time, notifications of latent conditions, cash flow projections, technical schedules, contract insurances, and bank guarantees</h6>
+          <h6>Timely follow up action for superintendent’s instructions and request for variation quotations, including action items derived from site meetings.</h6>
+          <%= f.label "Final admin score: " %>
+          <br />
+          <div align="center">
+            <% (0..5).each do |value| %>
+              <%= f.label value %>
+              <%= f.radio_button(:score_admin, value, {class: "very-thin-input"}) %>
+            <% end %>
+          </div>
+        </div>
+        <a class="waves-effect waves-light btn back">Back</a>
+        <a class="waves-effect waves-light btn next">Next</a>
+      </div>
+
+      <div id="standards" class="tab-pane fade">
+        <div class="field">
+          <h4>Standard of Work</h4>
+          <h6>The contractor’s standard of work will generally be measured against the requirements of the documentation.</h6>
+          <h6></h6>
+          <h6>To be considered prior to practical completion:</h6>
+          <h6>Timely attendence to items on the Superintendent's Representative's defects list ('snag list').</h6>
+          <h6>To be considered at practical completion:</h6>
+          <h6>Conformance with specified performance requirements, including specified tolerances and finishes</h6>
+          <h6>Amount of remedial work required, if any.</h6>
+          <h6>To be considered after the defects liability period:</h6>
+          <h6>Rectification of defects.</h6>
+          <h6>Performance during the defects liability period, if applicable.</h6>
+          <%= f.label "Final standards score: " %>
+          <br />
+          <div align="center">
+            <% (0..5).each do |value| %>
+              <%= f.label value %>
+              <%= f.radio_button(:score_standards, value, {class: "very-thin-input"}) %>
+            <% end %>
+          </div>
+        </div>
+        <a class="waves-effect waves-light btn back">Back</a>
+        <a class="waves-effect waves-light btn next">Next</a>
+      </div>
+
+      <div id="quality" class="tab-pane fade">
+        <div class="field">
+          <h4>Quality Management Systems</h4>
+          <h6>Quality systems will generally be measured against the specification and the contractor's quality system implementation including:</h6>
+          <h6>Extent of the contractor's compliance.</h6>
+          <h6>Results of quality audits for the project.</h6>
+          <h6>Ability of the quality system to identify and deal with non-conformances and conditions adverse to quality.</h6>
+          <%= f.label "Final quality score: " %>
+          <br />
+          <div align="center">
+            <% (0..5).each do |value| %>
+              <%= f.label value %>
+              <%= f.radio_button(:score_quality, value, {class: "very-thin-input"}) %>
+            <% end %>
+          </div>
+        </div>
+        <a class="waves-effect waves-light btn back">Back</a>
+        <a class="waves-effect waves-light btn next">Next</a>
+      </div>
+
+      <div id="personnel" class="tab-pane fade">
+        <div class="field">
+          <h4>Personnel Management</h4>
+          <h6>The contractor's ability to manage both on-site and off-site personnel to ensure co-operative and effective performance, including:</h6>
+          <h6>Adequacy of the number of site personnel engaged by the contractor  to effectively carry out and progress the work;</h6>
+          <h6>Management of site personnel</h6>
+          <h6>Adherence to site rules and procedures, including maintenance of security at site</h6>
+          <h6>Suitability of staff, management, administrative, technical or industry skills and overall experiences relevant to the tasks undertaken.</h6>
+          <%= f.label "Final personnel score: " %>
+          <br />
+          <div align="center">
+            <% (0..5).each do |value| %>
+              <%= f.label value %>
+              <%= f.radio_button(:score_personnel, value, {class: "very-thin-input"}) %>
+            <% end %>
+          </div>
+        </div>
+        <a class="waves-effect waves-light btn back">Back</a>
+        <a class="waves-effect waves-light btn next">Next</a>
+      </div>
+
+      <div id="subcontractors" class="tab-pane fade">
+        <div class="field">
+          <h4>Subcontractor Management</h4>
+          <h6>The Contractor's ability to coordinate and manage both off-site and on-site subcontractors and suppliers to ensure effective performance. This includes:</h6>
+          <h6>Timely delivery of goods and services.</h6>
+          <h6>Timely completion of subcontract work.</h6>
+          <h6>Ability to maintain effective and cooperative relationships with subcontractors.</h6>
+          <h6>Compliance with contractual and legal obligations with respect to subcontractors and suppliers.</h6>
+          <h6>Payment to all subcontractors and suppliers in accordance with legislation and contract conditions, and no adverse ‘spot check’ outcomes.</h6>
+          <h6>Note:  A supplier who contracts with a client agency is accountable to the client agency  for the standards of performance, behaviour and ethical conduct of all the suppliers down the  contract chain.</h6>
+          <%= f.label "Final subcontractor score: " %>
+          <br />
+          <div align="center">
+            <% (0..5).each do |value| %>
+              <%= f.label value %>
+              <%= f.radio_button(:score_subcontract, value, {class: "very-thin-input"}) %>
+            <% end %>
+          </div>
+        </div>
+        <a class="waves-effect waves-light btn back">Back</a>
+        <a class="waves-effect waves-light btn next">Next</a>
+      </div>
+
+      <div id="communication" class="tab-pane fade">
+        <div class="field">
+          <h4>Relationship Management &amp; Communication</h4>
+          <h6>Relationship with Principal:</h6>
+          <h6>In assessing the supplier’s relationship with the principal, superintendent’s representative, or departmental contract administration personnel, the following should be considered:</h6>
+          <h6>Commitment to being a good corporate citizen.</h6>
+          <h6>Adoption and commitment to principles of partnering with clients, sub suppliers, departmental appointed OHS consultant, and suppliers.</h6>
+          <h6>Cooperation with other parties in the administration of contracts to enable them to fulfil their contractual obligations.</h6>
+          <h6>Commitment to a non-adversarial approach to dispute resolution with arbitration or litigation reserved as a last resort.</h6>
+          <h6>Commitment to timely resolution of issues through open and effective communication.</h6>
+          <h6>Commitment to a co-operative working relationship with the principal / client agency.</h6>
+          <h6>Number of instructions issued to the contractor under the contract  regarding relationship with principal / client agency.</h6>
+          <h6>Relationship with community, client and other stakeholders:</h6>
+          <h6>In assessing the contractor’s other relationships, the following should be considered:</h6>
+          <h6>Commitment to being a good corporate citizen;adoption and commitment to principles of partnering with clients, sub suppliers, departmental appointed OHS consultant, and suppliers;</h6>
+          <h6>Adequate complaints management process; including timely resolution of customer or community complaints.</h6>
+          <%= f.label "Final communication score: " %>
+          <br />
+          <div align="center">
+            <% (0..5).each do |value| %>
+              <%= f.label value %>
+              <%= f.radio_button(:score_communication, value, {class: "very-thin-input"}) %>
+            <% end %>
+          </div>
+        </div>
+        <a class="waves-effect waves-light btn back">Back</a>
+        <a class="waves-effect waves-light btn next">Next</a>
+      </div>
+
+      <div id="safety" class="tab-pane fade">
+        <div class="field">
+          <h4>Occupational Health, &amp; Safety</h4>
+          <h6>In assessing the contractor's OHS and environmental performance, the following should be considered:</h6>
+          <h6>Commitment to being a good corporate citizen.</h6>
+          <h6>Compliance with obligations under the Occupational Safety &amp; Health act and regulations.</h6>
+          <h6>Compliance with OHS issues specifically nominated in the contract, and compliance with OHS reporting requirements.</h6>
+          <h6>Implementation and compliance with the site-specific hazardous materials, environmental management plans and safety management plans, as appropriate and site management requirements as appropriate.</h6>
+          <h6>Number of infringement notices issued to the contractor relevant to the contract.</h6>
+          <h6>Number of directions issues to the contractor concerning:</h6>
+          <h6>1. safety;</h6>
+          <h6>2. noise control;</h6>
+          <h6>3. site control;</h6>
+          <h6>4. soil erosion; and</h6>
+          <h6>5. management of dust, dirt, water, refuse and fumes.</h6>
+          <%= f.label "Final safety score: " %>
+          <br />
+          <div align="center">
+            <% (0..5).each do |value| %>
+              <%= f.label value %>
+              <%= f.radio_button(:score_safety, value, {class: "very-thin-input"}) %>
+            <% end %>
+          </div>
+        </div>
+        <a class="waves-effect waves-light btn back">Back</a>
+        <a class="waves-effect waves-light btn next">Next</a>
+      </div>
+
+      <div id="environment" class="tab-pane fade">
+        <div class="field">
+          <h4>Environmental Management</h4>
+          <h6>Where specified, compliance with the environmental requirements set out in the contract and other environmental obligations.</h6>
+          <h6>Evidence of an environmentally-aware culture.</h6>
+          <h6>Where specified, compliance with the project Environmental Management Plan, including audit results.</h6>
+          <h6>Where specified, compliance with Environmental Impact Statement requirements.</h6>
+          <%= f.label "Final environment score: " %>
+          <br />
+          <div align="center">
+            <% (0..5).each do |value| %>
+              <%= f.label value %>
+              <%= f.radio_button(:score_environment, value, {class: "very-thin-input"}) %>
+            <% end %>
+          </div>
+        </div>
+        <a class="waves-effect waves-light btn back">Back</a>
+        <a class="waves-effect waves-light btn next">Next</a>
+      </div>
+
+      <div id="design" class="tab-pane fade">
+        <div class="field">
+          <h4>Contractors Design Documents</h4>
+          <h6>Mandatory for the following contract strategies:</h6>
+          <h6>Construct – also known as Design Development and Construct; and Design and Construct.</h6>
+          <h6>Adequacy of documentation in meeting the requirements of the contract.</h6>
+          <%= f.label "Final design score: " %>
+          <br />
+          <div align="center">
+            <% (0..5).each do |value| %>
+              <%= f.label value %>
+              <%= f.radio_button(:score_design, value, {class: "very-thin-input"}) %>
+            <% end %>
+          </div>
+        </div>
+        <a class="waves-effect waves-light btn back">Back</a>
+        <a class="waves-effect waves-light btn next">Next</a>
+      </div>
+
+      <div id="overall" class="tab-pane fade">
+        <div class="field">
+          <h4>Overall Performance</h4>
+          <h6>Weighting and Formula for determination of Overall performance - TO BE DECIDED</h6>
+          <%= f.label "Final overall score: " %>
+          <br />
+          <div align="center">
+            <% (0..5).each do |value| %>
+              <%= f.label value %>
+              <%= f.radio_button(:score_overall, value, {class: "very-thin-input"}) %>
+            <% end %>
+          </div>
+        </div>
+        <a class="waves-effect waves-light btn back">Back</a>
+        <a class="waves-effect waves-light btn next">Next</a>
+      </div>
+
+      <div id="feedback" class="tab-pane fade">
+        <h4>Supplier Feedback / Reply</h4>
+        <div class="field">
+          <%= f.label :acceptance_name %>
+          <%= f.text_field :acceptance_name, value: @contract.vt_supplier_name %>
+        </div>
+        <div class="field">
+          <%= f.label :acceptance_email %>
+          <%if @supplier.email == "" %>
+            <%= f.text_field :acceptance_email, value: @contract.vt_supplier_email %>
+          <% else %>
+            <%= f.text_field :acceptance_email, value: @supplier.email %>
+          <% end %>
+        </div>
+        <div class="field">
+          <%= f.label :acceptance_status %>
+          <%= f.number_field :acceptance_status %>
+        </div>
+        <a class="waves-effect waves-light btn back">Back</a>
+        <a class="waves-effect waves-light btn next">Next</a>
+      </div>
+
+      <div id="approval" class="tab-pane fade">
+        <h4>Executive Approval</h4>
+        <div class="field">
+          <%= f.label :executive_name %>
+          <%= f.text_field :executive_name %>
+        </div>
+        <div class="field">
+          <%= f.label :executive_email %>
+          <%= f.text_field :executive_email %>
+        </div>
+        <div class="field">
+          <%= f.label :executive_status %>
+          <%= f.number_field :executive_status %>
+        </div>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+        <a class="waves-effect waves-light btn back">Back</a>
+        <a class="waves-effect waves-light btn next" disabled="true">Next</a>
+      </div>
+
     </div>
+
   <% end %>
 
-  <div class="tab-content col-md-10">
+  <script>
+  $('.next').click(function(){
+    $('.nav-pills > .active').next('li').find('a').trigger('click');
+  });
+  $('.back').click(function(){
+    $('.nav-pills > .active').prev('li').find('a').trigger('click');
+  });
+  </script>
 
-    <div id="contract" class="tab-pane active in fade">
-      <h1>Confirm contract and reporting details</h1>
-      <div class="field">
-        <%= f.label "VT contract reference" %>
-        <input type="text" disabled="true" value="<%= @contract.vt_contract_number %>" class="medium-input"></input>
-        <%= f.text_field :contract_id, hidden: true, value: @contract.id %>
-        <%= f.label "Contract Value" %>
-        <input type="text" disabled="true" value="<%= @contract.vt_total_value %>" class="medium-input"></input>
-      </div>
-      <div class="field">
-        <%= f.label "Contract Title" %>
-        <input type="text" disabled="true" value="<%= @contract.vt_title %>"></input>
-      </div>
-      <div class="field">
-        <%= f.label "Contract Start" %>
-        <input type="text" disabled="true" value="<%= @contract.vt_start_date %>" class="medium-input"></input>
-        <%= f.label "Contract End" %>
-        <input type="text" disabled="true" value="<%= @contract.vt_end_date %>" class="medium-input"></input>
-      </div>
-      <div class="field">
-        <%= f.label "Contract Description" %>
-        <input type="text" disabled="true" value="<%= @contract.vt_contract_description %>"></input>
-      </div>
-      <div class="field">
-        <%= f.label "Supplier Name" %>
-        <input type="text" disabled="true" value="<%= @contract.vt_supplier_name %>"></input>
-      </div>
-      <div class="field">
-        <%= f.label "Supplier ABN" %>
-        <input type="text" disabled="true" value="<%= @contract.vt_supplier_abn %>" class="medium-input"></input>
-        <%= f.label "Supplier ACN" %>
-        <input type="text" disabled="true" value="<%= @contract.vt_supplier_acn %>" class="medium-input"></input>
-      </div>
-      <div class="field">
-        <%= f.label "Supplier Phone" %>
-        <input type="text" disabled="true" value="9999-9595" class="medium-input"></input>
-        <%= f.label "Supplier Email" %>
-        <input type="text" disabled="true" value="<%= @supplier.email %>" class="medium-input"></input>
-      </div>
-      <div class="field">
-        <%= f.label "Reporting officer" %>
-        <%= f.text_field :reporting_officer_name, {value: @contract.vt_agency_person, class: "medium-input"} %>
-        <%= f.label "Reporting email" %>
-        <%= f.text_field :reporting_officer_email, {value: @contract.vt_agency_email, class: "medium-input"} %>
-      </div>
-      <div class="field">
-        <%= f.label :contract_type %>
-        <%= f.text_field :contract_type, {value: "Contractor", class: "thin-input"} %>
-        <%= f.label "Department" %>
-        <input type="text" disabled="true" value="<%= @department.name %>" class="medium-input"></input>
-      </div>
-      <div class="field">
-        <%= f.label :division %>
-        <%= f.text_field :division %>
-      </div>
-      <div class="field">
-        <%= f.label :contract_location %>
-        <%= f.text_field :contract_location %>
-      </div>
-      <div class="field">
-        <%= f.date_select :practical_completion_estimate, {value: @contract.vt_end_date}, {hidden: true} %>
-      </div>
-      <div class="field">
-        <%= f.label :final_report %>
-        <%= f.date_select :final_report, {value: @contract.vt_end_date}, {class: "thin-input"} %>
-      </div>
-        <%= f.text_field :department_id, value: @department.id, hidden: true %>
-    <a class="btn btn-primary back" disabled="true">Back</a>
-    <a class="btn btn-primary next">Next</a>
-    </div>
-
-    <div id="finals" class="tab-pane fade">
-      <h1>Confirm Final Contract Details</h1>
-      <div class="field">
-        <%= f.label :practical_completion %>
-        <%= f.date_select :practical_completion, {value: @contract.vt_end_date}, {class: "thin-input"} %>
-      </div>
-      <div class="field">
-        <%= f.label :final_value %>
-        <%= f.text_field :final_value, value: @contract.vt_total_value %>
-      </div>
-      <div class="field">
-        <%= f.label :defects_liability %>
-        <%= f.date_select :defects_liability, {value: @contract.vt_end_date}, {class: "thin-input"} %>
-      </div>
-      <a class="btn btn-primary back">Back</a>
-      <a class="btn btn-primary next">Next</a>
-    </div>
-
-    <div id="supplier" class="tab-pane fade">
-      <h1>Confirm Supplier Contact Details</h1>
-      <div class="field">
-        <%= f.label :supplier_id %>
-        <% if @contract.vt_supplier_id == 0 %>
-          <%= f.text_field :supplier_id, value: nil %>
-        <% else %>
-          <%= f.text_field :supplier_id, value: @contract.vt_supplier_id %>
-        <% end %>
-      </div>
-      <div class="field">
-        <%= f.label :supplier_name %>
-        <%= f.text_field :supplier_name, value: @contract.vt_supplier_name %>
-      </div>
-      <div class="field">
-        <%= f.label :supplier_email %>
-        <%= f.text_field :supplier_email, value: @contract.vt_supplier_email %>
-      </div>
-      <a class="btn btn-primary back">Back</a>
-      <a class="btn btn-primary next">Next</a>
-    </div>
-
-    <div id="costing" class="tab-pane fade">
-      <div class="field">
-        <h1>Costing</h1>
-        <h4>The following should be considered:</h4>
-        <h4>Timely Submission of Payment Claims.</h4>
-        <h4>Accuracy of Payment Claims.</h4>
-        <h4>Substantiation of Variations.</h4>
-        <%= f.label "Final costing score: " %>
-        <br />
-        <div align="center">
-          <% (0..5).each do |value| %>
-            <%= f.label value %>
-            <%= f.radio_button(:score_cost, value, {class: "very-thin-input"}) %>
-          <% end %>
-        </div>
-      </div>
-      <a class="btn btn-primary back">Back</a>
-      <a class="btn btn-primary next">Next</a>
-    </div>
-
-    <div id="time" class="tab-pane fade">
-      <div class="field">
-        <h1>Time Management</h1>
-        <h4>Ability to meet approved programmed milestones.</h4>
-        <h4>Planning, coordination and execution of activities in line with the construction program.</h4>
-        <h4>Updating of the construction program to account for unforeseen delays.</h4>
-        <h4>Timely allocation of appropriate resources to critical activities.</h4>
-        <h4>Timely application to relevant authorities for statutory approvals.</h4>
-        <%= f.label "Final time score: " %>
-        <br />
-        <div align="center">
-          <% (0..5).each do |value| %>
-            <%= f.label value %>
-            <%= f.radio_button(:score_time, value, {class: "very-thin-input"}) %>
-          <% end %>
-        </div>
-      </div>
-      <a class="btn btn-primary back">Back</a>
-      <a class="btn btn-primary next">Next</a>
-    </div>
-
-    <div id="admin" class="tab-pane fade">
-      <div class="field">
-        <h1>Contract Administration</h1>
-        <h4>The following should be considered:</h4>
-        <h4>Accuracy of Supporting Evidence - Variations &amp; Extensions of Time.</h4>
-        <h4>Compliance with the administrative requirements of the contract</h4>
-        <h4>Compliance with the contract concerning timely requests for information</h4>
-        <h4>Accuracy and timely submission of documents including, but not limited to, time programs, priced bill of quantities, drawings (including ‘as constructed’ drawings), progress reports, requests for extensions of time, notifications of latent conditions, cash flow projections, technical schedules, contract insurances, and bank guarantees</h4>
-        <h4>Timely follow up action for superintendent’s instructions and request for variation quotations, including action items derived from site meetings.</h4>
-        <%= f.label "Final admin score: " %>
-        <br />
-        <div align="center">
-          <% (0..5).each do |value| %>
-            <%= f.label value %>
-            <%= f.radio_button(:score_admin, value, {class: "very-thin-input"}) %>
-          <% end %>
-        </div>
-      </div>
-      <a class="btn btn-primary back">Back</a>
-      <a class="btn btn-primary next">Next</a>
-    </div>
-
-    <div id="standards" class="tab-pane fade">
-      <div class="field">
-        <h1>Standard of Work</h1>
-        <h4>The contractor’s standard of work will generally be measured against the requirements of the documentation.</h4>
-        <h4></h4>
-        <h4>To be considered prior to practical completion:</h4>
-        <h4>Timely attendence to items on the Superintendent's Representative's defects list ('snag list').</h4>
-        <h4>To be considered at practical completion:</h4>
-        <h4>Conformance with specified performance requirements, including specified tolerances and finishes</h4>
-        <h4>Amount of remedial work required, if any.</h4>
-        <h4>To be considered after the defects liability period:</h4>
-        <h4>Rectification of defects.</h4>
-        <h4>Performance during the defects liability period, if applicable.</h4>
-        <%= f.label "Final standards score: " %>
-        <br />
-        <div align="center">
-          <% (0..5).each do |value| %>
-            <%= f.label value %>
-            <%= f.radio_button(:score_standards, value, {class: "very-thin-input"}) %>
-          <% end %>
-        </div>
-      </div>
-      <a class="btn btn-primary back">Back</a>
-      <a class="btn btn-primary next">Next</a>
-    </div>
-
-    <div id="quality" class="tab-pane fade">
-      <div class="field">
-        <h1>Quality Management Systems</h1>
-        <h4>Quality systems will generally be measured against the specification and the contractor's quality system implementation including:</h4>
-        <h4>Extent of the contractor's compliance.</h4>
-        <h4>Results of quality audits for the project.</h4>
-        <h4>Ability of the quality system to identify and deal with non-conformances and conditions adverse to quality.</h4>
-        <%= f.label "Final quality score: " %>
-        <br />
-        <div align="center">
-          <% (0..5).each do |value| %>
-            <%= f.label value %>
-            <%= f.radio_button(:score_quality, value, {class: "very-thin-input"}) %>
-          <% end %>
-        </div>
-      </div>
-      <a class="btn btn-primary back">Back</a>
-      <a class="btn btn-primary next">Next</a>
-    </div>
-
-    <div id="personnel" class="tab-pane fade">
-      <div class="field">
-        <h1>Personnel Management</h1>
-        <h4>The contractor's ability to manage both on-site and off-site personnel to ensure co-operative and effective performance, including:</h4>
-        <h4>Adequacy of the number of site personnel engaged by the contractor  to effectively carry out and progress the work;</h4>
-        <h4>Management of site personnel</h4>
-        <h4>Adherence to site rules and procedures, including maintenance of security at site</h4>
-        <h4>Suitability of staff, management, administrative, technical or industry skills and overall experiences relevant to the tasks undertaken.</h4>
-        <%= f.label "Final personnel score: " %>
-        <br />
-        <div align="center">
-          <% (0..5).each do |value| %>
-            <%= f.label value %>
-            <%= f.radio_button(:score_personnel, value, {class: "very-thin-input"}) %>
-          <% end %>
-        </div>
-      </div>
-      <a class="btn btn-primary back">Back</a>
-      <a class="btn btn-primary next">Next</a>
-    </div>
-
-    <div id="subcontractors" class="tab-pane fade">
-      <div class="field">
-        <h1>Subcontractor Management</h1>
-        <h4>The Contractor's ability to coordinate and manage both off-site and on-site subcontractors and suppliers to ensure effective performance. This includes:</h4>
-        <h4>Timely delivery of goods and services.</h4>
-        <h4>Timely completion of subcontract work.</h4>
-        <h4>Ability to maintain effective and cooperative relationships with subcontractors.</h4>
-        <h4>Compliance with contractual and legal obligations with respect to subcontractors and suppliers.</h4>
-        <h4>Payment to all subcontractors and suppliers in accordance with legislation and contract conditions, and no adverse ‘spot check’ outcomes.</h4>
-        <h4>Note:  A supplier who contracts with a client agency is accountable to the client agency  for the standards of performance, behaviour and ethical conduct of all the suppliers down the  contract chain.</h4>
-        <%= f.label "Final subcontractor score: " %>
-        <br />
-        <div align="center">
-          <% (0..5).each do |value| %>
-            <%= f.label value %>
-            <%= f.radio_button(:score_subcontract, value, {class: "very-thin-input"}) %>
-          <% end %>
-        </div>
-      </div>
-      <a class="btn btn-primary back">Back</a>
-      <a class="btn btn-primary next">Next</a>
-    </div>
-
-    <div id="communication" class="tab-pane fade">
-      <div class="field">
-        <h1>Relationship Management &amp; Communication</h1>
-        <h4>Relationship with Principal:</h4>
-        <h4>In assessing the supplier’s relationship with the principal, superintendent’s representative, or departmental contract administration personnel, the following should be considered:</h4>
-        <h4>Commitment to being a good corporate citizen.</h4>
-        <h4>Adoption and commitment to principles of partnering with clients, sub suppliers, departmental appointed OHS consultant, and suppliers.</h4>
-        <h4>Cooperation with other parties in the administration of contracts to enable them to fulfil their contractual obligations.</h4>
-        <h4>Commitment to a non-adversarial approach to dispute resolution with arbitration or litigation reserved as a last resort.</h4>
-        <h4>Commitment to timely resolution of issues through open and effective communication.</h4>
-        <h4>Commitment to a co-operative working relationship with the principal / client agency.</h4>
-        <h4>Number of instructions issued to the contractor under the contract  regarding relationship with principal / client agency.</h4>
-        <h4>Relationship with community, client and other stakeholders:</h4>
-        <h4>In assessing the contractor’s other relationships, the following should be considered:</h4>
-        <h4>Commitment to being a good corporate citizen;adoption and commitment to principles of partnering with clients, sub suppliers, departmental appointed OHS consultant, and suppliers;</h4>
-        <h4>Adequate complaints management process; including timely resolution of customer or community complaints.</h4>
-        <%= f.label "Final communication score: " %>
-        <br />
-        <div align="center">
-          <% (0..5).each do |value| %>
-            <%= f.label value %>
-            <%= f.radio_button(:score_communication, value, {class: "very-thin-input"}) %>
-          <% end %>
-        </div>
-      </div>
-      <a class="btn btn-primary back">Back</a>
-      <a class="btn btn-primary next">Next</a>
-    </div>
-
-    <div id="safety" class="tab-pane fade">
-      <div class="field">
-        <h1>Occupational Health, &amp; Safety</h1>
-        <h4>In assessing the contractor's OHS and environmental performance, the following should be considered:</h4>
-        <h4>Commitment to being a good corporate citizen.</h4>
-        <h4>Compliance with obligations under the Occupational Safety &amp; Health act and regulations.</h4>
-        <h4>Compliance with OHS issues specifically nominated in the contract, and compliance with OHS reporting requirements.</h4>
-        <h4>Implementation and compliance with the site-specific hazardous materials, environmental management plans and safety management plans, as appropriate and site management requirements as appropriate.</h4>
-        <h4>Number of infringement notices issued to the contractor relevant to the contract.</h4>
-        <h4>Number of directions issues to the contractor concerning:</h4>
-        <h4>1. safety;</h4>
-        <h4>2. noise control;</h4>
-        <h4>3. site control;</h4>
-        <h4>4. soil erosion; and</h4>
-        <h4>5. management of dust, dirt, water, refuse and fumes.</h4>
-        <%= f.label "Final safety score: " %>
-        <br />
-        <div align="center">
-          <% (0..5).each do |value| %>
-            <%= f.label value %>
-            <%= f.radio_button(:score_safety, value, {class: "very-thin-input"}) %>
-          <% end %>
-        </div>
-      </div>
-      <a class="btn btn-primary back">Back</a>
-      <a class="btn btn-primary next">Next</a>
-    </div>
-
-    <div id="environment" class="tab-pane fade">
-      <div class="field">
-        <h1>Environmental Management</h1>
-        <h4>Where specified, compliance with the environmental requirements set out in the contract and other environmental obligations.</h4>
-        <h4>Evidence of an environmentally-aware culture.</h4>
-        <h4>Where specified, compliance with the project Environmental Management Plan, including audit results.</h4>
-        <h4>Where specified, compliance with Environmental Impact Statement requirements.</h4>
-        <%= f.label "Final environment score: " %>
-        <br />
-        <div align="center">
-          <% (0..5).each do |value| %>
-            <%= f.label value %>
-            <%= f.radio_button(:score_environment, value, {class: "very-thin-input"}) %>
-          <% end %>
-        </div>
-      </div>
-      <a class="btn btn-primary back">Back</a>
-      <a class="btn btn-primary next">Next</a>
-    </div>
-
-    <div id="design" class="tab-pane fade">
-      <div class="field">
-        <h1>Contractors Design Documents</h1>
-        <h4>Mandatory for the following contract strategies:</h4>
-        <h4>Construct – also known as Design Development and Construct; and Design and Construct.</h4>
-        <h4>Adequacy of documentation in meeting the requirements of the contract.</h4>
-        <%= f.label "Final design score: " %>
-        <br />
-        <div align="center">
-          <% (0..5).each do |value| %>
-            <%= f.label value %>
-            <%= f.radio_button(:score_design, value, {class: "very-thin-input"}) %>
-          <% end %>
-        </div>
-      </div>
-      <a class="btn btn-primary back">Back</a>
-      <a class="btn btn-primary next">Next</a>
-    </div>
-
-    <div id="overall" class="tab-pane fade">
-      <div class="field">
-        <h1>Overall Performance</h1>
-        <h4>Weighting and Formula for determination of Overall performance - TO BE DECIDED</h4>
-        <%= f.label "Final overall score: " %>
-        <br />
-        <div align="center">
-          <% (0..5).each do |value| %>
-            <%= f.label value %>
-            <%= f.radio_button(:score_overall, value, {class: "very-thin-input"}) %>
-          <% end %>
-        </div>
-      </div>
-      <a class="btn btn-primary back">Back</a>
-      <a class="btn btn-primary next">Next</a>
-    </div>
-
-    <div id="feedback" class="tab-pane fade">
-      <h1>Supplier Feedback / Reply</h1>
-      <div class="field">
-        <%= f.label :acceptance_name %>
-        <%= f.text_field :acceptance_name, value: @contract.vt_supplier_name %>
-      </div>
-      <div class="field">
-        <%= f.label :acceptance_email %>
-        <%if @supplier.email == "" %>
-          <%= f.text_field :acceptance_email, value: @contract.vt_supplier_email %>
-        <% else %>
-          <%= f.text_field :acceptance_email, value: @supplier.email %>
-        <% end %>
-      </div>
-      <div class="field">
-        <%= f.label :acceptance_status %>
-        <%= f.number_field :acceptance_status %>
-      </div>
-      <a class="btn btn-primary back">Back</a>
-      <a class="btn btn-primary next">Next</a>
-    </div>
-
-    <div id="approval" class="tab-pane fade">
-      <h1>Execuitive Approval</h1>
-      <div class="field">
-        <%= f.label :executive_name %>
-        <%= f.text_field :executive_name %>
-      </div>
-      <div class="field">
-        <%= f.label :executive_email %>
-        <%= f.text_field :executive_email %>
-      </div>
-      <div class="field">
-        <%= f.label :executive_status %>
-        <%= f.number_field :executive_status %>
-      </div>
-      <div class="actions">
-        <%= f.submit %>
-      </div>
-      <a class="btn btn-primary back">Back</a>
-      <a class="btn btn-primary next" disabled="true">Next</a>
-    </div>
-
-  </div>
-
-<% end %>
-
-<script>
-$('.next').click(function(){
-  $('.nav-pills > .active').next('li').find('a').trigger('click');
-});
-$('.back').click(function(){
-  $('.nav-pills > .active').prev('li').find('a').trigger('click');
-});
-</script>
-
-<%= link_to 'Show', @ccr_performance_report %> |
-<%= link_to 'Back', ccr_performance_reports_path %>
+  <%= link_to 'Show', @ccr_performance_report %> |
+  <%= link_to 'Back', ccr_performance_reports_path %>
+</div>
