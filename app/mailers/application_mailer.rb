@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'benjamin@codeforaustralia.org'
+  default from: 'nobody@codeforaustralia.org'
 
   def announce_email(contract, email)
     puts "mailer CON:#{contract}"

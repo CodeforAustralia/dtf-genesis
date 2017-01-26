@@ -24,11 +24,11 @@ notify_daily = scheduler.every '1d', :first_at => start do
   contracts_starting_today = Contract.where(vt_start_date: Time.now)
   contracts_starting_today.each do |cont|
     tweet_contract_start cont
-    email_contract_start cont, "puzzleduck+dtf@gmail.com"
+    email_contract_start cont, "nobody@gmail.com"
   end
   contracts_ending_today = Contract.where(vt_end_date: Time.now)
   contracts_ending_today.each do |cont|
     tweet_contract_end cont
-    email_contract_end cont, "puzzleduck+dtf@gmail.com"
+    email_contract_end cont, "nobody@gmail.com"
   end
 end
