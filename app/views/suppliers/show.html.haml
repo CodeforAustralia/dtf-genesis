@@ -72,9 +72,9 @@
             %th.center-align.col.s2 Start
             %th.center-align.col.s2 End
 
-          %tbody.csr-tbody
+          %tbody.csr-tbody.row
             - @projects.each do |contract|
-              %tr.row.s12
+              %tr.col.s12
                 %td.center-align.col.s4= link_to contract.vt_title, contract
                 %td.center-align.col.s1= link_to contract.vt_contract_number, contract
                 - department = Department.where(vt_number: contract.vt_department_id).first
