@@ -83,7 +83,7 @@
                 - else
                   %td.center-align.col.s1
                     ERR: #{contract.vt_department_id}
-                %td.center-align.col.s2= contract.vt_total_value
+                %td.center-align.col.s2= humanized_money_with_symbol(contract.vt_total_value)
                 %td.center-align.date-text.col.s2= contract.vt_start_date
                 %td.center-align.date-text.col.s2= contract.vt_end_date
     %li
