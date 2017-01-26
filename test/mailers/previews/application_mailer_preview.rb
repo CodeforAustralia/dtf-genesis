@@ -9,6 +9,6 @@ class ApplicationMailerPreview < ActionMailer::Preview
                                 vt_start_date: Date.parse("11/10/1979"),
                                 vt_end_date: Date.parse("16/10/1979"),
                                 vt_total_value: 1000000 )
-    ApplicationMailer.announce_email(contract, "puzzleduck@gmail.com")
+    ApplicationMailer.announce_email(contract, "nobody@gmail.com")
   end
 end
