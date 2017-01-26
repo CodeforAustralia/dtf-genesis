@@ -1,5 +1,14 @@
 
-var window_size = 374;
+var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+if (w < 400){
+  var window_size = w - (w * 0.25);
+  var chart_font = "10px sans-serif";
+  var bar_font = "10px sans-serif";
+}else {
+  var window_size = 374;
+  var chart_font = "15px sans-serif";
+  var bar_font = "15px sans-serif";
+}
 
 window.onload = function (win) {
   var bar_margin = {top: 20, right: 30, bottom: 30, left: 40}
@@ -29,7 +38,7 @@ window.onload = function (win) {
        .attr("x", bc_width / 2)
        .attr("y", 20)
        .attr("class","charttitle")
-       .style("font", "15px sans-serif")
+       .style("font", chart_font)
        .style("fill", "steelblue")
        .text("Value of awarded contracts in previous 12 months");
 
@@ -86,7 +95,7 @@ window.onload = function (win) {
        .attr("x", (pc_width / 2)-35)
        .attr("y", -20)
        .attr("class","charttitle")
-       .style("font", "15px sans-serif")
+       .style("font", bar_font)
        .style("fill", "steelblue")
        .style("text-anchor", "center")
        .text("Department % value for previous 12 months");
