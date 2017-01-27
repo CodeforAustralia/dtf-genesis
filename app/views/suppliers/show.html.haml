@@ -63,7 +63,7 @@
         %i.material-icons> local_activity
         Contracts (#{@projects.count} in total)
       .collapsible-body
-        %table.bordered.highlight.centered.responsive-table
+        %table.highlight.bordered.centered.responsive-table
           %thead.row.s12
             %th.center-align.col.s4 Title
             %th.center-align.col.s1 Contract No
@@ -91,32 +91,31 @@
         %i.material-icons> view_list
         CSR Reports (#{@csr_performance_reports.count} in total)
       .collapsible-body
-        %table.highlight.bordered.responsive.centered  
-          %thead.panel.csr-thead
-            %tr.row.s12
-              %th.col.s1.center-align Works No
-              %th.col.s2.center-align Comment
-              %th.col.s1.center-align Overall
-              %th.col.s1.center-align Staff Quality
-              %th.col.s1.center-align Work Quality
-              %th.col.s1.center-align Coordinate
-              %th.col.s1.center-align Admin
-              %th.col.s1.center-align Client Attitude
-              %th.col.s1.center-align Pricing
-              %th.col.s1.center-align Payment
-              %th.col.s1.center-align OHS
-          %tbody
+        %table.highlight.bordered.responsive-table.row  
+          %thead.col.s12
+            %th.col.s1 Works No
+            %th.col.s2 Comment
+            %th.col.s1 Overall
+            %th.col.s1 Staff Quality
+            %th.col.s1 Work Quality
+            %th.col.s1 Coordinate
+            %th.col.s1 Admin
+            %th.col.s1 Client Attitude
+            %th.col.s1 Pricing
+            %th.col.s1 Payment
+            %th.col.s1 OHS
+          %tbody.csr-tbody.row
           - if user_signed_in?
             - @csr_performance_reports.each do |report|
-              %tr.row.s12
-                %td.col.s1.center-align= link_to report.csr_works_no, report
-                %td.col.s2.center-align= report.csr_comment
-                %td.col.s1.center-align= report.csr_overall
-                %td.col.s1.center-align= report.csr_staff_quality
-                %td.col.s1.center-align= report.csr_work_quality
-                %td.col.s1.center-align= report.csr_coodination
-                %td.col.s1.center-align= report.csr_administration
-                %td.col.s1.center-align= report.csr_attitude_to_client
-                %td.col.s1.center-align= report.csr_pricing
-                %td.col.s1.center-align= report.csr_payment
-                %td.col.s1.center-align= report.csr_ohs
+              %tr.col.s12
+                %td.col.s1= link_to report.csr_works_no, report
+                %td.col.s2= report.csr_comment
+                %td.col.s1= report.csr_overall
+                %td.col.s1= report.csr_staff_quality
+                %td.col.s1= report.csr_work_quality
+                %td.col.s1= report.csr_coodination
+                %td.col.s1= report.csr_administration
+                %td.col.s1= report.csr_attitude_to_client
+                %td.col.s1= report.csr_pricing
+                %td.col.s1= report.csr_payment
+                %td.col.s1= report.csr_ohs
