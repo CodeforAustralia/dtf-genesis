@@ -53,15 +53,15 @@
           %dt
             %h6 Contact:
           %dd
-            %h5= @contract.vt_agency_person
+            %h5= "[redacted]"
           %dt
             %h6 Phone:
           %dd
-            %h5= @contract.vt_agency_phone
+            %h5= "[redacted]"
           %dt
             %h6 Email:
           %dd
-            %h5= @contract.vt_agency_email
+            %h5= "[redacted]"
           %dt
             %h6 Supplier:
           - if @contract.vt_supplier_id == 0
@@ -82,11 +82,11 @@
           %dt
             %h6 Address:
           %dd
-            %h5= @contract.vt_supplier_address
+            %h5= "[redacted]"
           %dt
             %h6 Email:
           %dd
-            %h5= @contract.vt_supplier_email
+            %h5= "[redacted]"
     %li
       .collapsible-header
         %i.material-icons> insert_chart
@@ -110,7 +110,7 @@
           - @csr_reports.each do |report|
             %dd
               %h5= link_to "CSR Performance Report", report
-          
+
           - @ccr_reports.each do |report|
             - if report.score_overall == nil
               %dd
