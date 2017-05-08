@@ -4,7 +4,6 @@ require "#{Rails.root}/lib/linkers/linker.rb"
 namespace :scrape do
   desc "Scrape Tenders VIC for new contracts now"
   task :new => :environment do
-    byebug
     scrape_tenders_vic false, true
   end
 
