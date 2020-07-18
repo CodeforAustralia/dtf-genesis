@@ -3,7 +3,7 @@
     %div.row
       %div
         = link_to "Construction Contracts Register", root_path, :class => "nav-text"
-        %a.sidenav-trigger{"data-target" => "nav-mobile", :href => "#"}
+        %a.sidenav-trigger{:data-target => "nav-mobile", :href => "#"}
           %i.material-icons menu 
       %div#nav-mobile.right.hide-on-med-and-down
         -if user_signed_in?
