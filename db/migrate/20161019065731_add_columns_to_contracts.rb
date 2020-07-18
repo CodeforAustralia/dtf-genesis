@@ -1,4 +1,4 @@
-class AddColumnsToContracts < ActiveRecord::Migration[5.0]
+class AddColumnsToContracts < ActiveRecord::Migration[6.0]
   def change
     add_column :contracts, :department_id, :integer
     add_column :contracts, :suppplier_id, :integer

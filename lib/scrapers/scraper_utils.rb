@@ -17,6 +17,7 @@ def prepare_session
   session
 end
 
+
 def scrape_department_ids department_list_url
   session = prepare_session
   session.visit department_list_url

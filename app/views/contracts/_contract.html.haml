@@ -1,4 +1,4 @@
-%td.table-text= "#{(object.vt_title).titleize}"
+%td.table-text= "#{(object.vt_title).titleize unless object.vt_title.nil?}"
 %td.table-text.center-align= "#{object.vt_contract_number}"
 %td.table-text.right-align= humanized_money_with_symbol(object.vt_total_value)
 %td.table-text.center-align.date-text= object.vt_start_date

@@ -3,14 +3,14 @@
     %div.row
       %div
         = link_to "Construction Contracts Register", root_path, :class => "nav-text"
-        %a.button-collapse{"data-activates" => "mobile-page", :href => "#"}
+        %a.sidenav-trigger{"data-target" => "nav-mobile", :href => "#"}
           %i.material-icons menu 
       %div#nav-mobile.right.hide-on-med-and-down
         -if user_signed_in?
           =link_to "Logout", destroy_user_session_path, class:"waves-effect waves-light btn nav-btn", method: :delete
         -else
           =link_to "Login", new_user_session_path, class: "waves-effect waves-light btn nav-btn"
-      %ul#mobile-page.side-nav.nav-list.text-center
+      %ul#nav-mobile.sidenav.nav-list.text-center
         %li.col.s12{:class => "#{'active' if current_page?(contracts_path)}"}= link_to "Contracts", contracts_path
         %li.col.s12{:class => "#{'active' if current_page?(suppliers_path)}"}= link_to "Suppliers", suppliers_path
         %li.col.s12{:class => "#{'active' if current_page?(csr_performance_reports_path)}"}= link_to "Reports", csr_performance_reports_path

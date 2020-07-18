@@ -1,8 +1,12 @@
-$('.next').click(function(){
+$(".next").click(function () {
   console.log("::: next");
-  $('.nav-pills > .active').next('li').find('a').trigger('click');
+  $(".nav-pills > .active").next("li").find("a").trigger("click");
 });
-$('.back').click(function(){
+$(".back").click(function () {
   console.log("::: back");
-  $('.nav-pills > .active').prev('li').find('a').trigger('click');
+  $(".nav-pills > .active").prev("li").find("a").trigger("click");
+});
+
+$("sidenav").click(function () {
+  console.log("sidenav clicked...");
 });

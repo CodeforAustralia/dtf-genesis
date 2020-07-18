@@ -12,11 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require materialize-sprockets
+//= require materialize
 //= require common
 //= require detail
 //= require smart_listing
 //= require_tree .
+//= require navigate
 //= require d3
 //= stub charts
 //= require sortable

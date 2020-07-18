@@ -1,4 +1,4 @@
-class CreateCsrPerformanceReports < ActiveRecord::Migration[5.0]
+class CreateCsrPerformanceReports < ActiveRecord::Migration[6.0]
   def change
     create_table :csr_performance_reports do |t|
       t.string :csr_supplier_id

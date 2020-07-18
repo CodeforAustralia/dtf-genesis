@@ -1,4 +1,4 @@
-class InitialDataOnLocationCodes < ActiveRecord::Migration[5.0]
+class InitialDataOnLocationCodes < ActiveRecord::Migration[6.0]
   def change
     LocationCode.create code: 'BUS',
                         description: 'Business Address'

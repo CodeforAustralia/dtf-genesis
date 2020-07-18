@@ -1,4 +1,4 @@
-class CreateCcrPerformanceReports < ActiveRecord::Migration[5.0]
+class CreateCcrPerformanceReports < ActiveRecord::Migration[6.0]
   def change
     create_table :ccr_performance_reports do |t|
       t.references :contract, foreign_key: true

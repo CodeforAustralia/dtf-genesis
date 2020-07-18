@@ -12,8 +12,8 @@
             %h6 Address:
           %dd  
             %h5= @supplier.address
-            %h5= @supplier.suburb.titleize 
-            %h5= @supplier.state.titleize
+            %h5= @supplier.suburb.titleize unless @supplier.suburb.nil?
+            %h5= @supplier.state.titleize unless @supplier.state.nil?
             %h5= @supplier.postcode
           %dt
             %h6 ABN:  

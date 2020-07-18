@@ -1,4 +1,4 @@
-class CreateCouncils < ActiveRecord::Migration[5.0]
+class CreateCouncils < ActiveRecord::Migration[6.0]
   def change
     create_table :councils do |t|
       t.string :codename

@@ -1,4 +1,4 @@
-class ModifyColumnsInContracts < ActiveRecord::Migration[5.0]
+class ModifyColumnsInContracts < ActiveRecord::Migration[6.0]
   def change
     change_table :contracts do |table|
       table.remove :status

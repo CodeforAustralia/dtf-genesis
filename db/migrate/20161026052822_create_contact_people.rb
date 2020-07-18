@@ -1,4 +1,4 @@
-class CreateContactPeople < ActiveRecord::Migration[5.0]
+class CreateContactPeople < ActiveRecord::Migration[6.0]
   def change
     create_table :contact_people do |t|
 

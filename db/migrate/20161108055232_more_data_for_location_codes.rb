@@ -1,4 +1,4 @@
-class MoreDataForLocationCodes < ActiveRecord::Migration[5.0]
+class MoreDataForLocationCodes < ActiveRecord::Migration[6.0]
   def change
         LocationCode.create code: 'XTR',
                             description: 'Extra Address'

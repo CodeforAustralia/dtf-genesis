@@ -11,13 +11,6 @@ development:
   username: postgres
   password: q1w2e3r4t5
 
-test:
-  <<: *default
-  host: localhost
-  database: genesis_test
-  username: postgres
-  password: q1w2e3r4t5
-
 production:
   <<: *default
   host: localhost

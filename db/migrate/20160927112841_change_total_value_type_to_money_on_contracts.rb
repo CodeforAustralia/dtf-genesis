@@ -1,4 +1,4 @@
-class ChangeTotalValueTypeToMoneyOnContracts < ActiveRecord::Migration[5.0]
+class ChangeTotalValueTypeToMoneyOnContracts < ActiveRecord::Migration[6.0]
   def change
     change_table :contracts do |t|
       t.change :total_value, :money

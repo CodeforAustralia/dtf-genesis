@@ -1,4 +1,4 @@
-class Unspsc < ActiveRecord::Migration[5.0]
+class Unspsc < ActiveRecord::Migration[6.0]
 def change
     create_table :unspsc do |t|
       t.integer :unspsc_code

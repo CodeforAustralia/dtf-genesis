@@ -9,7 +9,7 @@
           %dt
             %h6 Title:
           %dd
-            %h5= @contract.vt_title.titleize
+            %h5= @contract.vt_title.titleize unless @contract.vt_title.nil?
           %dt
             %h6 Tenders VIC source:
           %dd
@@ -23,7 +23,7 @@
           %dt
             %h6 Description:
           %dd
-            %h5= @contract.vt_contract_description.titleize
+            %h5= @contract.vt_contract_description.titleize unless @contract.vt_contract_description.nil?
           %dt
             %h6 Dates:
           %dd

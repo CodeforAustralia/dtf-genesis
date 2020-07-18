@@ -1,4 +1,4 @@
-class CreateCsrContracts < ActiveRecord::Migration[5.0]
+class CreateCsrContracts < ActiveRecord::Migration[6.0]
   def change
     create_table :csr_contracts do |t|
       t.string :csr_works_no

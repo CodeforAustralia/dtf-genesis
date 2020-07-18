@@ -11,6 +11,6 @@
     %tbody
       - @contracts.each do |con|
         %tr.row
-          %td.col.s7= link_to con.vt_title.titleize, contract_path(con)
+          %td.col.s7= link_to con.vt_title.titleize unless con.vt_title.nil?, contract_path(con)
           %td.col.s2= humanized_money_with_symbol(con.vt_total_value)
-          %td.col.s3= con.vt_supplier_name.titleize
+          %td.col.s3= con.vt_supplier_name.titleize unless con.vt_supplier_name.nil?

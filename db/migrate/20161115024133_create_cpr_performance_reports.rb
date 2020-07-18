@@ -1,4 +1,4 @@
-class CreateCprPerformanceReports < ActiveRecord::Migration[5.0]
+class CreateCprPerformanceReports < ActiveRecord::Migration[6.0]
   def change
     create_table :cpr_performance_reports do |t|
       t.integer :cpr_contract

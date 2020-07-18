@@ -1,4 +1,4 @@
-class CreateLocations < ActiveRecord::Migration[5.0]
+class CreateLocations < ActiveRecord::Migration[6.0]
   def change
     create_table :locations do |t|
       t.integer :record_no
